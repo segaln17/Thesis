@@ -28,19 +28,22 @@ public class SimpleController : MonoBehaviour
         transform.Translate(movementDirection * force * Time.deltaTime, Space.World);
 
 
-        //making sure that the player transform is smoothly following the direction of movement
+        /*//making sure that the player transform is smoothly following the direction of movement
         if (movementDirection != Vector3.zero)
         {
-            //transform.forward = movementDirection; //the players transform, will now face the direction that the new vector3 is facing but only if it isn't stationary
-            Quaternion 
-                toRotation =
-                    Quaternion.LookRotation(movementDirection,
-                        Vector3.up); //using quaternions to smooth out the rotation of directions. Type specifically to store rotations "looking" in a desired direction vector3.up is the y axis
-            transform.rotation =
-                Quaternion.RotateTowards(transform.rotation, toRotation,
-                    rotationSpeed * Time.deltaTime); //rotate towards is to rotate towards the desired direction
+            transform.forward =
+                movementDirection; //the players transform, will now face the direction that the new vector3 is facing but only if it isn't stationary
 
-        }
-  
+         /*
+        Quaternion
+            toRotation =
+                Quaternion.LookRotation(movementDirection,
+                    Vector3.up); //using quaternions to smooth out the rotation of directions. Type specifically to store rotations "looking" in a desired direction vector3.up is the y axis
+        transform.rotation =
+            Quaternion.RotateTowards(transform.rotation, toRotation,
+                rotationSpeed * Time.deltaTime); //rotate towards is to rotate towards the desired direction
+
+    }*/
+
     }
 }
