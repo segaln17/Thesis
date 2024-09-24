@@ -17,24 +17,28 @@ public class SimpleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        //controller using input to get directions
+        
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-
+        
         Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
         movementDirection.Normalize();
 
 
-        transform.Translate(movementDirection * force * Time.deltaTime, Space.World);
+        rb.AddForce(movementDirection * force);
+        //transform.Translate(movementDirection * force * Time.deltaTime, Space.World);
 
 
-        /*//making sure that the player transform is smoothly following the direction of movement
+        //making sure that the player transform is smoothly following the direction of movement
         if (movementDirection != Vector3.zero)
         {
-            transform.forward =
-                movementDirection; //the players transform, will now face the direction that the new vector3 is facing but only if it isn't stationary
+            //transform.forward =
+                //movementDirection; //the players transform, will now face the direction that the new vector3 is facing but only if it isn't stationary
 
-         /*
+         
         Quaternion
             toRotation =
                 Quaternion.LookRotation(movementDirection,
@@ -43,7 +47,7 @@ public class SimpleController : MonoBehaviour
             Quaternion.RotateTowards(transform.rotation, toRotation,
                 rotationSpeed * Time.deltaTime); //rotate towards is to rotate towards the desired direction
 
-    }*/
+    }
 
     }
 }
