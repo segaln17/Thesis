@@ -9,6 +9,8 @@ public class CameraSwitch : MonoBehaviour
 
     public CinemachineVirtualCamera thirdPerson;
 
+    //public static CameraSwitch cameraState;
+
     public bool firstPersonPOVOn = true;
     // Start is called before the first frame update
     void Start()
