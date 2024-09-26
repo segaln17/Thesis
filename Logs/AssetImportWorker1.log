@@ -22,8 +22,10 @@ AssetImportWorker1
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-63212
+49410
 Successfully changed project path to: /Users/nicholeshinn/Dropbox/Nichole/0000_NYUClasses/Thesis2024_2025/Thesis
+Unable to parse file ProjectSettings/ProjectVersion.txt: [Parser Failure at line 1: Expected non empty YAML buffer]
+Unable to parse file ProjectSettings/ProjectVersion.txt: [Parser Failure at line 1: Expected non empty YAML buffer]
 Unable to parse file ProjectSettings/ProjectVersion.txt: [Parser Failure at line 1: Expected non empty YAML buffer]
 Unable to parse file ProjectSettings/ProjectVersion.txt: [Parser Failure at line 1: Expected non empty YAML buffer]
 Unable to parse file ProjectSettings/ProjectVersion.txt: [Parser Failure at line 1: Expected non empty YAML buffer]
@@ -112,12 +114,12 @@ Unable to parse file ProjectSettings/ProjectVersion.txt: [Parser Failure at line
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [140704373906880] Host "[IP] 192.168.1.36 [Port] 0 [Flags] 2 [Guid] 2399501980 [EditorId] 2399501980 [Version] 1048832 [Id] OSXEditor(0,Nicholes-MacBook-Pro.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [140704464215488] Host "[IP] 10.18.242.132 [Port] 0 [Flags] 2 [Guid] 3861214113 [EditorId] 3861214113 [Version] 1048832 [Id] OSXEditor(0,10-18-242-132.dynapool.wireless.nyu.edu) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [140704373906880] Host "[IP] 192.168.1.36 [Port] 0 [Flags] 2 [Guid] 2399501980 [EditorId] 2399501980 [Version] 1048832 [Id] OSXEditor(0,Nicholes-MacBook-Pro.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [140704464215488] Host "[IP] 10.18.242.132 [Port] 0 [Flags] 2 [Guid] 3861214113 [EditorId] 3861214113 [Version] 1048832 [Id] OSXEditor(0,10-18-242-132.dynapool.wireless.nyu.edu) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
-Refreshing native plugins compatible for Editor in 13.70 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 6.88 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.18f1 (d29bea25151d)
 [Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Resources/UnitySubsystems
@@ -133,15 +135,15 @@ Initialize mono
 Mono path[0] = '/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Managed'
 Mono path[1] = '/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
 Mono config path = '/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56258
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56427
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /Applications/Unity/Hub/Editor/2022.3.18f1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/2022.3.18f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/2022.3.18f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.010587 seconds.
-- Loaded All Assemblies, in  0.522 seconds
+Registered in 0.003740 seconds.
+- Loaded All Assemblies, in  0.467 seconds
 Native extension for WindowsStandalone target not found
 [usbmuxd] Start listen thread
 [usbmuxd] Listen thread started
@@ -150,36 +152,36 @@ Native extension for iOS target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.506 seconds
-Domain Reload Profiling: 1028ms
-	BeginReloadAssembly (175ms)
+- Finished resetting the current domain, in  0.559 seconds
+Domain Reload Profiling: 1026ms
+	BeginReloadAssembly (111ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (48ms)
-	RebuildNativeTypeToScriptingClass (15ms)
-	initialDomainReloadingComplete (72ms)
-	LoadAllAssembliesAndSetupDomain (212ms)
-		LoadAssemblies (179ms)
+	RebuildCommonClasses (54ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (69ms)
+	LoadAllAssembliesAndSetupDomain (217ms)
+		LoadAssemblies (112ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (206ms)
-			TypeCache.Refresh (203ms)
-				TypeCache.ScanAssembly (185ms)
+		AnalyzeDomain (214ms)
+			TypeCache.Refresh (211ms)
+				TypeCache.ScanAssembly (194ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (0ms)
-	FinalizeReload (506ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (559ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (428ms)
+		SetupLoadedEditorAssemblies (474ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (156ms)
+			InitializePlatformSupportModulesInManaged (168ms)
 			SetLoadedEditorAssemblies (7ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (3ms)
-			ProcessInitializeOnLoadAttributes (208ms)
-			ProcessInitializeOnLoadMethodAttributes (54ms)
+			ProcessInitializeOnLoadAttributes (218ms)
+			ProcessInitializeOnLoadMethodAttributes (77ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -187,8 +189,8 @@ Domain Reload Profiling: 1028ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  1.405 seconds
-Refreshing native plugins compatible for Editor in 2.22 ms, found 2 plugins.
+- Loaded All Assemblies, in  1.040 seconds
+Refreshing native plugins compatible for Editor in 2.10 ms, found 2 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for iOS target not found
 Native extension for OSXStandalone target not found
@@ -198,48 +200,48 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.321 seconds
-Domain Reload Profiling: 2735ms
-	BeginReloadAssembly (265ms)
+- Finished resetting the current domain, in  1.344 seconds
+Domain Reload Profiling: 2385ms
+	BeginReloadAssembly (219ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (8ms)
+		DisableScriptedObjects (9ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (36ms)
-	RebuildCommonClasses (54ms)
-	RebuildNativeTypeToScriptingClass (22ms)
-	initialDomainReloadingComplete (56ms)
-	LoadAllAssembliesAndSetupDomain (1015ms)
-		LoadAssemblies (803ms)
+		CreateAndSetChildDomain (43ms)
+	RebuildCommonClasses (55ms)
+	RebuildNativeTypeToScriptingClass (21ms)
+	initialDomainReloadingComplete (63ms)
+	LoadAllAssembliesAndSetupDomain (682ms)
+		LoadAssemblies (499ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (367ms)
-			TypeCache.Refresh (304ms)
-				TypeCache.ScanAssembly (275ms)
-			ScanForSourceGeneratedMonoScriptInfo (39ms)
-			ResolveRequiredComponents (20ms)
-	FinalizeReload (1322ms)
+		AnalyzeDomain (287ms)
+			TypeCache.Refresh (232ms)
+				TypeCache.ScanAssembly (210ms)
+			ScanForSourceGeneratedMonoScriptInfo (32ms)
+			ResolveRequiredComponents (19ms)
+	FinalizeReload (1345ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1064ms)
+		SetupLoadedEditorAssemblies (1078ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (32ms)
-			SetLoadedEditorAssemblies (6ms)
+			InitializePlatformSupportModulesInManaged (34ms)
+			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (83ms)
-			ProcessInitializeOnLoadAttributes (864ms)
-			ProcessInitializeOnLoadMethodAttributes (79ms)
+			BeforeProcessingInitializeOnLoad (78ms)
+			ProcessInitializeOnLoadAttributes (867ms)
+			ProcessInitializeOnLoadMethodAttributes (92ms)
 			AfterProcessingInitializeOnLoad (1ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (4ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
 Launching external process: /Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/UnityShaderCompiler
 Launched and connected shader compiler UnityShaderCompiler after 0.09 seconds
-Refreshing native plugins compatible for Editor in 1.75 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.83 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5479 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 87 unused Assets / (461.0 KB). Loaded Objects now: 5936.
-Memory consumption went from 227.6 MB to 227.2 MB.
-Total: 6.099175 ms (FindLiveObjects: 0.440439 ms CreateObjectMapping: 0.448402 ms MarkObjects: 4.878639 ms  DeleteObjects: 0.330624 ms)
+Unloading 5481 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 87 unused Assets / (459.9 KB). Loaded Objects now: 5940.
+Memory consumption went from 229.0 MB to 228.6 MB.
+Total: 7.089778 ms (FindLiveObjects: 0.486324 ms CreateObjectMapping: 0.588971 ms MarkObjects: 5.598116 ms  DeleteObjects: 0.415217 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -256,29 +258,25 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 195826.408623 seconds.
-  path: Assets/Resources/MaterialAssets/Tesselation/tesselation01.png
-  artifactKey: Guid(61488076655c340b7b1a5bf066719743) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/MaterialAssets/Tesselation/tesselation01.png using Guid(61488076655c340b7b1a5bf066719743) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0efdfacbd9acc6bb401ea295821fba02') in 0.100472 seconds
+  Time since last request: 7700.212765 seconds.
+  path: Assets/Resources/MaterialAssets/Skybox/PinkGradientSkybox 1.mat
+  artifactKey: Guid(d448df5d7fc7e4a4bb3430a9cc35279b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/MaterialAssets/Skybox/PinkGradientSkybox 1.mat using Guid(d448df5d7fc7e4a4bb3430a9cc35279b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4fb1b1160d159e8bdd3bf5935382463b') in 0.401343 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
+Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 23.991976 seconds.
-  path: Assets/Resources/MaterialAssets/Tesselation/tesselation05.png
-  artifactKey: Guid(2b40d090d4cd5465781f68d7f95721b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/MaterialAssets/Tesselation/tesselation05.png using Guid(2b40d090d4cd5465781f68d7f95721b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e91d0ec4789471b4a9e920fd50d684e1') in 0.012122 seconds
+  Time since last request: 0.000213 seconds.
+  path: Assets/Resources/MaterialAssets/Skybox/PinkGradientSkybox 4.mat
+  artifactKey: Guid(049e0c219eb7d4a3285c8cb66429608f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/MaterialAssets/Skybox/PinkGradientSkybox 4.mat using Guid(049e0c219eb7d4a3285c8cb66429608f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fac58672c5c70c87bcc5a32b523cb6f4') in 0.012560 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
+Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 11.922290 seconds.
-  path: Assets/Resources/MaterialAssets/Tesselation/tesselation04.png
-  artifactKey: Guid(31f08ae92f66b481094fa5618894227c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/MaterialAssets/Tesselation/tesselation04.png using Guid(31f08ae92f66b481094fa5618894227c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36721c92ea0f367a7ab4b5be3e174a31') in 0.030310 seconds
+  Time since last request: 0.000076 seconds.
+  path: Assets/Resources/MaterialAssets/Skybox/testingskybox.png
+  artifactKey: Guid(408e86c68ce3849a7b302875bd0f0f85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/MaterialAssets/Skybox/testingskybox.png using Guid(408e86c68ce3849a7b302875bd0f0f85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c01c71a5bf08132431c40c944b880cab') in 0.129918 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 2
-Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-TcpMessagingSession - receive error: operation aborted. errorcode: 89, details: Operation aborted.
-AssetImportWorker is now disconnected from the server
-Process exiting
