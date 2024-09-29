@@ -22,7 +22,7 @@ AssetImportWorker2
 -logFile
 Logs/AssetImportWorker2.log
 -srvPort
-49410
+59011
 Successfully changed project path to: /Users/nicholeshinn/Dropbox/Nichole/0000_NYUClasses/Thesis2024_2025/Thesis
 Unable to parse file ProjectSettings/ProjectVersion.txt: [Parser Failure at line 1: Expected non empty YAML buffer]
 Unable to parse file ProjectSettings/ProjectVersion.txt: [Parser Failure at line 1: Expected non empty YAML buffer]
@@ -114,12 +114,12 @@ Unable to parse file ProjectSettings/ProjectVersion.txt: [Parser Failure at line
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [140704464215488] Host "[IP] 10.18.242.132 [Port] 0 [Flags] 2 [Guid] 585998741 [EditorId] 585998741 [Version] 1048832 [Id] OSXEditor(0,10-18-242-132.dynapool.wireless.nyu.edu) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [140704540085696] Host "[IP] 192.168.1.36 [Port] 0 [Flags] 2 [Guid] 3302751614 [EditorId] 3302751614 [Version] 1048832 [Id] OSXEditor(0,Nicholes-MacBook-Pro.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [140704464215488] Host "[IP] 10.18.242.132 [Port] 0 [Flags] 2 [Guid] 585998741 [EditorId] 585998741 [Version] 1048832 [Id] OSXEditor(0,10-18-242-132.dynapool.wireless.nyu.edu) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [140704540085696] Host "[IP] 192.168.1.36 [Port] 0 [Flags] 2 [Guid] 3302751614 [EditorId] 3302751614 [Version] 1048832 [Id] OSXEditor(0,Nicholes-MacBook-Pro.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
-Refreshing native plugins compatible for Editor in 7.32 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 10.48 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.18f1 (d29bea25151d)
 [Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Resources/UnitySubsystems
@@ -135,15 +135,15 @@ Initialize mono
 Mono path[0] = '/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Managed'
 Mono path[1] = '/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
 Mono config path = '/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56429
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56575
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /Applications/Unity/Hub/Editor/2022.3.18f1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/2022.3.18f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/2022.3.18f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003640 seconds.
-- Loaded All Assemblies, in  0.468 seconds
+Registered in 0.004334 seconds.
+- Loaded All Assemblies, in  0.582 seconds
 Native extension for WindowsStandalone target not found
 [usbmuxd] Start listen thread
 [usbmuxd] Listen thread started
@@ -152,36 +152,36 @@ Native extension for iOS target not found
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.511 seconds
-Domain Reload Profiling: 979ms
-	BeginReloadAssembly (111ms)
+- Finished resetting the current domain, in  0.601 seconds
+Domain Reload Profiling: 1193ms
+	BeginReloadAssembly (136ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (53ms)
-	RebuildNativeTypeToScriptingClass (17ms)
-	initialDomainReloadingComplete (70ms)
-	LoadAllAssembliesAndSetupDomain (217ms)
-		LoadAssemblies (111ms)
+	RebuildCommonClasses (66ms)
+	RebuildNativeTypeToScriptingClass (22ms)
+	initialDomainReloadingComplete (90ms)
+	LoadAllAssembliesAndSetupDomain (277ms)
+		LoadAssemblies (136ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (214ms)
-			TypeCache.Refresh (211ms)
-				TypeCache.ScanAssembly (194ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
+		AnalyzeDomain (263ms)
+			TypeCache.Refresh (261ms)
+				TypeCache.ScanAssembly (239ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (511ms)
+	FinalizeReload (602ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (421ms)
+		SetupLoadedEditorAssemblies (495ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (130ms)
-			SetLoadedEditorAssemblies (7ms)
+			InitializePlatformSupportModulesInManaged (132ms)
+			SetLoadedEditorAssemblies (10ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (3ms)
-			ProcessInitializeOnLoadAttributes (214ms)
-			ProcessInitializeOnLoadMethodAttributes (67ms)
+			ProcessInitializeOnLoadAttributes (266ms)
+			ProcessInitializeOnLoadMethodAttributes (84ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -189,8 +189,8 @@ Domain Reload Profiling: 979ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  1.037 seconds
-Refreshing native plugins compatible for Editor in 2.29 ms, found 2 plugins.
+- Loaded All Assemblies, in  1.072 seconds
+Refreshing native plugins compatible for Editor in 2.38 ms, found 2 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for iOS target not found
 Native extension for OSXStandalone target not found
@@ -200,48 +200,48 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.343 seconds
-Domain Reload Profiling: 2381ms
-	BeginReloadAssembly (221ms)
+- Finished resetting the current domain, in  1.623 seconds
+Domain Reload Profiling: 2696ms
+	BeginReloadAssembly (200ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (9ms)
+		DisableScriptedObjects (10ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (42ms)
-	RebuildCommonClasses (55ms)
-	RebuildNativeTypeToScriptingClass (21ms)
-	initialDomainReloadingComplete (60ms)
-	LoadAllAssembliesAndSetupDomain (679ms)
-		LoadAssemblies (501ms)
+		CreateAndSetChildDomain (38ms)
+	RebuildCommonClasses (64ms)
+	RebuildNativeTypeToScriptingClass (22ms)
+	initialDomainReloadingComplete (65ms)
+	LoadAllAssembliesAndSetupDomain (721ms)
+		LoadAssemblies (420ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (285ms)
-			TypeCache.Refresh (233ms)
-				TypeCache.ScanAssembly (210ms)
-			ScanForSourceGeneratedMonoScriptInfo (30ms)
-			ResolveRequiredComponents (19ms)
-	FinalizeReload (1343ms)
+		AnalyzeDomain (396ms)
+			TypeCache.Refresh (330ms)
+				TypeCache.ScanAssembly (305ms)
+			ScanForSourceGeneratedMonoScriptInfo (40ms)
+			ResolveRequiredComponents (22ms)
+	FinalizeReload (1624ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1078ms)
+		SetupLoadedEditorAssemblies (1321ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (34ms)
+			InitializePlatformSupportModulesInManaged (38ms)
 			SetLoadedEditorAssemblies (6ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (78ms)
-			ProcessInitializeOnLoadAttributes (867ms)
-			ProcessInitializeOnLoadMethodAttributes (92ms)
+			BeforeProcessingInitializeOnLoad (105ms)
+			ProcessInitializeOnLoadAttributes (1081ms)
+			ProcessInitializeOnLoadMethodAttributes (89ms)
 			AfterProcessingInitializeOnLoad (1ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (5ms)
 Launching external process: /Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/UnityShaderCompiler
-Launched and connected shader compiler UnityShaderCompiler after 0.09 seconds
-Refreshing native plugins compatible for Editor in 1.80 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler after 0.10 seconds
+Refreshing native plugins compatible for Editor in 2.35 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5481 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 87 unused Assets / (461.5 KB). Loaded Objects now: 5940.
-Memory consumption went from 228.9 MB to 228.5 MB.
-Total: 6.792289 ms (FindLiveObjects: 0.476520 ms CreateObjectMapping: 0.613987 ms MarkObjects: 5.234819 ms  DeleteObjects: 0.465981 ms)
+Unloading 5480 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 87 unused Assets / (462.0 KB). Loaded Objects now: 5939.
+Memory consumption went from 228.6 MB to 228.2 MB.
+Total: 7.119111 ms (FindLiveObjects: 0.481743 ms CreateObjectMapping: 0.501406 ms MarkObjects: 5.754683 ms  DeleteObjects: 0.379817 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -258,41 +258,37 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 7700.212872 seconds.
-  path: Assets/Resources/MaterialAssets/Skybox/PinkGradientSkybox 3.mat
-  artifactKey: Guid(6d11483449a854736b9f63d0a5d43461) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/MaterialAssets/Skybox/PinkGradientSkybox 3.mat using Guid(6d11483449a854736b9f63d0a5d43461) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ff75b4fe4804a12c820bd9aba7ebd1a') in 0.401365 seconds
+  Time since last request: 148675.705649 seconds.
+  path: Assets/Resources/3DObjects/3DFlora/15236-normal.jpg
+  artifactKey: Guid(71bb7b68c03774970ae56f28e43e55d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3DObjects/3DFlora/15236-normal.jpg using Guid(71bb7b68c03774970ae56f28e43e55d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca72b38adad513ef16b64c4a05d24477') in 0.144842 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 9.315011 seconds.
+  path: Assets/Resources/3DObjects/3DFlora/treeflat.mat
+  artifactKey: Guid(f443a62634feb4205bad630774e093f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3DObjects/3DFlora/treeflat.mat using Guid(f443a62634feb4205bad630774e093f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '291bdb25dd12aa14353cc4ae79ed87c1') in 0.432983 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 82.760666 seconds.
+  path: Assets/Resources/cyanotype_texture_by_objekt_stock_d2bm5l9-fullview.jpg
+  artifactKey: Guid(3ebe964ed44ecf1468c020ca2c2091ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/cyanotype_texture_by_objekt_stock_d2bm5l9-fullview.jpg using Guid(3ebe964ed44ecf1468c020ca2c2091ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52e469a697ea3a75f1d5887e8137f282') in 0.034624 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000227 seconds.
-  path: Assets/Resources/MaterialAssets/Skybox/PinkGradientSkybox.mat
-  artifactKey: Guid(dafc6924e02364f7dba7366433db8a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/MaterialAssets/Skybox/PinkGradientSkybox.mat using Guid(dafc6924e02364f7dba7366433db8a12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f27404e7237502c13df33e99b6902bc5') in 0.025221 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 13.111512 seconds.
-  path: Assets/Resources/MaterialAssets/Skybox/testingskybox2.png
-  artifactKey: Guid(2b8919e3bea0447f4ae9fea54ee3ae99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/MaterialAssets/Skybox/testingskybox2.png using Guid(2b8919e3bea0447f4ae9fea54ee3ae99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd80e55e2b491ac38e80ca2d36ff3e04') in 0.026449 seconds
+  Time since last request: 0.000201 seconds.
+  path: Assets/Resources/MaterialAssets/Skybox/testingskybox4.png
+  artifactKey: Guid(3c41bc14caa39401ab3be8e468744434) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/MaterialAssets/Skybox/testingskybox4.png using Guid(3c41bc14caa39401ab3be8e468744434) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '452bc6dea2977e5473c86eed9afd9080') in 0.107080 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 10.013350 seconds.
-  path: Assets/Resources/MaterialAssets/Skybox/testingskybox5.png
-  artifactKey: Guid(241fb80580ec745fbb886b0abb157ed9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/MaterialAssets/Skybox/testingskybox5.png using Guid(241fb80580ec745fbb886b0abb157ed9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57ba9918a705f4dbe3e7439252027db4') in 0.068612 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 3.163896 seconds.
-  path: Assets/Resources/MaterialAssets/Skybox/testingskybox3.png
-  artifactKey: Guid(0cfcaaea0bf744669b036eb690afb818) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/MaterialAssets/Skybox/testingskybox3.png using Guid(0cfcaaea0bf744669b036eb690afb818) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b170980c2c2ff4d942a4e3095f41da3d') in 0.013722 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 89, details: Operation aborted.
+AssetImportWorker is now disconnected from the server
+Process exiting
