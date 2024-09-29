@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpriteTextScriptableObjects
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+[CreateAssetMenu
+(fileName = "NewLine", 
+    menuName = "NewLine", order = 0),]
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+public class SpriteTextScriptableObjects : ScriptableObject
+{
+    public Sprite textLine;
+    public Sprite textBox;
 }
