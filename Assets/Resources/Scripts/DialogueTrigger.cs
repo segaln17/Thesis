@@ -23,6 +23,8 @@ public class DialogueTrigger : MonoBehaviour
     //sprite associated with it:
     public Sprite text2Sprite;
    
+    //TODO: implement string text assignment from scriptable objects
+    
     //DEFUNCT THINGS
     //public Transform textUITransform;
     //public Sprite testBox;

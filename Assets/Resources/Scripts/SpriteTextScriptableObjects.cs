@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [CreateAssetMenu
@@ -10,4 +11,8 @@ public class SpriteTextScriptableObjects : ScriptableObject
 {
     public Sprite textLine;
     public Sprite textBox;
+
+    public string writtenText;
+    //for when character portraits:
+    public Sprite characterPortrait;
 }
