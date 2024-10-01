@@ -26,10 +26,10 @@ public class SimpleController : MonoBehaviour
 
     public float mouseY;
 
-    private CameraSwitch cameraController;
+    public GameObject camManager;
     private void Awake()
     {
-        cameraController = GetComponent<CameraSwitch>();
+      
     }
 
     // Start is called before the first frame update
@@ -47,12 +47,12 @@ public class SimpleController : MonoBehaviour
         yRotation += mouseX;
         xRotation -= mouseY;
 
-        if (cameraController.firstPersonPOVOn)
+        if (camManager.GetComponent<SwitchPlayer>().firstPersonPOVOn)
         {
             FirstPerson();
         }
 
-        if (cameraController.firstPersonPOVOn == false)
+        if (camManager.GetComponent<SwitchPlayer>().firstPersonPOVOn == false)
         {
             ThirdPerson();
         }
