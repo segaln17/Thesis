@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.23764098, g: 0, b: 0.15603262, a: 1}
+  m_IndirectSpecularColor: {r: 0.23756385, g: 0, b: 0.15605123, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1932,6 +1932,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1228519962713644340, guid: a2470378de17ac7408d5fe98b028fc26,
         type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 34ac2227991588c45ad35aa5ceb520c5,
+        type: 3}
+    - target: {fileID: 1228519962713644340, guid: a2470378de17ac7408d5fe98b028fc26,
+        type: 3}
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
@@ -1945,6 +1951,11 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1228519962713644340, guid: a2470378de17ac7408d5fe98b028fc26,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1671753104182561955, guid: a2470378de17ac7408d5fe98b028fc26,
         type: 3}
       propertyPath: m_IsActive
@@ -1953,7 +1964,7 @@ PrefabInstance:
     - target: {fileID: 3036366285664079260, guid: a2470378de17ac7408d5fe98b028fc26,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3149287445189489693, guid: a2470378de17ac7408d5fe98b028fc26,
         type: 3}
@@ -2072,8 +2083,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5909804096382736274, guid: a2470378de17ac7408d5fe98b028fc26,
         type: 3}
+      propertyPath: m_Name
+      value: LineText
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909804096382736274, guid: a2470378de17ac7408d5fe98b028fc26,
+        type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6557322182203745953, guid: a2470378de17ac7408d5fe98b028fc26,
         type: 3}
@@ -2081,7 +2097,8 @@ PrefabInstance:
       value: TextBox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1671753104182561955, guid: a2470378de17ac7408d5fe98b028fc26, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2470378de17ac7408d5fe98b028fc26, type: 3}
@@ -2109,6 +2126,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 531277255}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &531277259 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9071538892413376208, guid: a2470378de17ac7408d5fe98b028fc26,
+    type: 3}
+  m_PrefabInstance: {fileID: 531277255}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &554358140
 GameObject:
   m_ObjectHideFlags: 0
@@ -6600,6 +6629,7 @@ MonoBehaviour:
   text1Sprite: {fileID: 21300000, guid: 34ac2227991588c45ad35aa5ceb520c5, type: 3}
   text2: {fileID: 11400000, guid: 55ee00f315b6d044b83286a643448b89, type: 2}
   text2Sprite: {fileID: 21300000, guid: 4da17b6590173734fbce0db88a02562e, type: 3}
+  textline: {fileID: 531277259}
   dialogueTrigger: {fileID: 1408037021}
 --- !u!1 &1413608005
 GameObject:

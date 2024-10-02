@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,6 +23,9 @@ public class DialogueTrigger : MonoBehaviour
     public SpriteTextScriptableObjects text2;
     //sprite associated with it:
     public Sprite text2Sprite;
+
+    public TextMeshProUGUI textline;
+    
    
     //TODO: implement string text assignment from scriptable objects
     
@@ -49,9 +53,11 @@ public class DialogueTrigger : MonoBehaviour
     public void RenderDialogue(SpriteTextScriptableObjects spriteText)
     {
         //set the text1Sprite to be the sprite asset in the scriptable object
-        text1Sprite = text1.textLine;
+        //text1Sprite = text1.textLine;
         //do the same for the other one
-        text2Sprite = text2.textLine;
+        //text2Sprite = text2.textLine;
+        textline.text = text1.writtenText;
+
     }
     
     private void OnTriggerEnter(Collider other)
@@ -67,10 +73,11 @@ public class DialogueTrigger : MonoBehaviour
     IEnumerator DialoguePlay()
     {
         //first sprite displayed
-        textImage.sprite = text1Sprite;
+        //textImage.sprite = text1Sprite;
         yield return new WaitForSeconds(3f);
         //second sprite displayed
-        textImage.sprite = text2Sprite;
+        //textImage.sprite = text2Sprite;
+        textline.text = text2.writtenText;
         yield return new WaitForSeconds(3f);
         //we are done with the dialogue now so textBox goes away
         textBox.gameObject.SetActive(false);
