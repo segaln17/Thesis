@@ -25,6 +25,8 @@ public class SwitchPlayer : MonoBehaviour
     public bool fighterOn;
 
     public bool divinerOn;
+
+    public GameObject soundManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -109,6 +111,7 @@ public class SwitchPlayer : MonoBehaviour
     void FighterCam()
     {   Fighter.GetComponent<SimpleController>().enabled = true;
         Diviner.GetComponent<SimpleController>().enabled = false;
+        soundManager.SetActive(true);
         
         /*firstPersonFighter.Priority = 5;
         firstPersonDiviner.Priority = 1;
@@ -136,6 +139,7 @@ public class SwitchPlayer : MonoBehaviour
     {
         Diviner.GetComponent<SimpleController>().enabled = true;
         Fighter.GetComponent<SimpleController>().enabled = false;
+        soundManager.SetActive(false);
         
         /*firstPersonDiviner.Priority = 5;
         firstPersonFighter.Priority = 1;
