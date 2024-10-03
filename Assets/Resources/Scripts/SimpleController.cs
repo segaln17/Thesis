@@ -7,13 +7,14 @@ using UnityEngine.InputSystem.iOS;
 
 public class SimpleController : MonoBehaviour
 {
-    
+    [Header("Player")]
     Rigidbody rb;
     public float force = 5.0f;
-    public float rotationSpeed = 100f;
+    private Vector3 movementDirection;
 
     //THE THINGS BELOW ARE AN ATTEMPT AT PARENTING CONTROLS TO WHERE THE CAMERA IS FACING
     //mouse sensitivity
+    [Header("Camera Rotation")]
     public float sensX = 1f;
     public float sensY = 1f;
 
@@ -23,10 +24,21 @@ public class SimpleController : MonoBehaviour
     public Transform orientation;
     
     public float mouseX;
-
     public float mouseY;
-
+    
+    [Header("Camera Switch")]
     public GameObject camManager;
+
+    [Header("Movement Conditions")] 
+    public float playerHeight;
+
+    public LayerMask whatIsGround;
+    public bool grounded;
+    public float groundDrag;
+    public float maxSlopeAngle;
+    private RaycastHit slopeHit;
+    private bool exitingSlope;
+    
     private void Awake()
     {
       
@@ -47,6 +59,15 @@ public class SimpleController : MonoBehaviour
         yRotation += mouseX;
         xRotation -= mouseY;
 
+        //ground check
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        if (grounded)
+            rb.drag = groundDrag;
+        else
+            rb.drag = 0;
+        SpeedControl();
+        
+        //switch player rotation lock
         if (camManager.GetComponent<SwitchPlayer>().firstPersonPOVOn)
         {
             FirstPerson();
@@ -69,10 +90,26 @@ public class SimpleController : MonoBehaviour
         float verticalInput = Input.GetAxisRaw("Vertical");
 
         //new attempt at movement:
-        Vector3 movementDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-        
-        rb.AddForce(movementDirection.normalized * force * 2f, ForceMode.Force);
+        if (OnSlope())
+        {
+            movementDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
+            rb.AddForce(GetSlopeMoveDirection() * force * 20f, ForceMode.Force);
+
+            if (rb.velocity.y > 0)
+                rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+            
+            //rb.AddForce(movementDirection.normalized * force * 2f, ForceMode.Force);
+        }
+        else if (grounded)
+        {
+            movementDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+            rb.AddForce(movementDirection.normalized * force * 2f, ForceMode.Force);
+        } else if (!grounded)
+        {
+            rb.useGravity = !OnSlope();
+        }
 
 
         /*
@@ -114,5 +151,44 @@ public class SimpleController : MonoBehaviour
     public void ThirdPerson()
     {
         xRotation = Mathf.Clamp(xRotation, 0, 0);
+    }
+
+    public bool OnSlope()
+    {
+        if(Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 1f))
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            return angle < maxSlopeAngle && angle != 0;
+        }
+        
+        return false;
+    }
+    
+    private Vector3 GetSlopeMoveDirection()
+    {
+        return Vector3.ProjectOnPlane(movementDirection, slopeHit.normal).normalized;
+    }
+
+    private void SpeedControl()
+    {
+         // limiting speed on slope
+        if (OnSlope())
+        {
+            if (rb.velocity.magnitude > force)
+                rb.velocity = rb.velocity.normalized * force;
+        }
+
+        // limiting speed on ground or in air
+        else
+        {
+            Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+            // limit velocity if needed
+            if (flatVel.magnitude > force)
+            {
+                Vector3 limitedVel = flatVel.normalized * force;
+                rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+            }
+        }
     }
 }

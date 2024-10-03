@@ -13,6 +13,8 @@ public class PaintingBlue : MonoBehaviour
     public LineRenderer lineRenderer;
     public EdgeCollider2D edgeCollider;
 
+     private Vector3 offset;
+    private Vector3 screenPoint;
 
     //public CinemachineVirtualCamera cam02;
 
