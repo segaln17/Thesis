@@ -94,7 +94,7 @@ public class SimpleController : MonoBehaviour
         {
             movementDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-            rb.AddForce(GetSlopeMoveDirection() * force * 20f, ForceMode.Force);
+            rb.AddForce(GetSlopeMoveDirection() * force * 15f, ForceMode.Force);
 
             if (rb.velocity.y > 0)
                 rb.AddForce(Vector3.down * 80f, ForceMode.Force);
