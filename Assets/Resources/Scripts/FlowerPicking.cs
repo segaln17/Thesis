@@ -61,6 +61,7 @@ public class FlowerPicking : MonoBehaviour
             if (BigFlowerInventory.Count <= 1){
                 BigFlowerInventory.Add(other.gameObject);
                 Debug.Log(BigFlowerInventory);
+                Destroy(other.gameObject);
             }
         }
     
@@ -71,6 +72,7 @@ public class FlowerPicking : MonoBehaviour
             {
                 SmallFlowerInventory.Add(other.gameObject);
                 Debug.Log(SmallFlowerInventory);
+                Destroy(other.gameObject);
             }
         }
     }

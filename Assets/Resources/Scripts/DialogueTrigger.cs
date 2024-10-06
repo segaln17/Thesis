@@ -24,6 +24,8 @@ public class DialogueTrigger : MonoBehaviour
     //sprite associated with it:
     public Sprite text2Sprite;
 
+    public SpriteTextScriptableObjects text3;
+
     public TextMeshProUGUI textline;
     
    
@@ -79,6 +81,16 @@ public class DialogueTrigger : MonoBehaviour
         //textImage.sprite = text2Sprite;
         textline.text = text2.writtenText;
         yield return new WaitForSeconds(3f);
+        if (text3.writtenText == "null")
+        {
+            textBox.gameObject.SetActive(false);
+            yield return new WaitForSeconds(3f);
+        }
+        else
+        {
+            textline.text = text3.writtenText;
+            yield return new WaitForSeconds(3f);
+        }
         //we are done with the dialogue now so textBox goes away
         textBox.gameObject.SetActive(false);
     }
