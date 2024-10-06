@@ -12,4 +12,9 @@ public class SceneSwitchScript : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void SceneSwitch()
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 }

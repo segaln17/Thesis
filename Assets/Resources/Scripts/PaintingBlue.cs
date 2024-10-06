@@ -13,7 +13,7 @@ public class PaintingBlue : MonoBehaviour
     public LineRenderer lineRenderer;
     public EdgeCollider2D edgeCollider;
 
-     private Vector3 offset;
+    private Vector3 offset;
     private Vector3 screenPoint;
 
     //public CinemachineVirtualCamera cam02;
@@ -25,34 +25,12 @@ public class PaintingBlue : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            isPainting = !isPainting;
-        }
-        if(isPainting)
-        {
-            if (Input.GetMouseButtonDown(0)){
-
-                CreateLine();
-
-            }
-            if (Input.GetMouseButton(0))
-            {
-                Vector2 tempMousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-                if(Vector2.Distance(tempMousePos, mousePositions[mousePositions.Count - 1]) > 0.1f)
-                {
-                    UpdateLine(tempMousePos);
-                }
-            }
-            
-        }
-        
-        
     }
     
     void CreateLine()
@@ -74,5 +52,33 @@ public class PaintingBlue : MonoBehaviour
         lineRenderer.positionCount++;
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, newMousePos);
         edgeCollider.points = mousePositions.ToArray();
+    }
+    
+    private void OnMouseDown()
+    {
+        //Debug.Log("dragging");
+        //isDrag = true;
+        
+        screenPoint = Camera.main.WorldToScreenPoint(transform.position);
+        offset = transform.position -
+                 Camera.main.ScreenToWorldPoint(
+                     new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+        CreateLine();
+        Debug.Log("painting");
+        isPainting = true;
+    }
+    
+
+    private void OnMouseDrag()
+    {
+        Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+        Vector3 cursorPos = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
+        transform.position = cursorPos;
+        Vector2 tempMousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        if(Vector2.Distance(tempMousePos, mousePositions[mousePositions.Count - 1]) > 0.1f)
+        {
+            UpdateLine(tempMousePos);
+        }
+        isPainting = true;
     }
 }

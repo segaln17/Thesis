@@ -6,6 +6,10 @@ public class ClickandDrag : MonoBehaviour
 {
     private Vector3 offset;
     private Vector3 screenPoint;
+    //public GameObject cyanoBrush;
+
+    public static ClickandDrag instance;
+    
     void Start()
     {
         
@@ -20,7 +24,7 @@ public class ClickandDrag : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("dragging");
+        //Debug.Log("dragging");
         //isDrag = true;
         screenPoint = Camera.main.WorldToScreenPoint(transform.position);
         offset = transform.position -
@@ -36,4 +40,5 @@ public class ClickandDrag : MonoBehaviour
         Vector3 cursorPos = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
         transform.position = cursorPos;
     }
+    
 }
