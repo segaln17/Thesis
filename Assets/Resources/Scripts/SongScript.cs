@@ -15,6 +15,16 @@ public class SongScript : MonoBehaviour
     public AudioClip hum02;
     public AudioClip hum03;
     public AudioClip hum04;
+    
+    public AudioClip hum05;
+    public AudioClip hum06;
+    public AudioClip hum07;
+    public AudioClip hum08;
+    
+    public AudioClip hum09;
+    public AudioClip hum10;
+    public AudioClip hum11;
+    public AudioClip hum12;
 
     public GameObject fighter;
     
@@ -36,22 +46,67 @@ public class SongScript : MonoBehaviour
             sheetMusic.SetActive(true);
             fighter.GetComponent<SimpleController>().enabled = false;
 
-            if (Input.GetKeyDown(KeyCode.W))
+            if(Input.GetAxis("Mouse ScrollWheel") == 0)
             {
-                SongAudio.PlayOneShot(hum01);
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    SongAudio.PlayOneShot(hum01);
+                }
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    SongAudio.PlayOneShot(hum02);
+                }
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    SongAudio.PlayOneShot(hum03);
+                }
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    SongAudio.PlayOneShot(hum04);
+                }
+                
             }
-            if (Input.GetKeyDown(KeyCode.A))
+            if(Input.GetAxis("Mouse ScrollWheel") > 0)
             {
-                SongAudio.PlayOneShot(hum02);
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    SongAudio.PlayOneShot(hum12);
+                }
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    SongAudio.PlayOneShot(hum11);
+                }
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    SongAudio.PlayOneShot(hum09);
+                }
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    SongAudio.PlayOneShot(hum10);
+                }
+                
             }
-            if (Input.GetKeyDown(KeyCode.S))
+            if(Input.GetAxis("Mouse ScrollWheel") < 0)
             {
-                SongAudio.PlayOneShot(hum03);
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    SongAudio.PlayOneShot(hum05);
+                }
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    SongAudio.PlayOneShot(hum06);
+                }
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    SongAudio.PlayOneShot(hum08);
+                }
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    SongAudio.PlayOneShot(hum07);
+                }
+                
             }
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                SongAudio.PlayOneShot(hum04);
-            }
+            
         }
         else
         {
