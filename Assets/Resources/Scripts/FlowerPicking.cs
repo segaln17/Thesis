@@ -70,7 +70,7 @@ public class FlowerPicking : MonoBehaviour
         if (other.gameObject.tag == "BigFlower") 
         {
             Debug.Log("thing is here");
-            if (BigFlowerInventory.Count <= 1){
+            if (BigFlowerInventory.Count <= 4){
                 flowerText.SetActive(true);
                 if (Input.GetMouseButton(0))
                 {
@@ -84,7 +84,7 @@ public class FlowerPicking : MonoBehaviour
             }
         }
         
-        if (SmallFlowerInventory.Count <= 2)
+        if (SmallFlowerInventory.Count <= 6)
         {
             if (other.gameObject.tag == "SmallFlower")
             {
@@ -102,7 +102,7 @@ public class FlowerPicking : MonoBehaviour
         }
             
         //show the done collecting UI
-        if (BigFlowerInventory.Count >=1 || SmallFlowerInventory.Count >= 2)
+        if (BigFlowerInventory.Count >=4 || SmallFlowerInventory.Count >= 6)
         {
             doneCollectingUI.SetActive(true);
         }
