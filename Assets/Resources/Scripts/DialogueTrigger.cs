@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -21,7 +20,9 @@ public class DialogueTrigger : MonoBehaviour
     public SpriteTextScriptableObjects text3;
 
     public TextMeshProUGUI textline;
-
+    
+    private IEnumerator dialogueCoroutine;
+    
    // public bool isNearDialogue = false;
     
     //the gameobject with the collider (although this script is on the collider currently)
@@ -32,6 +33,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         //we do not want to see the text box until we go into the collider
         textBox.gameObject.SetActive(false);
+        dialogueCoroutine = DialoguePlay();
     }
 
     // Update is called once per frame
@@ -49,7 +51,7 @@ public class DialogueTrigger : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        StopCoroutine(DialoguePlay());
+        StopCoroutine(dialogueCoroutine);
         StartCoroutine(DialoguePlay());
 
     }
