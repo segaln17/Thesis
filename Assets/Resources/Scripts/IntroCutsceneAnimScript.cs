@@ -9,11 +9,16 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public Animator fighterAnim;
     public Animator monsterAnim;
 
-    public AnimationClip waitMove;
-    public AnimationClip fightMove;
+    //public AnimationClip waitMove;
+    //public AnimationClip fightMove;
+    //public AnimationClip dieMove;
 
     public Button fightButton;
     public Button waitButton;
+
+    public AudioSource fightSounds;
+    public AudioClip shriek;
+    public AudioClip slash;
 
     private bool paused;
     
@@ -42,25 +47,32 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     {
         fightButton.gameObject.SetActive(true);
         waitButton.gameObject.SetActive(true);
-        paused = !paused;
+        paused = true;
 
     }
 
     public void Fight()
     {
-        paused = !paused;
-        fighterAnim.Play(fightMove.name); //FILL IN fightMove.name with the actual animation clip name
+        fighterAnim.Play("slash");
+        fightSounds.PlayOneShot(slash);
+        monsterAnim.Play("flytrapdie");//FILL IN fightMove.name with the actual animation clip name
+        fightSounds.PlayOneShot(shriek);
+        fightButton.gameObject.SetActive(false);
+        waitButton.gameObject.SetActive(false);
+        paused = false;
     }
 
     public void Wait()
     {
-        paused = !paused;
-        StartCoroutine(WaitMove());
-        fighterAnim.Play(waitMove.name); //FILL IN WITH ACTUAL NAME
+        fightButton.gameObject.SetActive(false);
+        waitButton.gameObject.SetActive(false);
+        paused = false;
+        //StartCoroutine(WaitMove());
+        //fighterAnim.Play(waitMove.name); //FILL IN WITH ACTUAL NAME
     }
 
-    IEnumerator WaitMove()
+    /*IEnumerator WaitMove()
     {
-        yield return new WaitForSeconds(5f);
-    }
+        //yield return new WaitForSeconds(5f);
+    }*/
 }
