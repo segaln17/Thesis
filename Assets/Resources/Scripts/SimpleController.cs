@@ -31,22 +31,17 @@ public class SimpleController : MonoBehaviour
 
     [Header("Movement Conditions")] 
     public float playerHeight;
-
-    //SLOPE STUFF
     public LayerMask whatIsGround;
     public bool grounded;
     public float groundDrag;
+    
+    [Header("Slope Conditions")] 
     public float maxSlopeAngle;
     public float slopeForce = 15f;
     public float slopeGravity = 80f;
     private RaycastHit slopeHit;
-    private bool exitingSlope;
     
-    private void Awake()
-    {
-      
-    }
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +51,7 @@ public class SimpleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //mouse input for movement direction
         mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
@@ -63,14 +59,15 @@ public class SimpleController : MonoBehaviour
         xRotation -= mouseY;
 
         //ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
+        
+        //handle drag
         if (grounded) {
             rb.drag = groundDrag;
         }
         else {
             rb.drag = 0; 
         }
-        
         SpeedControl();
         
         //switch player rotation lock
@@ -78,12 +75,10 @@ public class SimpleController : MonoBehaviour
         {
             FirstPerson();
         }
-
         if (camManager.GetComponent<SwitchPlayer>().firstPersonPOVOn == false)
         {
             ThirdPerson();
         }
-        
         
         //rotate cam and orientation:
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
@@ -105,48 +100,18 @@ public class SimpleController : MonoBehaviour
             if (rb.velocity.y > 0) {
                 rb.AddForce(Vector3.down * slopeGravity, ForceMode.Force);
             }
-            
-            //rb.AddForce(movementDirection.normalized * force * 2f, ForceMode.Force);
         }
+        //on ground
         else if (grounded)
         {
             movementDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-            rb.AddForce(movementDirection.normalized * force * 2f, ForceMode.Force);
-        } else if (!grounded)
-        {
-            rb.useGravity = !OnSlope();
+            rb.AddForce(movementDirection.normalized * force * 10f, ForceMode.Force);
         }
         
-
-
-        /*
-        Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
-        movementDirection.Normalize();
-
-
-        rb.AddForce(movementDirection * force);
-        //transform.Translate(movementDirection * force * Time.deltaTime, Space.World);
-        */
-
-        /*
-        //making sure that the player transform is smoothly following the direction of movement
-        if (movementDirection != Vector3.zero)
-        {
-            //transform.forward =
-                //movementDirection; //the players transform, will now face the direction that the new vector3 is facing but only if it isn't stationary
-
-
-        Quaternion
-            toRotation =
-                Quaternion.LookRotation(movementDirection,
-                    Vector3.up); //using quaternions to smooth out the rotation of directions. Type specifically to store rotations "looking" in a desired direction vector3.up is the y axis
-        transform.rotation =
-            Quaternion.RotateTowards(transform.rotation, toRotation,
-                rotationSpeed * Time.deltaTime); //rotate towards is to rotate towards the desired direction
-                }
-
-*/
+        //turn gravity off while on slope
+        rb.useGravity = !OnSlope();
+  
     }
 
     public void FirstPerson()
