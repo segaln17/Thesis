@@ -32,10 +32,13 @@ public class SimpleController : MonoBehaviour
     [Header("Movement Conditions")] 
     public float playerHeight;
 
+    //SLOPE STUFF
     public LayerMask whatIsGround;
     public bool grounded;
     public float groundDrag;
     public float maxSlopeAngle;
+    public float slopeForce = 15f;
+    public float slopeGravity = 80f;
     private RaycastHit slopeHit;
     private bool exitingSlope;
     
@@ -61,10 +64,13 @@ public class SimpleController : MonoBehaviour
 
         //ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-        if (grounded)
+        if (grounded) {
             rb.drag = groundDrag;
-        else
-            rb.drag = 0;
+        }
+        else {
+            rb.drag = 0; 
+        }
+        
         SpeedControl();
         
         //switch player rotation lock
@@ -93,11 +99,12 @@ public class SimpleController : MonoBehaviour
         if (OnSlope())
         {
             movementDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+            
+            rb.AddForce(GetSlopeMoveDirection() * force * slopeForce, ForceMode.Force);
 
-            rb.AddForce(GetSlopeMoveDirection() * force * 15f, ForceMode.Force);
-
-            if (rb.velocity.y > 0)
-                rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+            if (rb.velocity.y > 0) {
+                rb.AddForce(Vector3.down * slopeGravity, ForceMode.Force);
+            }
             
             //rb.AddForce(movementDirection.normalized * force * 2f, ForceMode.Force);
         }
@@ -110,6 +117,7 @@ public class SimpleController : MonoBehaviour
         {
             rb.useGravity = !OnSlope();
         }
+        
 
 
         /*
