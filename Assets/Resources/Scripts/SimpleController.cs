@@ -14,7 +14,8 @@ public class SimpleController : MonoBehaviour
 
     //THE THINGS BELOW ARE AN ATTEMPT AT PARENTING CONTROLS TO WHERE THE CAMERA IS FACING
     //mouse sensitivity
-    [Header("Camera Rotation")]
+    [Header("Camera Rotation")] 
+    public Transform camera;
     public float sensX = 1f;
     public float sensY = 1f;
 
@@ -41,17 +42,18 @@ public class SimpleController : MonoBehaviour
     public float slopeGravity = 80f;
     private RaycastHit slopeHit;
 
-    //[Header("Stair Conditions")] 
-    //[SerializeField] private GameObject stepRayUpper;
-   // [SerializeField] private GameObject stepRayLower;
-    //[SerializeField] private float stepHeight = 0.3f;
-   // [SerializeField] private float stepSmooth = 2f;
+    [Header("Stair Conditions")] 
+    [SerializeField] private GameObject stepRayUpper;
+    [SerializeField] private GameObject stepRayLower;
+    [SerializeField] private float stepHeight = 0.3f;
+    [SerializeField] private float stepSmooth = 2f;
     
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>(); 
-       // stepRayUpper.transform.position = new Vector3(stepRayUpper.transform.position.x, stepHeight, stepRayUpper.transform.position.z);
+        rb = GetComponent<Rigidbody>();
+        Cursor.lockState = CursorLockMode.Locked;
+        // stepRayUpper.transform.position = new Vector3(stepRayUpper.transform.position.x, stepHeight, stepRayUpper.transform.position.z);
     }
 
     // Update is called once per frame
@@ -87,9 +89,10 @@ public class SimpleController : MonoBehaviour
         }
         
         //rotate cam and orientation:
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        
+        camera.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        camera.position = orientation.position;        
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+        transform.rotation = orientation.rotation;
         
         //controller using input to get directions
         
@@ -117,7 +120,7 @@ public class SimpleController : MonoBehaviour
         
         //turn gravity off while on slope
         rb.useGravity = !OnSlope();
-        //stepClimb();
+        stepClimb();
   
     }
 
@@ -172,39 +175,43 @@ public class SimpleController : MonoBehaviour
         }
     }
     
-    /*void stepClimb()
+    void stepClimb()
     {
         RaycastHit hitLower;
-        if (Physics.SphereCast(stepRayLower.transform.position, 8f, transform.TransformDirection(Vector3.forward), out hitLower, 0.1f))
+        if (Physics.Raycast(stepRayLower.transform.position, transform.forward, out hitLower, 0.2f))
         {
+            Debug.DrawLine(stepRayLower.transform.position ,stepRayUpper.transform.position + Vector3.forward * 0.2f );
+
             RaycastHit hitUpper;
-            if (!Physics.SphereCast(stepRayUpper.transform.position, 8f, transform.TransformDirection(Vector3.forward), out hitUpper, 1f))
+            if (!Physics.Raycast(stepRayUpper.transform.position, transform.forward, out hitUpper, 2f))
             {
+                Debug.DrawLine(stepRayUpper.transform.position ,stepRayUpper.transform.position + Vector3.forward * 2 );
+                Debug.Log("Going up baybee");
                 rb.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
             }
         }
 
         RaycastHit hitLower45;
-        if (Physics.SphereCast(stepRayLower.transform.position, 8f,transform.TransformDirection(1.5f,0,1), out hitLower45, 0.1f))
+        if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(1.5f,0,1), out hitLower45, 0.2f))
         { 
 
             RaycastHit hitUpper45;
-            if (!Physics.SphereCast(stepRayUpper.transform.position, 8f,transform.TransformDirection(1.5f,0,1), out hitUpper45, 1f))
+            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(1.5f,0,1), out hitUpper45, 2f))
             {
                 rb.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
             }
         }
 
         RaycastHit hitLowerMinus45;
-        if (Physics.SphereCast(stepRayLower.transform.position, 8f, transform.TransformDirection(-1.5f,0,1), out hitLowerMinus45, 0.1f))
+        if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(-1.5f,0,1), out hitLowerMinus45, 0.2f))
         {
 
             RaycastHit hitUpperMinus45;
-            if (!Physics.SphereCast(stepRayUpper.transform.position, 8f, transform.TransformDirection(-1.5f,0,1), out hitUpperMinus45, 1f))
+            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(-1.5f,0,1), out hitUpperMinus45, 2f))
             {
                 rb.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
             }
         }
-    }*/
+    }
     
 }
