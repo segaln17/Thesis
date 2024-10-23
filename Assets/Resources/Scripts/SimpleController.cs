@@ -40,12 +40,18 @@ public class SimpleController : MonoBehaviour
     public float slopeForce = 15f;
     public float slopeGravity = 80f;
     private RaycastHit slopeHit;
-    
+
+    //[Header("Stair Conditions")] 
+    //[SerializeField] private GameObject stepRayUpper;
+   // [SerializeField] private GameObject stepRayLower;
+    //[SerializeField] private float stepHeight = 0.3f;
+   // [SerializeField] private float stepSmooth = 2f;
     
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>(); 
+       // stepRayUpper.transform.position = new Vector3(stepRayUpper.transform.position.x, stepHeight, stepRayUpper.transform.position.z);
     }
 
     // Update is called once per frame
@@ -59,14 +65,14 @@ public class SimpleController : MonoBehaviour
         xRotation -= mouseY;
 
         //ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 1f, whatIsGround);
         
         //handle drag
         if (grounded) {
             rb.drag = groundDrag;
         }
         else {
-            rb.drag = 0; 
+            rb.drag = 1; 
         }
         SpeedControl();
         
@@ -111,6 +117,7 @@ public class SimpleController : MonoBehaviour
         
         //turn gravity off while on slope
         rb.useGravity = !OnSlope();
+        //stepClimb();
   
     }
 
@@ -123,7 +130,7 @@ public class SimpleController : MonoBehaviour
 
     public void ThirdPerson()
     {
-        xRotation = Mathf.Clamp(xRotation, 0, 0);
+        xRotation = Mathf.Clamp(xRotation, 0f, 0f);
     }
 
     public bool OnSlope()
@@ -164,4 +171,40 @@ public class SimpleController : MonoBehaviour
             }
         }
     }
+    
+    /*void stepClimb()
+    {
+        RaycastHit hitLower;
+        if (Physics.SphereCast(stepRayLower.transform.position, 8f, transform.TransformDirection(Vector3.forward), out hitLower, 0.1f))
+        {
+            RaycastHit hitUpper;
+            if (!Physics.SphereCast(stepRayUpper.transform.position, 8f, transform.TransformDirection(Vector3.forward), out hitUpper, 1f))
+            {
+                rb.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
+            }
+        }
+
+        RaycastHit hitLower45;
+        if (Physics.SphereCast(stepRayLower.transform.position, 8f,transform.TransformDirection(1.5f,0,1), out hitLower45, 0.1f))
+        { 
+
+            RaycastHit hitUpper45;
+            if (!Physics.SphereCast(stepRayUpper.transform.position, 8f,transform.TransformDirection(1.5f,0,1), out hitUpper45, 1f))
+            {
+                rb.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
+            }
+        }
+
+        RaycastHit hitLowerMinus45;
+        if (Physics.SphereCast(stepRayLower.transform.position, 8f, transform.TransformDirection(-1.5f,0,1), out hitLowerMinus45, 0.1f))
+        {
+
+            RaycastHit hitUpperMinus45;
+            if (!Physics.SphereCast(stepRayUpper.transform.position, 8f, transform.TransformDirection(-1.5f,0,1), out hitUpperMinus45, 1f))
+            {
+                rb.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
+            }
+        }
+    }*/
+    
 }
