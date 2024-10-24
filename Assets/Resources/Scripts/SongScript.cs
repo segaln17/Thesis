@@ -29,6 +29,8 @@ public class SongScript : MonoBehaviour
     public GameObject fighter;
 
     public humRegister state;
+    public float deadZoneMax = 1f;
+    public float registerCeiling = 5f;
     public enum humRegister
     {
         high,
@@ -56,22 +58,23 @@ public class SongScript : MonoBehaviour
             sheetMusic.SetActive(true);
             fighter.GetComponent<SimpleController>().enabled = false;
             
-            if(Input.GetAxis("Mouse ScrollWheel") > 0f && Input.GetAxis("Mouse ScrollWheel") < 0.05f && state == humRegister.mid)
+            
+            if(Input.GetAxisRaw("Mouse ScrollWheel") >= deadZoneMax && Input.GetAxisRaw("Mouse ScrollWheel") <= registerCeiling && state == humRegister.mid)
             {
                 state = humRegister.high;
             }
             
-            if(Input.GetAxis("Mouse ScrollWheel") > 0f && Input.GetAxis("Mouse ScrollWheel") < 0.05f && state == humRegister.low)
+            if(Input.GetAxisRaw("Mouse ScrollWheel") >= deadZoneMax && Input.GetAxisRaw("Mouse ScrollWheel") <= registerCeiling && state == humRegister.low)
             {
                 state = humRegister.mid;
             }
             
-            if(Input.GetAxis("Mouse ScrollWheel") < 0 && Input.GetAxis("Mouse ScrollWheel") > -0.05f && state == humRegister.mid)
+            if(Input.GetAxisRaw("Mouse ScrollWheel") <= -deadZoneMax && Input.GetAxisRaw("Mouse ScrollWheel") >= -registerCeiling && state == humRegister.mid)
             {
                 state = humRegister.low;
 
             }
-            if(Input.GetAxis("Mouse ScrollWheel") < 0 && Input.GetAxis("Mouse ScrollWheel") > -0.05f && state == humRegister.high)
+            if(Input.GetAxisRaw("Mouse ScrollWheel") <= -deadZoneMax && Input.GetAxisRaw("Mouse ScrollWheel") >= -registerCeiling && state == humRegister.high)
             {
                 state = humRegister.mid;
             }
