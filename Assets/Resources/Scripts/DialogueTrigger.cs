@@ -49,11 +49,14 @@ public class DialogueTrigger : MonoBehaviour
 
     }
     
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        StopCoroutine(dialogueCoroutine);
-        StartCoroutine(DialoguePlay());
-
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            StopCoroutine(dialogueCoroutine);
+            StartCoroutine(DialoguePlay());
+        }
+        
     }
 
     IEnumerator DialoguePlay()

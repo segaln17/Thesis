@@ -42,11 +42,11 @@ public class SimpleController : MonoBehaviour
     public float slopeGravity = 80f;
     private RaycastHit slopeHit;
 
-    [Header("Stair Conditions")] 
+    /*[Header("Stair Conditions")] 
     [SerializeField] private GameObject stepRayUpper;
     [SerializeField] private GameObject stepRayLower;
     [SerializeField] private float stepHeight = 0.3f;
-    [SerializeField] private float stepSmooth = 2f;
+    [SerializeField] private float stepSmooth = 2f;*/
     
     // Start is called before the first frame update
     void Start()
@@ -120,7 +120,7 @@ public class SimpleController : MonoBehaviour
         
         //turn gravity off while on slope
         rb.useGravity = !OnSlope();
-        stepClimb();
+       // stepClimb();
   
     }
 
@@ -175,7 +175,7 @@ public class SimpleController : MonoBehaviour
         }
     }
     
-    void stepClimb()
+   /* void stepClimb()
     {
         RaycastHit hitLower;
         if (Physics.Raycast(stepRayLower.transform.position, transform.forward, out hitLower, 0.2f))
@@ -212,6 +212,6 @@ public class SimpleController : MonoBehaviour
                 rb.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
             }
         }
-    }
+    }*/
     
 }

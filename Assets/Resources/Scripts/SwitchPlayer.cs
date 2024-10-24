@@ -28,7 +28,7 @@ public class SwitchPlayer : MonoBehaviour
 
     public GameObject soundManager;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         fighterOn = true;
         divinerOn = false;
