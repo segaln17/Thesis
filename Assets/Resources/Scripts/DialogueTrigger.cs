@@ -51,10 +51,14 @@ public class DialogueTrigger : MonoBehaviour
     
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        Debug.Log("in collider");
+        if (other.gameObject.tag == "Player")
         {
-            StopCoroutine(dialogueCoroutine);
-            StartCoroutine(DialoguePlay());
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                StopCoroutine(dialogueCoroutine);
+                StartCoroutine(DialoguePlay());
+            }
         }
         
     }
