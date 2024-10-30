@@ -71,9 +71,9 @@ public class DialogueTrigger : MonoBehaviour
             textBox.gameObject.SetActive(true);
             RenderDialogue(text1);
             yield return new WaitForSeconds(3f);
-            textline.text = text2.writtenText;
-            yield return new WaitForSeconds(3f);
-            if (text3.writtenText == "null")
+            //textline.text = text2.writtenText;
+            //IF THE SECOND TEXT LINE IS ALSO EMPTY:
+            if (text2.writtenText == "null")
             {
                 textBox.gameObject.SetActive(false);
                 yield return new WaitForSeconds(3f);
@@ -81,11 +81,25 @@ public class DialogueTrigger : MonoBehaviour
             }
             else
             {
-                textline.text = text3.writtenText;
+                textline.text = text2.writtenText;
                 yield return new WaitForSeconds(3f);
-                textBox.gameObject.SetActive(false);
-                yield return null;
+                if (text3.writtenText == "null")
+                {
+                    textBox.gameObject.SetActive(false);
+                    yield return new WaitForSeconds(3f);
+                    yield return null;
+                }
+                else
+                {
+                    textline.text = text3.writtenText;
+                    yield return new WaitForSeconds(3f);
+                    textBox.gameObject.SetActive(false);
+                    yield return null;
+                }
             }
+            //yield return new WaitForSeconds(3f);
+            //NOTE: I put the if statement with the text3 code inside the else statement of the text2 code
+            
             yield break;
             //TODO: figure out how to break if leaving the collider in the middle
         }
