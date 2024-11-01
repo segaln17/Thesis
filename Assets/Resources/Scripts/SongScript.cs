@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine.UI;
 
 public class SongScript : MonoBehaviour
 {
+    public static SongScript instance;
     public GameObject sheetMusic;
 
     public bool sheetActive;
@@ -37,7 +39,21 @@ public class SongScript : MonoBehaviour
         mid,
         low
     }
-    
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
