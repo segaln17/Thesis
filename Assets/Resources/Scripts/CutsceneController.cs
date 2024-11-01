@@ -8,11 +8,14 @@ public class CutsceneController : MonoBehaviour
     Rigidbody rb;
     public float force = 5.0f;
     private Vector3 movementDirection;
+    public Animator playerAnim;
+    public bool isWalking;
   
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        isWalking = false;
     }
 
     // Update is called once per frame
@@ -25,6 +28,7 @@ public class CutsceneController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
+            
             rb.AddForce(Vector3.left * force);
         }
 
@@ -32,11 +36,31 @@ public class CutsceneController : MonoBehaviour
         {
             rb.AddForce(Vector3.right * force);
         }
+        
 
         if (Input.GetKey(KeyCode.S))
         {
             rb.AddForce(Vector3.back * force);
         }
+
+        if (Input.GetKey((KeyCode.A)) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            isWalking = true;
+        }
+        else
+        {
+            isWalking = false;
+        }
+
+        if (isWalking)
+        {
+            playerAnim.SetBool("isWalking", true);
+        }
+        else
+        {
+            playerAnim.SetBool("isWalking", false);
+        }
+        
         
     }
 }

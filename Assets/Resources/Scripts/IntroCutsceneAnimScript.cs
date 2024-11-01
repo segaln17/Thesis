@@ -22,6 +22,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
 
     private bool paused;
     Collider m_Collider;
+    public string animName;
 
     public AudioSource fightSongs;
     public AudioClip beatLoop;
@@ -54,7 +55,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         fightButton.gameObject.SetActive(true);
         waitButton.gameObject.SetActive(true);
         paused = true;
-        Debug.Log(paused);
+        Debug.Log(Time.timeScale);
 
     }
 
@@ -62,8 +63,9 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     {
         fighterAnim.Play("slash");
         fightSounds.PlayOneShot(slash);
+        monsterAnim.Play(animName);
         ;//FILL IN fightMove.name with the actual animation clip name
-        if (gameObject.tag == "flytrap")
+        /*if (gameObject.tag == "flytrap")
         {
             monsterAnim.Play("flytrapdie");
             Debug.Log("flytrapanim");
@@ -73,8 +75,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         {
             monsterAnim.Play("creaturedie");
             Debug.Log("huskanim");
-        }
-        
+        }*/
         fightSounds.PlayOneShot(shriek);
         fightButton.gameObject.SetActive(false);
         waitButton.gameObject.SetActive(false);
