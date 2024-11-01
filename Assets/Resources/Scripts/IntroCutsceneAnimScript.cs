@@ -21,6 +21,11 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public AudioClip slash;
 
     private bool paused;
+    Collider m_Collider;
+
+    public AudioSource fightSongs;
+    public AudioClip beatLoop;
+    public AudioClip sighLoop;
     
     // Start is called before the first frame update
     void Start()
@@ -28,6 +33,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         paused = false;
         fightButton.gameObject.SetActive(false);
         waitButton.gameObject.SetActive(false);
+        m_Collider = GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -48,6 +54,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         fightButton.gameObject.SetActive(true);
         waitButton.gameObject.SetActive(true);
         paused = true;
+        Debug.Log(paused);
 
     }
 
@@ -55,11 +62,29 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     {
         fighterAnim.Play("slash");
         fightSounds.PlayOneShot(slash);
-        monsterAnim.Play("flytrapdie");//FILL IN fightMove.name with the actual animation clip name
+        ;//FILL IN fightMove.name with the actual animation clip name
+        if (gameObject.tag == "flytrap")
+        {
+            monsterAnim.Play("flytrapdie");
+            Debug.Log("flytrapanim");
+        }
+
+        if (gameObject.tag == "husk")
+        {
+            monsterAnim.Play("creaturedie");
+            Debug.Log("huskanim");
+        }
+        
         fightSounds.PlayOneShot(shriek);
         fightButton.gameObject.SetActive(false);
         waitButton.gameObject.SetActive(false);
         paused = false;
+        if (!fightSongs.isPlaying)
+        {
+            fightSongs.clip = beatLoop;
+            fightSongs.Play();
+        }
+        StartCoroutine(Die());
     }
 
     public void Wait()
@@ -67,12 +92,19 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         fightButton.gameObject.SetActive(false);
         waitButton.gameObject.SetActive(false);
         paused = false;
+        m_Collider.enabled = false;
+        if (!fightSongs.isPlaying)
+        {
+            fightSongs.clip = sighLoop;
+            fightSongs.Play();
+        }
         //StartCoroutine(WaitMove());
         //fighterAnim.Play(waitMove.name); //FILL IN WITH ACTUAL NAME
     }
 
-    /*IEnumerator WaitMove()
+    IEnumerator Die()
     {
-        //yield return new WaitForSeconds(5f);
-    }*/
+        yield return new WaitForSeconds(.5f);
+        Destroy(gameObject);
+    }
 }
