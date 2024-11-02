@@ -49,7 +49,7 @@ public class SongScript : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 
@@ -70,7 +70,7 @@ public class SongScript : MonoBehaviour
 
         if (sheetActive)
         {
-            Debug.Log(Input.GetAxis("Mouse ScrollWheel"));
+            //Debug.Log(Input.GetAxis("Mouse ScrollWheel"));
             sheetMusic.SetActive(true);
             fighter.GetComponent<SimpleController>().enabled = false;
             

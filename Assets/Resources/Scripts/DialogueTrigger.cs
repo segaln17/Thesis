@@ -22,6 +22,8 @@ public class DialogueTrigger : MonoBehaviour
     public TextMeshProUGUI textline;
     
     private IEnumerator dialogueCoroutine;
+
+    public TextMeshProUGUI dialogueIndicator;
     
    // public bool isNearDialogue = false;
     
@@ -34,6 +36,7 @@ public class DialogueTrigger : MonoBehaviour
         //we do not want to see the text box until we go into the collider
         textBox.gameObject.SetActive(false);
         dialogueCoroutine = DialoguePlay();
+        dialogueIndicator.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -54,8 +57,10 @@ public class DialogueTrigger : MonoBehaviour
         Debug.Log("in collider");
         if (other.gameObject.tag == "Player")
         {
+            dialogueIndicator.gameObject.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
+                dialogueIndicator.gameObject.SetActive(false);
                 StopCoroutine(dialogueCoroutine);
                 StartCoroutine(DialoguePlay());
             }
@@ -68,42 +73,49 @@ public class DialogueTrigger : MonoBehaviour
         
         while(true)
         {
+            //dialogueIndicator.gameObject.SetActive(false);
             textBox.gameObject.SetActive(true);
             RenderDialogue(text1);
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(5f);
             //textline.text = text2.writtenText;
             //IF THE SECOND TEXT LINE IS ALSO EMPTY:
             if (text2.writtenText == "null")
             {
                 textBox.gameObject.SetActive(false);
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(5f);
                 yield return null;
             }
             else
             {
                 textline.text = text2.writtenText;
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(5f);
                 if (text3.writtenText == "null")
                 {
                     textBox.gameObject.SetActive(false);
-                    yield return new WaitForSeconds(3f);
+                    yield return new WaitForSeconds(5f);
                     yield return null;
                 }
                 else
                 {
                     textline.text = text3.writtenText;
-                    yield return new WaitForSeconds(3f);
+                    yield return new WaitForSeconds(5f);
                     textBox.gameObject.SetActive(false);
                     yield return null;
                 }
             }
             //yield return new WaitForSeconds(3f);
             //NOTE: I put the if statement with the text3 code inside the else statement of the text2 code
-            
             yield break;
             //TODO: figure out how to break if leaving the collider in the middle
         }
 
     }
-    
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            dialogueIndicator.gameObject.SetActive(false);   
+        }
+    }
 }
