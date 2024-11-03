@@ -5,124 +5,216 @@ using UnityEngine;
 
 public class HedgeScript : MonoBehaviour
 {
-    public Queue<string> noteQueue = new Queue<string>();
-    public string goalString;
+    public List<string> noteQueue = new List<string>();
 
+    public string goalPhrase = "WDAS";
     public bool isSinging = false;
-
-    public string sungNotes;
-
-    public int numNotesSung;
+    public bool isinHedge = false;
+    
 
     public Animator hedge1animator;
-    public Animator hedge2animator;
+    //public Animator hedge2animator;
     
+    public bool timerActive = false;
+    public float hitWindowTime = 0.0f;
+    public float hitWindowCap = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
-        //pattern written in the UI:
-        goalString = "WDAS";
-        numNotesSung = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (timerActive)
+        {
+            hitWindowTime -= Time.deltaTime;
+
+            //stopping the timer to limit the input
+            if (hitWindowTime <= 0)
+            {
+                StopWindowTimer();
+            }
+        }
+
         if (SongScript.instance.sheetActive)
         {
             isSinging = true;
         }
+        else
+        {
+            isSinging = false;
+        }
+
+        if (isSinging && isinHedge)
+        {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                StartWindowTimer();
+                noteQueue.Add("W");
+                Debug.Log("W");
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {   //StartWindowTimer();
+                noteQueue.Add("D");
+                Debug.Log("D");
+            }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                //StartWindowTimer();
+                noteQueue.Add("A");
+                Debug.Log("A");
+                //sungNotes += noteQueue.Dequeue();
+                //numNotesSung += 1;
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                //StartWindowTimer();
+                noteQueue.Add("S");
+                Debug.Log("S");
+                // numNotesSung += 1;
+                //sungNotes += noteQueue.Dequeue();
+            }
+           /* if (noteQueue.Count == 0)
+            {
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    StartWindowTimer();
+                    noteQueue.Add("W");
+                    Debug.Log("W");
+                }
+            }
+
+            if (noteQueue.Count == 1)
+            {
+                if (Input.GetKeyDown(KeyCode.D))
+                {   //StartWindowTimer();
+                    noteQueue.Add("D");
+                    Debug.Log("D");
+                }
+            }
+
+            if (noteQueue.Count == 2)
+            {
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    //StartWindowTimer();
+                    noteQueue.Add("A");
+                    Debug.Log("A");
+                    //sungNotes += noteQueue.Dequeue();
+                    //numNotesSung += 1;
+                }
+            }
+
+            if (noteQueue.Count == 3)
+            {
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    //StartWindowTimer();
+                    noteQueue.Add("S");
+                    Debug.Log("S");
+                    // numNotesSung += 1;
+                    //sungNotes += noteQueue.Dequeue();
+                }
+            }*/
+
+        }
+        CheckNotes();
+
+        if (noteQueue.Count == 4 && ListtoString(noteQueue) != goalPhrase)
+        {
+            noteQueue = new List<string>();
+        }
+        if (noteQueue.Count == 4 && noteQueue[3] != "S")
+        {
+            noteQueue.RemoveAt(3);
+            noteQueue.RemoveAt(2);
+            noteQueue.RemoveAt(1);
+            noteQueue.RemoveAt(0);
+        }
+
+        if (noteQueue.Count == 3 && noteQueue[2] != "A")
+        {
+            noteQueue.RemoveAt(2);
+            noteQueue.RemoveAt(1);
+            noteQueue.RemoveAt(0);
+        }
         
+        if (noteQueue.Count == 2 && noteQueue[1] != "D")
+        {
+            noteQueue.RemoveAt(1);
+            noteQueue.RemoveAt(0);
+        }
+        if (noteQueue.Count == 1 && noteQueue[0] != "W")
+        {
+            noteQueue.RemoveAt(0);
+        }
     }
 
     private void OnTriggerStay(Collider other)
-    {
-        //Debug.Log("hedge");
-        if (other.gameObject.CompareTag("Player"))
         {
-            if (isSinging)
+            //Debug.Log("hedge");
+            if (other.gameObject.CompareTag("Player"))
             {
-                if (noteQueue.Count <= 4)
-                {
-                    if (Input.GetKeyDown(KeyCode.W))
-                    {
-                        //numNotesSung += 1;
-                        noteQueue.Enqueue("W");
-                        sungNotes += noteQueue.Dequeue();
-                        Debug.Log("W");
-                        
-                    }
+                isinHedge = true;
+            }
+        }
 
-                    if (Input.GetKeyDown(KeyCode.A))
-                    {
-                       //numNotesSung += 1;
-                        noteQueue.Enqueue("A");
-                        sungNotes += noteQueue.Dequeue();
-                        Debug.Log("A");
-                        
-                    }
+        public void CheckNotes()
+        {
+            //ListtoString(noteQueue);
+           if (ListtoString(noteQueue) == goalPhrase)
+            {
+                Debug.Log("correct song");
+                StartCoroutine("WaitAnimate");
+                //play something
+            }
+        }
 
-                    if (Input.GetKeyDown(KeyCode.D))
-                    {
-                       // numNotesSung += 1;
-                        noteQueue.Enqueue("D");
-                        sungNotes += noteQueue.Dequeue();
-                        Debug.Log("D");
-                    }
+        private string ListtoString(List<string> list)
+        {
+            string noteResults = "";
+            foreach (var noteItem in list)
+            {
+                noteResults += noteItem.ToString();
+            }
 
-                    if (Input.GetKeyDown(KeyCode.S))
-                    {
-                       // numNotesSung += 1;
-                        noteQueue.Enqueue("S");
-                        sungNotes += noteQueue.Dequeue();
-                        Debug.Log("S");
-                    }
-                    //Debug.Log(numNotesSung);
-                }
-                CheckNotes();
-                
+            return noteResults;
+        }
+
+        IEnumerator WaitAnimate()
+        {
+            yield return new WaitForSeconds(1f);
+            hedge1animator.SetBool("hedgeOpen", true);
+            //hedge2animator.Play("hedge2test");
+            noteQueue.Clear();
+        }
+        //load in goal phrase
+        //if keys are pressed, load in the letters
+        //compare queue to target phrase
+        //if it's the same, play a sound maybe and do an animation of stuff parting
+
+      
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                isinHedge = false;
+                noteQueue.Clear();
             }
             
         }
-    }
-
-    //Got rid of this to try and streamline it
-    /*
-    public void QueuetoPhrase()
-    {
-        while (noteQueue.Count > 0)
+        
+        public void StartWindowTimer()
         {
-            sungNotes += noteQueue.Dequeue();
+            hitWindowTime = hitWindowCap;
+            timerActive = true;
         }
-    }
-    */
-    
-    public void CheckNotes()
-    {
-        //QueuetoPhrase();
-        if (sungNotes == goalString)
+
+        public void StopWindowTimer()
         {
-            Debug.Log("correct song");
-            StartCoroutine("WaitAnimate");
-            //play something
+            hitWindowTime = 0;
+            timerActive = false;
         }
-    }
-
-    IEnumerator WaitAnimate()
-    {
-        yield return new WaitForSeconds(1f);
-        hedge1animator.Play("hedge1Test");
-        hedge2animator.Play("hedge2test");
-    }
-    //load in goal phrase
-    //if keys are pressed, load in the letters
-    //compare queue to target phrase
-    //if it's the same, play a sound maybe and do an animation of stuff parting
-
-    //THIS DOESN'T WORK:
-    private void OnTriggerExit(Collider other)
-    {
-        numNotesSung = 0;
-        noteQueue.Clear();
-    }
 }
