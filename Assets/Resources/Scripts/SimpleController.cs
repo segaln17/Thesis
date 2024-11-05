@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 
 public class SimpleController : MonoBehaviour
@@ -41,18 +42,37 @@ public class SimpleController : MonoBehaviour
     public float slopeForce = 15f;
     public float slopeGravity = 80f;
     private RaycastHit slopeHit;
+    
+    //scene check
+    private Scene currentScene;
 
     /*[Header("Stair Conditions")] 
     [SerializeField] private GameObject stepRayUpper;
     [SerializeField] private GameObject stepRayLower;
     [SerializeField] private float stepHeight = 0.3f;
     [SerializeField] private float stepSmooth = 2f;*/
-    
+
+    private void Awake()
+    {
+        currentScene = SceneManager.GetActiveScene();
+        //string sceneName = currentScene.name;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Cursor.lockState = CursorLockMode.Locked;
+        /*
+        if (currentScene == SceneManager.GetSceneByName("GreyBoxing"))
+        {
+            Cursor.lockState = CursorLockMode.Locked;   
+        }
+
+        if (currentScene == SceneManager.GetSceneByName("PaintingScene"))
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        */
         // stepRayUpper.transform.position = new Vector3(stepRayUpper.transform.position.x, stepHeight, stepRayUpper.transform.position.z);
     }
 

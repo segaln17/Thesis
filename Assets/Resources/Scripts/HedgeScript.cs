@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class HedgeScript : MonoBehaviour
 {
+    public SongScript songScript; 
+    
     public List<string> noteQueue = new List<string>();
 
     public string goalPhrase = "WDAS";
@@ -18,10 +20,12 @@ public class HedgeScript : MonoBehaviour
     public bool timerActive = false;
     public float hitWindowTime = 0.0f;
     public float hitWindowCap = 0.5f;
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -38,7 +42,7 @@ public class HedgeScript : MonoBehaviour
             }
         }
 
-        if (SongScript.instance.sheetActive)
+        if (songScript.sheetActive)
         {
             isSinging = true;
         }

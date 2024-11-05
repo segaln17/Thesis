@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SongScript : MonoBehaviour
 {
-    public static SongScript instance;
+    //public static SongScript instance;
     public GameObject sheetMusic;
 
     public bool sheetActive;
@@ -42,6 +42,7 @@ public class SongScript : MonoBehaviour
 
     private void Awake()
     {
+        /*
         if (instance == null)
         {
             instance = this;
@@ -51,6 +52,7 @@ public class SongScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        */
     }
 
 

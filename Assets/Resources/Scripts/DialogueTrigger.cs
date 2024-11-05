@@ -19,6 +19,8 @@ public class DialogueTrigger : MonoBehaviour
 
     public SpriteTextScriptableObjects text3;
 
+    public SpriteTextScriptableObjects text4;
+
     public TextMeshProUGUI textline;
     
     private IEnumerator dialogueCoroutine;
@@ -51,20 +53,40 @@ public class DialogueTrigger : MonoBehaviour
         textline.text = text1.writtenText;
 
     }
-    
-    private void OnTriggerStay(Collider other)
+
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("in collider");
-        if (other.gameObject.tag == "Player")
+        //IF SECOND PERSON:
+        if (other.gameObject.CompareTag("Player"))
         {
-            dialogueIndicator.gameObject.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.E))
+            if (gameObject.CompareTag("2ndPOV"))
             {
-                dialogueIndicator.gameObject.SetActive(false);
                 StopCoroutine(dialogueCoroutine);
                 StartCoroutine(DialoguePlay());
             }
+            {
+                
+            }
         }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        Debug.Log("in collider");
+        //IF NOT SECOND PERSON:
+        //else
+        //{
+            if (other.gameObject.tag == "Player")
+            {
+                dialogueIndicator.gameObject.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    dialogueIndicator.gameObject.SetActive(false);
+                    StopCoroutine(dialogueCoroutine);
+                    StartCoroutine(DialoguePlay());
+                }
+            }
+        //}
         
     }
 
@@ -76,31 +98,41 @@ public class DialogueTrigger : MonoBehaviour
             //dialogueIndicator.gameObject.SetActive(false);
             textBox.gameObject.SetActive(true);
             RenderDialogue(text1);
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(4f);
             //textline.text = text2.writtenText;
             //IF THE SECOND TEXT LINE IS ALSO EMPTY:
             if (text2.writtenText == "null")
             {
                 textBox.gameObject.SetActive(false);
-                yield return new WaitForSeconds(5f);
+                yield return new WaitForSeconds(4f);
                 yield return null;
             }
             else
             {
                 textline.text = text2.writtenText;
-                yield return new WaitForSeconds(5f);
+                yield return new WaitForSeconds(4f);
                 if (text3.writtenText == "null")
                 {
                     textBox.gameObject.SetActive(false);
-                    yield return new WaitForSeconds(5f);
+                    yield return new WaitForSeconds(4f);
                     yield return null;
                 }
                 else
                 {
                     textline.text = text3.writtenText;
-                    yield return new WaitForSeconds(5f);
-                    textBox.gameObject.SetActive(false);
-                    yield return null;
+                    yield return new WaitForSeconds(4f);
+                    if (text4.writtenText == "null")
+                    {
+                        textBox.gameObject.SetActive(false);
+                        yield return null;
+                    }
+                    else
+                    {
+                        textline.text = text4.writtenText;
+                        yield return new WaitForSeconds(4f);
+                        textBox.gameObject.SetActive(false);
+                        yield return null;
+                    }
                 }
             }
             //yield return new WaitForSeconds(3f);
