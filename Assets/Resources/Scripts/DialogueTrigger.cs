@@ -57,10 +57,11 @@ public class DialogueTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //IF SECOND PERSON:
-        if (other.gameObject.CompareTag("Player"))
+        if (gameObject.CompareTag("2ndPOV"))
         {
-            if (gameObject.CompareTag("2ndPOV"))
+            if (other.gameObject.CompareTag("Player"))
             {
+                dialogueIndicator.gameObject.SetActive(false);
                 StopCoroutine(dialogueCoroutine);
                 StartCoroutine(DialoguePlay());
             }
@@ -74,8 +75,8 @@ public class DialogueTrigger : MonoBehaviour
     {
         Debug.Log("in collider");
         //IF NOT SECOND PERSON:
-        //else
-        //{
+        if (gameObject.tag != "2ndPOV")
+        {
             if (other.gameObject.tag == "Player")
             {
                 dialogueIndicator.gameObject.SetActive(true);
@@ -86,6 +87,7 @@ public class DialogueTrigger : MonoBehaviour
                     StartCoroutine(DialoguePlay());
                 }
             }
+        }
         //}
         
     }
