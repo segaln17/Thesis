@@ -46,13 +46,17 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SceneManager.LoadScene("IntroTest");
+            SceneManager.LoadScene("LandingPage");
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SceneManager.LoadScene("VisualTest");
+            SceneManager.LoadScene("IntroTest");
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SceneManager.LoadScene("GreyBoxing");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             SceneManager.LoadScene("PaintingScene");
         }

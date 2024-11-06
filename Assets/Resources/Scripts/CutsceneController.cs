@@ -50,6 +50,8 @@ public class CutsceneController : MonoBehaviour
         else
         {
             isWalking = false;
+            Vector3 zeroVelocity = new Vector3(0, rb.velocity.y, 0);
+            rb.velocity = zeroVelocity;
         }
 
         if (isWalking)

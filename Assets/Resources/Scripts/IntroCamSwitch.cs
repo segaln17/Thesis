@@ -10,6 +10,8 @@ public class IntroCamSwitch : MonoBehaviour
     public CinemachineVirtualCamera camPos01;
     public CinemachineVirtualCamera camPos02;
 
+    public GameObject fogBlock;
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("collided");
@@ -17,7 +19,17 @@ public class IntroCamSwitch : MonoBehaviour
         {
             camPos01.Priority = 2;
             camPos02.Priority = 3;
+            StartCoroutine(fog());
+
         }
+    }
+    
+    IEnumerator fog()
+    {
+        yield return new WaitForSeconds(3f);
+        fogBlock.SetActive(true);
+        StopCoroutine(fog());
+        yield break;
     }
     
 }
