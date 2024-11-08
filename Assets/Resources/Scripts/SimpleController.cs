@@ -127,7 +127,7 @@ public class SimpleController : MonoBehaviour
             rb.AddForce(GetSlopeMoveDirection() * force * slopeForce, ForceMode.Force);
 
             if (rb.velocity.y > 0) {
-                rb.AddForce(Vector3.down * slopeGravity, ForceMode.Force);
+                rb.AddForce(Vector3.down * slopeGravity * Time.deltaTime, ForceMode.Force);
             }
         }
         //on ground
@@ -135,7 +135,7 @@ public class SimpleController : MonoBehaviour
         {
             movementDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-            rb.AddForce(movementDirection.normalized * force * 10f, ForceMode.Force);
+            rb.AddForce(movementDirection.normalized * force * 10f * Time.deltaTime, ForceMode.Force);
         }
         
         //turn gravity off while on slope
