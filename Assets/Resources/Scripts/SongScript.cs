@@ -75,6 +75,7 @@ public class SongScript : MonoBehaviour
             //Debug.Log(Input.GetAxis("Mouse ScrollWheel"));
             sheetMusic.SetActive(true);
             fighter.GetComponent<SimpleController>().enabled = false;
+            fighter.GetComponent<Rigidbody>().isKinematic = true;
             
             
             if(Input.GetAxisRaw("Mouse ScrollWheel") >= deadZoneMax && Input.GetAxisRaw("Mouse ScrollWheel") <= registerCeiling && state == humRegister.mid)
@@ -117,6 +118,7 @@ public class SongScript : MonoBehaviour
         {
             sheetMusic.SetActive(false);
             fighter.GetComponent<SimpleController>().enabled = true;
+            fighter.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 

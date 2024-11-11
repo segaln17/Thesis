@@ -9,6 +9,8 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public Animator fighterAnim;
     public Animator monsterAnim;
 
+    public GameObject fighter;
+    
     //public AnimationClip waitMove;
     //public AnimationClip fightMove;
     //public AnimationClip dieMove;
@@ -20,7 +22,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public AudioClip shriek;
     public AudioClip slash;
 
-    private bool paused;
+    public bool paused;
     Collider m_Collider;
     public string animName;
 
@@ -32,6 +34,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     void Start()
     {
         paused = false;
+        Time.timeScale = 1;
         fightButton.gameObject.SetActive(false);
         waitButton.gameObject.SetActive(false);
         m_Collider = GetComponent<Collider>();
@@ -43,19 +46,26 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         if (paused)
         {
             Time.timeScale = 0;
+            fighter.GetComponent<CutsceneController>().enabled = false;
+            fighter.GetComponent<Rigidbody>().isKinematic = true;
+            fighter.GetComponent<Animator>().enabled = false;
         }
         else
         {
             Time.timeScale = 1;
+            fighter.GetComponent<CutsceneController>().enabled = true;
+            fighter.GetComponent<Rigidbody>().isKinematic = false;
+            fighter.GetComponent<Animator>().enabled = true;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        paused = true;
         fightButton.gameObject.SetActive(true);
         waitButton.gameObject.SetActive(true);
-        paused = true;
-        Debug.Log(Time.timeScale);
+        m_Collider.enabled = false;
+        Debug.Log("collided");
 
     }
 
@@ -64,18 +74,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         fighterAnim.Play("slash");
         fightSounds.PlayOneShot(slash);
         monsterAnim.Play(animName);
-        ;//FILL IN fightMove.name with the actual animation clip name
-        /*if (gameObject.tag == "flytrap")
-        {
-            monsterAnim.Play("flytrapdie");
-            Debug.Log("flytrapanim");
-        }
-
-        if (gameObject.tag == "husk")
-        {
-            monsterAnim.Play("creaturedie");
-            Debug.Log("huskanim");
-        }*/
+        
         fightSounds.PlayOneShot(shriek);
         fightButton.gameObject.SetActive(false);
         waitButton.gameObject.SetActive(false);
@@ -99,8 +98,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
             fightSongs.clip = sighLoop;
             fightSongs.Play();
         }
-        //StartCoroutine(WaitMove());
-        //fighterAnim.Play(waitMove.name); //FILL IN WITH ACTUAL NAME
+      
     }
 
     IEnumerator Die()

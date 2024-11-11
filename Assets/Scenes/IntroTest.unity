@@ -4198,6 +4198,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5434270933850276746, guid: 0138d61d72b994a49af993e3a2a3d758,
+        type: 3}
+      propertyPath: fighter
+      value: 
+      objectReference: {fileID: 1492741118}
     - target: {fileID: 5685698337221055412, guid: 0138d61d72b994a49af993e3a2a3d758,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8258,7 +8263,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 3.96
+  m_Radius: 5.28
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1079643991
 SpriteRenderer:
@@ -8326,11 +8331,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fighterAnim: {fileID: 1492741121}
   monsterAnim: {fileID: 1259792490}
+  fighter: {fileID: 1492741118}
   fightButton: {fileID: 515036431}
   waitButton: {fileID: 1338368995}
   fightSounds: {fileID: 1285202750}
   shriek: {fileID: 8300000, guid: 0787906cb0b4c4fa2b75702071d3bc7e, type: 3}
   slash: {fileID: 8300000, guid: e959deadb1c45432a968cddef2796529, type: 3}
+  paused: 0
   animName: flytrapdie
   fightSongs: {fileID: 1214105942}
   beatLoop: {fileID: 8300000, guid: d8fdc01024828419b8741f50fc4de7ca, type: 3}
@@ -10416,11 +10423,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fighterAnim: {fileID: 1492741121}
   monsterAnim: {fileID: 1377318303}
+  fighter: {fileID: 1492741118}
   fightButton: {fileID: 165658747}
   waitButton: {fileID: 1042535019}
   fightSounds: {fileID: 1285202750}
   shriek: {fileID: 8300000, guid: 0787906cb0b4c4fa2b75702071d3bc7e, type: 3}
   slash: {fileID: 8300000, guid: e959deadb1c45432a968cddef2796529, type: 3}
+  paused: 0
   animName: creaturedie
   fightSongs: {fileID: 1214105942}
   beatLoop: {fileID: 8300000, guid: d8fdc01024828419b8741f50fc4de7ca, type: 3}
@@ -10990,7 +10999,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60.000004
-    OrthographicSize: 4.46
+    OrthographicSize: 4.5
     NearClipPlane: -1.33
     FarClipPlane: 1000
     Dutch: 0
@@ -13340,7 +13349,7 @@ Camera:
   far clip plane: 1000
   field of view: 60.000004
   orthographic: 1
-  orthographic size: 4.46
+  orthographic size: 4.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

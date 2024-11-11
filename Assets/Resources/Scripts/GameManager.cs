@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     public GameObject menu;
 
     private bool paused;
+
+    public GameObject fighter;
+
+    private Scene sceneName;
     // Start is called before the first frame update
     private void Start()
     {
@@ -64,16 +68,32 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             paused = !paused;
+            Debug.Log("paused");
         }
 
         if (paused)
         {
             menu.SetActive(true);
+            /*
+            if (sceneName.name == "IntroTest")
+            {
+                fighter.GetComponent<CutsceneController>().enabled = false;
+            }
+
+            fighter.GetComponent<Rigidbody>().isKinematic = true;
+            */
             Time.timeScale = 0;
         }
         else
         {
             menu.SetActive(false);
+            /*
+            if (sceneName.name == "IntroTest")
+            {
+                fighter.GetComponent<CutsceneController>().enabled = true;
+                fighter.GetComponent<Rigidbody>().isKinematic = false;
+            }
+            */
             Time.timeScale = 1;
         }
     }
