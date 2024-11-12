@@ -83,6 +83,7 @@ public class DialogueTrigger : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     dialogueIndicator.gameObject.SetActive(false);
+                    //TODO: call the OnContinue from the LineView script basically
                     StopCoroutine(dialogueCoroutine);
                     StartCoroutine(DialoguePlay());
                 }
