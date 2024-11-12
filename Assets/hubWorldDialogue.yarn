@@ -1,0 +1,1510 @@
+title: NPCTesterStart
+tags: 
+colorID: 0
+position: -205,-2
+---
+<<declare $positiveanswer = false as bool>>
+    <<MoveBox2 YarnManager>>
+    <<ChangeAvatartoPlayer YarnManager>>
+    <<ChangeSoundtoPlayer YarnManager>>
+Nour: Greetings my dude.
+    <<MoveBox1 YarnManager>>
+    <<ChangeAvatartoCharacter YarnManager>>
+NPC: Whoa. Dude.
+NPC: I’ve never seen someone flop like that before. 
+    <<MoveBox2 YarnManager>>
+    <<ChangeAvatartoPlayer YarnManager>>
+-> You think that I’m flopping??? Like a fish??
+-> It feels awesome!!!!!! You should try it!!!
+    <<set $positiveanswer to true>>
+<<if $positiveanswer>>
+Nour: It feels awesome!!!!!! You should try it!!!
+    <<MoveBox1 YarnManager>>
+    <<ChangeAvatartoCharacter YarnManager>>
+NPC: I don’t think I’m up for it, I messed up my back eating watermelon.
+NPC: Or was it when I was trying to arm wrestle my feet?
+NPC: I can't remember.
+    <<MoveBox2 YarnManager>>
+    <<ChangeAvatartoPlayer YarnManager>>
+Nour: Bummer...See ya later!    
+<<else>>
+Nour: You think that I’m flopping??? Like a fish??
+    <<MoveBox1 YarnManager>>
+    <<ChangeAvatartoCharacter YarnManager>>
+NPC: Like the most beautiful fish to ever venture out of the ocean!
+    <<MoveBox2 YarnManager>>
+    <<ChangeAvatartoPlayer YarnManager>>
+-> Thank you 
+    <<MoveBox1 YarnManager>>
+    <<ChangeAvatartoCharacter YarnManager>>
+    NPC: No problem dude! Flop on!
+-> Okay...
+    <<MoveBox1 YarnManager>>
+    <<ChangeAvatartoCharacter YarnManager>>
+    NPC: Just trying to appreciate a good flop, my bad…
+<<endif>>
+===
+title: Complimentee1part1
+tags: 
+colorID: 0
+position: -81,-315
+---
+<<MoveBox2 YarnManager>>
+    <<ChangeAvatartoPlayer YarnManager>>
+    <<ChangeSoundtoPlayer YarnManager>>
+
+Nour: Hi! How's it, uh.. hanging?
+    <<ChangeAvatartoCharacter YarnManager>>
+    <<ChangeSoundtoCharacter YarnManager>>
+
+NPC: *Sigh*
+NPC: I've been better.
+NPC: Can I help you with anything?
+    <<ChangeAvatartoPlayer YarnManager>>
+Nour: N-no! But maybe... I can help?
+-> Compliment them.
+    <<ChangeAvatartoPlayer YarnManager>>
+    Nour: Do you mind if I... compliment you?
+    <<ChangeAvatartoCharacter YarnManager>>
+    NPC: Sure?
+    <<ChangeStartNode ArmGuy Complimentee1part2>>
+    <<declare $compliment="You're beautiful.">>
+    <<ComplimentStart GameManager>>
+-> Leave them alone.
+    <<ChangeAvatartoPlayer YarnManager>>
+    Nour: Uuuh. Sorry. Nevermind, bye!!!
+<<stop>>
+===
+title: Complimentee1part2
+tags: 
+colorID: 0
+position: 131,-316
+---
+<<MoveBox2 YarnManager>>
+<<ChangeAvatartoPlayer YarnManager>>
+Nour: {$compliment}
+<<ChangeAvatartoCharacter YarnManager>>
+NPC: Wh... woah. Thank you.
+<<ChangeAvatartoPlayer YarnManager>>
+Nour: Hey, uuuh... Don't sweat it.
+<<ChangeStartNode ArmGuy Complimentee1part3>>
+===
+title: Complimentee1part3
+tags: 
+colorID: 0
+position: 340,-317
+---
+<<MoveBox2 YarnManager>>
+    <<ChangeAvatartoPlayer YarnManager>>
+Nour: So umm... was that good?
+    <<ChangeAvatartoCharacter YarnManager>>
+NPC: Yeah! Thank you for everything :)
+<<stop>>
+===
+title: Rain1
+position: -126,183
+---
+<<MoveBox2  YarnManager>>
+Rain: Hello little Cockroach...
+Nour: Whu-- Cockroach? Is that what I look like? I don't-- who's talking?!
+Rain: We see you have found yourself in quite the predicament.
+Nour: I... Yeah!!! Like, who was that kid? Do they even go here?
+Nour: And why was she kissing them?? What do they have that I don't have??? Why do I look like a fish???? Was that a remix?
+Rain: Worry not. All you need to do is press *SPACE* and *WASD* and soon you will be able to reach your destination.
+Nour: *SPACE* and *WASD*? What does that even mean???
+Rain: And talk to people with E.
+Rain: Flounder on.
+<<EndRain  RainThatTalksToYou>>
+Nour: Wh-- Wait! Who are you? What is going on??? I...
+Nour: I guess I'lll. AGGHHH!!
+Nour: I should probably head to the hospital. Maybe they can fix me up...
+Nour: It's that red building past the archway. I guess... Let's see if I can reach it.
+Nour: Press *SPACE* and *WASD*. Ok. And E to talk.
+===
+title: Rain2
+position: 85,183
+---
+<<MoveBox2  YarnManager>>
+Rain: And so the cockroach regains its legs -- yet they are changed.
+Nour: This is... a goat leg?!
+Rain: They are Nour legs.
+Nour: Are you... real?
+Rain: Do you not feel me in your fur and on your hoof and in your mouth and on your skin?
+Nour: I guess but...
+Rain: Take heart. You will experience untold freedom. All you need to do is press *WASD*...
+Rain: And if you desire to return to your roots, you can always press *CTRL*.
+Rain: Gallop forth.
+<<EndRain  RainThatTalksToYou>>
+Nour: ...Thank you? I'll try that.
+Nour: *WASD* and *CTRL*.... Okay.
+Nour: The doctor said I should go to a "park"... I think there should be one behind that bridge over there.
+Nour: And he said I should try complimenting some people - whatever that means... Let's try that I guess.
+===
+title: Rain3
+position: 299,183
+---
+<<MoveBox2  YarnManager>>
+<<StartRain  RainThatTalksToYou>>
+Nour: I feel it again. Another change is coming, isn't it?
+Rain: You have raised these folks' spirits up. Now it is your turn to ascend.
+<<Metamorphosis PlayerController Wing>>
+<<wait 2>>
+Rain: And then, the cockroach found it had wings.
+Nour: WOAH! I've always wanted wings!
+Nour: ...Huh.
+Nour: It's odd. I've always been scared of telling people how I really feel. And complimenting felt so strange because I thought I would be seen as disingenuous.
+Nour: But it genuinely felt so good. And no one was mad or freaked out! In a way I kind of... impacted their lives in a little way?
+Nour: This whole night I've been so stressed about this whole situation. But now it feels like things are looking up.
+Rain: And they will continue on. Now, soar! 
+Rain: You may do so by pressing *SPACE*.
+<<EndRain  RainThatTalksToYou>>
+Nour: Ok... I'm ready. Here I go.
+<<wait  1>>
+<<TriggerCutscene CutSceneLoader 0>>
+<<jump AgentPostCompliments>>
+===
+title: Rain4
+position: 504,181
+---
+<<MoveBox2  YarnManager>>
+Nour: I know what has to be done.
+<<Metamorphosis PlayerController Rocket>>
+<<wait 2>>
+Rain: And finally, the cockroach gained its antenna.
+Nour: ...Cool? It's weird though. These usually do something.
+Rain: Everything has its purpose. But it's also okay to be purposeless.
+Nour: I feel really close to you right now. Do you wanna hang out sometime?
+Rain: We will see each other again, but in a different form than this one.
+Nour: Oh okay I mean we don't have to if you don't wanna--
+Rain: For now, you may press the *RIGHT MOUSE BUTTON*, and a new world will open to you.
+Nour: Okay. Got it. *RIGHT MOUSE BUTTON*.
+Nour: Umm... I'll.. miss you?
+Rain: We will always be with you. Rocket onwards.
+<<EndRain  RainThatTalksToYou>>
+Nour: Rocket onwards... Huh. Maybe I can reach that big thing in the sky now.
+===
+title: GreenHair1
+tags: 
+colorID: 0
+position: 7,-5
+---
+<<MoveBox2 YarnManager>>
+<<if $mcState is "Leg">> // AKA if nour can compliment right now //character states: Fish, Leg, Wing, Rocket
+Nour: Hey... there.
+Green Hair: What need you from me?
+Nour: What? Um, nothing! Why are you assuming I need something from you?
+Green Hair: *Sigh* All people always to me come looking for help or service of sort.
+Nour: Well, I...
+-> Compliment them.
+    Nour: I just wanna compliment you! Would that be okay??
+    Green Hair: Oh? Why not, suppose I.
+    <<ChangeStartNode GreenHair GreenHair2>>
+    <<ComplimentStart GameManager>>
+-> Something else.
+    Nour: Actually... Do you have 5 dollars?
+    Green Hair: Of course... Here you go.
+    Nour: I have gained 5 dollars!
+<<stop>>
+<<else>>
+    //PUT ONE LINER HERE
+Green Hair: Isn't park this wonderful?
+Nour: I guess?
+Green Hair: Want you hear more about it?
+->  Sure?
+    Green Hair: It was built in 1424 by a great woman known as Purple Hair...
+    Nour: And this was your ancestor?
+    Green Hair: What? No?
+    Nour: Sorry please go on.
+    Green Hair: Yes... As was being said built it was after generous donation from Committee of Green-ish Spaces and Fountain Promotion of 1 gazillion simoleons!
+    Nour: Wow... that's a pretty big number.
+    Green Hair: Actually fairly insiginificant was at the time. Deflation, inflation, stagflation, etc. into account, it would today 4 bucks be.
+    Nour: That's my monthly allowance!
+    Green Hair: Yes... Anyregardless. Purple Hair decided build it with in mind those who enjoy seeing and being seen...
+    Green Hair: ...as a safe space to each other come up and nice things say to each other!
+    Nour: What a noble premise.
+    Green Hair: Indeed!
+->  No?
+    Nour: Maybe another time?
+    Green Hair: Very well.
+<<endif>>
+===
+title: GreenHair2
+tags: 
+colorID: 0
+position: 218,-5
+---
+<<MoveBox2 YarnManager>>
+Nour: {$compliment}
+Green Hair: ...!
+Green Hair: For ever no one has given me tender words such.
+<<Complimented  GreenHair>>
+Green Hair: Thank you my sweet. Keep you in my heart will I.
+Nour: No worries...!
+<<ChangeStartNode GreenHair GreenHair3>>
+<<jump PostCompliment>>
+===
+title: GreenHair3
+tags: 
+colorID: 0
+position: 433,-1
+---
+<<MoveBox2 YarnManager>>
+Nour: Anyone asked you for a service recently?
+Green Hair: Yes... But I found newfound joy for the helping!
+Green Hair: And now, better boundaries... I have those!
+Nour: That's really amazing.
+<<stop>>
+===
+title: Tabitha1
+position: 785,252
+---
+<<MoveBox2 YarnManager>>
+<<if $TabithaComplimented is true>>
+    // This part is meant for what happens if you talk to Tabitha after museum game after she's been previously complimented
+    // This does NOT currently work because variables aren't saved between scenes and IDT it will be implemented but maybe
+    <<Complimented  Tabitha>>
+    <<ChangeStartNode Tabitha Tabitha3>>
+    <<jump Tabitha3>>
+<<elseif $mcState is "Leg">> // AKA if nour can compliment right now //character states: Fish, Leg, Wing, Rocket
+    Nour: Hello tall flower.
+    Tabitha: ...Don't tell me...
+    Nour: Oh? I dunnu I...
+    Tabitha: You're here to take one of my flowers?
+    Nour: I definitely wasn't thinking that.
+    Tabitha: That's what they all say...
+    Nour: Do people take from you often?
+    Tabitha: Actually all of the time, and I only bloom so often.
+    Nour: Hmmm...
+    -> Compliment them.
+        Nour: I just wanna compliment you! Would that be okay??
+        Tabitha: Sure okay!
+        <<ChangeStartNode Tabitha Tabitha2>>
+        <<ComplimentStart GameManager>>
+    -> Something else.
+        Nour: Can I just stare at your flowers for a second?
+        Tabitha: That's strange.
+        Nour: Okay....nevermind....
+    <<stop>>
+<<else>>
+    //PUT ONE LINER HERE
+<<endif>>
+===
+title: Tabitha2
+position: 1005,255
+---
+<<MoveBox2 YarnManager>>
+Nour: {$compliment}
+Tabitha: ...!
+Tabitha: ...feeling something...eep!!
+<<Complimented  Tabitha>>
+Tabitha: I'm blossoming~! Thank you, this is so rare.
+Nour: Happy blossoming!
+<<set $TabithaComplimented = true>>
+<<ChangeStartNode Tabitha Tabitha3>>
+<<jump PostCompliment>>
+===
+title: Tabitha3
+position: 1224,257
+---
+<<MoveBox2 YarnManager>>
+Nour: Still blossoming?
+Tabitha: Yeah..*ahem*...this is awkward to do in public...but I'm so grateful!
+Nour: Keep up the good work!
+<<stop>>
+===
+title: KissingCouple1
+position: 350,727
+---
+<<MoveBox2 YarnManager>>
+<<if $mcState is "Leg">> // AKA if nour can compliment right now //character states: Fish, Leg, Wing, Rocket
+    Nour: Whoa you are going at it!
+    Kissing Couple: We so are!
+    -> Compliment them.
+        Nour: I wanna tell you both some nice things!
+        <<ChangeStartNode KissingCouple KissingCouple2>>
+        <<ComplimentStart GameManager>>
+    -> Something else.
+        Kissing Couple: I hope one day you'll find a love as pure as ours!
+        Nour: See ya later love birds.
+    <<stop>>
+<<else>>
+    Nour: It is like you are swordfighting...but with love.
+    Kissing Couple: We like to think of it more like jousting!
+<<endif>>
+===
+title: KissingCouple2
+position: 561,726
+---
+<<MoveBox2 YarnManager>>
+Nour: {$compliment}
+<<Complimented  KissingCouple>>
+Kissing Couple: Whoa!!! 
+Nour: I didn't know human bodies could do that! 
+Kissing Couple: We're gonna stay like this forever.
+Nour: I hope you set the world record.
+<<ChangeStartNode KissingCouple KissingCouple3>>
+<<jump PostCompliment>>
+===
+title: KissingCouple3
+position: 787,729
+---
+<<MoveBox2 YarnManager>>
+Kissing Couple: *smack slurp smack slurp slurp slurp*
+<<stop>>
+===
+
+title: ShoeBaby1
+position: -503,697
+---
+<<MoveBox2 YarnManager>>
+<<if $mcState is "Leg">> // AKA if nour can compliment right now //character states: Fish, Leg, Wing, Rocket
+    Shoe Baby: *ooomph*! Can you be a bit more careful...I'm sorta unnoticeable...
+    Nour: No, I meant to say hello. So, Hi!
+    Shoe Baby: Unbelievable...so do you come...eh...around this area often?
+    -> Yeah, just to say hi to you! 
+        Nour: Yeah, just to say hi to you! 
+        -> Compliment them!
+            Nour: Compliment incoming!!
+            <<ChangeStartNode ShoeBaby ShoeBaby2>>
+            <<ComplimentStart GameManager>>
+        -> I didn't...I just noticed you from *this* close.
+            Shoe Baby: I don't really go anywhere different.
+            Nour: Is it because of your size?
+            Shoe Baby: ...
+            Nour:...
+    -> This is my first time.
+        Shoe Baby: saying hi is pretty cool still.
+        Nour: talk to you later!
+    <<stop>>
+<<else>>
+    //PUT ONE LINER HERE
+<<endif>>
+===
+
+title: ShoeBaby2
+position: -279,697
+---
+<<MoveBox2 YarnManager>>
+Nour: {$compliment}
+Shoe Baby: ...!
+Shoe Baby: Hahahaha that's tickly!!
+<<Complimented  ShoeBaby>>
+Shoe Baby: Thank you so for even noticing me in the first place! Wowie.
+Nour: Anytime.
+<<ChangeStartNode ShoeBaby ShoeBaby3>>
+<<jump PostCompliment>>
+===
+
+title: ShoeBaby3
+position: -61,695
+---
+<<MoveBox2 YarnManager>>
+Nour: Feeling noticeable?
+Shoe Baby: Yipee!
+Nour:...
+Nour: Yipee!
+<<stop>>
+===
+title: Naut1
+position: -377,535
+---
+<<MoveBox2 YarnManager>>
+<<if $mcState is "Leg">> // AKA if nour can compliment right now //character states: Fish, Leg, Wing, Rocket
+    Nour: Cool shell... nice to meet you!
+    Naut: I used to be energetic like you...
+    -> What happened?
+        Nour: What happened?
+        Naut: Ever since that mysterious archecture when up in the sky I haven't been able to get a lick of sleep.
+        Nour: Why not?
+        Naut: It has completely destroyed the skyline's feng shui.
+        Nour: That's no reason to lose sleep!
+        Naut: Oh yeah?
+        -> Compliment them!
+            Nour: Thinking up an awesome compliment for you!
+            <<ChangeStartNode Naut Naut2>>
+            <<ComplimentStart GameManager>>
+        -> Nah
+            Nour: Hope you get some sleep dude.
+            Naut: Me too...
+    -> You still can be!
+        Naut: Am I supposed to just decide not to be tired?
+            -> Compliment them!
+                Nour: Thinking up an awesome compliment for you!
+                <<ChangeStartNode Naut Naut2>>
+                <<ComplimentStart GameManager>>
+            -> Nah
+                Nour: Hope you get some sleep dude.
+                Naut: Me too...
+    <<stop>>
+<<else>>
+    Nour: You look a little sleepy friend.
+    Naut: Tell me about it...
+<<endif>>
+===
+title: Naut2
+position: -158,526
+---
+<<MoveBox2 YarnManager>>
+Nour: {$compliment}
+<<Complimented  Naut>>
+Naut: Wow! I'm feeling a little energized! 
+Nour: You look it!
+<<ChangeStartNode Naut Naut3>>
+<<jump PostCompliment>>
+===
+title: Naut3
+position: 48,524
+---
+<<MoveBox2 YarnManager>>
+Naut: I think I might go for a run!
+Nour: Sounds fun!
+<<stop>>
+===
+
+title: Thwomp1
+position: -67,373
+---
+<<MoveBox2 YarnManager>>
+<<if $mcState is "Leg">> // AKA if nour can compliment right now //character states: Fish, Leg, Wing, Rocket
+    Thwomp: I'm looking pretty flat huh?
+    Nour: I guess?
+    Thwomp: As flat as you right?
+    Nour: Do you want to be?
+    Nour: I feel like I should be...
+    -> Compliment them.
+        Nour: I'm thinking up some real nice things to say!
+        <<ChangeStartNode Thwomp Thwomp2>>
+        <<ComplimentStart GameManager>>
+    -> Nah.
+        Nour: See you around dude.    
+    <<stop>>
+<<else>>
+    Thwomp: I don't feel like I'm being true to myself.
+    Nour: I hope that changes soon. Don't be afraid to show the world the real you!
+<<endif>>
+===
+
+title: Thwomp2
+position: 147,373
+---
+<<MoveBox2 YarnManager>>
+Nour: {$compliment}
+<<Complimented  Thwomp>>
+Thwomp: WHOA!!! 
+Thwomp: Wow I feel like I can really let loose and be myself now. 
+Nour: Looking good!
+<<ChangeStartNode Thwomp Thwomp3>>
+<<jump PostCompliment>>
+===
+title: Thwomp3
+position: 358,380
+---
+<<MoveBox2 YarnManager>>
+Thwomp: Taking up space! 
+<<stop>>
+===
+title: Farez
+position: 534,544
+---
+<<MoveBox2 YarnManager>>
+Nour: How's your day so far?
+Farez: Hello! Well...first I went to the grocery store. Then I wrote in my novel. Then I...
+Nour: Sounds like a lot!
+Farez: Yes. So much has happened. Then my grandma needed a new lightbulb. Then...
+Nour: Maybe you can tell me how you're doing instead?
+Farez: How I'm doing?? Ok, well...It all started when I was 6. That was when I first started feeling...
+Nour: You don't remember feeling before 6?
+Farez: ...I remember specifically noting in my journal that at the age of 6 was the first time I fully felt sorrow...
+Farez: which is the first kind of feeling that really counts. Then when I was 20 I...
+Nour: You have a lot to say...
+Farez: Well some people do seem to say that about me...and then when I hear that I start to feel...
+Nour: ...Some kind of a feeling?
+Farez: Some kind of a feeling. Correct.
+Nour: Feelings so happen.
+<<stop>>
+===
+title: AgentPostCompliments
+position: 831,-31
+---
+<<wait 7>>
+<<PlaceInterlocutor DialogueSystem Agent>>
+Agent: Whoa there champ! What is going on with your body?
+Nour: I’m not sure! It’s just what’s been happening today!
+Agent: Wow champ, your wings look pretty groovy.
+Nour: My name is actually Nour, but yeah I guess it’s pretty cool.
+Agent: You might be able to ascend the stairs to that big building over there with the UFO…
+Nour: Probably?
+Agent: Can I be honest with you champ? I love what you got going on here.
+Agent: Might I interest you in the opportunity of a lifetime?
+Nour: Perhaps…
+Agent: You may not know this, as being covert is one of my strengths, but I’m a secret agent.
+Nour: I had no idea! What kind of secret agent?
+Agent: I work for BRAG, Big Righteous Agency Galatic. They’re undergoing a corporate rebrand, but I’m sure you’ve heard of them.
+Nour: I definitely have not.
+Agent: You're hired! Use those wings to head up the stairs and there should be a package waiting for you.
+Agent: I'll be in touch!
+<<DeleteInterlocutor DialogueSystem>>
+===
+title: PostCompliment
+position: 831,-31
+---
+<<wait 0.5>>
+<<if $complimentValue is 1>>
+    <<jump PostCompliment1>>
+<<elseif $complimentValue is 2>>
+    <<jump PostCompliment2>>
+<<elseif $complimentValue is 3>>
+    <<jump PostCompliment3>>
+<<endif>>
+===
+title: PostCompliment1
+position: 831,-31
+---
+Nour: Huh... That felt odd. But also nice?
+Nour: I wonder if anything will happen if I compliment more people.
+===
+title: PostCompliment2
+position: 831,-31
+---
+Nour: Wow, I'm feeling like the words are just cascading out of my mouth!
+Nour: Is this what the flow state is like?
+===
+title: PostCompliment3
+position: 831,-31
+---
+Nour: This feels so great!!
+Nour: I feel like something amazing will happen if I compliment just one more person...!
+===
+title: Cecile1
+position: 831,-31
+---
+<<if $mcState is "Fish">>
+    <<if visited("Cecile1") is false>>
+        Cecile: HEY! Do you know if there's any bathroom around???
+        Nour: Uuuh, not that I --
+        Cecile: I REALLY need to pee!
+        Nour: Ok ok! Um... I don't know, why don't you just do it in this alleyway?
+        Cecile: Oh no, not again...
+        Nour: Not again what?
+        Cecile: It's a REALLY long story that I would rather not get into right now because I REALLY need to pee and I CANNOT embarass myself again!
+        Nour: Ok! I'm sorry, I hope you figure it out!
+    <<else>>
+        Cecile: PLEASE let me know if you find out about any public bathroom anywhere!!!!
+        Nour: Sure!!!
+    <<endif>>
+<<elseif $mcState is "Leg">>
+    <<if visited("Cecile1") is false>>
+        Cecile: HEY! Do you know if there's any bathroom around???
+        Nour: So uh, I'm actually heading to this park right now. Maybe they..?
+        Cecile: OH OK THAT'S TRUE THEY PROBABLY HAVE A PUBLIC BATHROOM.
+        Nour: Yeah..!
+        Cecile: ...
+        Nour: So are you going or --
+        Cecile: YOU KNOW WHEN YOU FEEL LIKE IF YOU DO ANY SMALL MOVEMENT YOU MIGHT PISS YOURSELF?
+        Nour: Yeah...
+        Cecile: I JUST NEED TO REGAIN MY COMPOSURE.
+        Nour: Ok good luck...! I'll see you there maybe.
+        Cecile: OK.
+    <<else>>
+        Cecile: I'LL SEE YOU AT THE PARK PLEASE STOP TALKING TO OR WAITING FOR ME IT'S MAKING IT WORSE.
+        Nour: Ok!!!
+    <<endif>>
+<<elseif $mcState is "Wing">>
+    Cecile: WHAT DO YOU MEAN CLOSED FOR MAINTENANCE.
+<<elseif $mcState is "Rocket">>
+    Nour: Did you--
+    Cecile: I DID.
+    Nour: You mean--
+    Cecile: I PEED MYSELF.
+    Nour: But you look like you still--
+    Cecile: I DRANK TOO MUCH WATER.
+<<endif>>
+===
+title: Blanche1
+position: 831,-31
+---
+<<if visited("Blanche1") is false>>
+    Ms. Mouse: Hello Nour... You've found me.
+    Nour: Oh hello Ms. Mouse... (oh my god)
+    Ms. Mouse: Ms. Mouse? That's not who I am.
+    Nour: ...? Yes you are? You teach us algebra...
+    Ms. Mouse?: No, no, no... Ms. Mouse has slightly longer left whiskers and wears glasses. I am Blanche the flying mouse, protector of the innocent and the downtrodden.
+    Nour: Oh.
+    Nour: Sure I guess.
+    Blanche: ;).
+<<else>>
+    Blanche: You look fairly downtrodden to me.
+    Nour: Oh I'm fine really.
+    Nour: I mean I was really struggling earlier but now I have all these cool new abilities..!
+    Blanche: But I can still sense a deep sadness in your heart.
+    Nour: ...
+    Blanche: Do you want to talk about it?
+    Nour: It's OK Ms. Blanche I just have to deal with some stuff.
+    Blanche: Are you sure?
+    Nour: ...
+    <<ChangeStartNode Blanche Blanche2>>
+<<endif>>
+===
+title: Blanche2
+position: 831,-31
+---
+Nour: What are you doing on this rooftop anyway?
+Blanche: What are you doing avoiding your feelings?
+Nour: What??? I'm not-- I was going to ask her out, OK!!! But she kissed Fedora!!!
+Blanche: Hmm...
+Nour: I'm-- sorry, this might be inappropriate given you teach us algebra and all.
+Blanche: Again, not your teacher.
+Nour: ...Sure.
+<<ChangeStartNode Blanche Blanche3>>
+===
+title: Blanche3
+position: 831,-31
+---
+Blanche: You know, I've also faced rejection, once upon a time...
+Nour: Really??? I mean, I can't believe... Wow.
+Blanche: Yes, there was this scarlet anteater...
+Blanche: ...
+Blanche: Anyway, that's a story for another time.
+Nour: But you said I shouldn't avoid --
+Blanche: Anyway.
+<<ChangeStartNode Blanche Blanche4>>
+===
+title: Blanche4
+position: 831,-31
+---
+<<if visited("Blanche4") is false>>
+    Blanche: My point is, there are more gems this world has to offer.
+    Nour: ...Gems?
+    Blanche: Yes. Look at all the gems I have liberated tonight!
+    Nour: ...Liberated?
+    Nour: I thought you were a protector of the innocent and the downtrodden?
+    Blanche: Exactly. And these gems were miserable before I liberated them.
+    Nour: Wow...
+<<else>>
+    Nour: I hope I can be more like you one day, Ms. Blanche.
+    Blanche: No, no, no. You will be something different entirely, my weanling.
+    Nour: Thank you.
+<<endif>>
+===
+title: Igor1
+position: 831,-31
+---
+<<if $mcState is "Fish">>
+    Igor: Hi... Nour?
+    Nour: Yeah, it's me. Hi Igor.
+    Igor: You look different.
+    Nour: Yeah.
+    Igor: Do you wanna talk about it?
+    Nour: Not really.
+    <<ChangeStartNode Igor Igor2>>
+<<else>>
+    Nour: Hi Igor.
+    Igor: Hi Nour!
+    Igor: You look different!
+    Nour: Yup.
+    Igor: How do you feel about it?
+    -> Frazzled.
+        Nour: Honestly kind of frazzled.
+        Igor: Yeah...
+        <<ChangeStartNode Igor Igor3>>
+    -> Excited.
+        Nour: Honestly I'm kind of excited.
+        Nour: It's weird, but I've never been able to move this way before!
+        Igor: That's great!
+        Igor: When you have the chance, I would like to study the changes in your body. How fast can you run? Why is only one of your leg goat-ish when you're standing still? Does it hurt when I pinch you here? Can you --
+        Nour: OK OK yeah when I get the chance.
+        <<ChangeStartNode Igor Igor4>>
+    -> Befuddled.
+        Nour: Honestly kind of befuddled.
+        Igor: Yeah...
+        <<ChangeStartNode Igor Igor3>>
+<<endif>>
+===
+title: Igor2
+position: 831,-31
+---
+<<if $mcState is "Fish">>
+    Igor: Do you need help... getting back up?
+    Nour: You know what... maybe? We can try.
+    Igor: Ok... Um...
+    Nour: ...
+    Igor: I'm sorry Nour, you're awfully slippery. I don't think this is gonna work.
+    Nour: That's ok, thanks for trying...
+    Nour: I think I'm heading to the hospital, I'm sure they can fix me.
+    Igor: Yeah!
+    <<ChangeStartNode Igor Igor3>>
+<<else>>
+<<endif>>
+===
+title: Igor3
+position: 831,-31
+---
+Igor: You know Nour, I'm sure you'll be fine.
+Nour: Yeah?
+Igor: Yeah! You remember when my horns first sprouted?
+Nour: Yeah?
+Igor: And you know how they made the doors of the school horizontal just so I could fit in?
+Nour: That was why they did it?
+Igor: Yeah!
+Nour: That's cool...
+Igor: But?
+Nour: I just don't want people to have to... change things just for me.
+Igor: But people want to help!
+Nour: ...
+Nour: I guess so.
+<<ChangeStartNode Igor Igor4>>
+===
+title: Igor4
+position: 831,-31
+---
+<<if visited("Igor4") is false>>
+    Nour: So, I didn't see you at the dance.
+    Igor: Yeah.
+    Nour: Wanna talk about it?
+    Igor: Oh, I just feel like we're sort of grown up for that kind of things. At least I feel that way. You know I'm training to be a mad scientist?
+    Nour: Oh! that sounds really mature, Igor!
+    Igor: Thanks! I'm really excited! My research focus is going to be extracting the remnants of souls from cicada shells and merging them into one perfect being that doesn't feel pain!
+    Nour: That's really cool!
+    Nour: ...But you know it would've also been cool to hang out with you and Nizar at the dance!
+    Igor: I'm sorry Nour, that sort of thing is really juvenile for me. But maybe we can go birdwatching together sometime!
+    Nour: I'd like that!
+<<else>>
+    Nour: By the way, why only cicada shells? Why not real cicadas?
+    Igor: That would be highly unethical, Nour.
+    Nour: Oh. Of course.
+<<endif>>
+===
+title: AgentEncounter
+position: 831,-31
+---
+    Agent: Don’t mind me. Just doing secret agent stuff.
+===
+title: Favian
+position: -503,697
+---
+<<MoveBox2 YarnManager>>
+Favian: I find this sculpture unsettling…
+Nour: Oh? Why?
+Favian: I'm not sure how but...
+Favian: I think this artist traveled inside my subconscious to create this work of art.
+ -> That's strange!
+        Nour: That's strange!
+        Favian: It is…
+        Nour: Do you keep a diary? Maybe they found it.
+        Favian: I do! That must be what happened.
+        Favian: Thank you for helping me figure that out.
+ -> That's magical! 
+        Nour: That's magical!
+        Favian: Do you really think so?
+        Nour: Yes! They must have rode the astral plane into your dreams.
+        Nour: There’s simply no other explanation.
+        Favian: That must be what happened!
+        Favian: Thank you for helping me figure that out.
+<<ChangeStartNode npc07 FavianAgain>>
+===
+title: FavianAgain
+position: -503,697
+---
+Favian: Thank you Nour! Now I can enjoy this sculpture of my subconscious!
+===
+title: NoseDude
+position: -503,697
+---
+<<MoveBox2 YarnManager>>
+Nose Dude: Do you smell that?
+Nour: I do… it smells like…
+-> Bubblegum flavored spaghetti.
+        Nour: Bubblegum flavored spaghetti.
+-> A tree branch dipped in caramel.
+        Nour: A tree branch dipped in caramel. 
+Nose Dude: Wow I do not smell that.
+Nose Dude: I actually don’t have very sensitive olfactory sensory neurons.
+<<ChangeStartNode Sprite-0001 NoseDudeAgain>>
+===
+title: NoseDudeAgain
+position: -503,697
+---
+<<MoveBox2 YarnManager>>
+Nose Dude: Thanks for the vivid smell description! I can pratically smell it. 
+Nose Dude: Haha not really though. 
+===
+title: Paloma
+position: -503,697
+---
+<<MoveBox2 YarnManager>>
+Paloma: Sick Antenna!
+Nour: Thanks I grew it myself!
+Paloma: Do you know how many insects there are on the planet?
+Nour: I’m not sure.
+Paloma: 10 quintillion.
+Nour: That is so many.
+Paloma: Do you think of yourself as an insect?
+    -> No.
+        Nour: No, I'm just Nour, even if I have some parts that people might think make me an insect.
+    -> Yes.
+        Nour: Yes, but not in a way that makes me feel small or insignificant.
+        Nour: I feel connected to them through all the changes I’ve experienced today. 
+Paloma: Cool.
+Nour: Do you know any more insect facts?
+Paloma: Assassin bugs inject enzymes into their prey so they can liquefy their insides.
+Nour: I maybe wish I didn’t know that one.
+<<ChangeStartNode npc08 PalomaAgain>>
+===
+title: PalomaAgain
+position: -503,697
+---
+Paloma: And then there's the Goliath Birdeater, which is the second largest tarantula in-
+Nour: No thank you! 
+===
+title: Finn
+position: -503,697
+---
+<<MoveBox2 YarnManager>>
+Finn: Sup Nour! Sick goat legs! 
+Nour: Thanks! They’re new.
+Finn: You left the dance pretty quick, everything okay?
+    -> I got tired.
+        Nour: I got tired
+        Finn: You were dancing up a storm, totally makes sense.
+        Finn: Where did you learn to dance like that?
+        Nour: I trained for months with our dance teacher.
+        Finn: Very impressive commitment!
+        Nour: Thanks! I’ll see ya later.
+    ->  I was surprised to see Fedora with Crush…
+        Nour:  I was surprised to see Fedora with Crush…
+        Finn: Dude me too. 
+        Finn: I don’t really get it.
+        Nour: Me either.
+        Finn: I just hope Crush is happy and that Fedora understands how lucky he is.
+        Finn: And if he breaks Crush’s heart he will regret it!
+        Nour: You’re a good friend.
+        Finn: I try to be.
+        Nour: Thanks for the chat! I’ll see ya later.
+<<ChangeStartNode npc04 FinnAgain>>
+===
+title: FinnAgain
+position: 831,-31
+---
+Finn: Have a rocking night Nour!
+===
+title: Dennis
+position: 831,-31
+---
+Nour: How's it going?
+Dennis: Beautiful actually! I'm taking some time for myself!
+Dennis: Being near my nest, all of those eggs, all of the responsibilty all of the time! 
+Dennis: It's just too much!
+Nour: Sounds like it!
+Nour : Sometimes you just need a little bit of space. Then you can come back refreshed and in a new state of mind!
+Dennis: I'm so glad you understand.
+<<ChangeStartNode npc06 DennisAgain>>
+===
+title: DennisAgain
+position: 831,-31
+---
+Dennis: I hope you get to take a break from your responsibilties soon too!
+===
+title: Fuchsia
+position: 831,-31
+---
+Fuchsia: OH my God you SCARED me!
+Nour: My bad! Are you okay?
+Fuchsia: I'm fine...that dance was just not for me.
+Nour: Me either...
+Fuchsia: What are you talking about? You danced magnificently! 
+Nour: I'm a little worried I embarassed myself. 
+Fuchsia: No way! It was deeply impressive. 
+Fuchsia: I probably embarassed myself...I was there for like 10 seconds before I needed to leave and go as far away as I could. 
+Nour: That's so cool that you tried though! Walking in is a really good start. 
+Fuchsia: That's very kind of you to say. 
+Fuchsia: It's been nice chatting with you, but you're kinda ruining my lurking in the shadows thing.
+Nour: See ya later!
+<<ChangeStartNode feltghost FuchsiaAgain>>
+===
+title: FuchsiaAgain
+position: 831,-31
+---
+Fuchsia: I'm like pretty good at lurking...
+===
+title: DoctorAndReceptionist
+position: 831,-31
+---
+Doctor: When I look into your eyes I see my future.
+Receptionist: Me too.
+Doctor: I worry I haven’t given you enough of my attention.
+Receptionist: You have given me some of the most intense-
+Doctor: Whoa! Nour! I didn’t see you there.
+Nour: Sorry to interrupt.
+Nour: Just wanted to say I’m glad you’re working things out!
+Receptionist: Thanks so much sweetheart!
+Doctor: Thanks for stopping by, but we have to get back to staring off into the distance romantically. 
+Nour: Enjoy!
+<<ChangeStartNode Doctor DoctorAndReceptionistAgain>>
+===
+title: DoctorAndReceptionistAgain
+position: 831,-31
+---
+Receptionist: Staring off into the distance romantically with you is my favorite thing!
+Doctor: Me too darling. 
+===
+title: CrushAndFedora
+position: 831,-31
+---
+Fedora: Nour? What happened to your legs?
+Nour: I…um…I’m going through a metamorphosis I think.
+Crush: That’s cool! Staying the same is really overrated.
+Nour: Thanks yeah…I totally agree.
+Crush: By the way...I'm sorry about the note....
+Nour: Yeah...I figured...
+Fedora: Oops haha awkward!
+Fedora: Soooooo you got any summer plans Nour?
+Nour: I’m just trying to live in the moment.
+Fedora: Wow, you’re so wise!
+Crush: I definitely want to dance more this summer!
+Fedora: Nour, you were really busting some wild moves at the dance, maybe you could teach us sometime.
+Nour: Yeah…Maybe later…
+Nour: I gotta go.
+<<ChangeStartNode Crush CrushAndFedoraAgain>>
+===
+title: CrushAndFedoraAgain
+position: 831,-31
+---
+Fedora: Looking foward to our dance lesson!
+===
+title: Smush
+position: 831,-31
+---
+Smush: Welcome to my mindfulness garden!
+Nour: I can totally try and be mindful.
+Nour: What should I be mindful of?
+Smush: The way the ground feels! How the air smells! The feeling of breath in your lungs!
+Nour: Whoa. Air is for sure going in and out of my lungs.
+Smush: Yes! It is!
+Nour: Do I need to be mindful of everything at once? Cause I’m not sure my brain can do that?
+Smush: No! If you get stressed out about not being mindful enough then that defeats the purpose!
+Nour: Wow, that’s a big relief.
+Nour: Thank you.
+<<ChangeStartNode npc03 SmushAgain>>
+===
+title: SmushAgain
+position: 831,-31
+---
+Smush: Deep breaths are super awesome. 
+Nour: They so are. 
+===
+title: AbstractGuy
+position: 831,-31
+---
+Nour: Whoa! I almost didn’t see you there.
+Abstract Guy: That’s kind of the point. I’m not sure I want to be seen.
+Nour: Is that why you’re back here?
+Abstract Guy: I guess yeah.
+Nour: I’m not totally sure I want to be seen today either.
+Abstract Guy: Cool.
+Abstract Guy: Well.
+Abstract Guy: There are plenty of other places to hide. I claimed this one.
+Nour: I totally understand.
+<<ChangeStartNode abstractFriend AbstractGuyAgain>>
+===
+title: AbstractGuyAgain
+position: 831,-31
+---
+Abstract Guy: The east island has some pretty good hiding spots. 
+Abstract Guy: You should go find one. 
+===
+title: FryingPan
+position: 831,-31
+---
+Frying Pan: Are you hungry for breakfast?
+Nour: Breakfast for dinner does rock.
+Frying Pan: You’re welcome to have one of my eggs then!
+Nour: Will you still be able to see?
+Frying Pan: Oh. Yeah. Nevermind.
+Frying Pan: Sorry about that. 
+Nour: No biggie.
+<<ChangeStartNode FryingPan FryingPanAgain>>
+===
+title: FryingPanAgain
+position: 831,-31
+---
+Nour: What happens if your eggs go bad?
+Frying Pan: That's a problem for another day!
+===
+title: Nizar1
+position: 831,-31
+---
+Nizar: Oh my!
+Nour: What?
+Nizar: You look...
+Nour: I know.
+Nizar: Why, darling, this look is really not doing it for you.
+Nour: ...
+<<ChangeStartNode Nizar Nizar2>>
+===
+title: Nizar2
+position: 831,-31
+---
+Nour: That's a really mean thing to say, Nizar.
+Nizar: Well, I was just stating my opinion!
+Nour: Your opinion isn't always welcome.
+Nizar: ...
+Nour: Especially when I have no control over my current appearance!!!
+Nizar: ...
+<<ChangeStartNode Nizar Nizar3>>
+===
+title: Nizar3
+position: 831,-31
+---
+Nizar: Nour, I have to apologize.
+Nour: It's ok, Nizar...
+Nizar: Nonsense. I was rude to you, and for that I have no excuse.
+Nour: Don't worry about it, really --
+Nizar: I shall have none of that. The truth is, I criticize other people's appearances in a manner most unbecomely as an attempt to cover up my own insecurities about my height as well as my vampire-like pale complexion.
+Nour: Nizar it's fine!!!
+Nizar: You see, ever since 3rd grade, if you recall when Mx. Lakshmini would say...
+Nour: Nizar I don't care!!!!!
+Nizar: Oh.
+Nour: Sorry, I didn't mean it like that. We're cool.
+Nizar: Cool.
+<<ChangeStartNode Nizar Nizar4>>
+===
+title: Nizar4
+position: 831,-31
+---
+Nour: Were you making fun of me just now?
+Nizar: No! I was truly being honest and sincere when I--
+Nour: Ok, ok. Don't worry about it.
+Nizar: Alright.
+<<ChangeStartNode Nizar Nizar5>>
+===
+title: Nizar5
+position: 831,-31
+---
+Nour: Is there anything going on between you and Igor...?
+Nizar: Well we are currently dating.
+Nour: I know, but I meant neither of you were at the dance but I see now that you're just kind of hanging out apart.
+Nizar: Nour, it is very healthy for a couple to spend some time apart every now and then. In fact, it only intensifies our passion for one another.
+Nour: Oh, I'm sorry for presuming...
+Nizar: It's okay. You will see, when you and Crush become a thing...
+Nour: She kissed Fedora!!!
+Nizar: She what?!
+<<ChangeStartNode Nizar Nizar6>>
+===
+title: Nizar6
+position: 831,-31
+---
+<<if visited("Nizar6") is false>>
+    Nour: She did... Wait, how did you even know I was into--?!
+    Nizar: Oh, my darling Nour. It was written all over your face for the entirety of 8th grade. And after that note-passing incident I thought --
+    Nour: See, I'm starting to think that wasn't even meant for me!!
+    Nizar: Oh... I'm sorry Nour.
+    Nour: I'll get over it...
+    Nizar: ...
+    Nizar: Well, regardless, do know that you will always have a friend - and a set of ears! - in me and Igor!
+    Nour: Thank you Nizar...
+<<else>>
+    Nour: Do you ever think about what you want to be when you grow up?
+    Nizar: Hmmm... perhaps a chiropractor? What about you, Nour?
+    Nour: Hmmm...
+    ->  A dancer.
+        Nour: Maybe a dancer?
+        Nizar: Swell! I've heard many tales (by which I mean texts) about your exploits at the school dance!
+        Nour: R-really?
+        Nizar: Yes!
+    ->  A vampire hunter.
+        Nizar: What is that supposed to mean?
+        Nour: What?
+        Nizar: What?
+        Nour: Nizar... are you a...
+        Nizar: Say it.
+        Nour: Well, I've never seen you out in the sunlight, I've never seen you eat normal food, and your teeth are really sharp...
+        Nizar: Just say it already!!!
+        ->  Are you a vampire?
+            Nour: Are you a vampire?!
+            Nizar: No.
+            Nour: Oh okay then.
+        ->  Nevermind.
+            Nour: Nevermind, that was really invasive of me I'm sorry.
+            Nizar: ? I forgive you...?
+    ->  A sea lion.
+        Nour: Maybe a sea lion?
+        Nizar: ...How would that work?
+        Nour: ...Haven't you seen me?
+        Nizar: Oh right... Well, I hope you're able to achieve it soon. Maybe Igor could help you with this endeavor..!
+        Nour: I would rather not......
+<<endif>>
+===
+title: Khaldun1
+position: 831,-31
+---
+<<if visited("Khaldun1") is false>>
+    Khaldun: Nour! I have to tell you, you looked absolutely dazzling in the dance!
+    Nour: Thanks Khaldun...
+    Khaldun: And let me tell, Crush? She does not! deserve you. You totally deserve better.
+    Nour: I appreciate it but I don't think that's -- Wait you knew??
+    Khaldun: Um, hello?? Everyone with a set of eyes does!
+    Nour: ...
+    Khaldun: Hey, you'll get over it. I mean, you're only the cutest, most talented, smartest, classiest, staturesquest, kindest, wonderfulest...
+    Nour: Th-thanks...
+    Khaldun: Plus I love your transformations! It really works on you!
+    Khaldun: And by the way, let me know if you ever wanna hang out, like, one-on-one.
+    Nour: Khaldun, are you...
+    Khaldun: What?
+    Nour: Do you like... like me?
+    Khaldun: Oh.
+    Khaldun: Well.
+    Khaldun: I'm sorry Nour, I'm already seeing someone. But hey, I'm sure there's someone out there for you!
+    Nour: That's not why I was --- Ok! Cool! Whatever!!
+    Khaldun: Yeah! We can be friends!
+    Nour: We already are!!!
+    Khaldun: Totally!
+<<else>>
+    Nour: About earlier... I didn't mean that --
+    Khaldun: It's ok Nour! We don't have to talk about it!
+    Nour: ...
+    Nour: Who are you dating anyway?
+    Khaldun: Oh, they don't go here. You wouldn't know them.
+    Nour: Oh ok.
+<<endif>>
+===
+title: Wisard1
+position: 831,-31
+---
+<<if visited("Wisard1") is false>>
+    Wisard: Why it's-- It's you! Finally, fina... Finally. Hello!
+    Nour: Hi???
+    Wisard: It's you, Asmee, isn't it?
+    Nour: No? I'm Nour.
+    Wisard: Oh right, right, right. Dayae!
+    Nour: Nour.
+    Wisard: Sorry. Nour! It is so great to finally meet you!
+    ->  Keep talking to him
+        Nour: Okay???
+    ->  Leave
+        Nour: I really have to go sorry.
+        Wisard: W--wait!!
+    Wisard: Why you.. Yes, you, little one... You are the chosen one!
+    Nour: The chosen one to do what...
+    Wisard: Why it's -- It's all here! In my crystal orb! Behold!
+    Nour: ...It's really cloudy.
+    Wisard: No matter! It's the truth! You have a destiny! You see, you were meant to... to...
+    ->  Keep talking to him
+        Nour: Yes?
+    ->  Leave
+        Nour: I really have to go seriously.
+        Wisard: I'm not done!!!
+    Wisard: You see, you are meant to deliver the great Purple Dragon from the hands of the evil A.I. Cluster!
+    Nour: How?
+    Wisard: How?
+    Wisard: With you... Do you have any weapon?
+    Nour: I used to have a katana but I left it in the gym locker once without locking it and I couldn't find it since.
+    Wisard: Well... No matter! I'm sure you will find a way, for the orb knows you are most of all a RESOURCEFUL hero!
+    ->  Leave
+        Nour: Ok listen I'm sorry but I really have a lot going on right now.
+    ->  Leave
+        Nour: Ok listen I'm sorry but I really have a lot going on right now.
+    Wisard: But... you're the only one who can --
+    Nour: Maybe some other time.
+    Wisard: ...!
+<<else>>
+    Wisard: Are you ready to embrace your destiny...?
+    Nour: Nope!!
+<<endif>>
+===
+title: Patient1
+position: 831,-31
+---
+Patient's Husband: Thank you for saving my husband!
+Patient's Child: Thank you for saving my dad!
+Patient's Cousin: Thank you for saving my cousin!
+Nour: Um it's nothing really, I kind of just walked into it...
+Patient: And you did an excellent job! I have never felt so in tune with my organs!
+Nour: ...:)
+===
+title: Rashid1
+position: 831,-31
+---
+<<if visited("Rashid1") is false>>
+Rashid: sssnello there...
+Nour: Hi.
+Rashid: you look ssss... sssnassssty...
+Nour: I look nasty???
+Rashid: ssssnooo... 
+Rashid: It's snake for "tasty".
+Nour: ...If you can speak normally why don't you just do it all the time?
+Rashid: what a ssssnawful sssthing to sssayyyy... thisss isss how I sssnexpressss mysssself...
+Nour: You're totally right I'm sssorry.
+Rashid: don't do that.
+Nour: Sorry. 
+<<else>>
+Nour: Come here often?
+Rashid: we can ssskip the sssmall talk...
+Nour: And get to...?
+Rashid: sssss... sssnothing... you don't really interesssst me. sssnot even asss a friend.
+Nour: Oh ok.
+Rashid: ssssnave a nicccce day.
+<<endif>>
+===
+title: Rashid2
+position: 831,-31
+---
+Rashid: ssss... i love being at the snedge of the cccityy...
+Rashid: it makesss me feel....
+Nour: Happy? Melancholic? Awkward? Thoughtful? Yearny? Eager? Afraid? Elated?
+Rashid: ssssnakey.....
+===
+title: B0NN-331
+position: 831,-31
+---
+<<if visited("B0NN-331") is false>>
+B0NN-33: TH1S C1TY... WH4T 15 Y0UR FAV0RITE THING 4B0UT 1T?
+Nour: Hmm..
+->  The bridges between buildings.
+    Nour: The bridges between buildings are really fun to walk on! Have you ever tried them?
+    B0NN-33: N0...
+->  The residents.
+    Nour: I really like everyone who lives here! I can't see myself going anywhere else, I'd miss my friends too much!
+    B0NN-33: 1NT3R3ST1NG...
+->  The puddles.
+    Nour: The shiny puddles are really nice to walk in!
+    B0NN-33: F45C1N4T1NG...
+B0NN-33: 50 Y0U W1LL N0T M155 TH3M WH3N TH3 4.1. D0M1N10N 4850R85 1T 4LL?
+Nour: What??? Obviously I will!
+Nour: Wait, are you like evil??
+B0NN-33: N000... W3 4R3 51MPLY... N3C3554RY...
+Nour: Can you like... be chill? I really don't want the city to be absorbed by an A.I. dominion!
+B0NN-33: 0H... W3 D1DN'T R34L1Z3 TH15 W0ULD HURT Y0UR F33L1NG5. UND3R5T00D...
+<<else>>
+Nour: So... you won't absorb the city into the A.I. Dominion?
+B0NN-33: N0 1T'5 0K... W3 W1LL F1ND 4N0TH3R C1TY.
+Nour: You probably shouldn't absorb any city at all.
+B0NN-33: 0H...
+B0NN-33: MUCH T0 PR0C355...
+Nour: Yeah...
+<<endif>>
+===
+title: Grfirufn1
+position: 831,-31
+---
+<<if visited("Grfirufn1") is false>>
+Nour: Hi!
+Grfirufn: ...
+Nour: Hello?
+Grfirufn: ...
+Nour: How's it going?
+Grfirufn: ...
+Nour: Any thoughts about... things?
+Grfirufn: Not everyone wants to talk to you.
+Nour: Oh I'm sorry. 
+<<else>>
+Grfirufn: Leave me alone little cockroach.
+Nour: I'm not a cockroach.
+Grfirufn: This wasn't a judgement on your character. There is nothing wrong with cockroaches.
+Nour: Ok but that's not what I am! I'm Nour!
+Grfirufn: Very well. Leave me alone Nour.
+Nour: Fine!
+<<endif>>
+===
+title: Tessaraheem1
+position: 831,-31
+---
+<<if visited("Tessaraheem1") is false>>
+    Tessaraheem: Hi! Do you go to the school here?
+    Nour: Well I just graduated from middle school, but yes I guess I used to.
+    Tessaraheem: That's wonderful! We're thinking of bringing our daughter here. What number score would you give this school?
+    Nour: Hmm...
+    ->  4
+        Nour: Maybe a four?
+    ->  72
+        Nour: Maybe a seventy two?
+    ->  -392
+        Nour: Maybe a minus three hundred ninety two?
+    Tessaraheem: On a scale of...?
+    Nour: I feel like that was on you to set...?
+    Tessaraheem: Ummm... Right...
+    Tessaraheem: And how would you describe it, in one word that starts with S?
+    Nour: Let's see...
+    ->  Stinky
+        Nour: Definitely stinky.
+    ->  Sporadic
+        Nour: Sporadic for sure.
+    ->  Swag
+        Nour: Pretty swag.
+    Tessaraheem: Oh! Very good to know!
+    Tessaraheem: Ok, last question... Overall, would you recommend it?
+    Nour: Well...
+    ->  Yes.
+        Nour: This is where I met my best friends in the world, I think my algebra teacher is a superhero...
+        Nour: ...and also the school dance here definitely has more production value that any other school in the region, so I'd say yes!
+        Tessaraheem: That is wonderful to hear! 
+    ->  No.
+        Nour: The bell is really loud, the PE teacher only teaches dancing (which I like but I wanna play football sometimes)...
+        Nour: And I got my heart broken by my crush just now!!!!
+        Tessaraheem: O...kay.
+        Tessaraheem: Well that is good to know. What do you think, darling?
+        Tessaraheem: I agree with this cockroach, darling. I really wouldn't want our daughter to commute all the way from 5D land everyday just to get their heart broken by some preppy middle schooler.
+        Nour: I never said she was preppy!
+    Tessaraheem: Thank you so much for your help, little cockroach!
+    Nour: I'm not a--
+    Tessaraheem: We will now retreat into our secret pocket dimension. Please look away as this takes a lot of concentration.
+    Nour: Ok.
+<<else>>
+    Nour: Are you--?
+    Tessaraheem: We are still in the process of retreating into our secret pocket dimension. Please look away as this takes a lot of concentration.
+    Nour: Right totally.
+<<endif>>
+===
+title: Starina1
+position: 831,-31
+---
+Starina: This bridge... It's wonderful isn't it?
+Nour: I guess?
+Starina: What word would you use to describe it?
+Nour: Um..
+->  Glossy
+->  Metallic
+->  Stretchy
+Starina: Wrong!
+Nour: What?
+Starina: Wrong! This bridge is liminal!
+Nour: ...Ok?
+Starina: Do you know what liminal means?
+->  Yes.
+    Nour: Yes please don't explain it me.
+    Starina: Well if you did I don't understand why you didn't just use that word!
+    Nour: *sigh*
+->  No.
+    Nour: No.
+    Starina: Liminal is everything that is in-between... It is the both and the neither... It is the space where we are forced to reckon with the Other. Do you see it??
+    Nour: Are you the other here?
+    Starina: It's a metaphor! Which is also what you're going through!
+    Nour: What?
+    Starina: Your transformations! They're a metaphor! Don't you see?
+    Nour: For what??
+    Starina: The meaning isn't there yet, it's for you to uncover! Isn't that wonderful?
+    Nour: I don't know if this is that kind of piece...
+    Starina: Open your eyes!!!
+===
+title: Starina2
+position: 831,-31
+---
+<<if visited("Starina2") is false>>
+    Starina: Isn't this broadwalk wonderful?
+    Nour: Yeah the inclination is pretty fun I guess.
+    Starina: Why this is... This is where I met my first love!
+    Nour: It is?
+    Starina: Yes... I was but a young starling back in the day... I was known as Staritina. And my lover...
+    Starina: My lover was a gust of wind! Why, it just blew right through me, and it completely reversed my world!
+    Nour: Oh?
+    Starina: Yes... It was the most wonderful feeling I ever felt.
+    Nour: *sigh*
+    Starina: What's wrong little cockroach?
+    Nour: I'm not a -- Doesn't matter.
+    Nour: It just feels like everywhere I go everyone is happy and coupled up. And I'll be alone forever!
+    Starina: Oh, poor little thing. It's okay. You know, after the wind blew through me, I never saw or felt it again. Even happiness is fleeting!
+    Nour: Oh...
+    Starina: Besides, there are other nice things in this world... Like this boardwalk!
+    Nour: Right.
+<<else>>
+    Nour: Do you ever miss your first love?
+    Starina: Yes, but there are other things in the world!
+<<endif>>
+===
+title: Starina3
+position: 831,-31
+---
+<<if visited("Starina3") is false>>
+    Starina: Isn't this building wonderful?
+    Nour: It's pretty swanky.
+    Starina: Did you know that the architect went mad and thought that they were possessed by the spirit of rumpus when they built it with their very claws before ripping their own eyes out?
+    Nour: No??? That's awful!
+    Starina: It's ok! They eventually got better and found a new appreciation for sound then released a critically acclaimed Hyperpop/Jazz fusion album.
+    Nour: Oh... good for them?
+    Starina: Yes! Until they thought they were possessed again and drilled a giant hole in the middle of the city before killing their entire step-family!
+    Nour: That's horrible!
+    Starina: It was, but then they filled the hole with this beautiful park, and the architect learnt necromancy to revive their step-family!
+    Nour: That's good...
+    Starina: You would think so! But then--
+    Nour: I don't think I can take this anymore!!
+<<else>>
+    Starina: You haven't heard the best part!
+    Nour: ...What?
+    Starina: That architect... Was me!!!
+    Nour: But... you have eyes?
+    Starina: I got better.
+    Nour: And no claws?
+    Starina: I also got worse.
+<<endif>>
+===
+title: Starina4
+position: 831,-31
+---
+Starina: Have you noticed how different buildings and the rest of the landscape can be (stylistically) in this city?
+Starina: For example, notice the buildings surrounding me. 
+Starina: Notice how some are more detailed than others, how some seem to be made of this very tactile yarn-like textures while some are made of this ethereal substance that seems out of this world?
+Nour: I guess?
+Starina: It's because, believe it or not, a lot of different folks worked on it with completely different artistic sensibilities!
+Nour: Isn't that pretty standard?
+Starina: What?
+Nour: I mean, are there cities built by a single person?
+Starina: ...
+Starina: I'm not sure, I've never been anywhere else.
+Nour: Me neither!
+===
+title: Tesseraheem2
+position: 831,-31
+---
+Tesseraheem: You see that cute couple dining on top of the pink glittery building?
+Nour: Maybe?
+Tessaraheem: They do this every weekend. I'm so jealous of them... 
+Tessaraheem: Honestly, sometimes I just crave the comforting normalcy of a gentle routine with the person(s) I love.
+Nour: Tell me about it...
+===
+title: Tesseraheem3
+position: 831,-31
+---
+Tesseraheem: Have you heard about the cicada quest?
+Nour: No?
+Tessaraheem: Rumor has it, if a brave soul find all the cicadas in this city, something amazing and dazzling will happen!
+Nour: Oh!!! Is this true?
+Tessaraheem: Well... I'm actually not sure if it was implemented yet.
+Tessaraheem: Maybe in the next version?
+Nour: I'm not sure if they're going to continue working on this.
+Tessaraheem: That's ok. At least we have each other <3
+Nour: Yeah :)
+===
+title: Tesseraheem4
+position: 831,-31
+---
+Tesseraheem: Do you ever wonder about this building we're currently standing on?
+Nour: Not really? It's just kind of become part of the landscape for me.
+Tessaraheem: Oh ok.
+Nour: Why? Do you have any fun fact about it?
+Tessaraheem: I was hoping you would!
+===
+title: Eggs
+position: 831,-31
+---
+Nour: What's up egg friends?
+Eggs: Our dad is taking some me time!
+Eggs: So we're gonna stay up late!
+<<ChangeStartNode nest EggsAgain>>
+===
+title: EggsAgain
+position: 831,-31
+---
+Eggs: Hehehe we're gonna whisper into the night!
+===
+title: BallKid
+position: 831,-31
+---
+Nour: I'm sorry I'm sorry I'm sorry I'm sorry.
+===
+title: Arturo
+position: 831,-31
+---
+Nour: Woah you have very interesting hands...
+Arturo: Na verdade sao luvas.
+Nour: hmmm meu portugues e muito ruim.
+Arturo: Tudo bem, foi legal da sua parte tentar.
+===

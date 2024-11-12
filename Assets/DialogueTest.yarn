@@ -1,0 +1,17 @@
+﻿title: Start
+tags:
+---
+<<set $talkToTree01 to false>>
+<<jump Tree>>
+===
+title: Tree
+---
+<<if not $talkToTree01>>
+    Tree: The soil may have forgotten the sun,
+    Tree: but it forgets not the feel of footsteps upon it.
+    <<set $talkToTree01 to true>>
+<<else>>
+    Tree: I'm sleepy.
+<<endif>>
+===
+
