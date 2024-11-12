@@ -6,93 +6,99 @@ using UnityEngine.UI;
 
 public class IntroCutsceneAnimScript : MonoBehaviour
 {
+    [Header("Animators")] 
     public Animator fighterAnim;
-    public Animator monsterAnim;
+    public Animator flytrapAnim;
+    public Animator huskAnim;
+    public Animator walkAnim;
 
+    [Header("GameObjects")] 
     public GameObject fighter;
+    public GameObject flyTrap;
+    public GameObject husk;
     
-    //public AnimationClip waitMove;
-    //public AnimationClip fightMove;
-    //public AnimationClip dieMove;
-
-    public Button fightButton;
-    public Button waitButton;
-
+    [Header("Buttons")] 
+    public Button fightFlytrapButton;
+    public Button waitFlytrapButton;
+    public Button fightHuskButton;
+    public Button waitHuskButton;
+    
+    [Header("Audio")] 
     public AudioSource fightSounds;
     public AudioClip shriek;
     public AudioClip slash;
-
-    public bool paused;
-    Collider m_Collider;
-    public string animName;
-
     public AudioSource fightSongs;
     public AudioClip beatLoop;
     public AudioClip sighLoop;
+
+    [Header("Conditions")] 
+    private bool paused = false;
+    public string animFlytrapName;
+    public string animHuskName;
     
     // Start is called before the first frame update
     void Start()
     {
         paused = false;
-        Time.timeScale = 1;
-        fightButton.gameObject.SetActive(false);
-        waitButton.gameObject.SetActive(false);
-        m_Collider = GetComponent<Collider>();
+        //Time.timeScale = 1;
+        fightFlytrapButton.gameObject.SetActive(false);
+        waitFlytrapButton.gameObject.SetActive(false);
+        fightHuskButton.gameObject.SetActive(false);
+        waitHuskButton.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     { //put this here, not sure yet if it works but will with testing
-        if (paused)
-        {
-            Time.timeScale = 0;
-            fighter.GetComponent<CutsceneController>().enabled = false;
-            fighter.GetComponent<Rigidbody>().isKinematic = true;
-            fighter.GetComponent<Animator>().enabled = false;
-        }
-        else
+        if (!paused)
         {
             Time.timeScale = 1;
             fighter.GetComponent<CutsceneController>().enabled = true;
             fighter.GetComponent<Rigidbody>().isKinematic = false;
-            fighter.GetComponent<Animator>().enabled = true;
+        }
+        else
+        {
+            Time.timeScale = 0;
+            fighter.GetComponent<CutsceneController>().enabled = false;
+            fighter.GetComponent<Rigidbody>().isKinematic = true;
+            walkAnim.SetBool("isWalking", false);
         }
     }
-
-    private void OnTriggerEnter(Collider other)
+//-----------------FLYTRAP-------------------//
+    public void FlyTrapTrigger()
     {
         paused = true;
-        fightButton.gameObject.SetActive(true);
-        waitButton.gameObject.SetActive(true);
-        m_Collider.enabled = false;
+        fightFlytrapButton.gameObject.SetActive(true);
+        waitFlytrapButton.gameObject.SetActive(true);
         Debug.Log("collided");
-
     }
 
-    public void Fight()
+    public void FlyTrapFight()
     {
         fighterAnim.Play("slash");
         fightSounds.PlayOneShot(slash);
-        monsterAnim.Play(animName);
-        
         fightSounds.PlayOneShot(shriek);
-        fightButton.gameObject.SetActive(false);
-        waitButton.gameObject.SetActive(false);
+        fightFlytrapButton.gameObject.SetActive(false);
+        waitFlytrapButton.gameObject.SetActive(false);
         paused = false;
         if (!fightSongs.isPlaying)
         {
             fightSongs.clip = beatLoop;
             fightSongs.Play();
         }
-        StartCoroutine(Die());
+
+        if (flytrapAnim != null)
+        {
+            flytrapAnim.Play(animFlytrapName); 
+        }
+        StartCoroutine(flytrapDie());
     }
 
-    public void Wait()
+    public void FlytrapWait()
     {
-        fightButton.gameObject.SetActive(false);
-        waitButton.gameObject.SetActive(false);
+        fightFlytrapButton.gameObject.SetActive(false);
+        waitFlytrapButton.gameObject.SetActive(false);
         paused = false;
-        m_Collider.enabled = false;
         if (!fightSongs.isPlaying)
         {
             fightSongs.clip = sighLoop;
@@ -100,10 +106,58 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         }
       
     }
+//-----------------HUSK-------------------//
+    public void HuskTrigger()
+    {
+        paused = true;
+        fightHuskButton.gameObject.SetActive(true);
+        waitHuskButton.gameObject.SetActive(true);
+        Debug.Log("collided");
+    }
 
-    IEnumerator Die()
+    public void HuskFight()
+    {
+        fighterAnim.Play("slash");
+        fightSounds.PlayOneShot(slash);
+        
+        fightSounds.PlayOneShot(shriek);
+        fightHuskButton.gameObject.SetActive(false);
+        waitHuskButton.gameObject.SetActive(false);
+        paused = false;
+        if (!fightSongs.isPlaying)
+        {
+            fightSongs.clip = beatLoop;
+            fightSongs.Play();
+        }
+
+        if (huskAnim != null)
+        {
+            huskAnim.Play(animHuskName); 
+        }
+        StartCoroutine(huskDie());
+    }
+
+    public void HuskWait()
+    {
+        fightHuskButton.gameObject.SetActive(false);
+        waitHuskButton.gameObject.SetActive(false);
+        paused = false;
+        if (!fightSongs.isPlaying)
+        {
+            fightSongs.clip = sighLoop;
+            fightSongs.Play();
+        }
+      
+    }
+    IEnumerator flytrapDie()
     {
         yield return new WaitForSeconds(.5f);
-        Destroy(gameObject);
+        Destroy(flyTrap);
+    }
+    
+    IEnumerator huskDie()
+    {
+        yield return new WaitForSeconds(.5f);
+        Destroy(husk);
     }
 }

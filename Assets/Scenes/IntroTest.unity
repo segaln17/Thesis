@@ -1267,9 +1267,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1377318304}
+      - m_Target: {fileID: 2058917170}
         m_TargetAssemblyTypeName: IntroCutsceneAnimScript, Assembly-CSharp
-        m_MethodName: Fight
+        m_MethodName: HuskFight
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3740,9 +3740,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1079643992}
+      - m_Target: {fileID: 2058917170}
         m_TargetAssemblyTypeName: IntroCutsceneAnimScript, Assembly-CSharp
-        m_MethodName: Fight
+        m_MethodName: FlyTrapFight
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6278,11 +6278,11 @@ Transform:
   m_GameObject: {fileID: 919629715}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0069737583, y: 0.13063797, z: -0.060811214, w: 0.98953885}
-  m_LocalPosition: {x: -4.01, y: 5.04, z: 2.67}
+  m_LocalPosition: {x: -2.3700004, y: -0.21999979, z: 0.81000006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1259792489}
+  m_Father: {fileID: 1079643989}
   m_LocalEulerAnglesHint: {x: 1.701, y: 14.94, z: -6.81}
 --- !u!212 &919629717
 SpriteRenderer:
@@ -7656,9 +7656,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1377318304}
+      - m_Target: {fileID: 2058917170}
         m_TargetAssemblyTypeName: IntroCutsceneAnimScript, Assembly-CSharp
-        m_MethodName: Wait
+        m_MethodName: HuskWait
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8219,9 +8219,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1079643989}
+  - component: {fileID: 1079643992}
   - component: {fileID: 1079643991}
   - component: {fileID: 1079643990}
-  - component: {fileID: 1079643992}
   m_Layer: 0
   m_Name: flytrap01
   m_TagString: flytrap
@@ -8241,7 +8241,8 @@ Transform:
   m_LocalPosition: {x: -1.64, y: 5.26, z: 1.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 919629716}
   m_Father: {fileID: 1259792489}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1079643990
@@ -8326,22 +8327,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1079643988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0748d88972f177048a9850ae3bd9a388, type: 3}
+  m_Script: {fileID: 11500000, guid: e1476c9fc29524b9791f00918aa901d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fighterAnim: {fileID: 1492741121}
-  monsterAnim: {fileID: 1259792490}
-  fighter: {fileID: 1492741118}
-  fightButton: {fileID: 515036431}
-  waitButton: {fileID: 1338368995}
-  fightSounds: {fileID: 1285202750}
-  shriek: {fileID: 8300000, guid: 0787906cb0b4c4fa2b75702071d3bc7e, type: 3}
-  slash: {fileID: 8300000, guid: e959deadb1c45432a968cddef2796529, type: 3}
-  paused: 0
-  animName: flytrapdie
-  fightSongs: {fileID: 1214105942}
-  beatLoop: {fileID: 8300000, guid: d8fdc01024828419b8741f50fc4de7ca, type: 3}
-  sighLoop: {fileID: 8300000, guid: 2e1ce858bcd0344dd88062f2100b8291, type: 3}
+  thisGameObject: {fileID: 1079643988}
+  enemyManager: {fileID: 2058917168}
+  thisCollider: {fileID: 1079643990}
 --- !u!1 &1096481851
 GameObject:
   m_ObjectHideFlags: 0
@@ -9456,7 +9447,6 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1079643989}
-  - {fileID: 919629716}
   m_Father: {fileID: 1713925116}
   m_LocalEulerAnglesHint: {x: 24.931, y: 15.164, z: 3.056}
 --- !u!95 &1259792490
@@ -10167,9 +10157,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1079643992}
+      - m_Target: {fileID: 2058917170}
         m_TargetAssemblyTypeName: IntroCutsceneAnimScript, Assembly-CSharp
-        m_MethodName: Wait
+        m_MethodName: FlytrapWait
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10310,10 +10300,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1377318301}
+  - component: {fileID: 1377318306}
   - component: {fileID: 1377318302}
   - component: {fileID: 1377318303}
   - component: {fileID: 1377318305}
-  - component: {fileID: 1377318304}
   m_Layer: 0
   m_Name: sadcreature02
   m_TagString: husk
@@ -10409,31 +10399,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1377318304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1377318300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0748d88972f177048a9850ae3bd9a388, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fighterAnim: {fileID: 1492741121}
-  monsterAnim: {fileID: 1377318303}
-  fighter: {fileID: 1492741118}
-  fightButton: {fileID: 165658747}
-  waitButton: {fileID: 1042535019}
-  fightSounds: {fileID: 1285202750}
-  shriek: {fileID: 8300000, guid: 0787906cb0b4c4fa2b75702071d3bc7e, type: 3}
-  slash: {fileID: 8300000, guid: e959deadb1c45432a968cddef2796529, type: 3}
-  paused: 0
-  animName: creaturedie
-  fightSongs: {fileID: 1214105942}
-  beatLoop: {fileID: 8300000, guid: d8fdc01024828419b8741f50fc4de7ca, type: 3}
-  sighLoop: {fileID: 8300000, guid: 2e1ce858bcd0344dd88062f2100b8291, type: 3}
 --- !u!135 &1377318305
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10455,6 +10420,21 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 3.18
   m_Center: {x: 0.0000076293945, y: 0, z: 0.0000076293945}
+--- !u!114 &1377318306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377318300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1476c9fc29524b9791f00918aa901d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisGameObject: {fileID: 1377318300}
+  enemyManager: {fileID: 2058917168}
+  thisCollider: {fileID: 1377318305}
 --- !u!1 &1387235787
 GameObject:
   m_ObjectHideFlags: 0
@@ -13129,6 +13109,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2058917169}
   - {fileID: 1259792489}
   - {fileID: 208308910}
   m_Father: {fileID: 0}
@@ -15025,6 +15006,69 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 30, y: 30, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2058917168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2058917169}
+  - component: {fileID: 2058917170}
+  m_Layer: 0
+  m_Name: EnemyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2058917169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058917168}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1713925116}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2058917170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058917168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0748d88972f177048a9850ae3bd9a388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighterAnim: {fileID: 1492741121}
+  flytrapAnim: {fileID: 1259792490}
+  huskAnim: {fileID: 1377318303}
+  walkAnim: {fileID: 535729923}
+  fighter: {fileID: 1492741118}
+  flyTrap: {fileID: 1079643988}
+  husk: {fileID: 1377318300}
+  fightFlytrapButton: {fileID: 515036431}
+  waitFlytrapButton: {fileID: 1338368995}
+  fightHuskButton: {fileID: 165658747}
+  waitHuskButton: {fileID: 1042535019}
+  fightSounds: {fileID: 1285202750}
+  shriek: {fileID: 8300000, guid: 0787906cb0b4c4fa2b75702071d3bc7e, type: 3}
+  slash: {fileID: 8300000, guid: e959deadb1c45432a968cddef2796529, type: 3}
+  fightSongs: {fileID: 1214105942}
+  beatLoop: {fileID: 8300000, guid: d8fdc01024828419b8741f50fc4de7ca, type: 3}
+  sighLoop: {fileID: 8300000, guid: 2e1ce858bcd0344dd88062f2100b8291, type: 3}
+  animFlytrapName: flytrapdie
+  animHuskName: creaturedie
 --- !u!1 &2085963829
 GameObject:
   m_ObjectHideFlags: 0
