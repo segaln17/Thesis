@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-
+[RequireComponent (typeof (CharacterController))]
 public class SimpleController : MonoBehaviour
 {
     [Header("Player")]
@@ -36,6 +36,7 @@ public class SimpleController : MonoBehaviour
     public LayerMask whatIsGround;
     public bool grounded;
     public float groundDrag;
+   
     
     [Header("Slope Conditions")] 
     public float maxSlopeAngle;
@@ -62,6 +63,7 @@ public class SimpleController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        
         /*
         if (currentScene == SceneManager.GetSceneByName("GreyBoxing"))
         {
@@ -85,6 +87,7 @@ public class SimpleController : MonoBehaviour
 
         yRotation += mouseX;
         xRotation -= mouseY;
+        
 
         //ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 1f, whatIsGround);
@@ -126,20 +129,27 @@ public class SimpleController : MonoBehaviour
             
             rb.AddForce(GetSlopeMoveDirection() * force * slopeForce, ForceMode.Force);
 
-            if (rb.velocity.y > 0) {
+            /*if (rb.velocity.y > 0) {
                 rb.AddForce(Vector3.down * slopeGravity * Time.deltaTime, ForceMode.Force);
-            }
+            }*/
+            
+            Debug.Log("im on da slope");
         }
         //on ground
         else if (grounded)
         {
             movementDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-            rb.AddForce(movementDirection.normalized * force * 10f * Time.deltaTime, ForceMode.Force);
+            rb.AddForce(movementDirection.normalized * force * 10f, ForceMode.Force);
+            
+            
+            Debug.Log("im on da ground");
         }
-        
+        if (rb.velocity.y > 0) {
+            rb.AddForce(Vector3.down * slopeGravity, ForceMode.Force);
+        }
         //turn gravity off while on slope
-        rb.useGravity = !OnSlope();
+        //rb.useGravity = !OnSlope();
        // stepClimb();
   
     }

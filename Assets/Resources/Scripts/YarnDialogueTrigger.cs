@@ -62,7 +62,12 @@ public class YarnDialogueTrigger : MonoBehaviour
                     SetCharacterPOV(GameManager.CharacterPOV.Diviner);
                     dialogueIndicator.gameObject.SetActive(false);
                 }
-                FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
+
+                if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
+                {
+                    FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
+                }
+                
             }
             
         }
