@@ -118,6 +118,78 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &3699841788366468239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6149306544473953784}
+  - component: {fileID: 3937891825576965975}
+  - component: {fileID: 258422594774235492}
+  m_Layer: 0
+  m_Name: YarnCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6149306544473953784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3699841788366468239}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2381302730633641910}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &3937891825576965975
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3699841788366468239}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 28.9
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &258422594774235492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3699841788366468239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89fc36a6da2f6834f8430de097d0784d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeToCall: OutsideGardenNPC
+  fighter: {fileID: 0}
+  diviner: {fileID: 0}
+  dialogueIndicator: {fileID: 0}
+  isFighter: 1
+  isDiviner: 0
 --- !u!1 &4069464509454233864
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,6 +223,7 @@ Transform:
   m_Children:
   - {fileID: 3350055502640632147}
   - {fileID: 8889152910424099266}
+  - {fileID: 6149306544473953784}
   - {fileID: 1189998326947761445}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -236.479, z: 0}
@@ -297,6 +370,7 @@ MonoBehaviour:
   text1: {fileID: 11400000, guid: 83ffb3f5582d5ed4a88210c84a3fac44, type: 2}
   text2: {fileID: 11400000, guid: 22ef5f6f89193f346b929849791537bb, type: 2}
   text3: {fileID: 11400000, guid: ebe783392e4202644ab678cccfce7111, type: 2}
+  text4: {fileID: 0}
   textline: {fileID: 0}
   dialogueIndicator: {fileID: 0}
   dialogueTrigger: {fileID: 4211960909499428846}

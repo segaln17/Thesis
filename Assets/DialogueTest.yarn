@@ -3,17 +3,85 @@ tags:
 ---
 
 ===
+title: SilentTree
+---
+<<if $charPOV is "Fighter">>
+Tree: (It doesn't appear that this tree has anything to say to you.)
+<<endif>>
+===
 title: NoPointNPC
 ---
+<<if $charPOV is "Fighter">> //if the player is being Phoebe
 NPC: There's no point in fighting it. Any of it.
 NPC: Even the monsters. Killing them does nothing.
 NPC: They're stuck here, same as us.
-<<end>>
+<<endif>>
+===
+title: TavernNPC1
+---
+<<if $charPOV is "Fighter">>
+NPC: Between you and me, I don't think any of us need to sleep, anymore.
+NPC: But some people still pretend they can.
+NPC: There's probably some kind of bed free, if you're one of those types.
+<<endif>>
+===
+title: TavernNPC2
+---
+<<if $charPOV is "Fighter">>
+NPC: You see that person, over there?
+NPC: That's Fen.
+NPC: You know, Fen the Diviner?
+NPC: They're a legend. How'd they end up down here?
+<<endif>>
 ===
 title: Tree
 ---
 Tree: The soil may have forgotten the sun,
 Tree: but it forgets not the feel of footsteps upon it.
-<<end>>
+<<stop>>
 ===
-
+title: BonfireNPC
+---
+<<if $charPOV is "Fighter">>
+NPC: Welcome to our little slice of hell.
+NPC: We gather here to pretend it's night, and that food still appetizes us.
+NPC: Come back here when you're ready to join.
+<<endif>>
+===
+title: HuskNPC
+---
+<<if $charPOV is "Fighter">>
+NPC: You've seen them, then? The husks?
+NPC: Most of them are harmless. Used to be like us--lost souls.
+NPC: Altea helps them, after they turn. Poor bastards.
+<<endif>>
+===
+title: BathhouseNPC
+---
+<<if $charPOV is "Fighter">>
+NPC: Back when this was a monastery, this was probably the bathhouse.
+NPC: The creatures here use it for whatever vile frolicking they do in their spare time.
+NPC: When they're not skittering around and shrieking.
+<<endif>>
+===
+title: OutsideGardenNPC
+---
+<<if $charPOV is "Fighter">>
+NPC: A druid passed through here once.
+NPC: They planted some things, and they grew into... that.
+NPC: No one's been able to figure out how to get through it to see what might be back there.
+<<endif>>
+===
+title: BathhouseCreature1
+---
+<<if $charPOV is "Fighter">>
+Creature: ylduol os sgnis noom ruo nehw nus eht rof ew evah deen tahw?
+<<endif>>
+===
+title: LighthouseTree
+---
+<<if $charPOV is "Fighter">>
+Tree: Do you hear it?
+Tree: The song of our gestating moon?
+<<endif>>
+===

@@ -73,7 +73,8 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("in collider");
+        //Debug.Log("in collider");
+        /*
         //IF NOT SECOND PERSON:
         if (gameObject.tag != "2ndPOV")
         {
@@ -89,6 +90,7 @@ public class DialogueTrigger : MonoBehaviour
                 }
             }
         }
+        */
         //}
         
     }
