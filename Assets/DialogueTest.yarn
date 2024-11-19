@@ -1,12 +1,47 @@
 ﻿title: Start
 tags:
 ---
-
+===
+title: Windy
+---
+<<if $charPOV is "Fighter">>
+Windy: Oh. Well, this is unexpected.
+Windy: You're the third newcomer we've gotten in whatever measure of time it is, at this point.
+Windy: Impossible to tell, since the damn sun never rises and the damn moon never sets.
+Windy: How'd you get here?
+Fighter: <i>The Fighter says nothing.</i>
+Windy: Not the talkative type, I see.
+Windy: Did you see where that little pest went? It took my trowel.
+Fighter: <i>The Fighter shakes her head.</i>
+Windy: Drat. And I only just found that trowel in the rubble near the well.
+Windy: Do you know how you got here?
+Windy: Do you even know where here is?
+Fighter: <i>The Fighter says nothing.</i>
+Windy: Okay, well, you should talk to Fen. She's the only one who's ever ended up here on purpose.
+Windy: She'll help you get sorted out. Probably.
+Windy: And get to the bonfire if you start feeling queasy. They all feel queasy at first.
+Windy: Oh, and don't look down. There's nothing down there but the sun, deep, deep down.
+Windy: All the way under the water.
+<<endif>>
+===
+title: Byron
+---
+<<if $charPOV is "Fighter">>
+Byron: Hey, you! You're breathing!
+Byron: The Beneath caught a fresh one! Been a while, not since Altea!
+Byron: Breathing, the both of you—not been here long enough not to, eh?
+Byron: I'm too far from the Bonfire now, but they need kindling for the fire. Or the moon will hatch, and consume us all...
+Byron: And we wouldn't want that.
+Byron: I'd like to see the moon hatch, but I'll be a husk long before then, won't I?
+Byron: And then Altea will have to take care of me!
+Byron: Oh, what a punishment that would be for her, but what a pleasure for me!
+Byron: <i>He dissolves into manic laughter.</i>
+<<endif>>
 ===
 title: SilentTree
 ---
 <<if $charPOV is "Fighter">>
-Tree: (It doesn't appear that this tree has anything to say to you.)
+Tree: <i>It doesn't appear that this tree has anything to say to you.</i>
 <<endif>>
 ===
 title: NoPointNPC
@@ -34,6 +69,44 @@ NPC: You know, Fen the Diviner?
 NPC: They're a legend. How'd they end up down here?
 <<endif>>
 ===
+title: FenTavern
+---
+<<if $charPOV is "Fighter">>
+Fen: I haven't seen you before, have I?
+Fen: Isn't this a strange place in which we find ourselves? And to think, I meant to come here.
+Fen: It'd be silly, if things didn't just sit here and rot.
+Fen: I'm Fen. What's your name?
+Fighter: <i>The Fighter does not respond.</i>
+Fen: You're a shy one, then! Wouldn't think so with your weaponry.
+Fen: But I'll bet you get that a lot.
+Fen: Where to start...
+Fen: Have you met Altea?
+Fen: She's the other new one, aside from you.
+Fen: Well, I should say "us." I have not been here very long either.
+Fen: She's... prickly. But she's a cleric of the order of an illustrious Saint, the Lady of Radiant Sorrow, so that's nice.
+Fen: Do you know, sometimes I wonder about how long we'll stay here.
+Fen: Because, well, the reality is that we're stuck here.
+Fen: They call it the Beneath, this space between realities.
+Fen: It's where lost things go. I'm afraid that includes you, now.
+Fen: <i>She pauses, then brightens.</i>
+Fen: But might as well make the most of it, mustn't we! No use moping like Altea.
+Fen: In such a space where there should be no life, the flora and fauna are teeming!
+Fen: I have a theory about it, actually, but it's a bit morbid. I'll refrain from sharing it.
+Fighter: <i>The Fighter says nothing. The Diviner cannot help herself.</i>
+Fen: Well, so with people-types like us, the longer we remain here the more hollowed out we become.
+Fen: I believe that our life force is being drawn up and into the very atmosphere to fuel this place.
+Fen: Maybe even to fuel a celstial body, in this place that should be subterranean, but where the moon sits low and never sets...
+Fighter: <i>The Fighter fidgets, still silent.</i>
+Fen: Oh, but I'm boring you. I get caught up in these things.
+Fen: I'm studying this place; I'm a diviner, you see.
+Fen: I'm trying to divine its secrets.
+Fighter: <i>The Fighter chuckles, but says nothing.</i>
+Fen: Say, do you sing?
+Fen: I've noticed the plants in this place respond strangely to song.
+Fen: Some are too talkative to appreciate it, but others are more sensitive.
+Fen: You may want to try it out!
+<<endif>>
+===
 title: Tree
 ---
 Tree: The soil may have forgotten the sun,
@@ -43,9 +116,9 @@ Tree: but it forgets not the feel of footsteps upon it.
 title: BonfireNPC
 ---
 <<if $charPOV is "Fighter">>
-NPC: Welcome to our little slice of hell.
-NPC: We gather here to pretend it's night, and that food still appetizes us.
-NPC: Come back here when you're ready to join.
+Heloise: Welcome to our little slice of hell.
+Heloise: We gather here to pretend it's night, and that food still appetizes us.
+Heloise: Come back here when you're ready to join.
 <<endif>>
 ===
 title: HuskNPC
