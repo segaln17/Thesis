@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-[RequireComponent (typeof (CharacterController))]
 public class SimpleController : MonoBehaviour
 {
     [Header("Player")]
@@ -133,7 +132,7 @@ public class SimpleController : MonoBehaviour
                 rb.AddForce(Vector3.down * slopeGravity * Time.deltaTime, ForceMode.Force);
             }*/
             
-            Debug.Log("im on da slope");
+            //Debug.Log("im on da slope");
         }
         //on ground
         else if (grounded)
@@ -143,7 +142,7 @@ public class SimpleController : MonoBehaviour
             rb.AddForce(movementDirection.normalized * force * 10f, ForceMode.Force);
             
             
-            Debug.Log("im on da ground");
+            //Debug.Log("im on da ground");
         }
         if (rb.velocity.y > 0) {
             rb.AddForce(Vector3.down * slopeGravity, ForceMode.Force);

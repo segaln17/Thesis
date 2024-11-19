@@ -7,6 +7,7 @@ public class CameraSwitch : MonoBehaviour
 {
     public CinemachineVirtualCamera firstPerson;
     public CinemachineVirtualCamera thirdPerson;
+    //public GameObject FighterSprite01;
 
     public bool firstPersonPOVOn = true;
     // Start is called before the first frame update
@@ -27,16 +28,18 @@ public class CameraSwitch : MonoBehaviour
                 firstPerson.Priority += 2;
                 thirdPerson.Priority -= 1;
                 firstPersonPOVOn = true;
+               // StartCoroutine(hideSprite());
             }
             else
             {
                 firstPerson.Priority -= 1;
                 thirdPerson.Priority += 2;
                 firstPersonPOVOn = false;
+               // FighterSprite01.SetActive(true);
             }
             
         }
     }
-
+  
 
 }

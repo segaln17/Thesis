@@ -21,6 +21,7 @@ public class SwitchPlayer : MonoBehaviour
 
     public GameObject Diviner;
     public GameObject Fighter;
+    public GameObject FighterSprite01;
 
     public bool fighterOn;
 
@@ -58,10 +59,11 @@ public class SwitchPlayer : MonoBehaviour
             DivinerCam();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+       /* if (Input.GetKeyDown(KeyCode.Space))
         {
-            firstPersonPOVOn = !firstPersonPOVOn;
-        }
+            Debug.Log("No More Control of Third Person");
+            //firstPersonPOVOn = !firstPersonPOVOn;
+        }*/
         
         if (firstPersonPOVOn && fighterOn)
         {
@@ -69,13 +71,17 @@ public class SwitchPlayer : MonoBehaviour
             firstPersonDiviner.Priority = 1;
             thirdPersonFighter.Priority = 2;
             thirdPersonDiviner.Priority = 1;
+            StartCoroutine(hideSprite());
         }
         else if(!firstPersonPOVOn && fighterOn)
         {
+            StopCoroutine(hideSprite());
+            FighterSprite01.SetActive(true);
             thirdPersonFighter.Priority = 5;
             thirdPersonDiviner.Priority = 1;
             firstPersonFighter.Priority = 2;
             firstPersonDiviner.Priority = 1;
+            
         }
 
         if (firstPersonPOVOn && divinerOn)
@@ -160,5 +166,11 @@ public class SwitchPlayer : MonoBehaviour
                 firstPersonFighter.Priority = 1;
             }
         }*/
+    }
+
+    IEnumerator hideSprite()
+    {
+        yield return new WaitForSeconds(3.5f);
+        FighterSprite01.SetActive(false);
     }
 }

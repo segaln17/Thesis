@@ -7,9 +7,10 @@ using UnityEngine.UI;
 public class SongScript : MonoBehaviour
 {
     //public static SongScript instance;
-    public GameObject sheetMusic;
+   // public GameObject playerSprite;
 
     public bool sheetActive;
+    public Animator songAnim;
 
     public AudioSource SongAudio;
 
@@ -60,6 +61,7 @@ public class SongScript : MonoBehaviour
     void Start()
     {
         state = humRegister.mid;
+        
     }
 
     // Update is called once per frame
@@ -73,7 +75,10 @@ public class SongScript : MonoBehaviour
         if (sheetActive)
         {
             //Debug.Log(Input.GetAxis("Mouse ScrollWheel"));
-            sheetMusic.SetActive(true);
+            //sheetMusic.SetActive(true);
+            songAnim.SetBool("Idle", true);
+            songAnim.SetBool("Sheathe", false);
+            //playerSprite.SetActive(false);
             fighter.GetComponent<SimpleController>().enabled = false;
             fighter.GetComponent<Rigidbody>().isKinematic = true;
             
@@ -116,9 +121,12 @@ public class SongScript : MonoBehaviour
         }
         else
         {
-            sheetMusic.SetActive(false);
+                songAnim.SetBool("Sheathe", true);
+                songAnim.SetBool("Idle", false);
+                
             fighter.GetComponent<SimpleController>().enabled = true;
             fighter.GetComponent<Rigidbody>().isKinematic = false;
+            //playerSprite.SetActive(true);
         }
     }
 
@@ -182,4 +190,6 @@ public class SongScript : MonoBehaviour
         }
         
     }
+
+  
 }
