@@ -17,7 +17,7 @@ public class YarnDialogueTrigger : MonoBehaviour
     public TextMeshProUGUI dialogueIndicator;
     public bool isFighter;
     public bool isDiviner;
-    
+
     // Start is called before the first frame update
     void Start()
     {

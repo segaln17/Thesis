@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using Yarn.Unity;
 
 public class SimpleController : MonoBehaviour
 {
@@ -80,7 +81,14 @@ public class SimpleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //mouse input for movement direction
+        if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == true)
+        {
+            return;
+        }
+
+        else
+        {
+            //mouse input for movement direction
         mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
@@ -150,6 +158,8 @@ public class SimpleController : MonoBehaviour
         //turn gravity off while on slope
         //rb.useGravity = !OnSlope();
        // stepClimb();
+        }
+        
   
     }
 

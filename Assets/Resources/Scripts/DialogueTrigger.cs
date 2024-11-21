@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class DialogueTrigger : MonoBehaviour
 {
+    
     //the textBox UI element
     public GameObject textBox;
     
