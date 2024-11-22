@@ -81,6 +81,7 @@ public class SimpleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //freeze player while dialogue is running
         if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == true)
         {
             return;

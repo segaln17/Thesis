@@ -1,30 +1,49 @@
 ﻿title: Start
 tags:
+position: -208,-211
 ---
+<<declare $spokenToWindy = false as bool>>
 ===
-title: Windy
+title: Opening
+position: -223,-93
 ---
 <<if $charPOV is "Fighter">>
-Windy: Oh. Well, this is unexpected.
-Windy: You're the third newcomer we've gotten in whatever measure of time it is, at this point.
-Windy: Impossible to tell, since the damn sun never rises and the damn moon never sets.
-Windy: How'd you get here?
-The Fighter: <i>You say nothing.</i>
-Windy: Not the talkative type, I see.
-Windy: Did you see where that little pest went? It took my trowel.
-The Fighter: <i>You shakes your head.</i>
-Windy: Drat. And I only just found that trowel in the rubble near the well.
-Windy: Do you know how you got here?
-Windy: Do you even know where here is?
-The Fighter: <i>You say nothing.</i>
-Windy: Okay, well, you should talk to Fen. She's the only one who's ever ended up here on purpose.
-Windy: She'll help you get sorted out. Probably.
-Windy: And get to the bonfire if you start feeling queasy. They all feel queasy at first.
-Windy: Oh, and don't look down. There's nothing down there but the sun, deep, deep down.
-Windy: All the way under the water.
+    Windy: Oh. Well, this is unexpected.
+    <<endif>>
+<<jump Windy>>
+===
+title: Windy
+position: -172,85
+---
+//<<if $charPOV is "Fighter">>
+<<if not $spokenToWindy>>
+    Windy: You're the third newcomer we've gotten in whatever measure of time it is, at this point.
+    Windy: Impossible to tell, since the damn sun never rises and the damn moon never sets.
+    Windy: How'd you get here?
+    The Fighter: <i>You say nothing.</i>
+    Windy: Not the talkative type, I see.
+    Windy: Did you see where that little pest went? It took my trowel.
+    The Fighter: <i>You shakes your head.</i>
+    Windy: Drat. And I only just found that trowel in the rubble near the well.
+    Windy: Do you know how you got here?
+    Windy: Do you even know where here is?
+    The Fighter: <i>You say nothing.</i>
+    Windy: Okay, well, you should talk to Fen. She's the only one who's ever ended up here on purpose.
+    Windy: She'll help you get sorted out. Probably.
+    Windy: And get to the bonfire if you start feeling queasy. They all feel queasy at first.
+    Windy: Oh, and don't look down. There's nothing down there but the sun, deep, deep down.
+    Windy: All the way under the water.
+    <<set $spokenToWindy to true>>
+<<endif>>
+===
+title: WindySpokenTo
+---
+<<if $spokenToWindy is true>>
+    Windy: Where did that little pest go?
 <<endif>>
 ===
 title: Byron
+position: 209,-41
 ---
 <<if $charPOV is "Fighter">>
 Byron: Hey, you! You're breathing!
@@ -39,12 +58,14 @@ Byron: <i>He dissolves into manic laughter.</i>
 <<endif>>
 ===
 title: SilentTree
+position: 219,-31
 ---
 <<if $charPOV is "Fighter">>
 Tree: <i>It doesn't appear that this tree has anything to say to you.</i>
 <<endif>>
 ===
 title: NoPointNPC
+position: 229,-21
 ---
 <<if $charPOV is "Fighter">> //if the player is being Phoebe
 NPC: There's no point in fighting it. Any of it.
@@ -53,6 +74,7 @@ NPC: They're stuck here, same as us.
 <<endif>>
 ===
 title: TavernNPC1
+position: 239,-11
 ---
 <<if $charPOV is "Fighter">>
 NPC: Between you and me, I don't think any of us need to sleep, anymore.
@@ -61,6 +83,7 @@ NPC: There's probably some kind of bed free, if you're one of those types.
 <<endif>>
 ===
 title: TavernNPC2
+position: 249,-1
 ---
 <<if $charPOV is "Fighter">>
 NPC: You see that person, over there?
@@ -70,6 +93,7 @@ NPC: They're a legend. How'd they end up down here?
 <<endif>>
 ===
 title: FenTavern
+position: 259,9
 ---
 <<if $charPOV is "Fighter">>
 Fen: I haven't seen you before, have I?
@@ -108,12 +132,14 @@ Fen: You may want to try it out!
 <<endif>>
 ===
 title: Tree
+position: 269,19
 ---
 Tree: The soil may have forgotten the sun,
 Tree: but it forgets not the feel of footsteps upon it.
 <<stop>>
 ===
 title: BonfireNPC
+position: 279,29
 ---
 <<if $charPOV is "Fighter">>
 Heloise: Welcome to our little slice of hell.
@@ -122,6 +148,7 @@ Heloise: Come back here when you're ready to join.
 <<endif>>
 ===
 title: HuskNPC
+position: 289,39
 ---
 <<if $charPOV is "Fighter">>
 NPC: You've seen them, then? The husks?
@@ -130,6 +157,7 @@ NPC: Altea helps them, after they turn. Poor bastards.
 <<endif>>
 ===
 title: BathhouseNPC
+position: 299,49
 ---
 <<if $charPOV is "Fighter">>
 NPC: Back when this was a monastery, this was probably the bathhouse.
@@ -138,6 +166,7 @@ NPC: When they're not skittering around and shrieking.
 <<endif>>
 ===
 title: OutsideGardenNPC
+position: 309,59
 ---
 <<if $charPOV is "Fighter">>
 Hildegard: A druid passed through here once.
@@ -146,12 +175,14 @@ Hildegard: No one's been able to figure out how to get through it to see what mi
 <<endif>>
 ===
 title: BathhouseCreature1
+position: 319,69
 ---
 <<if $charPOV is "Fighter">>
 Creature: ylduol os sgnis noom ruo nehw nus eht rof ew evah deen tahw?
 <<endif>>
 ===
 title: LighthouseTree
+position: 329,79
 ---
 <<if $charPOV is "Fighter">>
 Tree: Do you hear it?
