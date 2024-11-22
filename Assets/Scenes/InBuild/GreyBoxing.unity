@@ -5483,6 +5483,7 @@ MonoBehaviour:
   nodeToCall: LighthouseTree
   fighter: {fileID: 1259936904}
   diviner: {fileID: 542787751}
+  inYarnTrigger: 0
   dialogueIndicator: {fileID: 1274461193}
   isFighter: 0
   isDiviner: 0
@@ -21828,6 +21829,7 @@ MonoBehaviour:
   nodeToCall: SilentTree
   fighter: {fileID: 1259936904}
   diviner: {fileID: 542787751}
+  inYarnTrigger: 0
   dialogueIndicator: {fileID: 1274461193}
   isFighter: 0
   isDiviner: 0
@@ -40369,6 +40371,7 @@ MonoBehaviour:
   nodeToCall: Tree
   fighter: {fileID: 1259936904}
   diviner: {fileID: 542787751}
+  inYarnTrigger: 0
   dialogueIndicator: {fileID: 1274461193}
   isFighter: 0
   isDiviner: 0
@@ -43293,12 +43296,12 @@ GameObject:
   - component: {fileID: 1590296998}
   - component: {fileID: 1590297000}
   m_Layer: 0
-  m_Name: DialogueRunner
+  m_Name: DialogueRunnerExtra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1590296998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47902,20 +47905,30 @@ PrefabInstance:
       propertyPath: startAutomatically
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 598563499690326761, guid: 9297bd1e2dc62534e878e3298cc4bae0,
+        type: 3}
+      propertyPath: dialogueViews.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 726097097093324853, guid: 9297bd1e2dc62534e878e3298cc4bae0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1826730007271611050, guid: 9297bd1e2dc62534e878e3298cc4bae0,
         type: 3}
       propertyPath: fadeInTime
-      value: 0.125
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 1826730007271611050, guid: 9297bd1e2dc62534e878e3298cc4bae0,
         type: 3}
       propertyPath: fadeOutTime
-      value: 0.125
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 1826730007271611050, guid: 9297bd1e2dc62534e878e3298cc4bae0,
         type: 3}
       propertyPath: useFadeEffect
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1826730007271611050, guid: 9297bd1e2dc62534e878e3298cc4bae0,
         type: 3}
@@ -47932,6 +47945,41 @@ PrefabInstance:
       propertyPath: characterNameContainer
       value: 
       objectReference: {fileID: 1722505497}
+    - target: {fileID: 2374585066384444529, guid: 9297bd1e2dc62534e878e3298cc4bae0,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3177542169269320001, guid: 9297bd1e2dc62534e878e3298cc4bae0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3177542169269320001, guid: 9297bd1e2dc62534e878e3298cc4bae0,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3177542169269320001, guid: 9297bd1e2dc62534e878e3298cc4bae0,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3177542169269320001, guid: 9297bd1e2dc62534e878e3298cc4bae0,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3177542169269320001, guid: 9297bd1e2dc62534e878e3298cc4bae0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3177542169269320001, guid: 9297bd1e2dc62534e878e3298cc4bae0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4353453589049764711, guid: 9297bd1e2dc62534e878e3298cc4bae0,
         type: 3}
       propertyPath: m_Name
@@ -49215,6 +49263,11 @@ PrefabInstance:
       propertyPath: dialogueView
       value: 
       objectReference: {fileID: 1753626503}
+    - target: {fileID: 1844668338296549763, guid: 2e3394622d90145499d21ac23b1bec21,
+        type: 3}
+      propertyPath: continueActionOnButtonRelease
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9053378555139175897, guid: 2e3394622d90145499d21ac23b1bec21,
         type: 3}
       propertyPath: m_Name
@@ -60226,6 +60279,7 @@ MonoBehaviour:
   nodeToCall: TavernNPC1
   fighter: {fileID: 1259936904}
   diviner: {fileID: 542787751}
+  inYarnTrigger: 0
   dialogueIndicator: {fileID: 1274461193}
   isFighter: 1
   isDiviner: 0
@@ -60244,6 +60298,7 @@ MonoBehaviour:
   nodeToCall: NoPointNPC
   fighter: {fileID: 1259936904}
   diviner: {fileID: 542787751}
+  inYarnTrigger: 0
   dialogueIndicator: {fileID: 1274461193}
   isFighter: 1
   isDiviner: 0
@@ -60262,6 +60317,7 @@ MonoBehaviour:
   nodeToCall: HuskNPC
   fighter: {fileID: 1259936904}
   diviner: {fileID: 542787751}
+  inYarnTrigger: 0
   dialogueIndicator: {fileID: 1274461193}
   isFighter: 1
   isDiviner: 0
@@ -60280,6 +60336,7 @@ MonoBehaviour:
   nodeToCall: BonfireNPC
   fighter: {fileID: 1259936904}
   diviner: {fileID: 542787751}
+  inYarnTrigger: 0
   dialogueIndicator: {fileID: 1274461193}
   isFighter: 1
   isDiviner: 0
@@ -60298,6 +60355,7 @@ MonoBehaviour:
   nodeToCall: TavernNPC2
   fighter: {fileID: 1259936904}
   diviner: {fileID: 542787751}
+  inYarnTrigger: 0
   dialogueIndicator: {fileID: 1274461193}
   isFighter: 1
   isDiviner: 0
@@ -60316,6 +60374,7 @@ MonoBehaviour:
   nodeToCall: BathhouseNPC
   fighter: {fileID: 1259936904}
   diviner: {fileID: 542787751}
+  inYarnTrigger: 0
   dialogueIndicator: {fileID: 1274461193}
   isFighter: 1
   isDiviner: 0
@@ -60334,6 +60393,7 @@ MonoBehaviour:
   nodeToCall: OutsideGardenNPC
   fighter: {fileID: 1259936904}
   diviner: {fileID: 542787751}
+  inYarnTrigger: 0
   dialogueIndicator: {fileID: 1274461193}
   isFighter: 1
   isDiviner: 0
@@ -61422,6 +61482,7 @@ MonoBehaviour:
   nodeToCall: Byron
   fighter: {fileID: 1259936904}
   diviner: {fileID: 542787751}
+  inYarnTrigger: 0
   dialogueIndicator: {fileID: 1274461193}
   isFighter: 1
   isDiviner: 0
@@ -61476,6 +61537,7 @@ MonoBehaviour:
   nodeToCall: Windy
   fighter: {fileID: 1259936904}
   diviner: {fileID: 542787751}
+  inYarnTrigger: 0
   dialogueIndicator: {fileID: 1274461193}
   isFighter: 1
   isDiviner: 0
@@ -64793,6 +64855,7 @@ MonoBehaviour:
   nodeToCall: BathhouseCreature1
   fighter: {fileID: 1259936904}
   diviner: {fileID: 542787751}
+  inYarnTrigger: 0
   dialogueIndicator: {fileID: 1274461193}
   isFighter: 1
   isDiviner: 0

@@ -12,6 +12,8 @@ public class YarnDialogueTrigger : MonoBehaviour
     public GameObject diviner;
     //public GameObject cleric;
 
+    public bool inYarnTrigger;
+
     private InMemoryVariableStorage inMemoryVariableStorage;
 
     public TextMeshProUGUI dialogueIndicator;
@@ -22,12 +24,26 @@ public class YarnDialogueTrigger : MonoBehaviour
     void Start()
     {
         dialogueIndicator.gameObject.SetActive(false);
+        inYarnTrigger = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (inYarnTrigger)
+            {
+                Debug.Log("talking");
+                dialogueIndicator.gameObject.SetActive(false);
+                if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
+                {
+                    FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
+                }
+                
+            }
+
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,32 +59,24 @@ public class YarnDialogueTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("in yarn trigger");
-            //dialogueIndicator.gameObject.SetActive(false);
-            if (Input.GetKeyDown(KeyCode.E))
+            inYarnTrigger = true;
+            if (other.gameObject == fighter)
             {
-                Debug.Log("talking");
-                if (other.gameObject == fighter)
-                {
-                    isFighter = true;
-                    isDiviner = false;
-                    SetCharacterPOV(GameManager.CharacterPOV.Fighter);
-                    dialogueIndicator.gameObject.SetActive(false);
-                }
-
-                else if (other.gameObject == diviner)
-                {
-                    isDiviner = true;
-                    isFighter = false;
-                    SetCharacterPOV(GameManager.CharacterPOV.Diviner);
-                    dialogueIndicator.gameObject.SetActive(false);
-                }
-
-                if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
-                {
-                    FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
-                }
-                
+                isFighter = true;
+                isDiviner = false;
+                SetCharacterPOV(GameManager.CharacterPOV.Fighter);
+                //dialogueIndicator.gameObject.SetActive(false);
             }
+
+            else if (other.gameObject == diviner)
+            {
+                isDiviner = true;
+                isFighter = false;
+                SetCharacterPOV(GameManager.CharacterPOV.Diviner);
+                //dialogueIndicator.gameObject.SetActive(false);
+            }
+            //dialogueIndicator.gameObject.SetActive(false);
+            
             
         }
     }
@@ -76,6 +84,7 @@ public class YarnDialogueTrigger : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         dialogueIndicator.gameObject.SetActive(false);
+        inYarnTrigger = false;
     }
 
     public void SetCharacterPOV(GameManager.CharacterPOV targetPOV)

@@ -34,6 +34,7 @@ position: -172,85
     Windy: Oh, and don't look down. There's nothing down there but the sun, deep, deep down.
     Windy: All the way under the water.
     <<set $spokenToWindy to true>>
+    <<stop>>
 <<else>>
     Windy: Where did that little pest go?
 <<endif>>
@@ -63,7 +64,7 @@ Tree: <i>It doesn't appear that this tree has anything to say to you.</i>
 title: NoPointNPC
 position: 229,-21
 ---
-<<if $charPOV is "Fighter">> //if the player is being Phoebe
+<<if $charPOV is "Fighter">> ///if the player is being Phoebe
 NPC: There's no point in fighting it. Any of it.
 NPC: Even the monsters. Killing them does nothing.
 NPC: They're stuck here, same as us.
