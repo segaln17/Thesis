@@ -16,14 +16,14 @@ title: Windy
 position: -172,85
 ---
 //<<if $charPOV is "Fighter">>
-<<if not $spokenToWindy>>
+<<if $spokenToWindy is false>>
     Windy: You're the third newcomer we've gotten in whatever measure of time it is, at this point.
     Windy: Impossible to tell, since the damn sun never rises and the damn moon never sets.
     Windy: How'd you get here?
     The Fighter: <i>You say nothing.</i>
     Windy: Not the talkative type, I see.
     Windy: Did you see where that little pest went? It took my trowel.
-    The Fighter: <i>You shakes your head.</i>
+    The Fighter: <i>You shake your head.</i>
     Windy: Drat. And I only just found that trowel in the rubble near the well.
     Windy: Do you know how you got here?
     Windy: Do you even know where here is?
@@ -34,11 +34,7 @@ position: -172,85
     Windy: Oh, and don't look down. There's nothing down there but the sun, deep, deep down.
     Windy: All the way under the water.
     <<set $spokenToWindy to true>>
-<<endif>>
-===
-title: WindySpokenTo
----
-<<if $spokenToWindy is true>>
+<<else>>
     Windy: Where did that little pest go?
 <<endif>>
 ===
