@@ -3,18 +3,29 @@ tags:
 position: -208,-211
 ---
 <<declare $spokenToWindy = false as bool>>
+<<declare $WindyOpeningRun = false as bool>>
 ===
 title: Opening
 position: -223,-93
 ---
 <<if $charPOV is "Fighter">>
+    <<wait 5>>
     Windy: Oh. Well, this is unexpected.
-    <<endif>>
-<<jump Windy>>
+    <<set $WindyOpeningRun to true>>
+    <<stop>>
+<<endif>>
+<<if $WindyOpeningRun is true>>
+    <<stop>>
+<<endif>>
 ===
 title: Windy
 position: -172,85
 ---
+//<<if $WindyOpeningRun is false && $spokenToWindy is false>>
+    //<<runOpening YarnManager>>
+    //<<set $WindyOpeningRun to true>>
+    //<<jump Opening>>
+    //<<stop>>
 //<<if $charPOV is "Fighter">>
 <<if $spokenToWindy is false>>
     Windy: You're the third newcomer we've gotten in whatever measure of time it is, at this point.

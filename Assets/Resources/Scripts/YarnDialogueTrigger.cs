@@ -14,6 +14,8 @@ public class YarnDialogueTrigger : MonoBehaviour
 
     public bool inYarnTrigger;
 
+    public bool introRun;
+
     private InMemoryVariableStorage inMemoryVariableStorage;
 
     public TextMeshProUGUI dialogueIndicator;
@@ -25,33 +27,60 @@ public class YarnDialogueTrigger : MonoBehaviour
     {
         dialogueIndicator.gameObject.SetActive(false);
         inYarnTrigger = false;
+        introRun = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (gameObject.CompareTag("Intro"))
         {
-            if (inYarnTrigger)
+            if (!introRun)
             {
-                Debug.Log("talking");
-                dialogueIndicator.gameObject.SetActive(false);
                 if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
                 {
                     FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
                 }
-                
-            }
 
+                introRun = true;
+            }
+            
         }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (inYarnTrigger)
+                {
+                    Debug.Log("talking");
+                    dialogueIndicator.gameObject.SetActive(false);
+                    if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
+                    {
+                        FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
+                    }
+                
+                }
+
+            }
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            dialogueIndicator.gameObject.SetActive(true);   
+            if (this.gameObject.CompareTag("Intro"))
+            {
+                dialogueIndicator.gameObject.SetActive(false);
+            }
+            else
+            {
+                dialogueIndicator.gameObject.SetActive(true);   
+            }
         }
+
+        
     }
 
     private void OnTriggerStay(Collider other)
