@@ -22,6 +22,7 @@ public class SwitchPlayer : MonoBehaviour
     public GameObject Diviner;
     public GameObject Fighter;
     public GameObject FighterSprite01;
+    public GameObject FighterFeetSprite;
 
     public bool fighterOn;
 
@@ -76,6 +77,7 @@ public class SwitchPlayer : MonoBehaviour
         else if(!firstPersonPOVOn && fighterOn)
         {
             StopCoroutine(hideSprite());
+            FighterFeetSprite.SetActive(false);
             FighterSprite01.SetActive(true);
             thirdPersonFighter.Priority = 5;
             thirdPersonDiviner.Priority = 1;
@@ -172,5 +174,6 @@ public class SwitchPlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(3.5f);
         FighterSprite01.SetActive(false);
+        FighterFeetSprite.SetActive(true);
     }
 }

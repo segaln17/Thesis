@@ -12,6 +12,7 @@ public class SimpleController : MonoBehaviour
     Rigidbody rb;
     public float force = 5.0f;
     private Vector3 movementDirection;
+    public bool isPlayerWalking;
 
     //THE THINGS BELOW ARE AN ATTEMPT AT PARENTING CONTROLS TO WHERE THE CAMERA IS FACING
     //mouse sensitivity
@@ -46,6 +47,8 @@ public class SimpleController : MonoBehaviour
     
     //scene check
     private Scene currentScene;
+    public GameObject feetSpriteFighter;
+    
 
     /*[Header("Stair Conditions")] 
     [SerializeField] private GameObject stepRayUpper;
@@ -56,6 +59,7 @@ public class SimpleController : MonoBehaviour
     private void Awake()
     {
         currentScene = SceneManager.GetActiveScene();
+        isPlayerWalking = false;
         //string sceneName = currentScene.name;
     }
 
@@ -63,11 +67,12 @@ public class SimpleController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
+        isPlayerWalking = false;
+
         /*
         if (currentScene == SceneManager.GetSceneByName("GreyBoxing"))
         {
-            Cursor.lockState = CursorLockMode.Locked;   
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         if (currentScene == SceneManager.GetSceneByName("PaintingScene"))
@@ -129,6 +134,15 @@ public class SimpleController : MonoBehaviour
         
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
+        //Debug.Log(horizontalInput);
+        if (horizontalInput > 0 || horizontalInput < 0 || verticalInput > 0 || verticalInput < 0)
+        {
+            isPlayerWalking = true;
+        }
+        else
+        {
+            isPlayerWalking = false;
+        }
 
         //new attempt at movement:
         if (OnSlope())
