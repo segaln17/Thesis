@@ -6,11 +6,18 @@ position: -208,-211
 <<declare $WindyOpeningRun = false as bool>>
 <<declare $spokenToByronFighter = false as bool>>
 ===
+title: TimelineTest
+---
+Cube: Hi
+<<timelineGo Timeline>>
+Sphere: Hi
+<<stop>>
+===
 title: Opening
 position: -223,-93
 ---
 <<if $charPOV is "Fighter">>
-    <<wait 10>>
+    <<wait 8>>
     Windy: Oh. Well, this is unexpected.
     <<set $WindyOpeningRun to true>>
     <<stop>>

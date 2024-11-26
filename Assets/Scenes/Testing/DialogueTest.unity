@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17862906, g: 0.005536861, b: 0.15604487, a: 1}
+  m_IndirectSpecularColor: {r: 0.17918621, g: 0.0057983925, b: 0.15663223, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1027,8 +1027,11 @@ MonoBehaviour:
   thirdPersonDiviner: {fileID: 0}
   Diviner: {fileID: 0}
   Fighter: {fileID: 1671194061}
+  FighterSprite01: {fileID: 0}
+  FighterFeetSprite: {fileID: 0}
   fighterOn: 0
   divinerOn: 0
+  soundManager: {fileID: 0}
 --- !u!1 &337683523
 GameObject:
   m_ObjectHideFlags: 0
@@ -4026,18 +4029,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982505066}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &994793949 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2565982650994871190, guid: a2470378de17ac7408d5fe98b028fc26,
-    type: 3}
-  m_PrefabInstance: {fileID: 6990669051475418440}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &999108984
 GameObject:
   m_ObjectHideFlags: 0
@@ -4480,18 +4471,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141619452}
   m_Mesh: {fileID: 4652638002716746084, guid: 1b061ccba16e04135866ce75cb3ee261, type: 3}
---- !u!114 &1156962947 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1228519962713644340, guid: a2470378de17ac7408d5fe98b028fc26,
-    type: 3}
-  m_PrefabInstance: {fileID: 6990669051475418440}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1179750361
 GameObject:
   m_ObjectHideFlags: 0
@@ -6547,7 +6526,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 5
-  rotationSpeed: 0
+  isPlayerWalking: 0
+  camera: {fileID: 0}
   sensX: 200
   sensY: 200
   xRotation: 0
@@ -6556,6 +6536,16 @@ MonoBehaviour:
   mouseX: 0
   mouseY: 0
   camManager: {fileID: 308040897}
+  playerHeight: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  grounded: 0
+  groundDrag: 0
+  maxSlopeAngle: 0
+  slopeForce: 15
+  slopeGravity: 80
+  feetSpriteFighter: {fileID: 0}
 --- !u!54 &1671194067
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7113,7 +7103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1811151162
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7157,18 +7147,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811151161}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cad0835a7dd08748936d97236090df2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 6990669051475418442}
-  textImage: {fileID: 1156962947}
   text1: {fileID: 11400000, guid: d60922a11380ae644a2481a8a66acad4, type: 2}
-  text1Sprite: {fileID: 0}
   text2: {fileID: 11400000, guid: 55ee00f315b6d044b83286a643448b89, type: 2}
-  text2Sprite: {fileID: 0}
-  textline: {fileID: 994793949}
+  text3: {fileID: 0}
+  text4: {fileID: 0}
+  textline: {fileID: 0}
+  dialogueIndicator: {fileID: 0}
   dialogueTrigger: {fileID: 1811151161}
 --- !u!1 &1836845868
 GameObject:
