@@ -4,6 +4,7 @@ position: -208,-211
 ---
 <<declare $spokenToWindy = false as bool>>
 <<declare $WindyOpeningRun = false as bool>>
+<<declare $spokenToByronFighter = false as bool>>
 ===
 title: Opening
 position: -223,-93
@@ -47,7 +48,8 @@ position: -172,85
     <<set $spokenToWindy to true>>
     <<stop>>
 <<else>>
-    Windy: Where did that little pest go?
+    Windy: Oh, did I not mention? Fen's at the tavern.
+    Windy: Now, where did that little varmint go?
 <<endif>>
 ===
 title: Byron
@@ -63,6 +65,11 @@ Byron: I'd like to see the moon hatch, but I'll be a husk long before then, won'
 Byron: And then Altea will have to take care of me!
 Byron: Oh, what a punishment that would be for her, but what a pleasure for me!
 Byron: <i>He dissolves into manic laughter.</i>
+<<set $spokenToByronFighter to true>>
+<<endif>>
+<<if $spokenToByronFighter is true>>
+Byron: Fen's a fool if they think anyone's getting into that garden anytime soon.
+Byron: It'd make good kindling...
 <<endif>>
 ===
 title: SilentTree
@@ -136,6 +143,8 @@ The Fighter: <i>You chuckle, but say nothing.</i>
 Fen: Say, do you sing?
 Fen: I've noticed the plants in this place respond strangely to song.
 Fen: Some are too talkative to appreciate it, but others are more sensitive.
+Fen: I found this the other day. It looks like sheet music, almost.
+//GIVES PHOEBE SONG OF BEASTS
 Fen: You may want to try it out!
 <<endif>>
 ===
@@ -152,7 +161,7 @@ position: 279,29
 <<if $charPOV is "Fighter">>
 Heloise: Welcome to our little slice of hell.
 Heloise: We gather here to pretend it's night, and that food still appetizes us.
-Heloise: Come back here when you're ready to join.
+Heloise: Come back here when you're ready for "dinner".
 <<endif>>
 ===
 title: HuskNPC
