@@ -10,6 +10,7 @@ public class PaintingSceneManager : MonoBehaviour
     public GameObject paperFake;
     public GameObject paperReal;
     public GameObject sheetNest;
+    public GameObject paperPlacement;
 
     [Header("Placeable Objects")] 
     public GameObject[] placeableObjects;

@@ -27656,10 +27656,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1259936916}
-    - targetCorrespondingSourceObject: {fileID: 5571203642160640714, guid: e7268f7c14dd946dabffa9c1c472fe23,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1259936923}
   m_SourcePrefab: {fileID: 100100000, guid: e7268f7c14dd946dabffa9c1c472fe23, type: 3}
 --- !u!1 &945799610 stripped
 GameObject:
@@ -35269,31 +35265,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractorSource: {fileID: 1259936905}
-  InteractRange: 50
+  InteractRange: 15
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64
---- !u!135 &1259936923
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1259936904}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 63
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1.71
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1263624486
 GameObject:
   m_ObjectHideFlags: 0
@@ -55552,31 +55527,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1956823638}
+  - component: {fileID: 1956823640}
   - component: {fileID: 1956823637}
-  - component: {fileID: 1956823636}
   - component: {fileID: 1956823639}
   m_Layer: 6
-  m_Name: TestInteract
+  m_Name: Feather
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1956823636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1956823635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd0f72520cc8545ba97b51bf98ffd851, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  object_clone: {fileID: 1956823635}
-  inventoryManager: {fileID: 1374234347}
-  itemName: Feather
 --- !u!212 &1956823637
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -55665,6 +55625,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 4.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1956823640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956823635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d31aa284cae64ede994387481755e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryManager: {fileID: 1374234347}
 --- !u!1 &1962531634
 GameObject:
   m_ObjectHideFlags: 0
