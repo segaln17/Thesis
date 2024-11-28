@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.23764098, g: 0, b: 0.15603262, a: 1}
+  m_IndirectSpecularColor: {r: 0.23756385, g: 0, b: 0.15605123, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -261,7 +261,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 124396444}
-  - {fileID: 1428678460}
   - {fileID: 1751704433}
   - {fileID: 2100671300}
   - {fileID: 689533943}
@@ -3762,6 +3761,8 @@ MonoBehaviour:
   text4: {fileID: 11400000, guid: e59d9e1c8006e4fac8768d1ff4903e18, type: 2}
   textline: {fileID: 3863868319641620638}
   dialogueIndicator: {fileID: 1274461193}
+  dialoguePlayed: 0
+  isNearDialogue: 0
   dialogueTrigger: {fileID: 124396443}
 --- !u!135 &124396446
 SphereCollider:
@@ -12528,6 +12529,8 @@ MonoBehaviour:
   text4: {fileID: 11400000, guid: e59d9e1c8006e4fac8768d1ff4903e18, type: 2}
   textline: {fileID: 3863868319641620638}
   dialogueIndicator: {fileID: 1274461193}
+  dialoguePlayed: 0
+  isNearDialogue: 0
   dialogueTrigger: {fileID: 402253512}
 --- !u!135 &402253515
 SphereCollider:
@@ -20964,6 +20967,8 @@ MonoBehaviour:
   text4: {fileID: 11400000, guid: 08eb141db7f00c6498fbbb753c4e8d40, type: 2}
   textline: {fileID: 3863868319641620638}
   dialogueIndicator: {fileID: 1274461193}
+  dialoguePlayed: 0
+  isNearDialogue: 0
   dialogueTrigger: {fileID: 689533942}
 --- !u!135 &689533945
 SphereCollider:
@@ -32198,6 +32203,8 @@ MonoBehaviour:
   text4: {fileID: 11400000, guid: e59d9e1c8006e4fac8768d1ff4903e18, type: 2}
   textline: {fileID: 2077951239}
   dialogueIndicator: {fileID: 1274461193}
+  dialoguePlayed: 0
+  isNearDialogue: 0
   dialogueTrigger: {fileID: 1112729713}
 --- !u!135 &1112729716
 SphereCollider:
@@ -39671,7 +39678,7 @@ GameObject:
   - component: {fileID: 1428678461}
   m_Layer: 0
   m_Name: GardenInternal
-  m_TagString: 2ndPOV
+  m_TagString: 2ndPOVObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39684,12 +39691,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428678459}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.016530523, y: 0.19111471, z: 0.022385076, w: 0.9811732}
-  m_LocalPosition: {x: 36.6, y: 7.1, z: 238.8}
-  m_LocalScale: {x: 3.5000005, y: 3.5000007, z: 3.5}
+  m_LocalRotation: {x: -0.21900102, y: 0.2453391, z: 0.69400275, w: 0.64047444}
+  m_LocalPosition: {x: 5.39, y: -0.59, z: 3.75}
+  m_LocalScale: {x: 2.0717418, y: 2.0717418, z: 2.071741}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4476134}
+  m_Father: {fileID: 1869944216}
   m_LocalEulerAnglesHint: {x: 1.368, y: 22.079, z: 2.881}
 --- !u!114 &1428678461
 MonoBehaviour:
@@ -39706,10 +39713,12 @@ MonoBehaviour:
   textBox: {fileID: 3863868319641620639}
   text1: {fileID: 11400000, guid: 140246a0a7bcbf64c8af5ee2ff4a0b15, type: 2}
   text2: {fileID: 11400000, guid: 2c4f7241a08a7fb45a9d12fa43888144, type: 2}
-  text3: {fileID: 11400000, guid: e0e33c6df1b2df647bc21cae034974fd, type: 2}
-  text4: {fileID: 11400000, guid: 89e5116cd8c818d4098f3ead5b9940c7, type: 2}
+  text3: {fileID: 11400000, guid: e59d9e1c8006e4fac8768d1ff4903e18, type: 2}
+  text4: {fileID: 11400000, guid: e59d9e1c8006e4fac8768d1ff4903e18, type: 2}
   textline: {fileID: 3863868319641620638}
   dialogueIndicator: {fileID: 1274461193}
+  dialoguePlayed: 1
+  isNearDialogue: 0
   dialogueTrigger: {fileID: 1428678459}
 --- !u!135 &1428678462
 SphereCollider:
@@ -39730,7 +39739,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 4.21
+  m_Radius: 5.13
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1432715826
 PrefabInstance:
@@ -48795,7 +48804,7 @@ Transform:
   m_GameObject: {fileID: 1751704432}
   serializedVersion: 2
   m_LocalRotation: {x: 0.016530523, y: 0.19111471, z: 0.022385076, w: 0.9811732}
-  m_LocalPosition: {x: 91.7, y: 7.2, z: 284.2}
+  m_LocalPosition: {x: 90.86, y: 7.25, z: 282.13}
   m_LocalScale: {x: 3.5000005, y: 3.5000007, z: 3.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48820,6 +48829,8 @@ MonoBehaviour:
   text4: {fileID: 11400000, guid: 58b9719c68cc61a4b9c84fbe5e60fa3d, type: 2}
   textline: {fileID: 3863868319641620638}
   dialogueIndicator: {fileID: 1274461193}
+  dialoguePlayed: 0
+  isNearDialogue: 0
   dialogueTrigger: {fileID: 1751704432}
 --- !u!135 &1751704435
 SphereCollider:
@@ -53134,17 +53145,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 86f9a4339a15142d9b14b236802e78d9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.153386
+      value: -9.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86f9a4339a15142d9b14b236802e78d9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.73085
+      value: 24.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86f9a4339a15142d9b14b236802e78d9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 240.39374
+      value: 232.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 86f9a4339a15142d9b14b236802e78d9,
         type: 3}
@@ -53189,7 +53200,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 86f9a4339a15142d9b14b236802e78d9,
         type: 3}
       propertyPath: m_Name
-      value: 3dflowewr (1)
+      value: 3dFlowerwDialogue
       objectReference: {fileID: 0}
     - target: {fileID: 3933856399831809119, guid: 86f9a4339a15142d9b14b236802e78d9,
         type: 3}
@@ -53198,9 +53209,19 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3ca10ee28a71b4e17bd01a4851ba66e7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 86f9a4339a15142d9b14b236802e78d9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1428678460}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86f9a4339a15142d9b14b236802e78d9, type: 3}
+--- !u!4 &1869944216 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 86f9a4339a15142d9b14b236802e78d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1869944215}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1874143241
 GameObject:
   m_ObjectHideFlags: 0
@@ -54614,7 +54635,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 86f9a4339a15142d9b14b236802e78d9,
         type: 3}
       propertyPath: m_Name
-      value: 3dflowewr
+      value: 3dflower
       objectReference: {fileID: 0}
     - target: {fileID: 3933856399831809119, guid: 86f9a4339a15142d9b14b236802e78d9,
         type: 3}
@@ -56962,6 +56983,8 @@ MonoBehaviour:
   text4: {fileID: 11400000, guid: e59d9e1c8006e4fac8768d1ff4903e18, type: 2}
   textline: {fileID: 3863868319641620638}
   dialogueIndicator: {fileID: 1274461193}
+  dialoguePlayed: 0
+  isNearDialogue: 0
   dialogueTrigger: {fileID: 2023568359}
 --- !u!135 &2023568362
 SphereCollider:
@@ -59702,6 +59725,8 @@ MonoBehaviour:
   text4: {fileID: 11400000, guid: 95057579b7ae51c41b38e894434ccba9, type: 2}
   textline: {fileID: 3863868319641620638}
   dialogueIndicator: {fileID: 1274461193}
+  dialoguePlayed: 0
+  isNearDialogue: 0
   dialogueTrigger: {fileID: 2100671299}
 --- !u!135 &2100671302
 SphereCollider:
@@ -61883,7 +61908,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 14.13
+  m_Radius: 12.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &719988102707333607
 MonoBehaviour:
@@ -65600,6 +65625,8 @@ MonoBehaviour:
   text4: {fileID: 11400000, guid: e59d9e1c8006e4fac8768d1ff4903e18, type: 2}
   textline: {fileID: 2077951239}
   dialogueIndicator: {fileID: 1274461193}
+  dialoguePlayed: 0
+  isNearDialogue: 0
   dialogueTrigger: {fileID: 4211960910577917588}
 --- !u!114 &5809629821251678117
 MonoBehaviour:
@@ -65620,6 +65647,8 @@ MonoBehaviour:
   text4: {fileID: 11400000, guid: e59d9e1c8006e4fac8768d1ff4903e18, type: 2}
   textline: {fileID: 2077951239}
   dialogueIndicator: {fileID: 1274461193}
+  dialoguePlayed: 0
+  isNearDialogue: 0
   dialogueTrigger: {fileID: 4211960910792002377}
 --- !u!114 &5809629821534335746
 MonoBehaviour:
@@ -65640,6 +65669,8 @@ MonoBehaviour:
   text4: {fileID: 11400000, guid: e59d9e1c8006e4fac8768d1ff4903e18, type: 2}
   textline: {fileID: 2077951239}
   dialogueIndicator: {fileID: 1274461193}
+  dialoguePlayed: 0
+  isNearDialogue: 0
   dialogueTrigger: {fileID: 4211960911046350830}
 --- !u!114 &5809629821704394147
 MonoBehaviour:
@@ -65660,6 +65691,8 @@ MonoBehaviour:
   text4: {fileID: 11400000, guid: e59d9e1c8006e4fac8768d1ff4903e18, type: 2}
   textline: {fileID: 2077951239}
   dialogueIndicator: {fileID: 1274461193}
+  dialoguePlayed: 0
+  isNearDialogue: 0
   dialogueTrigger: {fileID: 4211960909265547599}
 --- !u!114 &5809629821736408209
 MonoBehaviour:
@@ -65680,6 +65713,8 @@ MonoBehaviour:
   text4: {fileID: 11400000, guid: e59d9e1c8006e4fac8768d1ff4903e18, type: 2}
   textline: {fileID: 2077951239}
   dialogueIndicator: {fileID: 1274461193}
+  dialoguePlayed: 0
+  isNearDialogue: 0
   dialogueTrigger: {fileID: 4211960909099380861}
 --- !u!114 &5809629821799483903
 MonoBehaviour:
@@ -65700,6 +65735,8 @@ MonoBehaviour:
   text4: {fileID: 11400000, guid: e59d9e1c8006e4fac8768d1ff4903e18, type: 2}
   textline: {fileID: 2077951239}
   dialogueIndicator: {fileID: 1274461193}
+  dialoguePlayed: 0
+  isNearDialogue: 0
   dialogueTrigger: {fileID: 4211960909178973459}
 --- !u!114 &5809629822336791902
 MonoBehaviour:
@@ -65720,6 +65757,8 @@ MonoBehaviour:
   text4: {fileID: 11400000, guid: e59d9e1c8006e4fac8768d1ff4903e18, type: 2}
   textline: {fileID: 2077951239}
   dialogueIndicator: {fileID: 1274461193}
+  dialoguePlayed: 0
+  isNearDialogue: 0
   dialogueTrigger: {fileID: 4211960909713117618}
 --- !u!4 &6149306543394415746
 Transform:
@@ -65845,6 +65884,8 @@ MonoBehaviour:
   text4: {fileID: 11400000, guid: e59d9e1c8006e4fac8768d1ff4903e18, type: 2}
   textline: {fileID: 3863868319641620638}
   dialogueIndicator: {fileID: 1274461193}
+  dialoguePlayed: 0
+  isNearDialogue: 0
   dialogueTrigger: {fileID: 4327933600237161731}
 --- !u!95 &6345501249703460835
 Animator:
@@ -67020,13 +67061,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4327933600237161731}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.88097596, z: -0, w: -0.47316116}
-  m_LocalPosition: {x: 44.57342, y: 4.849909, z: 210.14575}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 47.3, y: 4.849909, z: 197.5}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4476134}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &9084701330737747739
 GameObject:
   m_ObjectHideFlags: 0
@@ -67094,6 +67135,7 @@ SceneRoots:
   - {fileID: 2381302731134418251}
   - {fileID: 9144585740597122789}
   - {fileID: 2381302732729883409}
+  - {fileID: 1869944215}
   - {fileID: 239326512}
   - {fileID: 905748478}
   - {fileID: 1841960737}
@@ -67109,7 +67151,6 @@ SceneRoots:
   - {fileID: 223174134}
   - {fileID: 1533123014}
   - {fileID: 125339067}
-  - {fileID: 1910252801}
   - {fileID: 342721932}
   - {fileID: 1588409748}
   - {fileID: 1774494267}
@@ -67119,6 +67160,7 @@ SceneRoots:
   - {fileID: 1852406339}
   - {fileID: 1066714094}
   - {fileID: 248817184}
+  - {fileID: 1910252801}
   - {fileID: 1441725722}
   - {fileID: 822313506}
   - {fileID: 466486972}
@@ -67156,7 +67198,6 @@ SceneRoots:
   - {fileID: 419192792}
   - {fileID: 69570192}
   - {fileID: 246760673}
-  - {fileID: 1869944215}
   - {fileID: 570533199}
   - {fileID: 1496678055}
   - {fileID: 73207745}

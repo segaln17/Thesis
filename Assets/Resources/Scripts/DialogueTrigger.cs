@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class DialogueTrigger : MonoBehaviour
@@ -27,8 +28,10 @@ public class DialogueTrigger : MonoBehaviour
     private IEnumerator dialogueCoroutine;
 
     public TextMeshProUGUI dialogueIndicator;
+
+    public bool dialoguePlayed;
     
-   // public bool isNearDialogue = false;
+    public bool isNearDialogue = false;
     
     //the gameobject with the collider (although this script is on the collider currently)
     public GameObject dialogueTrigger;
@@ -40,12 +43,24 @@ public class DialogueTrigger : MonoBehaviour
         textBox.gameObject.SetActive(false);
         dialogueCoroutine = DialoguePlay();
         dialogueIndicator.gameObject.SetActive(false);
+        dialoguePlayed = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (isNearDialogue && gameObject.CompareTag("2ndPOV") || isNearDialogue && gameObject.CompareTag("2ndPOVObject"))
+        {
+            if (dialoguePlayed)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    dialogueIndicator.gameObject.SetActive(false);
+                    StopCoroutine(dialogueCoroutine);
+                    StartCoroutine(DialoguePlay());
+                }
+            }
+        }
     }
 
     //setting the sprites to the component in the scriptable objects
@@ -60,38 +75,55 @@ public class DialogueTrigger : MonoBehaviour
         //IF SECOND PERSON:
         if (gameObject.CompareTag("2ndPOV"))
         {
-            if (other.gameObject.CompareTag("Player"))
+            //if you're the player and you haven't seen this dialogue before
+            if (other.gameObject.CompareTag("Player") && dialoguePlayed == false)
             {
+                //there should be no dialogue indicator and you're near the dialogue
                 dialogueIndicator.gameObject.SetActive(false);
+                isNearDialogue = true;
+                
                 StopCoroutine(dialogueCoroutine);
                 StartCoroutine(DialoguePlay());
             }
+            //if you have seen it before but want to see it again
+            else if (other.gameObject.CompareTag("Player") && dialoguePlayed)
             {
+                //turn the dialogue indicator on and you're near dialogue
+                isNearDialogue = true;
+                dialogueIndicator.gameObject.SetActive(true);
                 
+                //StopCoroutine(dialogueCoroutine);
+                //StartCoroutine(DialoguePlay());
             }
         }
+        
     }
 
     private void OnTriggerStay(Collider other)
     {
         //Debug.Log("in collider");
-        /*
-        //IF NOT SECOND PERSON:
-        if (gameObject.tag != "2ndPOV")
+        
+        //IF SECOND PERSON BUT SPECIAL
+        if (gameObject.tag == "2ndPOVObject")
         {
             if (other.gameObject.tag == "Player")
             {
                 dialogueIndicator.gameObject.SetActive(true);
+                isNearDialogue = true;
+                
+                //and set dialoguePlayed to true so you just have to trigger it
+                dialoguePlayed = true;
+                /*
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     dialogueIndicator.gameObject.SetActive(false);
-                    //TODO: call the OnContinue from the LineView script basically
                     StopCoroutine(dialogueCoroutine);
                     StartCoroutine(DialoguePlay());
                 }
+                */
             }
         }
-        */
+        
         //}
         
     }
@@ -141,6 +173,8 @@ public class DialogueTrigger : MonoBehaviour
                     }
                 }
             }
+
+            dialoguePlayed = true;
             //yield return new WaitForSeconds(3f);
             //NOTE: I put the if statement with the text3 code inside the else statement of the text2 code
             yield break;
@@ -153,7 +187,8 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            dialogueIndicator.gameObject.SetActive(false);   
+            dialogueIndicator.gameObject.SetActive(false);
+            isNearDialogue = false;
         }
     }
 }
