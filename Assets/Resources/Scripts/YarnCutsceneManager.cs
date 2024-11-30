@@ -40,6 +40,16 @@ public class YarnCutsceneManager : MonoBehaviour
         cutsceneRun = true;
     }
 
+    [YarnCommand("gardenCutscene")]
+    public void GardenCutscene()
+    {
+        //yarnDialogueTrigger.GetComponent<YarnDialogueTrigger>();
+        //yarnDialogueTrigger.nodeToCall = "PhoebeintheGarden";
+        dialogueRunner.startNode = "PhoebeintheGarden";
+        dialogueRunner.startAutomatically = true;
+        
+    }
+
     [YarnCommand("NotAutomatic")]
     public void RunnerNotAutomatic()
     {

@@ -2,9 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
+using Yarn.Unity;
 
 public class HedgeScript : MonoBehaviour
 {
+    public YarnCutsceneManager yarnCutsceneManager;
+    
     public SongScript songScript; 
     
     public List<string> noteQueue = new List<string>();
@@ -12,10 +16,16 @@ public class HedgeScript : MonoBehaviour
     public string goalPhrase = "WDAS";
     public bool isSinging = false;
     public bool isinHedge = false;
+
+    public bool isGarden = false;
+    public bool isOutsideGarden = false;
+    public bool isMoon = false;
     
 
     public Animator hedge1animator;
     //public Animator hedge2animator;
+
+    public PlayableDirector gardenTimeline;
     
     public bool timerActive = false;
     public float hitWindowTime = 0.0f;
@@ -126,34 +136,107 @@ public class HedgeScript : MonoBehaviour
         }
         CheckNotes();
 
-        if (noteQueue.Count == 4 && ListtoString(noteQueue) != goalPhrase)
+        if (isOutsideGarden)
         {
-            noteQueue = new List<string>();
-        }
-        if (noteQueue.Count == 4 && noteQueue[3] != "S")
-        {
-            noteQueue.RemoveAt(3);
-            noteQueue.RemoveAt(2);
-            noteQueue.RemoveAt(1);
-            noteQueue.RemoveAt(0);
+            if (noteQueue.Count == 4 && ListtoString(noteQueue) != goalPhrase)
+            {
+                noteQueue = new List<string>();
+            }
+            if (noteQueue.Count == 4 && noteQueue[3] != "S")
+            {
+                noteQueue.RemoveAt(3);
+                noteQueue.RemoveAt(2);
+                noteQueue.RemoveAt(1);
+                noteQueue.RemoveAt(0);
+            }
+
+            if (noteQueue.Count == 3 && noteQueue[2] != "A")
+            {
+                noteQueue.RemoveAt(2);
+                noteQueue.RemoveAt(1);
+                noteQueue.RemoveAt(0);
+            }
+        
+            if (noteQueue.Count == 2 && noteQueue[1] != "D")
+            {
+                noteQueue.RemoveAt(1);
+                noteQueue.RemoveAt(0);
+            }
+            if (noteQueue.Count == 1 && noteQueue[0] != "W")
+            {
+                noteQueue.RemoveAt(0);
+            }
         }
 
-        if (noteQueue.Count == 3 && noteQueue[2] != "A")
+        //SONG OF BEASTS: WDADDAWD
+        if (isGarden)
         {
-            noteQueue.RemoveAt(2);
-            noteQueue.RemoveAt(1);
-            noteQueue.RemoveAt(0);
+            if (noteQueue.Count == 8 && ListtoString(noteQueue) != goalPhrase)
+            {
+                noteQueue = new List<string>();
+            }
+            if (noteQueue.Count == 8 && noteQueue[7] != "D")
+            {
+                noteQueue.RemoveAt(7);
+                noteQueue.RemoveAt(6);
+                noteQueue.RemoveAt(5);
+                noteQueue.RemoveAt(4);
+                noteQueue.RemoveAt(3);
+                noteQueue.RemoveAt(2);
+                noteQueue.RemoveAt(1);
+                noteQueue.RemoveAt(0);
+            }
+            if (noteQueue.Count == 7 && noteQueue[6] != "W")
+            {
+                noteQueue.RemoveAt(6);
+                noteQueue.RemoveAt(5);
+                noteQueue.RemoveAt(4);
+                noteQueue.RemoveAt(3);
+                noteQueue.RemoveAt(2);
+                noteQueue.RemoveAt(1);
+                noteQueue.RemoveAt(0);
+            }
+            if (noteQueue.Count == 6 && noteQueue[5] != "A")
+            {
+                noteQueue.RemoveAt(5);
+                noteQueue.RemoveAt(4);
+                noteQueue.RemoveAt(3);
+                noteQueue.RemoveAt(2);
+                noteQueue.RemoveAt(1);
+                noteQueue.RemoveAt(0);
+            }
+            if (noteQueue.Count == 5 && noteQueue[4] != "D")
+            {
+                noteQueue.RemoveAt(4);
+                noteQueue.RemoveAt(3);
+                noteQueue.RemoveAt(2);
+                noteQueue.RemoveAt(1);
+                noteQueue.RemoveAt(0);
+            }
+            if (noteQueue.Count == 4 && noteQueue[3] != "D")
+            {
+                noteQueue.RemoveAt(3);
+                noteQueue.RemoveAt(2);
+                noteQueue.RemoveAt(1);
+                noteQueue.RemoveAt(0);
+            }
+            if (noteQueue.Count == 3 && noteQueue[2] != "A")
+            {
+                noteQueue.RemoveAt(2);
+                noteQueue.RemoveAt(1);
+                noteQueue.RemoveAt(0);
+            }
+            if (noteQueue.Count == 2 && noteQueue[1] != "D")
+            {
+                noteQueue.RemoveAt(1);
+                noteQueue.RemoveAt(0);
+            }
+            if (noteQueue.Count == 1 && noteQueue[0] != "W")
+            {
+                noteQueue.RemoveAt(0);
+            }
         }
         
-        if (noteQueue.Count == 2 && noteQueue[1] != "D")
-        {
-            noteQueue.RemoveAt(1);
-            noteQueue.RemoveAt(0);
-        }
-        if (noteQueue.Count == 1 && noteQueue[0] != "W")
-        {
-            noteQueue.RemoveAt(0);
-        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -171,8 +254,19 @@ public class HedgeScript : MonoBehaviour
            if (ListtoString(noteQueue) == goalPhrase)
             {
                 Debug.Log("correct song");
-                StartCoroutine("WaitAnimate");
-                //play something
+                if (!isGarden && !isMoon)
+                {
+                    StartCoroutine("WaitAnimate");
+                    //play something
+                }
+
+                if (isGarden)
+                {
+                    songScript.sheetActive = false;
+                    isSinging = false;
+                    StartCoroutine("WaitTimeline");
+                }
+                
             }
         }
 
@@ -199,6 +293,15 @@ public class HedgeScript : MonoBehaviour
         //compare queue to target phrase
         //if it's the same, play a sound maybe and do an animation of stuff parting
 
+        IEnumerator WaitTimeline()
+        {
+            Debug.Log("garden thing");
+            //yarnCutsceneManager.GardenCutscene();
+            yield return new WaitForSeconds(1f);
+            gardenTimeline.Play();
+            noteQueue.Clear();
+        }
+
       
         private void OnTriggerExit(Collider other)
         {
@@ -220,5 +323,21 @@ public class HedgeScript : MonoBehaviour
         {
             hitWindowTime = 0;
             timerActive = false;
+        }
+        
+        [YarnCommand("setGardenSongBool")]
+        public void SetGardenBool()
+        {
+            isGarden = true;
+            isOutsideGarden = false;
+            isMoon = false;
+        }
+
+        [YarnCommand("setMoonSongBool")]
+        public void SetMoonSongBool()
+        {
+            isGarden = false;
+            isOutsideGarden = false;
+            isMoon = true;
         }
 }

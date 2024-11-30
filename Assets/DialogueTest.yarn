@@ -119,9 +119,11 @@ title: FenTavern
 position: 259,9
 ---
 <<if $charPOV is "Fighter">>
-Fen: I haven't seen you before, have I?
-Fen: Isn't this a strange place in which we find ourselves? And to think, I meant to come here.
-Fen: It'd be silly, if things didn't just sit here and rot.
+The Fighter: <i>Before you is a small but strangely imposing figure, sitting alone.</i>
+The Fighter: <i>Though she is small, she has gravity, and sitting in the tavern by herself, one can almost pretend this is normal.</i>
+Strangely Congenial Person: I haven't seen you before, have I?
+Strangely Congenial Person: Isn't this a strange place in which we find ourselves? And to think, I meant to come here.
+Strangely Congenial Person: It'd be silly, if things didn't just sit here and rot.
 Fen: I'm Fen. What's your name?
 The Fighter: <i>You hesitate. You are not comfortable sharing this yet.</i>
 Fen: You're a shy one, then! Wouldn't think so with your weaponry.
@@ -152,8 +154,12 @@ Fen: Say, do you sing?
 Fen: I've noticed the plants in this place respond strangely to song.
 Fen: Some are too talkative to appreciate it, but others are more sensitive.
 Fen: I found this the other day. It looks like sheet music, almost.
+Fen: Here, maybe you'll have a use for it.
+The Fighter: <i>She hands you a knife with music etched into the blade.</i>
+The Fighter: <i>Strangely, it looks similar to the one you already possess.</i>
 //GIVES PHOEBE SONG OF BEASTS
-Fen: You may want to try it out!
+<<getSongofBeasts InventoryManager>>
+Fen: Maybe something around here will respond to it!
 <<endif>>
 ===
 title: Tree
@@ -214,6 +220,15 @@ Tree: Do you hear it?
 Tree: The song of our gestating moon?
 <<endif>>
 ===
+title: SongofBeastsTree
+---
+//SONG OF BEASTS TRIGGER
+The Fighter: <i>This tree looks stranger than the others. Not quite right.</i>
+The Fighter: <i>Mere words do not feel sufficient to communicate with it.</i>
+The Fighter: <i>Maybe song will be.</i>
+//RUN THE SONG, THEN START TIMELINE THAT JUMPS TO THIS NODE:
+//<<jump PhoebeintheGarden>>
+===
 title: PhoebeintheGarden
 ---
 //Triggered by song of Beasts
@@ -230,9 +245,11 @@ Creature that Looks Worried: A thing that eats the moon eats the power of this w
 Creature with Many Heads: The moon must hatch.
 Creature with Wings: Take this, and find its hatching song.
 //GIVE THE MUSIC BOX
+<<getMusicBoxBase InventoryManager>>
 Creature with Wings: The one who is ancient but also young will help you.
 Creature with Many Heads: The one who is burned on the inside can help but may not.
 Creature that Looks Worried: She does not know how to ask nicely.
+//<<NotAutomatic YarnManager>>
 <<stop>>
 ===
 title: AlteaAtTheSpine
@@ -263,6 +280,7 @@ Altea: Now, run along.
 //CREATURE APPEARS
 Creature that Looks Worried: The moon must hatch.
 //GIVE FIGURINE
+<<getMusicBoxFigure InventoryManagers>>
 Creature that Looks Worried: Go to the bathing place.
 Creature that Looks Worried: See what she has done.
 <<stop>>

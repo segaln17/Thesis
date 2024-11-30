@@ -14,7 +14,7 @@ public class YarnDialogueTrigger : MonoBehaviour
 
     public bool inYarnTrigger;
 
-    public bool introRun;
+    public bool cutsceneRun;
 
     private InMemoryVariableStorage inMemoryVariableStorage;
 
@@ -27,22 +27,22 @@ public class YarnDialogueTrigger : MonoBehaviour
     {
         dialogueIndicator.gameObject.SetActive(false);
         inYarnTrigger = false;
-        introRun = false;
+        cutsceneRun = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.CompareTag("Intro"))
+        if (gameObject.CompareTag("Cutscene"))
         {
-            if (!introRun)
+            if (!cutsceneRun)
             {
                 if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
                 {
                     FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
                 }
 
-                introRun = true;
+                cutsceneRun = true;
             }
             
         }
@@ -70,7 +70,7 @@ public class YarnDialogueTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (this.gameObject.CompareTag("Intro"))
+            if (this.gameObject.CompareTag("Cutscene"))
             {
                 dialogueIndicator.gameObject.SetActive(false);
             }

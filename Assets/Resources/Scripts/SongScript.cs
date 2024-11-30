@@ -6,9 +6,13 @@ using UnityEngine.UI;
 
 public class SongScript : MonoBehaviour
 {
+    public InventoryManager inventoryManager;
     //public static SongScript instance;
    // public GameObject playerSprite;
 
+   public GameObject song01;
+   public GameObject song02;
+   
     public bool sheetActive;
     public Animator songAnim;
 
@@ -61,6 +65,8 @@ public class SongScript : MonoBehaviour
     void Start()
     {
         state = humRegister.mid;
+        song01.SetActive(true);
+        song02.SetActive(false);
         
     }
 
@@ -81,6 +87,21 @@ public class SongScript : MonoBehaviour
             //playerSprite.SetActive(false);
             fighter.GetComponent<SimpleController>().enabled = false;
             fighter.GetComponent<Rigidbody>().isKinematic = true;
+
+            if (inventoryManager.HasItem("Song of Beasts"))
+            {
+                if (Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    song02.SetActive(true);
+                    song01.SetActive(false);
+                }
+
+                if (Input.GetKeyDown(KeyCode.DownArrow))
+                {
+                    song02.SetActive(false);
+                    song01.SetActive(true);
+                }
+            }
             
             
             /*if(Input.GetAxisRaw("Mouse ScrollWheel") >= deadZoneMax && Input.GetAxisRaw("Mouse ScrollWheel") <= registerCeiling && state == humRegister.mid)
