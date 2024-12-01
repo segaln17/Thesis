@@ -23,6 +23,6 @@ public class TimelineTest : MonoBehaviour
     public void GoTimeline()
     {
         timeline.Play();
-        Debug.Log("cube");
+        //Debug.Log("cube");
     }
 }

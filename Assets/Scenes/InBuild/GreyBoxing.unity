@@ -5973,7 +5973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueRunner: {fileID: 1753626512}
   player: {fileID: 1259936904}
-  creature: {fileID: 0}
+  creature: {fileID: 189529191}
 --- !u!1001 &191650953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7450,6 +7450,7 @@ GameObject:
   m_Component:
   - component: {fileID: 238613609}
   - component: {fileID: 238613608}
+  - component: {fileID: 238613610}
   m_Layer: 0
   m_Name: STABLETIMELINE
   m_TagString: Untagged
@@ -7467,7 +7468,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 67db18e00debad242834bfbce6f22493, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -7478,6 +7479,8 @@ PlayableDirector:
     value: {fileID: 1951076443}
   - key: {fileID: -5450185334840687018, guid: 67db18e00debad242834bfbce6f22493, type: 2}
     value: {fileID: 1559609465}
+  - key: {fileID: 6549340099360606643, guid: 67db18e00debad242834bfbce6f22493, type: 2}
+    value: {fileID: 950877569}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &238613609
@@ -7495,6 +7498,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &238613610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238613607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a33ee32828f17f54aaa56efd898f016c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeline: {fileID: 238613608}
 --- !u!1001 &239326512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12231,7 +12247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &358102238
 Transform:
   m_ObjectHideFlags: 0
@@ -14189,6 +14205,96 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 419192792}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &423886314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 423886315}
+  - component: {fileID: 423886317}
+  - component: {fileID: 423886316}
+  - component: {fileID: 423886318}
+  m_Layer: 0
+  m_Name: YarnStableCutsceneSetUpCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &423886315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423886314}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.38268343, z: -0, w: 0.92387956}
+  m_LocalPosition: {x: -264.4, y: -107.588, z: -335.1}
+  m_LocalScale: {x: 0.10000001, y: 0.1, z: 0.10000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1836140816}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &423886316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423886314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89fc36a6da2f6834f8430de097d0784d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeToCall: HighPriestessTimelineTrigger
+  fighter: {fileID: 1259936904}
+  diviner: {fileID: 542787751}
+  inYarnTrigger: 0
+  cutsceneRun: 0
+  dialogueIndicator: {fileID: 1274461193}
+  isFighter: 0
+  isDiviner: 0
+--- !u!65 &423886317
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423886314}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 31.83, y: 44.76769, z: 51.9}
+  m_Center: {x: -0.5236056, y: 1.0451627, z: 7.380027}
+--- !u!114 &423886318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423886314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a1effe9c62f0fb4586b0d3009e1339a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueRunner: {fileID: 1753626512}
+  player: {fileID: 1259936904}
+  creature: {fileID: 1951076443}
 --- !u!1001 &432365374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28292,6 +28398,54 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 945799608}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &950877569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 950877571}
+  - component: {fileID: 950877570}
+  m_Layer: 0
+  m_Name: YarnManagerStable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &950877570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950877569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 682706fc52d5f8542b28d2d1975143ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yarnDialogueTrigger: {fileID: 2281494419009211594}
+  nonCutsceneNode: HighPriestess
+  cutsceneRun: 0
+  NPC: {fileID: 1951076443}
+--- !u!4 &950877571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950877569}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -24.186037, y: -4.6087976, z: -506.74625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &956583256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29713,6 +29867,7 @@ GameObject:
   - component: {fileID: 1001626710}
   - component: {fileID: 1001626712}
   - component: {fileID: 1001626711}
+  - component: {fileID: 1001626713}
   m_Layer: 0
   m_Name: YarnStableCutsceneCollider
   m_TagString: Cutscene
@@ -29729,7 +29884,7 @@ Transform:
   m_GameObject: {fileID: 1001626709}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.38268343, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: -265.98, y: -107.588, z: -333.52}
+  m_LocalPosition: {x: -266.806, y: -107.588, z: -332.694}
   m_LocalScale: {x: 0.10000001, y: 0.1, z: 0.10000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29754,7 +29909,7 @@ MonoBehaviour:
   cutsceneRun: 0
   dialogueIndicator: {fileID: 1274461193}
   isFighter: 0
-  isDiviner: 1
+  isDiviner: 0
 --- !u!65 &1001626712
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29774,8 +29929,23 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 27.8, y: 16.89, z: 13.1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 78.366844, y: 44.76769, z: 45.505596}
+  m_Center: {x: -0.5236056, y: 1.0451627, z: 7.380027}
+--- !u!114 &1001626713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001626709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a1effe9c62f0fb4586b0d3009e1339a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueRunner: {fileID: 1753626512}
+  player: {fileID: 1259936904}
+  creature: {fileID: 1001626709}
 --- !u!1 &1003575418
 GameObject:
   m_ObjectHideFlags: 0
@@ -36089,7 +36259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueRunner: {fileID: 1590296998}
   player: {fileID: 1259936904}
-  creature: {fileID: 0}
+  creature: {fileID: 1951076443}
 --- !u!95 &1259936916
 Animator:
   serializedVersion: 5
@@ -46320,7 +46490,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 0d4a47b08c7f8c84da155b6e2a3d0f30, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -53270,6 +53440,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1001626710}
+  - {fileID: 423886315}
   - {fileID: 1951076444}
   - {fileID: 49740054}
   m_Father: {fileID: 0}
@@ -56685,12 +56856,12 @@ GameObject:
   - component: {fileID: 1951076444}
   - component: {fileID: 1951076445}
   m_Layer: 0
-  m_Name: PlayerClericStandIn
+  m_Name: PlayerClericStandInStable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1951076444
 Transform:
   m_ObjectHideFlags: 0
@@ -56700,8 +56871,8 @@ Transform:
   m_GameObject: {fileID: 1951076443}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.38268343, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: -264.89, y: -107.81, z: -334.77}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: -265.39, y: -106.16, z: -335.27}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1836140816}
@@ -68858,6 +69029,7 @@ SceneRoots:
   - {fileID: 9110975410948971259}
   - {fileID: 1749647033}
   - {fileID: 1843383315}
+  - {fileID: 950877571}
   - {fileID: 1729834073}
   - {fileID: 600811590}
   - {fileID: 1308919069}

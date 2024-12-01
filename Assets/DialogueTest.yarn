@@ -91,17 +91,18 @@ title: NoPointNPC
 position: 229,-21
 ---
 <<if $charPOV is "Fighter">> ///if the player is being Phoebe
-NPC: There's no point in fighting it. Any of it.
-NPC: Even the monsters. Killing them does nothing.
-NPC: They're stuck here, same as us.
+Verity: There's no point in fighting it. Any of it.
+Verity: Even the monsters. Killing them does nothing.
+Verity: They're stuck here, same as us.
 <<endif>>
 ===
 title: TavernNPC1
 position: 239,-11
 ---
 <<if $charPOV is "Fighter">>
-NPC: Between you and me, I don't think any of us need to sleep, anymore.
-NPC: But some people still pretend they can.
+Grimbolde: This is the tavern. If you want to eat or sleep, this is the place.
+Grimbolde: Between you and me, I don't think any of us need to sleep, anymore.
+Grimbolde: But some people still pretend they can.
 NPC: There's probably some kind of bed free, if you're one of those types.
 <<endif>>
 ===
@@ -109,10 +110,10 @@ title: TavernNPC2
 position: 249,-1
 ---
 <<if $charPOV is "Fighter">>
-NPC: You see that person, over there?
-NPC: That's Fen.
-NPC: You know, Fen the Diviner?
-NPC: They're a legend. How'd they end up down here?
+Amos: You see that person, over there?
+Amos: That's Fen.
+Amos: You know, <i>Fen the Diviner</i>?
+Amos: They're a legend. How'd they end up down here?
 <<endif>>
 ===
 title: FenTavern
@@ -191,9 +192,9 @@ title: BathhouseNPC
 position: 299,49
 ---
 <<if $charPOV is "Fighter">>
-NPC: Back when this was a monastery, this was probably the bathhouse.
-NPC: The creatures here use it for whatever vile frolicking they do in their spare time.
-NPC: When they're not skittering around and shrieking.
+Zora: Back when this was a monastery, this was probably the bathhouse.
+Zora: The creatures here use it for whatever vile frolicking they do in their spare time.
+Zora: When they're not skittering around and shrieking.
 <<endif>>
 ===
 title: OutsideGardenNPC
@@ -252,15 +253,25 @@ Creature that Looks Worried: She does not know how to ask nicely.
 //<<NotAutomatic YarnManager>>
 <<stop>>
 ===
-title: HighPriestess
+title: HighPriestessTimelineTrigger
 ---
 <<if $charPOV is "Diviner">>
+    <<colliderActive YarnStableCutsceneCollider>>
+    <<timelineGo STABLETIMELINE>>
+    <<jump HighPriestess>>
+<<else>>
+    <<jump HighPriestess>>
+<<endif>>
+===
+title: HighPriestess
+---
 //knock on the door
 Fen: Altea, dear, are you in there?
 <<wait  3>>
 //knock again
 Fen: I know you're likely busy, but it's time for dinner, and I was hoping you would join us tonight-
 //timeline run for door opening and revealing ALtea
+<<revealCreature YarnStableCutsceneSetUpCollider>>
 Altea: What do you want?
 Fen: Well, seeing as we're all gathering at the Bonfire,
 Fen: I thought I'd extend the invitation.
@@ -297,9 +308,10 @@ Fen: But-
 Altea: Do you not want me to call upon my Lady to help these poor things?
 Fen: Well-
 Altea: Then let me work. I'm not coming to "dinner."
+<<disappearCreature YarnStableCutsceneSetUpCollider>>
 //timeline for door close
 Fen: Well, alright then.
-<<endif>>
+<<stop>>
 ===
 title: AlteaAtTheSpine
 ---

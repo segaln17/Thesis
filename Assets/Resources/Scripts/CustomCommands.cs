@@ -38,5 +38,11 @@ public class CustomCommands : MonoBehaviour
     {
         creature.SetActive(false);
     }
-    
+
+    [YarnCommand("colliderActive")]
+    public void SetColliderActive()
+    {
+        //using creature as a stand in for the yarn collider
+        creature.SetActive(true);
+    }
 }

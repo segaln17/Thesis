@@ -50,6 +50,12 @@ public class YarnCutsceneManager : MonoBehaviour
         
     }
 
+    public void StableCutscene()
+    {
+        dialogueRunner.startNode = "HighPriestess";
+        dialogueRunner.startAutomatically = true;
+    }
+
     [YarnCommand("NotAutomatic")]
     public void RunnerNotAutomatic()
     {
