@@ -252,6 +252,55 @@ Creature that Looks Worried: She does not know how to ask nicely.
 //<<NotAutomatic YarnManager>>
 <<stop>>
 ===
+title: HighPriestess
+---
+<<if $charPOV is "Diviner">>
+//knock on the door
+Fen: Altea, dear, are you in there?
+<<wait  3>>
+//knock again
+Fen: I know you're likely busy, but it's time for dinner, and I was hoping you would join us tonight-
+//timeline run for door opening and revealing ALtea
+Altea: What do you want?
+Fen: Well, seeing as we're all gathering at the Bonfire,
+Fen: I thought I'd extend the invitation.
+<<wait  2>>
+Fen: Again.
+<<wait  2>>
+Fen: Just in case you've changed your mind?
+Altea: I'm busy.
+Fen: I assumed you would say that, but, Altea, there's a new arrival!
+Fen: She's a bright one, too!
+Fen: Made her way into the garden, clever thing!
+Altea: What?
+Fen: Not one for talking, but quite a lovely singer, too!
+Altea: Someone new's here.
+Fen: Yes! Isn't it exciting?
+<<wait  1>>
+Altea: Hm.
+<<wait  2>>
+Altea: No.
+Fen: No?
+Altea: I'm busy, Fen.
+Altea: I have a lot of work to do.
+Fen: But it's important to stay grounded so-
+Altea: It's insanity.
+Altea: It's like you think pretending this is a real town,
+Altea: and not a derelict monastery in what might as well be the bowels of hell,
+Altea: is going to get us all out of here.
+Altea: Keep us normal.
+Altea: I'm not like you. I'm a realist.
+Altea: This place is a hellhole,
+Altea: and these husks aren't going to fix themselves.
+<<wait  1>>
+Fen: But-
+Altea: Do you not want me to call upon my Lady to help these poor things?
+Fen: Well-
+Altea: Then let me work. I'm not coming to "dinner."
+//timeline for door close
+Fen: Well, alright then.
+<<endif>>
+===
 title: AlteaAtTheSpine
 ---
 Altea: ...
@@ -276,12 +325,59 @@ The Fighter: <i> You look at the husk, the tap sticking out of its side.</i>
 Altea: Don't worry about that.
 Altea: It's for the greater good, I promise you.
 Altea: Now, run along.
-//ALTEA GOES AWAY
+//ALTEA LEAVES?
+<<disappearCreature PlayerClericStandIn>>
+//OR PLAYER TURNS (camera would do something)
 //CREATURE APPEARS
+<<revealCreature bridge_dog>>
 Creature that Looks Worried: The moon must hatch.
 //GIVE FIGURINE
 <<getMusicBoxFigure InventoryManagers>>
 Creature that Looks Worried: Go to the bathing place.
 Creature that Looks Worried: See what she has done.
 <<stop>>
+===
+title: SparklePathIntro
+---
+<<if $charPOV is "Diviner">>
+//timeline to play animation of sparkle
+Fen: Well, now. That's curious.
+<<endif>>
+===
+title: FenOnTheHill
+---
+<<if $charPOV is "Diviner">>
+//timeline to change camera to look at the Moon
+Fen: I know you've got it, up there.
+Fen: I can feel it.
+Fen: At least, I think I can feel it.
+Fen: Like a buzzing in the back of my mind.
+//play soundscape?
+<<wait  2>>
+Fen: Funny how I can't sense it until someone new arrives.
+Fen: It's almost like you're nearly at the end of your digestion, isn't it?
+Fen: Or maybe it's gestation.
+Fen: Maybe you <i>are</i> hatching.
+<<wait  2>>
+Fen: I know you've got my death up there.
+Fen: I know you're hoarding the stuff.
+//buzzing/pulsing Moon sound plays, maybe lighting change too, camera changes.
+Fen: Your arrogance does not deter me.
+Fen: You've eaten enough.
+Fen: This place has stagnated for too long.
+//hum gets louder
+<<wait  2>>
+Fen: I have not lived countless centuries,
+Fen: traversed countless continents,
+Fen: to lose the scent down here.
+Fen: I know you have it.
+Fen: I can feel it like a missing shadow.
+Fen: It's <i>mine</i>, not some nutrients to repurpose.
+<<wait  3>>
+Fen: I'm coming for it, you false moon. You hive.
+Fen: I'm taking it back.
+<<wait  1>>
+Fen: Even if it means this place crumbles.
+//timeline play to black out? demo end screen?
+<<endif>>
 ===
