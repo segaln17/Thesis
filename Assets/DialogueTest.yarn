@@ -63,22 +63,23 @@ position: -172,85
 title: Byron
 position: 209,-41
 ---
-<<if $charPOV is "Fighter">>
-Byron: Hey, you! You're breathing!
-Byron: The Beneath caught a fresh one! Been a while, not since Altea!
-Byron: Breathing, the both of you—not been here long enough not to, eh?
-Byron: I'm too far from the Bonfire now, but they need kindling for the fire. Or the moon will hatch, and consume us all...
-Byron: And we wouldn't want that.
-Byron: I'd like to see the moon hatch, but I'll be a husk long before then, won't I?
-Byron: And then Altea will have to take care of me!
-Byron: Oh, what a punishment that would be for her, but what a pleasure for me!
-Byron: <i>He dissolves into manic laughter.</i>
-<<set $spokenToByronFighter to true>>
-<<endif>>
-<<if $spokenToByronFighter is true>>
-Byron: Fen's a fool if they think anyone's getting into that garden anytime soon.
-Byron: It'd make good kindling...
-<<endif>>
+//<<if $charPOV is "Fighter">>
+<<if $spokenToByronFighter is false>>
+    Byron: Hey, you! You're breathing!
+    Byron: The Beneath caught a fresh one! Been a while, not since Altea!
+    Byron: Breathing, the both of you—not been here long enough not to, eh?
+    Byron: I'm too far from the Bonfire now, but they need kindling for the fire. Or the moon will hatch, and consume us all...
+    Byron: And we wouldn't want that.
+    Byron: I'd like to see the moon hatch, but I'll be a husk long before then, won't I?
+    Byron: And then Altea will have to take care of me!
+    Byron: Oh, what a punishment that would be for her, but what a pleasure for me!
+    Byron: <i>He dissolves into manic laughter.</i>
+    <<set $spokenToByronFighter to true>>
+    <<stop>>
+<<else>>
+    Byron: Fen's a fool if they think anyone's getting into that garden anytime soon.
+    Byron: It'd make good kindling...
+    <<endif>>
 ===
 title: SilentTree
 position: 219,-31
@@ -100,10 +101,10 @@ title: TavernNPC1
 position: 239,-11
 ---
 <<if $charPOV is "Fighter">>
-Grimbolde: This is the tavern. If you want to eat or sleep, this is the place.
-Grimbolde: Between you and me, I don't think any of us need to sleep, anymore.
-Grimbolde: But some people still pretend they can.
-NPC: There's probably some kind of bed free, if you're one of those types.
+Zora: This is the tavern. If you want to eat or sleep, this is the place.
+Zora: Between you and me, I don't think any of us need to sleep, anymore.
+Zora: But some people still pretend they can.
+Zora: There's probably some kind of bed free, if you're one of those types.
 <<endif>>
 ===
 title: TavernNPC2
@@ -192,9 +193,9 @@ title: BathhouseNPC
 position: 299,49
 ---
 <<if $charPOV is "Fighter">>
-Zora: Back when this was a monastery, this was probably the bathhouse.
-Zora: The creatures here use it for whatever vile frolicking they do in their spare time.
-Zora: When they're not skittering around and shrieking.
+Grimbolde: Back when this was a monastery, this was probably the bathhouse.
+Grimbolde: The creatures here use it for whatever vile frolicking they do in their spare time.
+Grimbolde: When they're not skittering around and shrieking.
 <<endif>>
 ===
 title: OutsideGardenNPC
