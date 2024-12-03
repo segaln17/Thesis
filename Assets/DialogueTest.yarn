@@ -20,6 +20,7 @@ position: -223,-93
 <<if $charPOV is "Fighter">>
     <<wait 8>>
     Windy: Oh. Well, this is unexpected.
+    Windy: This place swallowed another one, huh?
     <<set $WindyOpeningRun to true>>
     <<stop>>
 <<endif>>
@@ -314,6 +315,100 @@ Altea: Then let me work. I'm not coming to "dinner."
 Fen: Well, alright then.
 <<stop>>
 ===
+title: BonfireConversation1
+---
+Fen: It's poetic, I think.
+Fen: When you've been around as long as I have, and you see as much as I have.
+Fen: You start to see everything like one big pattern.
+Fen: Things grow, things shrivel, things die.
+Fen: There's a poetry to the circuitousness of it.
+//sip tea noise or animation
+<<wait  1>>
+Fen: Oh, this mug? I take it with me everywhere.
+Fen: I did a favor for a potter, years ago,
+Fen: predicted the health of his fledgling children after they fell ill.
+Fen: Plague of the lungs, if I remember correctly.
+Fen: It was everywhere back then.
+Fen: I was in Bastion at the time, I think; very quaint place.
+Fen: Their sewer system is much improved from how it used to be.
+<<wait  0.5>>
+Fen: Where was I?
+Fen: Ah.
+Fen: The potter let me mold my own tea mug, and paint it how I liked.
+Fen: His youngest child liked chickens.
+Fen: She had a lovely smile.
+//campfire crackle is louder
+<<wait  1.5>>
+Fen: I wonder how they all turned out.
+Fen: The potter's long gone, I'd imagine.
+Fen: Maybe his children are still around?
+//sip tea again
+<<wait  2>>
+Fen: Oh, dear.
+Fen: This cup's gone cold.
+===
+title: BonfireConversation2
+---
+//low voices in background, bonfire ambience
+//teakettle over flames in this node
+Fen: Say, have you seen that skeleton, over the bridge?
+The Fighter: <i>You shake your head.</i>
+Fen: It's quite something.
+Fen: A natural marvel of this place.
+//checks water
+<<wait  1>>
+Fen: Ah, drat.
+Fen: I forget sometimes how slow boiling water over an actual fire can be.
+Fen: But I can't just go using spellcraft around here all willy-nilly, can I?
+The Fighter: <i>You shrug awkwardly. Fen seems amused by this.</i>
+Fen: Oh, dear, that was a rhetorical question.
+//checks water again
+<<wait  1>>
+Fen: Rats.
+<<wait  0.5>>
+Fen: It's strange, being so old but so... miniscule compared to this place.
+Fen: It's been ages since I've felt dwarfed in age by something,
+Fen: and a plane like this... well.
+Fen: I don't have to tell you how strange this place is.
+The Fighter: <i>You say nothing.</i>
+The Fighter: <i>Fen seems to take this as agreement.</i>
+Fen: Oh, but yes, the skeleton!
+Fen: That's something even stranger still.
+Fen: To think something could die, down here.
+Fen: Could decompose, and leave remains.
+Fen: Fascinating.
+Fen: You don't get that, with the husks.
+Fen: As far as I am aware, the husks just... become absorbed into the terrain.
+Fen: But this creature! A leviathan of some kind,
+Fen: judging by the sheer scale of it!
+Fen: And would you like to hear the strangest part?
+The Fighter: <i>She leans in, almost conspiratorially.</i>
+Fen: It's not even the whole thing.
+<<wait  0.5>>
+Fen: The rest must be either lost to the sun-lake or some similar fate,
+Fen: or wherever it came from if it didn't die here.
+Fen: It's mostly <i>spine</i>.
+Fen: Isn't that fascinating?
+The Fighter: <i>You flinch at the word "spine," thinking suddenly of your old home,</i>
+The Fighter: <i>built on top of a leviathan's spine.</i>
+The Fighter: <i>You begin to wonder. Does Loran's Spine have anything to do with this?</i>
+The Fighter: <i>Why you're here?</i>
+Fen: You should go see it, Fighter.
+Fen: It's quite something.
+Fen: Maybe it will inspire you!
+The Fighter: <i>You think for a moment, then nod, and move to leave.</i>
+Fen: Wait a moment?
+<<wait  1>>
+Fen: If you see any signs of scavenging, or decomposition,
+Fen: or if the sun does anything interesting under the water,
+Fen: would you let me know?
+Fen: I have to wait for this damned kettle to boil,
+Fen: or I'll lose track of it altogether and it'll get cold again,
+Fen: and then I'll just be upset for the rest of the day.
+Fen: ...Or night?
+Fen: Or... whatever time this is.
+<<stop>>
+===
 title: AlteaAtTheSpine
 ---
 Altea: ...
@@ -348,6 +443,75 @@ Creature that Looks Worried: The moon must hatch.
 <<getMusicBoxFigure InventoryManagers>>
 Creature that Looks Worried: Go to the bathing place.
 Creature that Looks Worried: See what she has done.
+<<stop>>
+===
+title: BonfireTransition
+---
+The Fighter: <i>Fen is still sipping tea out of their novelty mug when you return.</i>
+The Fighter: <i>She looks small, in this flickering light,</i>
+The Fighter: <i>but there is still a potency about her, a substance to her still.</i>
+The Fighter: <i>She looks up when you sit down.</i>
+Fen: Ah, you're back!
+Fen: You went to see it?
+<<wait  1>>
+Fen: Are you alright? You look... queasy.
+The Fighter: <i>Loran's Spine has followed you.</i>
+The Fighter: <i>Your home, long since fallen to madness and chaos and beasts,</i>
+The Fighter: <i>is here. The spine of it, anyway.</i>
+The Fighter: <i>You are haunted, and do not speak.</i>
+Fen: Oh, dear.
+<<wait  0.5>>
+Fen: Here, can I pour you a cup of tea?
+Fen: No?
+Fen: Smelling salts?
+Fen: Anything?
+Fen: Might I recommend a few deep breaths?
+<<wait  1>>
+Fen: Good.
+Fen: I... I take it you saw something you didn't expect to see out there.
+<<wait  1>>
+Fen: I remember my first time seeing something like that out here.
+Fen: Though it wasn't the skeleton, I can't say that did much for me except provoke endless questions.
+Fen: I can't help it, I'm a scholar at heart!
+Fen: But... I don't know.
+Fen: The moon...
+<<wait  1.5>>
+//fire crackle builds, then recedes?
+Fen: I don't know if you've heard of me?
+Fen: I... have been around for a very long time.
+Fen: The years take a toll, after you've stood still through them for so long.
+Fen: I look young enough, but in my heart and soul I feel so very weary,
+Fen: and so very old.
+The Fighter: <i>The shadows flicker, and Fen suddenly looks haunted, just like everyone else.</i>
+<<wait  1>>
+//fire crackles, light change?
+Fen: Can I tell you something somewhat... personal?
+<<wait  1>>
+Fen: I was afraid, once, that I would never see enough of the world.
+Fen: Terrified.
+Fen: There was so much out there, and I was so hungry for it.
+Fen: I was desperate to know its secrets, its hidden places,
+Fen: its small joys and grand adventures.
+Fen: And I was young, and foolish.
+<<wait  1>>
+Fen: There was a marsh, near my village.
+Fen: An old, knowing thing.
+Fen: Deeply magical, in the way old places are.
+Fen: I sought out someone who would know how I could... evade my fear.
+Fen: And I succeeded.
+<<wait  0.5>>
+Fen: You have to understand, I was very young.
+<<wait  0.5>>
+Fen: I traded something away.
+Fen: And for a while, I was happy.
+Fen: I traveled, I went on adventures, I learned,
+Fen: I fell in love with people, places, everything.
+Fen: But the thing I traded... I would grow to miss it.
+Fen: When time stopped, for me,
+Fen: but continued moving for everyone else.
+<<wait  1>>
+Fen: I want it back.
+//POV SHIFT
 <<stop>>
 ===
 title: SparklePathIntro
