@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.23764098, g: 0, b: 0.15603262, a: 1}
+  m_IndirectSpecularColor: {r: 0.23756385, g: 0, b: 0.15605123, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10616,7 +10616,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 1.148e-41}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 7.0216e-41}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -20983,6 +20983,61 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 244f2bde97f0a44418934dcd177c81f1, type: 3}
+--- !u!1 &637075528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 637075530}
+  - component: {fileID: 637075529}
+  m_Layer: 0
+  m_Name: VinesPathBoth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &637075529
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637075528}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9e198d4bc40299744a057d27c6c710d5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &637075530
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637075528}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -47.90371, y: -16.53031, z: -410.75897}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1502006140}
+  - {fileID: 1578196854}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &640062918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30452,6 +30507,81 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 987665679}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &987940144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 987940146}
+  - component: {fileID: 987940145}
+  - component: {fileID: 987940147}
+  m_Layer: 0
+  m_Name: VinesTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &987940145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987940144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4ecede6bf4e824cbb99fb5edc61a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songScript: {fileID: 871519776}
+  noteQueue: []
+  goalPhrase: WDAS
+  isSinging: 0
+  isinHedge: 0
+  hedgeAnimator: {fileID: 637075529}
+  timerActive: 0
+  hitWindowTime: 0
+  hitWindowCap: 0.5
+--- !u!4 &987940146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987940144}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.066274114, z: -0, w: 0.9978015}
+  m_LocalPosition: {x: -13.6, y: -28.2, z: -415.8}
+  m_LocalScale: {x: 39.500004, y: 34.148872, z: 34.148872}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 7.6, z: 0}
+--- !u!65 &987940147
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987940144}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &988720586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30483,7 +30613,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f548d748154e04b8fa962011dd56a163,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.128572
+      value: 8.597
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f548d748154e04b8fa962011dd56a163,
         type: 3}
@@ -44552,6 +44682,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1502006140}
   - component: {fileID: 1502006139}
+  - component: {fileID: 1502006141}
   m_Layer: 0
   m_Name: vinespath
   m_TagString: Untagged
@@ -44599,7 +44730,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 40983740a35674849ab0493198453c23, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -44620,13 +44751,34 @@ Transform:
   m_GameObject: {fileID: 1502006138}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.06244269, w: 0.99804854}
-  m_LocalPosition: {x: -32.6, y: -0.1, z: -404.7}
-  m_LocalScale: {x: 9.470795, y: 8.187771, z: 8.187771}
+  m_LocalPosition: {x: 15.303711, y: 16.43031, z: 6.05896}
+  m_LocalScale: {x: 9.470795, y: 8.187772, z: 8.187771}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1180623167}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 637075530}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -7.16}
+--- !u!65 &1502006141
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502006138}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.999999, y: 7.2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1507489809 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: 244f2bde97f0a44418934dcd177c81f1,
@@ -46623,6 +46775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1578196854}
   - component: {fileID: 1578196853}
+  - component: {fileID: 1578196855}
   m_Layer: 0
   m_Name: vinespath (2)
   m_TagString: Untagged
@@ -46670,7 +46823,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 40983740a35674849ab0493198453c23, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -46691,13 +46844,34 @@ Transform:
   m_GameObject: {fileID: 1578196852}
   serializedVersion: 2
   m_LocalRotation: {x: -0.1148627, y: 0.98340726, z: -0.0015817861, w: -0.14040732}
-  m_LocalPosition: {x: 28.2, y: -5.4, z: -415.7}
-  m_LocalScale: {x: 9.470795, y: 8.187771, z: 8.187771}
+  m_LocalPosition: {x: 76.103714, y: 11.13031, z: -4.94104}
+  m_LocalScale: {x: 9.470795, y: 8.187771, z: 8.187772}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 552777452}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 637075530}
   m_LocalEulerAnglesHint: {x: 2.027, y: 196.019, z: -13.039}
+--- !u!65 &1578196855
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578196852}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.999999, y: 7.200001, z: 0.20000033}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1580042905
 GameObject:
   m_ObjectHideFlags: 0
@@ -70791,5 +70965,5 @@ SceneRoots:
   - {fileID: 74657347}
   - {fileID: 909762748}
   - {fileID: 960388452}
-  - {fileID: 1502006140}
-  - {fileID: 1578196854}
+  - {fileID: 987940146}
+  - {fileID: 637075530}

@@ -9,6 +9,8 @@ public class ClickandDrag : MonoBehaviour
     //public GameObject cyanoBrush;
 
     public static ClickandDrag instance;
+
+    public bool listObject = false;
     
     void Start()
     {
@@ -30,13 +32,12 @@ public class ClickandDrag : MonoBehaviour
         offset = transform.position -
                  Camera.main.ScreenToWorldPoint(
                      new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
- 
     }
     
 
     private void OnMouseDrag()
     {
-        Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+        Vector3 cursorPoint = new Vector3(Input.mousePosition.x, 0.4f, screenPoint.z);
         Vector3 cursorPos = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
         transform.position = cursorPos;
     }
