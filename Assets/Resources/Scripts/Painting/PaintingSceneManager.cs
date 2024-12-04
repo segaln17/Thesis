@@ -11,6 +11,8 @@ public class PaintingSceneManager : MonoBehaviour
     public CyanobrushCollider cyanobrushCollider;
     [Header("Manager Objects")]
     public GameObject mousePainter;
+
+    public SpriteMask paperMask;
     //public GameObject cyanoBrush;
     //public GameObject paperFake;
     //public GameObject paperReal;
@@ -85,11 +87,13 @@ public class PaintingSceneManager : MonoBehaviour
         if (state == paintingState.printing)
         {
             printing();
+            
         }
 
         if (state == paintingState.wallPlacing)
         {
             wallPlacing();//camera changes to wall, click n drag script is back on, lerp to a collider on the wall then reset once lerped?
+            
         }
 
         if (state == paintingState.reset)
@@ -122,7 +126,7 @@ public class PaintingSceneManager : MonoBehaviour
     public void placing()
     {
         foreach (GameObject placeable in placeableObjects)
-        {
+        { 
             foreach (GameObject stamp in stampedObjects)
             {
                 if (stamp.tag == placeable.tag)
@@ -162,6 +166,9 @@ public class PaintingSceneManager : MonoBehaviour
         Debug.Log("resetting");
         paperPlacementScript.isDone = false;
         paperPlacementScript.isRotated = false;
+        paperPlacementScript.sheet01 = false;
+        paperPlacement.GetComponent<Collider>().enabled = true;
+        paintbrushActive = false;
         state = paintingState.newsheet;
     }
     
