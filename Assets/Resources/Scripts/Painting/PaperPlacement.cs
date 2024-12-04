@@ -12,6 +12,7 @@ public class PaperPlacement : MonoBehaviour
     public GameObject currentSheet;
 
     public bool isDone = false;
+    public bool isRotated = false;
 
     // Time when the movement started.
     //public float startTime;
@@ -71,5 +72,32 @@ public class PaperPlacement : MonoBehaviour
             }
         }
         
+    }
+
+    public void turnOnCollider()
+    {
+        currentSheet.GetComponent<Collider>().enabled = true;
+    }
+
+    public void turnOnClickandDrag()
+    {
+        if(!isRotated){ 
+            currentSheet.transform.position = Vector3.Lerp(currentSheet.transform.position, new Vector3(0, 1f, 0), Time.deltaTime * 0.5f);
+            currentSheet.transform.localScale = Vector3.Lerp(currentSheet.transform.localScale,new Vector3(0.25f, 0.25f,0.25f), Time.deltaTime * 0.5f);
+            currentSheet.transform.eulerAngles = Vector3.Lerp(currentSheet.transform.eulerAngles,
+                new Vector3(currentSheet.transform.eulerAngles.x - 90f, currentSheet.transform.eulerAngles.y,
+                    currentSheet.transform.eulerAngles.z), Time.deltaTime * 0.5f);
+            
+            paperPlacementColl.enabled = false;
+            if (currentSheet.transform.eulerAngles.x == -90f)
+            {
+                isRotated = true;
+                return;
+            }
+        }
+        
+        turnOnCollider();
+       
+       
     }
 }

@@ -6,11 +6,7 @@ public class ClickandDrag : MonoBehaviour
 {
     private Vector3 offset;
     private Vector3 screenPoint;
-    //public GameObject cyanoBrush;
-
-    public static ClickandDrag instance;
-
-    public bool listObject = false;
+    public GameObject paintingManager;
     
     void Start()
     {
@@ -20,14 +16,12 @@ public class ClickandDrag : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
+       //Debug.Log(screenPoint.z);
+
     }
 
     private void OnMouseDown()
     {
-        //Debug.Log("dragging");
-        //isDrag = true;
         screenPoint = Camera.main.WorldToScreenPoint(transform.position);
         offset = transform.position -
                  Camera.main.ScreenToWorldPoint(
@@ -37,9 +31,21 @@ public class ClickandDrag : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        Vector3 cursorPoint = new Vector3(Input.mousePosition.x, 0.4f, screenPoint.z);
-        Vector3 cursorPos = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
-        transform.position = cursorPos;
+        if (paintingManager.GetComponent<PaintingSceneManager>().state ==
+            PaintingSceneManager.paintingState.wallPlacing)
+        {
+            Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+            Vector3 cursorPos = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
+            //cursorPos.y = Mathf.Clamp(transform.position.y, 0.2f, 1.25f);
+            transform.position = cursorPos;
+        }
+        else
+        {
+            Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+            Vector3 cursorPos = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
+            cursorPos.y = Mathf.Clamp(transform.position.y, 0.2f, 1.25f);
+            transform.position = cursorPos;
+        }
     }
     
 }

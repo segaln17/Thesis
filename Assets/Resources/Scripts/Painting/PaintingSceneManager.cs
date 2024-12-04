@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,25 +11,24 @@ public class PaintingSceneManager : MonoBehaviour
     public CyanobrushCollider cyanobrushCollider;
     [Header("Manager Objects")]
     public GameObject mousePainter;
-    public GameObject cyanoBrush;
-    public GameObject paperFake;
-    public GameObject paperReal;
+    //public GameObject cyanoBrush;
+    //public GameObject paperFake;
+    //public GameObject paperReal;
     public GameObject sheetNest;
     public GameObject paperPlacement;
+    public CinemachineVirtualCamera rookeryCam;
+    public CinemachineVirtualCamera rookeryCam02;
 
     private Vector3 originalPos;
 
     [Header("Placeable Objects")] 
     public GameObject[] placeableObjects;
     public GameObject[] stampedObjects;
-    //public GameObject[] stamps;
-    //private int placeableObjectsIndex;
-    //private int stampedObjectsIndex;
 
+    [Header("Bools")] 
     public bool paintbrushActive = false;
-
-    //public BoxCollider brushCollider;
     
+    [Header("States")]
     public paintingState state;
     public enum paintingState
     {
@@ -89,7 +89,7 @@ public class PaintingSceneManager : MonoBehaviour
 
         if (state == paintingState.wallPlacing)
         {
-            //camera changes to wall, click n drag script is back on, lerp to a collider on the wall then reset once lerped?
+            wallPlacing();//camera changes to wall, click n drag script is back on, lerp to a collider on the wall then reset once lerped?
         }
 
         if (state == paintingState.reset)
@@ -101,6 +101,8 @@ public class PaintingSceneManager : MonoBehaviour
     public void newSheet()
     {
         state = paintingState.newsheet;
+        rookeryCam02.Priority = 10;
+        rookeryCam.Priority = 12;
         //cyanoBrush.GetComponent<BoxCollider>().enabled = true;
         if (paintbrushActive)
         {
@@ -127,27 +129,9 @@ public class PaintingSceneManager : MonoBehaviour
                 {
                     GameObject obj = Instantiate(stamp, placeable.transform.position, placeable.transform.rotation);
                     obj.transform.parent = sheetNest.transform;
-                    //stamp.tag = "Untagged";
                 }
             }
-            /*for (int p = 0; p < placeableObjectsIndex; p++)
-            {
-                    //setting transform.positions for the stamps based on the placeables
-                    //GameObject go = Instantiate(selector, new Vector3((float)i, 1, 0), Quaternion.identity) as GameObject;//p = s;
-                    //stamps = new GameObject[stampedObjects.Length]; //makes sure they match length
-                    for (int i = 0; i < stampedObjects.Length; i++)
-                    {
-                      
-                        //stamps[i] = Instantiate(stampedObjects[i], placeableObjects[p].transform.position, placeableObjects[p].transform.rotation) as GameObject;
-                        /*if (stamps[i].tag == placeableObjects[p].tag)
-                        {
-                            stampedObjectsIndex = i;
-                            break;
-                        }
-                    }
-            }*/
-
-            //placeable.gameObject.SetActive(false);
+            
             //make them roll away or return to original spots:
 
         }
@@ -166,6 +150,10 @@ public class PaintingSceneManager : MonoBehaviour
     public void wallPlacing()
     {
         state = paintingState.wallPlacing;
+        rookeryCam.Priority = 10;
+        rookeryCam02.Priority = 12;
+        paperPlacementScript.turnOnClickandDrag();
+        
         //call reset whenever it's done
     }
 
@@ -173,6 +161,7 @@ public class PaintingSceneManager : MonoBehaviour
     {
         Debug.Log("resetting");
         paperPlacementScript.isDone = false;
+        paperPlacementScript.isRotated = false;
         state = paintingState.newsheet;
     }
     
