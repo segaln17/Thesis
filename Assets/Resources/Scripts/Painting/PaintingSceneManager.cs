@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class PaintingSceneManager : MonoBehaviour
 {
@@ -22,6 +22,12 @@ public class PaintingSceneManager : MonoBehaviour
     public CinemachineVirtualCamera rookeryCam02;
 
     private Vector3 originalPos;
+
+    [Header("UI")] 
+    public Button placingButton;
+    public Button printButton;
+    public Button wallPlacementButton;
+    public Button resetButton;
 
     [Header("Placeable Objects")] 
     public GameObject[] placeableObjects;
@@ -47,6 +53,10 @@ public class PaintingSceneManager : MonoBehaviour
     {
         //placeableObjectsIndex = placeableObjects.Length;
         //stampedObjectsIndex = stampedObjects.Length;
+        placingButton.gameObject.SetActive(false);
+        printButton.gameObject.SetActive(false);
+        wallPlacementButton.gameObject.SetActive(false);
+        resetButton.gameObject.SetActive(false);
     }
 
     
@@ -56,6 +66,7 @@ public class PaintingSceneManager : MonoBehaviour
         
         if (state == paintingState.newsheet)
         {
+            resetButton.gameObject.SetActive(false);
             newSheet();
         }
         if (state == paintingState.painting)
@@ -66,6 +77,8 @@ public class PaintingSceneManager : MonoBehaviour
             {
                 if (cyanobrushCollider.iscarrying == false)
                 {
+                    placingButton.gameObject.SetActive(true);
+                    //MANUAL METHOD
                     if (Input.GetKeyDown(KeyCode.D))
                     {
                         state = paintingState.placing;
@@ -76,6 +89,8 @@ public class PaintingSceneManager : MonoBehaviour
         }
         if (state == paintingState.placing)
         {
+            placingButton.gameObject.SetActive(false);
+            printButton.gameObject.SetActive(true);
             if (Input.GetKeyUp(KeyCode.E))
 
             {
@@ -87,18 +102,21 @@ public class PaintingSceneManager : MonoBehaviour
         if (state == paintingState.printing)
         {
             printing();
-            
+            printButton.gameObject.SetActive(false);
+            wallPlacementButton.gameObject.SetActive(true);
         }
 
         if (state == paintingState.wallPlacing)
         {
             wallPlacing();//camera changes to wall, click n drag script is back on, lerp to a collider on the wall then reset once lerped?
-            
+            resetButton.gameObject.SetActive(true);
+            wallPlacementButton.gameObject.SetActive(false);
         }
 
         if (state == paintingState.reset)
         {
             reset();
+            
         }
     }
 
@@ -123,6 +141,12 @@ public class PaintingSceneManager : MonoBehaviour
         }
     }
 
+    public void prepPlacing()
+    {
+        mousePainter.SetActive(false);
+        state = paintingState.placing;
+    }
+    
     public void placing()
     {
         foreach (GameObject placeable in placeableObjects)
