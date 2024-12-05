@@ -313,10 +313,13 @@ Altea: Then let me work. I'm not coming to "dinner."
 <<disappearCreature YarnStableCutsceneSetUpCollider>>
 //timeline for door close
 Fen: Well, alright then.
+//BONFIRE TRIGGER ACTIVE
 <<stop>>
 ===
 title: BonfireConversation1
 ---
+//camera change, objects change
+<<wait 1>>
 Fen: It's poetic, I think.
 Fen: When you've been around as long as I have, and you see as much as I have.
 Fen: You start to see everything like one big pattern.
@@ -346,6 +349,8 @@ Fen: Maybe his children are still around?
 <<wait  2>>
 Fen: Oh, dear.
 Fen: This cup's gone cold.
+//effects to make it look like time has passed
+<<jump BonfireConversation2>>
 ===
 title: BonfireConversation2
 ---

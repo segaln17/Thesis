@@ -94,7 +94,7 @@ public class PaperPlacement : MonoBehaviour
                 new Vector3(currentSheet.transform.eulerAngles.x - 90f, currentSheet.transform.eulerAngles.y,
                     currentSheet.transform.eulerAngles.z), Time.deltaTime * 0.5f);
             paperPlacementColl.enabled = false;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             isRotated = true;
         StopCoroutine(Rotated());
     }

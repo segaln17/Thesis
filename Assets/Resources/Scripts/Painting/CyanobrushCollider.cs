@@ -50,7 +50,7 @@ public class CyanobrushCollider : MonoBehaviour
    {
        Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
        Vector3 cursorPos = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
-       cursorPos.y = Mathf.Clamp(transform.position.y, 0.2f, 1.25f);
+       //cursorPos.y = Mathf.Clamp(transform.position.y, 0.2f, 1.25f);
        brush.transform.position = cursorPos;
    }
 }
