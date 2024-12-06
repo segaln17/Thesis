@@ -11,6 +11,8 @@ public class WallPlacement : MonoBehaviour
     public GameObject sheet;
     public float smooth = 1F;
     public Collider  wallPlacementColl;
+    public float offset = -1.4f;
+    public float yoffset = .5f;
 
     public GameObject paperplaceMan;
     // Start is called before the first frame update
@@ -57,7 +59,7 @@ public class WallPlacement : MonoBehaviour
 
             // Set our position as a fraction of the distance between the markers.
             Debug.Log("placing");
-            sheet.transform.position = Vector3.Lerp(sheet.transform.position, new Vector3(transform.position.x,transform.position.y , 2.13f), Time.deltaTime * smooth);
+            sheet.transform.position = Vector3.Lerp(sheet.transform.position, new Vector3(transform.position.x+offset,transform.position.y+yoffset , transform.position.z), Time.deltaTime * smooth);
            // sheet.transform.localScale = Vector3.Lerp(sheet.transform.localScale,new Vector3(.15f, .15f,.15f), Time.deltaTime * smooth);
             //sheet.transform.rotation = transform.rotation;
             

@@ -10,7 +10,8 @@ public class PaperPlacement : MonoBehaviour
     public float smooth = 1F;
     public Collider  paperPlacementColl;
     public GameObject currentSheet;
-    public GameObject wallPlacement;
+    //public GameObject wallPlacement;
+    public float rotateyval = 10f; 
 
     public bool isDone = false;
     public bool isRotated = false;
@@ -18,6 +19,7 @@ public class PaperPlacement : MonoBehaviour
     private void Start()
     {
        paperPlacementColl = GetComponent<Collider>();
+       //scaleLerp = new Vector3(1, 1, 1);
     }
 
     private void Update()
@@ -60,7 +62,7 @@ public class PaperPlacement : MonoBehaviour
             currentSheet.transform.rotation = transform.rotation;
             
             paperPlacementColl.enabled = false;
-            if (currentSheet.transform.position == transform.position)
+            if (currentSheet.transform.localScale.x <= 1 && currentSheet.transform.localScale.x >= 0.9997f)
             {
                 isDone = true;
                 return;
@@ -88,13 +90,13 @@ public class PaperPlacement : MonoBehaviour
 
     public IEnumerator Rotated()
     {
-            currentSheet.transform.position = Vector3.Lerp(currentSheet.transform.position, new Vector3(0, 1f, 0), Time.deltaTime * 0.5f);
-            currentSheet.transform.localScale = Vector3.Lerp(currentSheet.transform.localScale,new Vector3(0.25f, 0.25f,0.25f), Time.deltaTime * 0.5f);
+            currentSheet.transform.position = Vector3.Lerp(currentSheet.transform.position, new Vector3(currentSheet.transform.position.x, rotateyval, currentSheet.transform.position.z), Time.deltaTime * 1f);
+            currentSheet.transform.localScale = Vector3.Lerp(currentSheet.transform.localScale,new Vector3(0.35f, 0.35f,0.35f), Time.deltaTime * 1f);
             currentSheet.transform.eulerAngles = Vector3.Lerp(currentSheet.transform.eulerAngles,
                 new Vector3(currentSheet.transform.eulerAngles.x - 90f, currentSheet.transform.eulerAngles.y,
-                    currentSheet.transform.eulerAngles.z), Time.deltaTime * 0.5f);
+                    currentSheet.transform.eulerAngles.z), Time.deltaTime * 1f);
             paperPlacementColl.enabled = false;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(2.15f);
             isRotated = true;
         StopCoroutine(Rotated());
     }

@@ -23,7 +23,7 @@ public class MousePainter : MonoBehaviour{
 
             if (Physics.Raycast(ray, out hit, 200.0f)){
                 Debug.DrawRay(ray.origin, hit.point - ray.origin, Color.red);
-                Debug.Log(hit.collider.name);
+                //Debug.Log(hit.collider.name);
                 transform.position = hit.point;
                 Paintable p = hit.collider.GetComponent<Paintable>();
                 if(p != null){

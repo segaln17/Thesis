@@ -52461,7 +52461,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1751704433
 Transform:
   m_ObjectHideFlags: 0
@@ -66405,6 +66405,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintingManager: {fileID: 3110813323940818546}
+  ymin: 13
+  ymax: 20
 --- !u!4 &166586973742161374
 Transform:
   m_ObjectHideFlags: 0
@@ -67200,6 +67202,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintingManager: {fileID: 3110813323940818546}
+  ymin: 5
+  ymax: 17
 --- !u!1 &580655176516504881
 GameObject:
   m_ObjectHideFlags: 0
@@ -67264,6 +67268,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintingManager: {fileID: 3110813323940818546}
+  ymin: 13
+  ymax: 20
 --- !u!114 &643026570946964530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67277,6 +67283,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintingManager: {fileID: 3110813323940818546}
+  ymin: 13
+  ymax: 20
 --- !u!135 &648218166792649405
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -67703,9 +67711,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 5914721808089329798}
   mouseSingleClick: 0
-  paintColor: {r: 0, g: 0.43330193, b: 1, a: 1}
-  radius: 0.25
-  strength: 0.25
+  paintColor: {r: 0, g: 0.66026163, b: 1, a: 1}
+  radius: 2.5
+  strength: 0.5
   hardness: 0.01
 --- !u!1 &879865475245361136
 GameObject:
@@ -68805,7 +68813,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 66.1
+    FieldOfView: 76
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -69227,6 +69235,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintingManager: {fileID: 3110813323940818546}
+  ymin: 5
+  ymax: 17
 --- !u!33 &1806498112395232427
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -69831,6 +69841,8 @@ MonoBehaviour:
   sheet: {fileID: 0}
   smooth: 1
   wallPlacementColl: {fileID: 2758582548852123755}
+  offset: -1.7
+  yoffset: 0.65
   paperplaceMan: {fileID: 4702511057121609746}
 --- !u!4 &2231821131364630796
 Transform:
@@ -70593,7 +70605,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 66.1
+    FieldOfView: 76
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -70763,6 +70775,8 @@ MonoBehaviour:
   sheet: {fileID: 0}
   smooth: 1
   wallPlacementColl: {fileID: 2827037899176567190}
+  offset: -1.7
+  yoffset: 0.65
   paperplaceMan: {fileID: 4702511057121609746}
 --- !u!224 &2637142328416621399
 RectTransform:
@@ -70810,6 +70824,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintingManager: {fileID: 3110813323940818546}
+  ymin: 13
+  ymax: 20
 --- !u!4 &2652011315570455423
 Transform:
   m_ObjectHideFlags: 0
@@ -71005,6 +71021,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintingManager: {fileID: 3110813323940818546}
+  ymin: 13
+  ymax: 20
 --- !u!65 &2758582548852123755
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -71920,6 +71938,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintingManager: {fileID: 3110813323940818546}
+  ymin: 5
+  ymax: 17
 --- !u!23 &3148388254600683714
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -71978,7 +71998,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!33 &3169039767845965240
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -72136,6 +72156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintingManager: {fileID: 3110813323940818546}
+  ymin: 13
+  ymax: 20
 --- !u!114 &3333642180478003362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72153,6 +72175,8 @@ MonoBehaviour:
   sheet: {fileID: 0}
   smooth: 1
   wallPlacementColl: {fileID: 3196726206658765042}
+  offset: -1.7
+  yoffset: 0.65
   paperplaceMan: {fileID: 4702511057121609746}
 --- !u!4 &3350055500843660788
 Transform:
@@ -72957,6 +72981,8 @@ MonoBehaviour:
   sheet: {fileID: 0}
   smooth: 1
   wallPlacementColl: {fileID: 2388029535215382368}
+  offset: -1.7
+  yoffset: 0.65
   paperplaceMan: {fileID: 4702511057121609746}
 --- !u!4 &3796508073486445780
 Transform:
@@ -74619,7 +74645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RecenterTarget: 0
   m_VerticalAxis:
-    Value: 50
+    Value: 55
     m_SpeedMode: 0
     m_MaxSpeed: 100
     m_AccelTime: 0.1
@@ -74627,8 +74653,8 @@ MonoBehaviour:
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
     m_InvertInput: 1
-    m_MinValue: 50
-    m_MaxValue: 50
+    m_MinValue: 55
+    m_MaxValue: 68
     m_Wrap: 0
     m_Recentering:
       m_enabled: 0
@@ -74713,7 +74739,7 @@ MonoBehaviour:
   smooth: 1
   paperPlacementColl: {fileID: 9196662531863318863}
   currentSheet: {fileID: 0}
-  wallPlacement: {fileID: 0}
+  rotateyval: 15
   isDone: 0
   isRotated: 0
 --- !u!114 &4686151073059671406
@@ -74729,6 +74755,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintingManager: {fileID: 3110813323940818546}
+  ymin: 5
+  ymax: 17
 --- !u!222 &4688191739748144921
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -74836,6 +74864,8 @@ Transform:
   m_LocalScale: {x: 8.87, y: 8.87, z: 8.87}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 6894375204246779260}
+  - {fileID: 7480258256678592386}
   - {fileID: 1492170030588969561}
   - {fileID: 8785848162375286201}
   - {fileID: 2989521825341386040}
@@ -75423,8 +75453,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.51, y: 4.4, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 7.87, y: 5.67, z: 1}
+  m_Center: {x: -1.09, y: 0.64, z: 0}
 --- !u!4 &5185959930379840481
 Transform:
   m_ObjectHideFlags: 0
@@ -75456,6 +75486,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintingManager: {fileID: 3110813323940818546}
+  ymin: 5
+  ymax: 17
 --- !u!23 &5205163886171110867
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -76371,6 +76403,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintingManager: {fileID: 3110813323940818546}
+  ymin: 13
+  ymax: 20
 --- !u!1 &5893840656204913488
 GameObject:
   m_ObjectHideFlags: 0
@@ -76453,6 +76487,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintingManager: {fileID: 3110813323940818546}
+  ymin: 13
+  ymax: 20
 --- !u!4 &5990627495698769901
 Transform:
   m_ObjectHideFlags: 0
@@ -77664,13 +77700,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3160704816240230566}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80.72819, y: 30.615616, z: 278.01746}
-  m_LocalScale: {x: 8.869999, y: 8.87, z: 8.87}
+  m_LocalRotation: {x: 0.028844142, y: -0.63859713, z: -0.001739131, w: 0.7689985}
+  m_LocalPosition: {x: -0.056, y: 2.384, z: -1.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6467822386018591724}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 4769806261258717123}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6905453080584746177
 GameObject:
@@ -78152,6 +78188,8 @@ MonoBehaviour:
   sheet: {fileID: 0}
   smooth: 1
   wallPlacementColl: {fileID: 6565121040109234726}
+  offset: -1.7
+  yoffset: 0.65
   paperplaceMan: {fileID: 4702511057121609746}
 --- !u!114 &7334290123165554493
 MonoBehaviour:
@@ -78168,6 +78206,8 @@ MonoBehaviour:
   paintingSceneManager: {fileID: 891781836937284340}
   brush: {fileID: 5223927092632120270}
   moveSpeed: 0.1
+  cursorymin: 5
+  cursorymax: 17
   iscarrying: 0
 --- !u!1 &7348254789450647772
 GameObject:
@@ -78199,6 +78239,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintingManager: {fileID: 3110813323940818546}
+  ymin: 13
+  ymax: 20
 --- !u!4 &7429231716257756361
 Transform:
   m_ObjectHideFlags: 0
@@ -78339,14 +78381,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7537929993028008471}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80.72819, y: 30.615616, z: 278.01746}
-  m_LocalScale: {x: 8.869999, y: 8.87, z: 8.87}
+  m_LocalRotation: {x: 0.02887273, y: -0.6233758, z: -0.0011724795, w: 0.78138834}
+  m_LocalPosition: {x: 0.095, y: 2.444, z: -1.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4013631361114481674}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 4769806261258717123}
+  m_LocalEulerAnglesHint: {x: 0, y: 2.25, z: 0}
 --- !u!212 &7505313050340595960
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -78415,7 +78457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!33 &7575586368292369894
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -78986,6 +79028,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintingManager: {fileID: 3110813323940818546}
+  ymin: 13
+  ymax: 20
 --- !u!212 &7972096888703613256
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -80684,7 +80728,5 @@ SceneRoots:
   - {fileID: 909762748}
   - {fileID: 987940146}
   - {fileID: 637075530}
-  - {fileID: 6894375204246779260}
-  - {fileID: 7480258256678592386}
   - {fileID: 4769806261258717123}
   - {fileID: 1076888990}

@@ -10,6 +10,8 @@ public class CyanobrushCollider : MonoBehaviour
     private Vector3 screenPoint;
     public GameObject brush;
     public float moveSpeed = 0.1f;
+    public float cursorymin = 0.2f;
+    public float cursorymax = 2f;
     private Vector3 originalBathPos;
     
     public bool iscarrying;
@@ -50,7 +52,7 @@ public class CyanobrushCollider : MonoBehaviour
    {
        Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
        Vector3 cursorPos = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
-       //cursorPos.y = Mathf.Clamp(transform.position.y, 0.2f, 1.25f);
+       cursorPos.y = Mathf.Clamp(transform.position.y, cursorymin, cursorymax);
        brush.transform.position = cursorPos;
    }
 }

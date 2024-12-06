@@ -7,6 +7,8 @@ public class ClickandDrag : MonoBehaviour
     private Vector3 offset;
     private Vector3 screenPoint;
     public GameObject paintingManager;
+    public float ymin = 7f;
+    public float ymax = 18f;
     
     void Start()
     {
@@ -43,7 +45,7 @@ public class ClickandDrag : MonoBehaviour
         {
             Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
             Vector3 cursorPos = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
-            //cursorPos.y = Mathf.Clamp(transform.position.y, 0.2f, 1.25f);
+            cursorPos.y = Mathf.Clamp(transform.position.y, ymin,ymax);
             transform.position = cursorPos;
         }
     }
