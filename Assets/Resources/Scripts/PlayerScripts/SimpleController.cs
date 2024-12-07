@@ -102,6 +102,7 @@ public class SimpleController : MonoBehaviour
         xRotation -= mouseY;
         
 
+        FirstPerson();
         //ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 1f, whatIsGround);
         

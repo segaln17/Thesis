@@ -11,7 +11,8 @@ public class PaperPlacement : MonoBehaviour
     public Collider  paperPlacementColl;
     public GameObject currentSheet;
     //public GameObject wallPlacement;
-    public float rotateyval = 10f; 
+    public float rotateyval = 10f;
+    public GameObject PaintingSceneMan;
 
     public bool isDone = false;
     public bool isRotated = false;
@@ -37,6 +38,7 @@ public class PaperPlacement : MonoBehaviour
             // Keep a note of the time the movement started.
             //startTime = Time.time;
             currentSheet = other.gameObject;
+            PaintingSceneMan.GetComponent<PaintingSceneManager>().sheetNest = currentSheet;
             sheet01 = true;
         }
     }

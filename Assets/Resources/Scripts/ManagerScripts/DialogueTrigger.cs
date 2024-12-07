@@ -62,11 +62,6 @@ public class DialogueTrigger : MonoBehaviour
                         StartCoroutine(DialoguePlay());
                     }
                 }
-                else if (gameObject.name == "RookeryInternalBefore")
-                {
-                    gameObject.GetComponent<Collider>().enabled = false;
-                }
-                
                 else if (gameObject.name == "RookeryExternalAfter")
                 {
                     gameObject.GetComponent<DialogueTrigger>().enabled = false;
@@ -97,6 +92,10 @@ public class DialogueTrigger : MonoBehaviour
                 
                 StopCoroutine(dialogueCoroutine);
                 StartCoroutine(DialoguePlay());
+                if (gameObject.name == "RookeryInternalBefore")
+                {
+                    gameObject.GetComponent<Collider>().enabled = false;
+                }
             }
             //if you have seen it before but want to see it again
             else if (other.gameObject.CompareTag("Player") && dialoguePlayed)

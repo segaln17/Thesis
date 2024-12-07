@@ -27,7 +27,7 @@ public class PaintingSceneManager : MonoBehaviour
     public CinemachineVirtualCamera rookeryCam;
     public CinemachineVirtualCamera rookeryCam02;
 
-    private Vector3 originalPos;
+    
 
     [Header("UI")] 
     public Button placingButton;
@@ -39,6 +39,7 @@ public class PaintingSceneManager : MonoBehaviour
     [Header("Placeable Objects")] 
     public GameObject[] placeableObjects;
     public GameObject[] stampedObjects;
+    public Transform[] originalPos;
 
     [Header("Bools")] 
     public bool paintbrushActive = false;
@@ -65,6 +66,13 @@ public class PaintingSceneManager : MonoBehaviour
         wallPlacementButton.gameObject.SetActive(false);
         resetButton.gameObject.SetActive(false);
         endButton.gameObject.SetActive(false);
+
+       /* for (int i = 0; i < placeableObjects.Length; i++)
+        {
+            var originalPoint = originalPos.Length > i ? originalPos[i] : originalPos[originalPos.Length - 1];
+            originalPoint =
+        }*/
+        
     }
 
     
@@ -99,11 +107,11 @@ public class PaintingSceneManager : MonoBehaviour
         {
             placingButton.gameObject.SetActive(false);
             printButton.gameObject.SetActive(true);
-            if (Input.GetKeyUp(KeyCode.E))
+            /*if (Input.GetKeyUp(KeyCode.E))
 
             {
                 placing();
-            }
+            }*/
             
         }
 
@@ -145,10 +153,7 @@ public class PaintingSceneManager : MonoBehaviour
     {
         state = paintingState.painting;
         mousePainter.SetActive(true);
-        foreach (GameObject originalspot in placeableObjects)
-        {
-            originalPos = originalspot.transform.position;
-        }
+        
     }
 
     public void prepPlacing()
@@ -181,7 +186,11 @@ public class PaintingSceneManager : MonoBehaviour
     {
         foreach (GameObject placedObj in placeableObjects)
         {
-            placedObj.gameObject.transform.position = originalPos;
+            foreach (Transform origPos in originalPos)
+            {
+                placedObj.gameObject.transform.position = origPos.transform.position; 
+            }
+            
         }
     }
 
