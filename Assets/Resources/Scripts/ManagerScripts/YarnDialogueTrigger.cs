@@ -89,7 +89,7 @@ public class YarnDialogueTrigger : MonoBehaviour
         {
             Debug.Log("in yarn trigger");
             inYarnTrigger = true;
-            if (other.gameObject == fighter)
+            if (other.gameObject == fighter) //change to other.gameobject.name?
             {
                 isFighter = true;
                 isDiviner = false;

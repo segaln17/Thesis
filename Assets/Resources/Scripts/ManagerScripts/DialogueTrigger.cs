@@ -53,7 +53,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             if (dialoguePlayed)
             {
-                if (gameObject.name != "RookeryInternalBefore")
+                if (gameObject.name != "RookeryInternalBefore" || gameObject.name != "RookeryExternalAfter")
                 {
                     if (Input.GetKeyDown(KeyCode.E))
                     {
@@ -65,6 +65,11 @@ public class DialogueTrigger : MonoBehaviour
                 else if (gameObject.name == "RookeryInternalBefore")
                 {
                     gameObject.GetComponent<Collider>().enabled = false;
+                }
+                
+                else if (gameObject.name == "RookeryExternalAfter")
+                {
+                    gameObject.GetComponent<DialogueTrigger>().enabled = false;
                 }
                 
             }

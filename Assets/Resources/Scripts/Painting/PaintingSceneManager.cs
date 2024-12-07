@@ -11,6 +11,7 @@ public class PaintingSceneManager : MonoBehaviour
     public RookeryActivate rookeryControls;
     public YarnDialogueTrigger yarnDialogueTrigger;
     public SimpleController divinerController;
+    public DialogueTrigger outsideRookeryTrigger;
     
     public PaperPlacement paperPlacementScript;
     public CyanobrushCollider cyanobrushCollider;
@@ -207,17 +208,23 @@ public class PaintingSceneManager : MonoBehaviour
 
     public void Leave()
     {
-        //SWITCH TO DIVINER
-        rookeryControls.PlayerDiviner.SetActive(true);
+        endButton.gameObject.SetActive(false);
+        resetButton.gameObject.SetActive(false);
+        
         rookeryCam.Priority = 1;
         rookeryCam02.Priority = 1;
-        rookeryControls.firstPerson.Priority = 1;
+        rookeryControls.firstPerson.Priority = 12;
+        outsideRookeryTrigger.gameObject.SetActive(true);
+        rookeryControls.Player.SetActive(true);
+        /*
+        //SWITCH TO DIVINER --> I put this code basically in a new script too to split it up a bit more?
+        rookeryControls.PlayerDiviner.SetActive(true);
         rookeryControls.firstPersonDiviner.Priority = 12;
         yarnDialogueTrigger.SetCharacterPOV(GameManager.CharacterPOV.Diviner);
         divinerController.GetComponent<SimpleController>().enabled = true;
         yarnDialogueTrigger.gameObject.SetActive(false);
-        endButton.gameObject.SetActive(false);
-        resetButton.gameObject.SetActive(false);
+        */
+        
         state = paintingState.reset;
     }
     
