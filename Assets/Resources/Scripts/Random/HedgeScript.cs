@@ -13,6 +13,7 @@ public class HedgeScript : MonoBehaviour
     
     public List<string> noteQueue = new List<string>();
 
+    [Header("Garden Songs")]
     public string goalPhrase = "WDAS";
     public bool isSinging = false;
     public bool isinHedge = false;
@@ -21,10 +22,19 @@ public class HedgeScript : MonoBehaviour
     public bool isOutsideGarden = false;
     public bool isMoon = false;
     public GameObject gardenEnter;
+
+    [Header("Trees Sing")] 
+    public AudioSource treeSing;
+    public AudioClip treehum01;
+    public AudioClip treehum02;
+    public AudioClip treehum03;
+    public AudioClip treehum04;
     
 
     public Animator hedge1animator;
     //public Animator hedge2animator;
+
+    public Animator doorsAnimator;
 
     public PlayableDirector gardenTimeline;
     
@@ -91,48 +101,6 @@ public class HedgeScript : MonoBehaviour
                 // numNotesSung += 1;
                 //sungNotes += noteQueue.Dequeue();
             }
-           /* if (noteQueue.Count == 0)
-            {
-                if (Input.GetKeyDown(KeyCode.W))
-                {
-                    StartWindowTimer();
-                    noteQueue.Add("W");
-                    Debug.Log("W");
-                }
-            }
-
-            if (noteQueue.Count == 1)
-            {
-                if (Input.GetKeyDown(KeyCode.D))
-                {   //StartWindowTimer();
-                    noteQueue.Add("D");
-                    Debug.Log("D");
-                }
-            }
-
-            if (noteQueue.Count == 2)
-            {
-                if (Input.GetKeyDown(KeyCode.A))
-                {
-                    //StartWindowTimer();
-                    noteQueue.Add("A");
-                    Debug.Log("A");
-                    //sungNotes += noteQueue.Dequeue();
-                    //numNotesSung += 1;
-                }
-            }
-
-            if (noteQueue.Count == 3)
-            {
-                if (Input.GetKeyDown(KeyCode.S))
-                {
-                    //StartWindowTimer();
-                    noteQueue.Add("S");
-                    Debug.Log("S");
-                    // numNotesSung += 1;
-                    //sungNotes += noteQueue.Dequeue();
-                }
-            }*/
 
         }
         CheckNotes();
@@ -265,7 +233,14 @@ public class HedgeScript : MonoBehaviour
                 {
                     songScript.sheetActive = false;
                     isSinging = false;
+                    doorsAnimator.SetBool("doorsopengarden", true);
                     StartCoroutine("WaitTimeline");
+                }
+
+                if (isOutsideGarden)
+                {
+                    StartCoroutine("TreeSing");
+                    StartCoroutine("WaitAnimate");
                 }
                 
             }
@@ -344,5 +319,18 @@ public class HedgeScript : MonoBehaviour
             isGarden = false;
             isOutsideGarden = false;
             isMoon = true;
+        }
+
+        IEnumerator TreeSing()
+        {
+            yield return new WaitForSeconds(2.5f);
+            treeSing.PlayOneShot(treehum01);
+            yield return new WaitForSeconds(.75f); 
+            treeSing.PlayOneShot(treehum02);
+            yield return new WaitForSeconds(2f);
+            treeSing.PlayOneShot(treehum03);
+            yield return new WaitForSeconds(2f);
+            treeSing.PlayOneShot(treehum04);
+            yield return new WaitForSeconds(2f);
         }
 }

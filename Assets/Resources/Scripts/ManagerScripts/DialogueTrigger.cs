@@ -53,12 +53,20 @@ public class DialogueTrigger : MonoBehaviour
         {
             if (dialoguePlayed)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (gameObject.name != "RookeryInternalBefore")
                 {
-                    dialogueIndicator.gameObject.SetActive(false);
-                    StopCoroutine(dialogueCoroutine);
-                    StartCoroutine(DialoguePlay());
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        dialogueIndicator.gameObject.SetActive(false);
+                        StopCoroutine(dialogueCoroutine);
+                        StartCoroutine(DialoguePlay());
+                    }
                 }
+                else
+                {
+                    gameObject.SetActive(false);
+                }
+                
             }
         }
     }

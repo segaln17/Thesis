@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class PaintingSceneManager : MonoBehaviour
 {
+    public RookeryActivate rookeryControls;
+    
     public PaperPlacement paperPlacementScript;
     public CyanobrushCollider cyanobrushCollider;
     [Header("Manager Objects")]
@@ -28,6 +30,7 @@ public class PaintingSceneManager : MonoBehaviour
     public Button printButton;
     public Button wallPlacementButton;
     public Button resetButton;
+    public Button endButton;
 
     [Header("Placeable Objects")] 
     public GameObject[] placeableObjects;
@@ -57,6 +60,7 @@ public class PaintingSceneManager : MonoBehaviour
         printButton.gameObject.SetActive(false);
         wallPlacementButton.gameObject.SetActive(false);
         resetButton.gameObject.SetActive(false);
+        endButton.gameObject.SetActive(false);
     }
 
     
@@ -111,10 +115,12 @@ public class PaintingSceneManager : MonoBehaviour
             wallPlacing();//camera changes to wall, click n drag script is back on, lerp to a collider on the wall then reset once lerped?
             resetButton.gameObject.SetActive(true);
             wallPlacementButton.gameObject.SetActive(false);
+            endButton.gameObject.SetActive(true);
         }
 
         if (state == paintingState.reset)
         {
+            endButton.gameObject.SetActive(false);
             reset();
             
         }
@@ -123,7 +129,7 @@ public class PaintingSceneManager : MonoBehaviour
     public void newSheet()
     {
         state = paintingState.newsheet;
-        rookeryCam02.Priority = 10;
+        rookeryCam02.Priority = 1;
         rookeryCam.Priority = 12;
         //cyanoBrush.GetComponent<BoxCollider>().enabled = true;
         if (paintbrushActive)
@@ -178,7 +184,7 @@ public class PaintingSceneManager : MonoBehaviour
     public void wallPlacing()
     {
         state = paintingState.wallPlacing;
-        rookeryCam.Priority = 10;
+        rookeryCam.Priority = 1;
         rookeryCam02.Priority = 12;
         paperPlacementScript.turnOnClickandDrag();
         
@@ -194,6 +200,13 @@ public class PaintingSceneManager : MonoBehaviour
         paperPlacement.GetComponent<Collider>().enabled = true;
         paintbrushActive = false;
         state = paintingState.newsheet;
+    }
+
+    public void Leave()
+    {
+        rookeryCam.Priority = 1;
+        rookeryCam02.Priority = 1;
+        rookeryControls.Player.SetActive(true);
     }
     
 }
