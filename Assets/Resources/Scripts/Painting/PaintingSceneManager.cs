@@ -4,10 +4,13 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
+using Yarn.Unity;
 
 public class PaintingSceneManager : MonoBehaviour
 {
     public RookeryActivate rookeryControls;
+    public YarnDialogueTrigger yarnDialogueTrigger;
+    public SimpleController divinerController;
     
     public PaperPlacement paperPlacementScript;
     public CyanobrushCollider cyanobrushCollider;
@@ -199,14 +202,24 @@ public class PaintingSceneManager : MonoBehaviour
         paperPlacementScript.sheet01 = false;
         paperPlacement.GetComponent<Collider>().enabled = true;
         paintbrushActive = false;
-        state = paintingState.newsheet;
+        //state = paintingState.newsheet;
     }
 
     public void Leave()
     {
+        //SWITCH TO DIVINER
+        rookeryControls.PlayerDiviner.SetActive(true);
         rookeryCam.Priority = 1;
         rookeryCam02.Priority = 1;
-        rookeryControls.Player.SetActive(true);
+        rookeryControls.firstPerson.Priority = 1;
+        rookeryControls.firstPersonDiviner.Priority = 12;
+        yarnDialogueTrigger.SetCharacterPOV(GameManager.CharacterPOV.Diviner);
+        divinerController.GetComponent<SimpleController>().enabled = true;
+        yarnDialogueTrigger.gameObject.SetActive(false);
+        endButton.gameObject.SetActive(false);
+        resetButton.gameObject.SetActive(false);
+        state = paintingState.reset;
     }
+    
     
 }

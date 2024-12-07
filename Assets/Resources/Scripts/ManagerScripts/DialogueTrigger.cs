@@ -62,9 +62,9 @@ public class DialogueTrigger : MonoBehaviour
                         StartCoroutine(DialoguePlay());
                     }
                 }
-                else
+                else if (gameObject.name == "RookeryInternalBefore")
                 {
-                    gameObject.SetActive(false);
+                    gameObject.GetComponent<Collider>().enabled = false;
                 }
                 
             }

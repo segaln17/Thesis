@@ -257,6 +257,18 @@ Creature that Looks Worried: She does not know how to ask nicely.
 //<<NotAutomatic YarnManager>>
 <<stop>>
 ===
+title: FenPostGardenTransition
+---
+<<if $charPOV is "Diviner">>
+<<wait  2>>
+Fen: I feel as though I've been sitting here for ages.
+Fen: I should stretch my legs.
+Fen: Perhaps I'll check on Altea!
+Fen: She'll likely be in the stables, I'd imagine.
+<<wait  1>>
+Fen: Maybe I should stop talking to myself.
+<<endif>>
+===
 title: HighPriestessTimelineTrigger
 ---
 <<if $charPOV is "Diviner">>
