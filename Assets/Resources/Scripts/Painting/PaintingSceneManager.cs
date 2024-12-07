@@ -207,6 +207,8 @@ public class PaintingSceneManager : MonoBehaviour
     public void reset()
     {
         Debug.Log("resetting");
+        rookeryCam.Priority = 12;
+        rookeryCam02.Priority = 1;
         paperPlacementScript.isDone = false;
         paperPlacementScript.isRotated = false;
         paperPlacementScript.sheet01 = false;
@@ -234,7 +236,7 @@ public class PaintingSceneManager : MonoBehaviour
         yarnDialogueTrigger.gameObject.SetActive(false);
         */
         
-        state = paintingState.reset;
+        state = paintingState.newsheet;
     }
     
     

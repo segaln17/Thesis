@@ -5,6 +5,8 @@ position: -208,-211
 <<declare $spokenToWindy = false as bool>>
 <<declare $WindyOpeningRun = false as bool>>
 <<declare $spokenToByronFighter = false as bool>>
+<<declare $spokenToFenFighterTavern = false as bool>>
+<<declare $gardenFoundFighter = false as bool>>
 ===
 ///THIS IS FOR TESTING TIMELINE YARNCOMMANDS
 title: TimelineTest
@@ -121,7 +123,8 @@ Amos: They're a legend. How'd they end up down here?
 title: FenTavern
 position: 259,9
 ---
-<<if $charPOV is "Fighter">>
+//<<if $charPOV is "Fighter">>
+<<if $spokenToFenFighterTavern is false>>
 The Fighter: <i>Before you is a small but strangely imposing figure, sitting alone.</i>
 The Fighter: <i>Though she is small, she has gravity, and sitting in the tavern by herself, one can almost pretend this is normal.</i>
 Strangely Congenial Person: I haven't seen you before, have I?
@@ -163,6 +166,14 @@ The Fighter: <i>Strangely, it looks similar to the one you already possess.</i>
 //GIVES PHOEBE SONG OF BEASTS
 <<getSongofBeasts InventoryManager>>
 Fen: Maybe something around here will respond to it!
+<<set $spokenToFenFighterTavern to true>>
+<<endif>>
+<<if $spokenToFenFighterTavern is true>>
+Fen: Have you seen that strange grove behind the ridge, just north of here?
+Fen: Those trees conspire, I think.
+Fen: Hildegard told me she's heard them sing to each other.
+Fen: None of us here can sing, strangely enough.
+Fen: There must be secrets there, waiting to be found...
 <<endif>>
 ===
 title: Tree
@@ -185,9 +196,9 @@ title: HuskNPC
 position: 289,39
 ---
 <<if $charPOV is "Fighter">>
-NPC: You've seen them, then? The husks?
-NPC: Most of them are harmless. Used to be like us--lost souls.
-NPC: Altea helps them, after they turn. Poor bastards.
+Hythe: You've seen them, then? The husks?
+Hythe: Most of them are harmless. Used to be like us--lost souls.
+Hythe: Altea helps them, after they turn. Poor bastards.
 <<endif>>
 ===
 title: BathhouseNPC
@@ -197,6 +208,23 @@ position: 299,49
 Grimbolde: Back when this was a monastery, this was probably the bathhouse.
 Grimbolde: The creatures here use it for whatever vile frolicking they do in their spare time.
 Grimbolde: When they're not skittering around and shrieking.
+<<endif>>
+
+<<if $charPOV is "Diviner">>
+Grimbolde: Oh, Fen, can something be done about these things?
+Grimbolde: I hate them.
+Grimbolde: Their voices scrape my mind like nails on slate.
+Fen: Hmm...
+Fen: Have you tried pushing them out of the way?
+Grimbolde: ...
+Grimbolde: Altea's in the stables.
+<<endif>>
+
+//AFTER ALTEA AND FEN SCENE
+<<if $gardenFoundFighter is true and $charPOV is "Fighter">>
+Grimbolde: Thank goodness, it's time to gather at the Bonfire.
+Grimbolde: Something about it makes these creatures shut up.
+Grimbolde: Blissful, blissful silence.
 <<endif>>
 ===
 title: OutsideGardenNPC
@@ -255,6 +283,7 @@ Creature with Wings: The one who is ancient but also young will help you.
 Creature with Many Heads: The one who is burned on the inside can help but may not.
 Creature that Looks Worried: She does not know how to ask nicely.
 //<<NotAutomatic YarnManager>>
+<<set $gardenFoundFighter to true>>
 <<stop>>
 ===
 title: FenPostGardenTransition
@@ -275,8 +304,8 @@ title: HighPriestessTimelineTrigger
     <<colliderActive YarnStableCutsceneCollider>>
     <<timelineGo STABLETIMELINE>>
     <<jump HighPriestess>>
-<<else>>
-    <<jump HighPriestess>>
+//<<else>>
+    //<<jump HighPriestess>>
 <<endif>>
 ===
 title: HighPriestess

@@ -80,34 +80,34 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //IF SECOND PERSON:
-        if (gameObject.CompareTag("2ndPOV"))
+        if (other.gameObject.name == "PlayerPhoebe")
         {
-            //if you're the player and you haven't seen this dialogue before
-            if (other.gameObject.CompareTag("Player") && dialoguePlayed == false)
+            //IF SECOND PERSON:
+            if (gameObject.CompareTag("2ndPOV"))
             {
-                //there should be no dialogue indicator and you're near the dialogue
-                dialogueIndicator.gameObject.SetActive(false);
-                isNearDialogue = true;
-                
-                StopCoroutine(dialogueCoroutine);
-                StartCoroutine(DialoguePlay());
-                if (gameObject.name == "RookeryInternalBefore")
+                //if you're the player and you haven't seen this dialogue before
+                if (other.gameObject.CompareTag("Player") && dialoguePlayed == false)
                 {
-                    gameObject.GetComponent<Collider>().enabled = false;
+                    //there should be no dialogue indicator and you're near the dialogue
+                    dialogueIndicator.gameObject.SetActive(false);
+                    isNearDialogue = true;
+                
+                    StopCoroutine(dialogueCoroutine);
+                    StartCoroutine(DialoguePlay());
+                }
+                //if you have seen it before but want to see it again
+                else if (other.gameObject.CompareTag("Player") && dialoguePlayed)
+                {
+                    //turn the dialogue indicator on and you're near dialogue
+                    isNearDialogue = true;
+                    dialogueIndicator.gameObject.SetActive(true);
+                
+                    //StopCoroutine(dialogueCoroutine);
+                    //StartCoroutine(DialoguePlay());
                 }
             }
-            //if you have seen it before but want to see it again
-            else if (other.gameObject.CompareTag("Player") && dialoguePlayed)
-            {
-                //turn the dialogue indicator on and you're near dialogue
-                isNearDialogue = true;
-                dialogueIndicator.gameObject.SetActive(true);
-                
-                //StopCoroutine(dialogueCoroutine);
-                //StartCoroutine(DialoguePlay());
-            }
         }
+        
         
     }
 

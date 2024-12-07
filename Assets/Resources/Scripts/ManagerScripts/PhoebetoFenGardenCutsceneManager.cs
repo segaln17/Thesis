@@ -24,11 +24,11 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
     {
         if (outsideRookeryTrigger.dialoguePlayed)
         {
-            StartCoroutine("WaitSwitch");
+            StartCoroutine("WaitSwitchtoFen");
         }
     }
 
-    IEnumerator WaitSwitch()
+    IEnumerator WaitSwitchtoFen()
     {
         yield return new WaitForSeconds(2f);
         outsideRookeryTrigger.GetComponent<Collider>().enabled = false;
