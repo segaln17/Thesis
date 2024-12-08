@@ -32,6 +32,8 @@ public class WallPlacement : MonoBehaviour
                 placeWallSheet();
             } 
         }
+
+       
     }
     
     private void OnMouseDown()
@@ -58,18 +60,20 @@ public class WallPlacement : MonoBehaviour
             // float fractionOfJourney = distCovered / journeyLength;
 
             // Set our position as a fraction of the distance between the markers.
-            Debug.Log("placing");
+            
             sheet.transform.position = Vector3.Lerp(sheet.transform.position, new Vector3(transform.position.x+offset,transform.position.y+yoffset , transform.position.z), Time.deltaTime * smooth);
            // sheet.transform.localScale = Vector3.Lerp(sheet.transform.localScale,new Vector3(.15f, .15f,.15f), Time.deltaTime * smooth);
             //sheet.transform.rotation = transform.rotation;
             
             wallPlacementColl.enabled = false;
-            if (sheet.transform.position.z <= 2.13f && sheet.transform.position.z >= 2.12f)
+            //Debug.Log(sheet.transform.position.z);
+            if (sheet.transform.position.z <= 295f && sheet.transform.position.z >= 292f)
             {
                 Debug.Log("placed");
                 sheet.tag = "Untagged";
                 sheetPlaced = true;
                 this.enabled = false;
+                this.gameObject.SetActive(false);
                 return;
             }
         }

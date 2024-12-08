@@ -20,6 +20,10 @@ public class RookeryInternalDialogueOff : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        rookeryInternalCollider.enabled = false;
+        if (other.gameObject.tag == "Player")
+        {
+            rookeryInternalCollider.enabled = false; 
+        }
+        
     }
 }

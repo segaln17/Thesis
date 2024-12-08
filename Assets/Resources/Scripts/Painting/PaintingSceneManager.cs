@@ -53,7 +53,8 @@ public class PaintingSceneManager : MonoBehaviour
         placing, //triggered when you put paintbrush back within collider
         printing, //button that stamps it
         wallPlacing, //put it on the wall, permanently turns off the wall collider it's on
-        reset //isDone is false, go into newsheet
+        reset, //isDone is false, go into newsheet
+        leave
     }
     
     
@@ -107,11 +108,6 @@ public class PaintingSceneManager : MonoBehaviour
         {
             placingButton.gameObject.SetActive(false);
             printButton.gameObject.SetActive(true);
-            /*if (Input.GetKeyUp(KeyCode.E))
-
-            {
-                placing();
-            }*/
             
         }
 
@@ -132,8 +128,16 @@ public class PaintingSceneManager : MonoBehaviour
 
         if (state == paintingState.reset)
         {
-            endButton.gameObject.SetActive(false);
+            //enterbutton.gameObject.SetActive(false);
             reset();
+            
+        }
+
+        if (state == paintingState.leave)
+        {
+            Leave();
+            endButton.gameObject.SetActive(false);
+            resetButton.gameObject.SetActive(false);
             
         }
     }
@@ -188,9 +192,12 @@ public class PaintingSceneManager : MonoBehaviour
         {
             foreach (Transform origPos in originalPos)
             {
-                placedObj.gameObject.transform.position = origPos.transform.position; 
+                if (placedObj.tag == origPos.tag)
+                {
+                    placedObj.transform.position = origPos.transform.position; 
+                }
+                
             }
-            
         }
     }
 
@@ -207,26 +214,30 @@ public class PaintingSceneManager : MonoBehaviour
     public void reset()
     {
         Debug.Log("resetting");
-        rookeryCam.Priority = 12;
-        rookeryCam02.Priority = 1;
         paperPlacementScript.isDone = false;
         paperPlacementScript.isRotated = false;
         paperPlacementScript.sheet01 = false;
         paperPlacement.GetComponent<Collider>().enabled = true;
         paintbrushActive = false;
-        //state = paintingState.newsheet;
+        state = paintingState.newsheet;
     }
 
     public void Leave()
     {
-        endButton.gameObject.SetActive(false);
-        resetButton.gameObject.SetActive(false);
-        
+        //Debug.Log("leaving");
+        state = paintingState.leave;
         rookeryCam.Priority = 1;
         rookeryCam02.Priority = 1;
         rookeryControls.firstPerson.Priority = 12;
         outsideRookeryTrigger.gameObject.SetActive(true);
         rookeryControls.Player.SetActive(true);
+        paperPlacementScript.isDone = false;
+        paperPlacementScript.isRotated = false;
+        paperPlacementScript.sheet01 = false;
+        paperPlacement.GetComponent<Collider>().enabled = true;
+        paintbrushActive = false;
+        endButton.gameObject.SetActive(false);
+        resetButton.gameObject.SetActive(false);
         /*
         //SWITCH TO DIVINER --> I put this code basically in a new script too to split it up a bit more?
         rookeryControls.PlayerDiviner.SetActive(true);
@@ -236,7 +247,7 @@ public class PaintingSceneManager : MonoBehaviour
         yarnDialogueTrigger.gameObject.SetActive(false);
         */
         
-        state = paintingState.newsheet;
+        //state = paintingState.newsheet;
     }
     
     

@@ -35,12 +35,16 @@ public class RookeryActivate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        cyanoonbutton.gameObject.SetActive(true);
+        if (other.gameObject.tag == "Player")
+        {
+            cyanoonbutton.gameObject.SetActive(true); 
+        }
+        
     }
 
     private void OnTriggerExit(Collider other)
-    {
-        cyanoonbutton.gameObject.SetActive(false);
+    { 
+        cyanoonbutton.gameObject.SetActive(false); 
     }
 
     public void GotoCyanotype()
