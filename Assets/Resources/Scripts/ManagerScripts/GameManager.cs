@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public GameObject menu;
+    //public GameObject inventory;
 
     private bool paused;
 
@@ -67,12 +68,14 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            SceneManager.LoadScene("GreyBoxing");
+            SceneManager.LoadScene("Overworld");
         }
+        /*
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             SceneManager.LoadScene("PaintingScene");
         }
+        */
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -82,13 +85,17 @@ public class GameManager : MonoBehaviour
 
         if (paused)
         {
+            
             menu.SetActive(true);
+            
+            //inventory.SetActive(true);
            
             Time.timeScale = 0;
         }
         else
         {
-            menu.SetActive(false);
+            menu.SetActive(false); 
+            //inventory.SetActive(false);
            
             Time.timeScale = 1;
         }

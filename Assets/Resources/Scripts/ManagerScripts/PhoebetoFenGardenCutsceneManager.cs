@@ -7,6 +7,9 @@ using UnityEngine;
 public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
 {
     public DialogueTrigger outsideRookeryTrigger;
+    public DialogueTrigger insideRookeryTrigger;
+    
+    public TimelineTest timelineScript;
 
     public SimpleController divinerController;
 
@@ -21,12 +24,15 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
     public bool isswitiching;
     public bool isswitched;
 
+    public GameObject stableLight;
+
     public YarnDialogueTrigger yarnDialogueTrigger;
     // Start is called before the first frame update
     void Start()
     {
         isswitiching = false;
         isswitched = false;
+        stableLight.SetActive(false);
     }
 
     // Update is called once per frame
@@ -35,6 +41,7 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
         if (outsideRookeryTrigger.dialoguePlayed)
         {
             StartCoroutine("WaitSwitchtoFen");
+            stableLight.SetActive(true);
         }
 
         /*if (!isswitiching && !isswitched)
@@ -66,6 +73,8 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         outsideRookeryTrigger.GetComponent<Collider>().enabled = false;
+        outsideRookeryTrigger.GetComponent<DialogueTrigger>().enabled = false;
+        insideRookeryTrigger.GetComponent<DialogueTrigger>().enabled = false;
         PlayerPhoebe.GetComponent<SimpleController>().enabled = false;
         //switch camera to Fen
         phoebecam01.Priority = 0;
@@ -79,5 +88,7 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
         divinerController.GetComponent<SimpleController>().enabled = true;
         yield return new WaitForSeconds(1f);
         yarnDialogueTrigger.gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        timelineScript.GoTimeline();
     }
 }

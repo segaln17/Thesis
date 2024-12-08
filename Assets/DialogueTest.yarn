@@ -119,6 +119,17 @@ Amos: That's Fen.
 Amos: You know, <i>Fen the Diviner</i>?
 Amos: They're a legend. How'd they end up down here?
 <<endif>>
+<<if $charPOV is "Diviner">>
+Amos: You never told me how you got here, you know.
+Fen: Oh, well. It's a long story.
+Fen: I was looking for something.
+Amos: Did you find it?
+Fen: ...I'm not sure yet.
+Amos: What kind of thing was it?
+Fen: Oh, darling. Just a personal possession of mine, that's all.
+Amos: I'm sorry for all the questions, I'm just a little starstruck.
+Fen: It's quite alright, dear. Everyone is.
+<<endif>>
 ===
 title: FenTavern
 position: 259,9
@@ -161,9 +172,11 @@ Fen: I've noticed the plants in this place respond strangely to song.
 Fen: Some are too talkative to appreciate it, but others are more sensitive.
 Fen: I found this the other day. It looks like sheet music, almost.
 Fen: Here, maybe you'll have a use for it.
+<<playKnock GardenCutsceneManager>>
 The Fighter: <i>She hands you a knife with music etched into the blade.</i>
 The Fighter: <i>Strangely, it looks similar to the one you already possess.</i>
 //GIVES PHOEBE SONG OF BEASTS
+//the clink from the gardenscene:
 <<getSongofBeasts InventoryManager>>
 Fen: Maybe something around here will respond to it!
 <<set $spokenToFenFighterTavern to true>>
@@ -237,6 +250,13 @@ Hildegard: No one's been able to figure out how to get through it to see what mi
 Hildegard: I hear the trees singing to each other, sometimes.
 Hildegard: I wish I could sing.
 <<endif>>
+<<if $charPOV is "Diviner">>
+Hildegard: Fen! That new person went inside!
+Hildegard: She has a beautiful singing voice.
+Fen: Don't be jealous, dear! You just have to practice.
+Hildegard: Can you ask her to teach me?
+Fen: Well... maybe if she isn't busy.
+<<endif>>
 ===
 title: BathhouseCreature1
 position: 319,69
@@ -265,6 +285,7 @@ The Fighter: <i>Maybe song will be.</i>
 title: PhoebeintheGarden
 ---
 //Triggered by song of Beasts
+<<changeCam GardenCutsceneManager>>
 Creature with Many Heads: You understand it, don't you?
 Creature with Fingernails: The moon is almost ready to hatch!
 Creature that Looks Worried: We were like you once. Some of us were like you and we are afraid of dying.
@@ -278,11 +299,13 @@ Creature that Looks Worried: A thing that eats the moon eats the power of this w
 Creature with Many Heads: The moon must hatch.
 Creature with Wings: Take this, and find its hatching song.
 //GIVE THE MUSIC BOX
+<<playKnock GardenCutsceneManager>>
 <<getMusicBoxBase InventoryManager>>
 Creature with Wings: The one who is ancient but also young will help you.
 Creature with Many Heads: The one who is burned on the inside can help but may not.
 Creature that Looks Worried: She does not know how to ask nicely.
 //<<NotAutomatic YarnManager>>
+<<changeBackCam GardenCutsceneManager>>
 <<set $gardenFoundFighter to true>>
 <<stop>>
 ===
@@ -310,12 +333,17 @@ title: HighPriestessTimelineTrigger
 ===
 title: HighPriestess
 ---
+<<hideFen PlayerDiviner>>
 //knock on the door
+<<playKnock YarnStableCutsceneSetUpCollider>>
 Fen: Altea, dear, are you in there?
 <<wait  3>>
+<<playKnock YarnStableCutsceneSetUpCollider>>
 //knock again
 Fen: I know you're likely busy, but it's time for dinner, and I was hoping you would join us tonight-
 //timeline run for door opening and revealing ALtea
+<<changeCam PlayerDiviner>>
+<<openDoor YarnStableCutsceneSetUpCollider>>
 <<revealCreature YarnStableCutsceneSetUpCollider>>
 Altea: What do you want?
 Fen: Well, seeing as we're all gathering at the Bonfire,
@@ -353,9 +381,14 @@ Fen: But-
 Altea: Do you not want me to call upon my Lady to help these poor things?
 Fen: Well-
 Altea: Then let me work. I'm not coming to "dinner."
+<<closeDoor YarnStableCutsceneSetUpCollider>>
 <<disappearCreature YarnStableCutsceneSetUpCollider>>
+<<changeBackCam PlayerDiviner>>
+<<wait  1>>
 //timeline for door close
 Fen: Well, alright then.
+<<revealFen PlayerDiviner>>
+//<<colliderActive SwitchToPhoebeCollider>>
 //BONFIRE TRIGGER ACTIVE
 <<stop>>
 ===
