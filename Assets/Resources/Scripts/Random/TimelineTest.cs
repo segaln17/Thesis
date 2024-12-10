@@ -17,6 +17,7 @@ public class TimelineTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
     }
 
     [YarnCommand("timelineGo")]

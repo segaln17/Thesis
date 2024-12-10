@@ -42,6 +42,7 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
         {
             StartCoroutine("WaitSwitchtoFen");
             stableLight.SetActive(true);
+            outsideRookeryTrigger.dialoguePlayed = false;
         }
 
         /*if (!isswitiching && !isswitched)
@@ -53,7 +54,11 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        isswitiching = true;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isswitiching = true;
+        }
+       
     }
 
     IEnumerator PhoebeReveal()
@@ -71,24 +76,32 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
 
     IEnumerator WaitSwitchtoFen()
     {
+        Debug.Log("switching to Fen");
         yield return new WaitForSeconds(2f);
         outsideRookeryTrigger.GetComponent<Collider>().enabled = false;
         outsideRookeryTrigger.GetComponent<DialogueTrigger>().enabled = false;
         insideRookeryTrigger.GetComponent<DialogueTrigger>().enabled = false;
         PlayerPhoebe.GetComponent<SimpleController>().enabled = false;
+        PlayerPhoebe.gameObject.SetActive(false);
         //switch camera to Fen
         phoebecam01.Priority = 0;
         rookeryControls.firstPerson.Priority = 1;
         fenCam01.Priority = 12;
         yield return new WaitForSeconds(4f);
+        //zoom in to Fen
         fenCam02.Priority = 12;
         fenCam01.gameObject.SetActive(false);
         fenCam01.Priority = 1;
+        //set charPOV to diviner
         yarnDialogueTrigger.SetCharacterPOV(GameManager.CharacterPOV.Diviner);
+        //turn on Fen controller
         divinerController.GetComponent<SimpleController>().enabled = true;
         yield return new WaitForSeconds(1f);
+        //turn off Fen's dialogue trigger from tavern scene
         yarnDialogueTrigger.gameObject.SetActive(false);
         yield return new WaitForSeconds(0.5f);
+        //start the mini cutscene
         timelineScript.GoTimeline();
+        StopCoroutine("WaitSwitchtoFen");
     }
 }

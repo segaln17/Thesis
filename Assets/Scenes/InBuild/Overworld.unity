@@ -31211,10 +31211,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5571203642160640714, guid: e7268f7c14dd946dabffa9c1c472fe23,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1259936910}
-    - targetCorrespondingSourceObject: {fileID: 5571203642160640714, guid: e7268f7c14dd946dabffa9c1c472fe23,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1259936916}
   m_SourcePrefab: {fileID: 100100000, guid: e7268f7c14dd946dabffa9c1c472fe23, type: 3}
 --- !u!1 &945799610 stripped
@@ -39680,27 +39676,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 945799608}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1259936910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1259936904}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a1effe9c62f0fb4586b0d3009e1339a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueRunner: {fileID: 1590296998}
-  player: {fileID: 1259936904}
-  creature: {fileID: 1951076443}
-  firstPOVusual: {fileID: 0}
-  firstPOVzoomed: {fileID: 0}
-  soundSource: {fileID: 0}
-  knock: {fileID: 0}
-  doorClose: {fileID: 0}
-  doorOpen: {fileID: 0}
 --- !u!95 &1259936916
 Animator:
   serializedVersion: 5
@@ -47836,128 +47811,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516578529}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1516988881
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1516988882}
-  - component: {fileID: 1516988885}
-  - component: {fileID: 1516988884}
-  - component: {fileID: 1516988887}
-  - component: {fileID: 1516988886}
-  m_Layer: 0
-  m_Name: SwitchToPhoebeCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1516988882
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516988881}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.38268343, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: -270.16, y: -107.588, z: -330.32}
-  m_LocalScale: {x: 0.10000001, y: 0.1, z: 0.10000001}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1836140816}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1516988884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516988881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89fc36a6da2f6834f8430de097d0784d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeToCall: HighPriestessTimelineTrigger
-  fighter: {fileID: 1259936904}
-  diviner: {fileID: 7939071588276392750}
-  inYarnTrigger: 0
-  cutsceneRun: 0
-  dialogueIndicator: {fileID: 1274461193}
-  isFighter: 0
-  isDiviner: 0
---- !u!65 &1516988885
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516988881}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 316.4, y: 46.8, z: 51.6}
-  m_Center: {x: -0.5236056, y: 1.0451627, z: 7.380027}
---- !u!114 &1516988886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516988881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a1effe9c62f0fb4586b0d3009e1339a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueRunner: {fileID: 1753626512}
-  player: {fileID: 7939071588276392750}
-  creature: {fileID: 1516988881}
-  firstPOVusual: {fileID: 0}
-  firstPOVzoomed: {fileID: 0}
-  soundSource: {fileID: 0}
-  knock: {fileID: 0}
-  doorClose: {fileID: 0}
-  doorOpen: {fileID: 0}
---- !u!114 &1516988887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516988881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 329dc4888e831a24eb86e87caf8ef28f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  divinerController: {fileID: 9111701742487035876}
-  alteaCutsceneTrigger: {fileID: 1001626711}
-  yarnDialogueTrigger: {fileID: 1516988884}
-  rookeryControls: {fileID: 7057099421646636139}
-  PlayerPhoebe: {fileID: 1259936904}
-  PlayerDiviner: {fileID: 7939071588276392750}
-  fenCam01: {fileID: 397105527}
-  fenCam02: {fileID: 1735889621284079691}
-  phoebecam01: {fileID: 90784921}
-  phoebefeet: {fileID: 1474510897}
-  phoebecolorway: {fileID: 386394890}
-  isswitching: 0
-  isswitched: 0
 --- !u!1001 &1517223510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59905,7 +59758,6 @@ Transform:
   - {fileID: 1604144089}
   - {fileID: 1001626710}
   - {fileID: 423886315}
-  - {fileID: 1516988882}
   - {fileID: 1951076444}
   - {fileID: 2051545770}
   - {fileID: 1828265632}

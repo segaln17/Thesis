@@ -37,15 +37,22 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (alteaCutsceneTrigger.cutsceneRun)
         {
             StartCoroutine("WaitSwitchtoPhoebe");
         }
+        */
     }
     
     private void OnTriggerEnter(Collider other)
     {
-        isswitching = true;
+        
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isswitching = true;
+        }
+        
     }
     
     IEnumerator FenReveal()
