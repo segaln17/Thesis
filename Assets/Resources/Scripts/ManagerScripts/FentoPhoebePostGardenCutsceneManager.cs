@@ -10,7 +10,7 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
     public YarnDialogueTrigger alteaCutsceneTrigger;
     public YarnDialogueTrigger yarnDialogueTrigger;
     
-    public RookeryActivate rookeryControls;
+    //public RookeryActivate rookeryControls;
 
     public GameObject PlayerPhoebe;
 
@@ -21,28 +21,38 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
     public CinemachineVirtualCamera fenCam02;
     //3rd person phoebe
     public CinemachineVirtualCamera phoebecam01;
+    //first person Phoebe
+    public CinemachineVirtualCamera phoebeCam02;
 
     //public GameObject fensprite;
     public GameObject phoebefeet;
     public GameObject phoebecolorway;
     public bool isswitching;
     public bool isswitched;
+
+    public bool cutsceneEndedInCollider;
     // Start is called before the first frame update
     void Start()
     {
         isswitching = false;
         isswitched = false;
+        cutsceneEndedInCollider = false;
     }
 
     // Update is called once per frame
     void Update()
+    
     {
-        /*
-        if (alteaCutsceneTrigger.cutsceneRun)
+        //if (alteaCutsceneTrigger.cutsceneRun)
+        if (cutsceneEndedInCollider)
         {
             StartCoroutine("WaitSwitchtoPhoebe");
+            //alteaCutsceneTrigger.cutsceneRun;
+            gameObject.GetComponent<Collider>().enabled = false;
+            cutsceneEndedInCollider = false;
+            //alteaCutsceneTrigger.gameObject.SetActive(false);
         }
-        */
+        
     }
     
     private void OnTriggerEnter(Collider other)
@@ -51,6 +61,7 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isswitching = true;
+            cutsceneEndedInCollider = true;
         }
         
     }
@@ -58,7 +69,8 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
     IEnumerator FenReveal()
     {
         yield return new WaitForSeconds(2f);
-        rookeryControls.firstPerson.Priority = 1;
+        phoebeCam02.Priority = 1;
+        phoebecam01.Priority = 1;
         fenCam02.Priority = 1;
         fenCam01.Priority = 12;
         //fensprite.SetActive(true);
@@ -73,21 +85,32 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
     
     IEnumerator WaitSwitchtoPhoebe()
     {
+        Debug.Log("switching to Phoebe");
         yield return new WaitForSeconds(2f);
+        //turn off Fen controls
         divinerController.GetComponent<SimpleController>().enabled = false;
         
-        //switch camera to Phoebe
+        //turn Phoebe's gameobject on
+        PlayerPhoebe.gameObject.SetActive(true);
+        
+        //switch camera to Phoebe - 3rd person
         phoebecam01.Priority = 12;
-        rookeryControls.firstPerson.Priority = 1;
+        phoebeCam02.Priority = 1;
         fenCam01.Priority = 0;
+        
         yield return new WaitForSeconds(4f);
-        rookeryControls.firstPerson.Priority = 12;
+        //switch camera to Phoebe - 1st person
+        phoebeCam02.Priority = 12;
         phoebecam01.Priority = 1;
         fenCam02.gameObject.SetActive(false);
         fenCam02.Priority = 1;
         fenCam01.gameObject.SetActive(false);
         fenCam01.Priority = 1;
+        
+        //set charPOV to Fighter
         yarnDialogueTrigger.SetCharacterPOV(GameManager.CharacterPOV.Fighter);
+        
+        //turn on Phoebe controls
         PlayerPhoebe.GetComponent<SimpleController>().enabled = true;
         yield return new WaitForSeconds(1f);
         //yarnDialogueTrigger.gameObject.SetActive(false);

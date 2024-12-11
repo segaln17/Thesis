@@ -7,6 +7,7 @@ position: -208,-211
 <<declare $spokenToByronFighter = false as bool>>
 <<declare $spokenToFenFighterTavern = false as bool>>
 <<declare $gardenFoundFighter = false as bool>>
+<<declare $alteaSceneFenDone = false as bool>>
 ===
 ///THIS IS FOR TESTING TIMELINE YARNCOMMANDS
 title: TimelineTest
@@ -204,6 +205,11 @@ Heloise: Welcome to our little slice of hell.
 Heloise: We gather here to pretend it's night, and that food still appetizes us.
 Heloise: Come back here when you're ready for "dinner".
 <<endif>>
+<<if $alteaSceneFenDone is true>>
+Heloise: You're back.
+Heloise: Are you ready?
+Heloise: Look into the flames. Do they seem ready to you?
+<<endif>>
 ===
 title: HuskNPC
 position: 289,39
@@ -212,6 +218,13 @@ position: 289,39
 Hythe: You've seen them, then? The husks?
 Hythe: Most of them are harmless. Used to be like us--lost souls.
 Hythe: Altea helps them, after they turn. Poor bastards.
+<<endif>>
+<<if $alteaSceneFenDone is true>>
+Hythe: Oh, is it time for the Bonfire already?
+Hythe: I've been observing this fellow. It hasn't moved.
+Hythe: Fen says they fuse with the earth...
+Hythe: Do you think that's true?
+Hythe: What do you think Altea does for them?
 <<endif>>
 ===
 title: BathhouseNPC
@@ -231,13 +244,18 @@ Fen: Hmm...
 Fen: Have you tried pushing them out of the way?
 Grimbolde: ...
 Grimbolde: Altea's in the stables.
+Grimbolde: She locked the doors hours ago. 
+Grimbolde: I wouldn't think she was in there at all if not for the light.
 <<endif>>
 
 //AFTER ALTEA AND FEN SCENE
-<<if $gardenFoundFighter is true and $charPOV is "Fighter">>
+//<<if $gardenFoundFighter is true and $charPOV is "Fighter">>
+<<if $alteaSceneFenDone is true>>
 Grimbolde: Thank goodness, it's time to gather at the Bonfire.
 Grimbolde: Something about it makes these creatures shut up.
 Grimbolde: Blissful, blissful silence.
+Grimbolde: ...until Fen starts talking.
+The Fighter: <i>You say nothing.</i>
 <<endif>>
 ===
 title: OutsideGardenNPC
@@ -256,6 +274,11 @@ Hildegard: She has a beautiful singing voice.
 Fen: Don't be jealous, dear! You just have to practice.
 Hildegard: Can you ask her to teach me?
 Fen: Well... maybe if she isn't busy.
+<<endif>>
+<<if $alteaSceneFenDone is true>>
+Hildegard: Oh, the Bonfire...
+Hildegard: I wish I could see its light from here.
+Hildegard: I don't want to leave the trees. I'd imagine they get lonely.
 <<endif>>
 ===
 title: BathhouseCreature1
@@ -301,6 +324,7 @@ Creature with Wings: Take this, and find its hatching song.
 //GIVE THE MUSIC BOX
 <<playKnock GardenCutsceneManager>>
 <<getMusicBoxBase InventoryManager>>
+<<wait  1>>
 Creature with Wings: The one who is ancient but also young will help you.
 Creature with Many Heads: The one who is burned on the inside can help but may not.
 Creature that Looks Worried: She does not know how to ask nicely.
@@ -388,6 +412,10 @@ Altea: Then let me work. I'm not coming to "dinner."
 //timeline for door close
 Fen: Well, alright then.
 <<revealFen PlayerDiviner>>
+<<wait  0.5>>
+<<set $alteaSceneFenDone to true>>
+<<colliderActive FenToPhoebeManager>>
+<<disappearCreature YarnStableCutsceneCollider>> //new addition
 //<<colliderActive SwitchToPhoebeCollider>>
 //BONFIRE TRIGGER ACTIVE
 <<stop>>
@@ -430,6 +458,7 @@ Fen: This cup's gone cold.
 ===
 title: BonfireConversation2
 ---
+<<wait  3>>
 //low voices in background, bonfire ambience
 //teakettle over flames in this node
 Fen: Say, have you seen that skeleton, over the bridge?
@@ -445,7 +474,7 @@ The Fighter: <i>You shrug awkwardly. Fen seems amused by this.</i>
 Fen: Oh, dear, that was a rhetorical question.
 //checks water again
 <<wait  1>>
-Fen: Rats.
+Fen: Rats. Still not hot enough.
 <<wait  0.5>>
 Fen: It's strange, being so old but so... miniscule compared to this place.
 Fen: It's been ages since I've felt dwarfed in age by something,

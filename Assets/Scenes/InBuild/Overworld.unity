@@ -15348,7 +15348,7 @@ Transform:
   m_GameObject: {fileID: 423886314}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.38268343, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: -265.11, y: -107.588, z: -335.13}
+  m_LocalPosition: {x: -265.35, y: -107.588, z: -334.89}
   m_LocalScale: {x: 0.10000001, y: 0.1, z: 0.10000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18955,6 +18955,86 @@ Transform:
   - {fileID: 1011441475}
   m_Father: {fileID: 1265088678}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &548608685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 548608686}
+  - component: {fileID: 548608688}
+  - component: {fileID: 548608687}
+  m_Layer: 0
+  m_Name: FenToPhoebeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &548608686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548608685}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.38268343, z: -0, w: 0.92387956}
+  m_LocalPosition: {x: -265.35, y: -107.588, z: -334.89}
+  m_LocalScale: {x: 0.10000001, y: 0.1, z: 0.10000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1836140816}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &548608687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548608685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a1effe9c62f0fb4586b0d3009e1339a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueRunner: {fileID: 1753626512}
+  player: {fileID: 7939071588276392750}
+  creature: {fileID: 806465831}
+  firstPOVusual: {fileID: 0}
+  firstPOVzoomed: {fileID: 0}
+  soundSource: {fileID: 0}
+  knock: {fileID: 0}
+  doorClose: {fileID: 0}
+  doorOpen: {fileID: 0}
+--- !u!114 &548608688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548608685}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 329dc4888e831a24eb86e87caf8ef28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  divinerController: {fileID: 9111701742487035876}
+  alteaCutsceneTrigger: {fileID: 1001626711}
+  yarnDialogueTrigger: {fileID: 423886316}
+  PlayerPhoebe: {fileID: 1259936904}
+  PlayerDiviner: {fileID: 7939071588276392750}
+  fenCam01: {fileID: 397105527}
+  fenCam02: {fileID: 1735889621284079691}
+  phoebecam01: {fileID: 90784921}
+  phoebeCam02: {fileID: 1869462456}
+  phoebefeet: {fileID: 1474510897}
+  phoebecolorway: {fileID: 386394890}
+  isswitching: 0
+  isswitched: 0
+  cutsceneEndedInCollider: 0
 --- !u!1 &549656753
 GameObject:
   m_ObjectHideFlags: 0
@@ -26627,6 +26707,86 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 397105526}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &806465831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 806465832}
+  - component: {fileID: 806465834}
+  - component: {fileID: 806465833}
+  m_Layer: 0
+  m_Name: FentoPhoebeSetUpCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &806465832
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806465831}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.38268343, z: -0, w: 0.92387956}
+  m_LocalPosition: {x: -265.35, y: -107.588, z: -334.89}
+  m_LocalScale: {x: 0.10000001, y: 0.1, z: 0.10000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1836140816}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &806465833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806465831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 329dc4888e831a24eb86e87caf8ef28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  divinerController: {fileID: 9111701742487035876}
+  alteaCutsceneTrigger: {fileID: 1001626711}
+  yarnDialogueTrigger: {fileID: 423886316}
+  PlayerPhoebe: {fileID: 1259936904}
+  PlayerDiviner: {fileID: 7939071588276392750}
+  fenCam01: {fileID: 397105527}
+  fenCam02: {fileID: 1735889621284079691}
+  phoebecam01: {fileID: 90784921}
+  phoebeCam02: {fileID: 1869462456}
+  phoebefeet: {fileID: 1474510897}
+  phoebecolorway: {fileID: 386394890}
+  isswitching: 0
+  isswitched: 0
+  cutsceneEndedInCollider: 0
+--- !u!65 &806465834
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806465831}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 114.5, y: 46.8, z: 51.6}
+  m_Center: {x: -0.5236056, y: 1.0451627, z: 7.380027}
 --- !u!4 &807282578 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 839369ed3d4d34775a4c0c302cc9bef0,
@@ -59758,6 +59918,8 @@ Transform:
   - {fileID: 1604144089}
   - {fileID: 1001626710}
   - {fileID: 423886315}
+  - {fileID: 806465832}
+  - {fileID: 548608686}
   - {fileID: 1951076444}
   - {fileID: 2051545770}
   - {fileID: 1828265632}
@@ -71964,7 +72126,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 12.5
+  m_Radius: 9.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &649650107950270308
 GameObject:
@@ -74982,7 +75144,7 @@ Transform:
   m_GameObject: {fileID: 4069464511266998536}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.3562816, z: -0, w: 0.9343786}
-  m_LocalPosition: {x: 36.53, y: 7.53, z: 209.11}
+  m_LocalPosition: {x: 32.2, y: 7.53, z: 209.11}
   m_LocalScale: {x: 0.15000002, y: 0.15, z: 0.15000002}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -76268,7 +76430,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 4.005879e-11, z: NaN, w: 8.7052814e+30}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 3.8e-44, z: 2.189e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
