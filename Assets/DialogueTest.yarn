@@ -181,9 +181,10 @@ The Fighter: <i>Strangely, it looks similar to the one you already possess.</i>
 <<getSongofBeasts InventoryManager>>
 Fen: Maybe something around here will respond to it!
 <<set $spokenToFenFighterTavern to true>>
-<<endif>>
+<<stop>>
 
-<<if $spokenToFenFighterTavern is true>>
+//<<if $spokenToFenFighterTavern is true>>
+<<else>>
 Fen: Have you seen that strange grove behind the ridge, just north of here?
 Fen: Those trees conspire, I think.
 Fen: Hildegard told me she's heard them sing to each other.
@@ -287,6 +288,9 @@ position: 319,69
 ---
 <<if $charPOV is "Fighter">>
 Creature: ylduol os sgnis noom ruo nehw nus eht rof ew evah deen tahw?
+<<endif>>
+<<if $charPOV is "Diviner">>
+Creature: <i>Hissssssss...</i>
 <<endif>>
 ===
 title: LighthouseTree
