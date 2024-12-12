@@ -8,7 +8,7 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
 {
     public DialogueTrigger outsideRookeryTrigger;
     public DialogueTrigger insideRookeryTrigger;
-    
+
     public TimelineTest timelineScript;
 
     public SimpleController divinerController;
@@ -21,17 +21,14 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
     public CinemachineVirtualCamera phoebecam01;
     public GameObject phoebefeet;
     public GameObject phoebecolorway;
-    public bool isswitiching;
-    public bool isswitched;
 
     public GameObject stableLight;
 
     public YarnDialogueTrigger yarnDialogueTrigger;
+
     // Start is called before the first frame update
     void Start()
     {
-        isswitiching = false;
-        isswitched = false;
         stableLight.SetActive(false);
     }
 
@@ -45,49 +42,32 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
             outsideRookeryTrigger.dialoguePlayed = false;
         }
 
-        /*if (!isswitiching && !isswitched)
-        {
-            StartCoroutine(PhoebeReveal());
-        }*/
-        
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            isswitiching = true;
-        }
-       
-    }
-
-    IEnumerator PhoebeReveal()
-    {
-        yield return new WaitForSeconds(2f);
-        rookeryControls.firstPerson.Priority = 1;
-        phoebecam01.Priority = 12;
-        phoebefeet.SetActive(false);
-        phoebecolorway.SetActive(true);
-        PlayerPhoebe.GetComponent<SimpleController>().enabled = false;
-        isswitched = true;
-        StopCoroutine(PhoebeReveal());
 
     }
 
     IEnumerator WaitSwitchtoFen()
     {
         Debug.Log("switching to Fen");
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(.5f);
+        rookeryControls.firstPerson.Priority = 1;
+        phoebecam01.Priority = 12;
+        Debug.Log("phoebethirdperson");
+        phoebefeet.SetActive(false);
+        phoebecolorway.SetActive(true);
+        PlayerPhoebe.GetComponent<SimpleController>().enabled = false;
         outsideRookeryTrigger.GetComponent<Collider>().enabled = false;
         outsideRookeryTrigger.GetComponent<DialogueTrigger>().enabled = false;
         insideRookeryTrigger.GetComponent<DialogueTrigger>().enabled = false;
-        PlayerPhoebe.GetComponent<SimpleController>().enabled = false;
-        PlayerPhoebe.gameObject.SetActive(false);
         //switch camera to Fen
+        yield return new WaitForSeconds(3f);
         phoebecam01.Priority = 0;
-        rookeryControls.firstPerson.Priority = 1;
+        rookeryControls.firstPerson.Priority = 0;
         fenCam01.Priority = 12;
-        yield return new WaitForSeconds(4f);
+        Debug.Log("camshouldswitch");
+        PlayerPhoebe.gameObject.SetActive(false);
+        Debug.Log("phoebeoff");
+        yield return new WaitForSeconds(5f);
         //zoom in to Fen
         fenCam02.Priority = 12;
         fenCam01.gameObject.SetActive(false);
@@ -102,6 +82,7 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         //start the mini cutscene
         timelineScript.GoTimeline();
+        Debug.Log("switched to fen");
         StopCoroutine("WaitSwitchtoFen");
     }
 }

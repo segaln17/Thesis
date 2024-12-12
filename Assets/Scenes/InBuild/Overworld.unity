@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.23756385, g: 0, b: 0.15605123, a: 1}
+  m_IndirectSpecularColor: {r: 0.23764098, g: 0, b: 0.15603262, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13490,6 +13490,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4958094101871485514, guid: 0138d61d72b994a49af993e3a2a3d758,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5434270933850276746, guid: 0138d61d72b994a49af993e3a2a3d758,
         type: 3}
       propertyPath: menu
@@ -18972,7 +18977,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &548608686
 Transform:
   m_ObjectHideFlags: 0
@@ -18995,7 +19000,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548608685}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a1effe9c62f0fb4586b0d3009e1339a, type: 3}
   m_Name: 
@@ -22345,8 +22350,6 @@ MonoBehaviour:
   phoebecam01: {fileID: 90784921}
   phoebefeet: {fileID: 1474510897}
   phoebecolorway: {fileID: 386394890}
-  isswitiching: 0
-  isswitched: 0
   stableLight: {fileID: 1269617318}
   yarnDialogueTrigger: {fileID: 9049873110401813836}
 --- !u!1 &659263786
@@ -26747,7 +26750,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806465831}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 329dc4888e831a24eb86e87caf8ef28f, type: 3}
   m_Name: 
@@ -26783,7 +26786,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 114.5, y: 46.8, z: 51.6}
   m_Center: {x: -0.5236056, y: 1.0451627, z: 7.380027}
@@ -32647,7 +32650,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.74, y: 1, z: 1}
+  m_Size: {x: 3, y: 2, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &987943414
 GameObject:
@@ -51259,8 +51262,6 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 8911786704189700518, guid: c2996efda47da884f9327872e5ab2631, type: 2}
     value: {fileID: 875762082}
-  - key: {fileID: -8166913075984542798, guid: c2996efda47da884f9327872e5ab2631, type: 2}
-    value: {fileID: 4390477466051293537}
   m_ExposedReferences:
     m_References: []
 --- !u!1001 &1604144088
@@ -63706,7 +63707,7 @@ PrefabInstance:
     - target: {fileID: 78213911577850665, guid: a92cfc5b0c7651746aaf39f66a2c468b,
         type: 3}
       propertyPath: m_Radius
-      value: 5.22
+      value: 5.76
       objectReference: {fileID: 0}
     - target: {fileID: 1973199722909730042, guid: a92cfc5b0c7651746aaf39f66a2c468b,
         type: 3}
@@ -66562,7 +66563,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 6.65
+  m_Radius: 8.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2040339885
 MonoBehaviour:

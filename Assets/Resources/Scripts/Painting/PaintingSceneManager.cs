@@ -238,6 +238,10 @@ public class PaintingSceneManager : MonoBehaviour
         paintbrushActive = false;
         endButton.gameObject.SetActive(false);
         resetButton.gameObject.SetActive(false);
+        placingButton.gameObject.SetActive(false);
+        printButton.gameObject.SetActive(false);
+        wallPlacementButton.gameObject.SetActive(false);
+        gameObject.SetActive(false);
         /*
         //SWITCH TO DIVINER --> I put this code basically in a new script too to split it up a bit more?
         rookeryControls.PlayerDiviner.SetActive(true);

@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     }
 
     public CharacterPOV currentPOV = CharacterPOV.Fighter;
+    
     // Start is called before the first frame update
     private void Start()
     {
