@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public GameObject fighter;
     public GameObject flyTrap;
     public GameObject husk;
+    public CinemachineVirtualCamera fighterPOV;
     
     [Header("Buttons")] 
     public Button fightFlytrapButton;
@@ -50,19 +52,19 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     { //put this here, not sure yet if it works but will with testing
-        if (!paused)
+        /*if (!paused)
         {
             Time.timeScale = 1;
-            fighter.GetComponent<CutsceneController>().enabled = true;
+            //fighter.GetComponent<CutsceneController>().enabled = true;
             fighter.GetComponent<Rigidbody>().isKinematic = false;
         }
         else
         {
             Time.timeScale = 0;
-            fighter.GetComponent<CutsceneController>().enabled = false;
+            //fighter.GetComponent<CutsceneController>().enabled = false;
             fighter.GetComponent<Rigidbody>().isKinematic = true;
             walkAnim.SetBool("isWalking", false);
-        }
+        }*/
     }
 //-----------------FLYTRAP-------------------//
     public void FlyTrapTrigger()
@@ -80,12 +82,14 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         fightSounds.PlayOneShot(shriek);
         fightFlytrapButton.gameObject.SetActive(false);
         waitFlytrapButton.gameObject.SetActive(false);
-        paused = false;
-        if (!fightSongs.isPlaying)
+        fighter.GetComponent<SimpleController>().enabled = true;
+        fighterPOV.Priority = 15;
+        //paused = false;
+       /* if (!fightSongs.isPlaying)
         {
             fightSongs.clip = beatLoop;
             fightSongs.Play();
-        }
+        }*/
 
         if (flytrapAnim != null)
         {
@@ -98,12 +102,14 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     {
         fightFlytrapButton.gameObject.SetActive(false);
         waitFlytrapButton.gameObject.SetActive(false);
-        paused = false;
-        if (!fightSongs.isPlaying)
+        fighter.GetComponent<SimpleController>().enabled = true;
+        fighterPOV.Priority = 15;
+        //paused = false;
+        /*if (!fightSongs.isPlaying)
         {
             fightSongs.clip = sighLoop;
             fightSongs.Play();
-        }
+        }*/
       
     }
 //-----------------HUSK-------------------//
