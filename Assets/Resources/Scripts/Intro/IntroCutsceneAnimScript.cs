@@ -17,7 +17,13 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public GameObject fighter;
     public GameObject flyTrap;
     public GameObject husk;
+    public GameObject slashObject;
+    public GameObject sparkleObject;
+    public GameObject shatter02;
+    public GameObject phoebefeet;
+    public AudioSource swoop;
     public CinemachineVirtualCamera fighterPOV;
+    public GameObject mainCam01;
     
     [Header("Buttons")] 
     public Button fightFlytrapButton;
@@ -77,12 +83,16 @@ public class IntroCutsceneAnimScript : MonoBehaviour
 
     public void FlyTrapFight()
     {
-        fighterAnim.Play("slash");
+        slashObject.SetActive(true);
         fightSounds.PlayOneShot(slash);
         fightSounds.PlayOneShot(shriek);
         fightFlytrapButton.gameObject.SetActive(false);
         waitFlytrapButton.gameObject.SetActive(false);
         fighter.GetComponent<SimpleController>().enabled = true;
+        shatter02.SetActive(true);
+        phoebefeet.SetActive(true);
+        swoop.Play();
+        mainCam01.SetActive(false);
         fighterPOV.Priority = 15;
         //paused = false;
        /* if (!fightSongs.isPlaying)
@@ -100,9 +110,14 @@ public class IntroCutsceneAnimScript : MonoBehaviour
 
     public void FlytrapWait()
     {
+        sparkleObject.SetActive(true);
         fightFlytrapButton.gameObject.SetActive(false);
         waitFlytrapButton.gameObject.SetActive(false);
         fighter.GetComponent<SimpleController>().enabled = true;
+        shatter02.SetActive(true);
+        phoebefeet.SetActive(true);
+        swoop.Play();
+        mainCam01.SetActive(false);
         fighterPOV.Priority = 15;
         //paused = false;
         /*if (!fightSongs.isPlaying)
