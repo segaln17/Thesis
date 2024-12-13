@@ -1,13 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class IntroEnemyTrigger : MonoBehaviour
 {
     public GameObject thisGameObject;
+    public GameObject player;
     public GameObject enemyManager;
     public Collider thisCollider;
+    public GameObject shatter;
+    public CinemachineVirtualCamera firstperson;
+    public GameObject sprite;
+    public AudioSource battleSound;
     
     // Start is called before the first frame update
     private void Start()
@@ -23,6 +29,12 @@ public class IntroEnemyTrigger : MonoBehaviour
             
             if (thisGameObject.tag == "flytrap")
             {
+                shatter.SetActive(true);
+                sprite.SetActive(false);
+                firstperson.Priority = 12;
+                player.GetComponent<CutsceneController>().enabled = false;
+                battleSound.Play();
+                //player.GetComponent<SimpleController>().enabled = true;
                 enemyManager.GetComponent<IntroCutsceneAnimScript>().FlyTrapTrigger();
             }
             else if (thisGameObject.tag == "husk")
