@@ -8,6 +8,9 @@ position: -208,-211
 <<declare $spokenToFenFighterTavern = false as bool>>
 <<declare $gardenFoundFighter = false as bool>>
 <<declare $alteaSceneFenDone = false as bool>>
+<<declare $spokenToHeloiseFighter = false as bool>>
+<<declare $spokenToHildegardFighter = false as bool>>
+<<declare $spokenToGrimboldeFighter = false as bool>>
 ===
 ///THIS IS FOR TESTING TIMELINE YARNCOMMANDS
 title: TimelineTest
@@ -61,7 +64,11 @@ position: -172,85
     <<stop>>
 <<else>>
     Windy: Oh, did I not mention? Fen's at the tavern.
+    Windy: Just past those vines.
+    Windy: Like most of the plants here they respond to song, not violence.
+    Windy: Unfortunately.
     Windy: Now, where did that little varmint go?
+    <<stop>>
 <<endif>>
 ===
 title: Byron
@@ -80,9 +87,11 @@ position: 209,-41
     Byron: <i>He dissolves into manic laughter.</i>
     <<set $spokenToByronFighter to true>>
     <<stop>>
-<<else>>
+    <<endif>>
+<<if $spokenToByronFighter is true>>
     Byron: Fen's a fool if they think anyone's getting into that garden anytime soon.
     Byron: It'd make good kindling...
+    <<stop>>
     <<endif>>
 ===
 title: SilentTree
@@ -90,6 +99,7 @@ position: 219,-31
 ---
 <<if $charPOV is "Fighter">>
 Tree: <i>It doesn't appear that this tree has anything to say to you.</i>
+<<stop>>
 <<endif>>
 ===
 title: NoPointNPC
@@ -99,6 +109,7 @@ position: 229,-21
 Verity: There's no point in fighting it. Any of it.
 Verity: Even the monsters. Killing them does nothing.
 Verity: They're stuck here, same as us.
+<<stop>>
 <<endif>>
 ===
 title: TavernNPC1
@@ -109,6 +120,7 @@ Zora: This is the tavern. If you want to eat or sleep, this is the place.
 Zora: Between you and me, I don't think any of us need to sleep, anymore.
 Zora: But some people still pretend they can.
 Zora: There's probably some kind of bed free, if you're one of those types.
+<<stop>>
 <<endif>>
 ===
 title: TavernNPC2
@@ -119,6 +131,7 @@ Amos: You see that person, over there?
 Amos: That's Fen.
 Amos: You know, <i>Fen the Diviner</i>?
 Amos: They're a legend. How'd they end up down here?
+<<stop>>
 <<endif>>
 <<if $charPOV is "Diviner">>
 Amos: You never told me how you got here, you know.
@@ -130,6 +143,7 @@ Amos: What kind of thing was it?
 Fen: Oh, darling. Just a personal possession of mine, that's all.
 Amos: I'm sorry for all the questions, I'm just a little starstruck.
 Fen: It's quite alright, dear. Everyone is.
+<<stop>>
 <<endif>>
 ===
 title: FenTavern
@@ -197,6 +211,7 @@ Fen: Those trees conspire, I think.
 Fen: Hildegard told me she's heard them sing to each other.
 Fen: None of us here can sing, strangely enough.
 Fen: There must be secrets there, waiting to be found...
+<<stop>>
 <<endif>>
 ===
 title: Tree
@@ -209,45 +224,67 @@ Tree: but it forgets not the feel of footsteps upon it.
 title: BonfireNPC
 position: 279,29
 ---
-<<if $charPOV is "Fighter">>
+<<if $charPOV is "Fighter" and $spokenToHeloiseFighter is false>>
 Heloise: Welcome to our little slice of hell.
 Heloise: We gather here to pretend it's night, and that food still appetizes us.
 Heloise: Come back here when you're ready for "dinner".
+<<stop>>
+//<<set $spokenToHeloiseFighter to true>>
 <<endif>>
+
+//<<if $alteaSceneFenDone is true>>
+<<if $charPOV is "Fighter" and $alteaSceneFenDone is true>>
+Heloise: You're back.
+Heloise: Are you ready?
+Heloise: Look into the flames. Do they seem ready to you?
+<<stop>>
+<<endif>>
+
 <<if $charPOV is "Diviner">>
 Heloise: You're here. Is it almost time?
 Fen: We should wait for our new arrival, make her feel welcome.
 Heloise: Fine by me. I don't get hungry.
-<<endif>>
-<<if $alteaSceneFenDone is true>>
-Heloise: You're back.
-Heloise: Are you ready?
-Heloise: Look into the flames. Do they seem ready to you?
+<<stop>>
 <<endif>>
 ===
 title: HuskNPC
 position: 289,39
 ---
-<<if $charPOV is "Fighter">>
+<<if $charPOV is "Fighter" and $alteaSceneFenDone is false>>
 Hythe: You've seen them, then? The husks?
 Hythe: Most of them are harmless. Used to be like us--lost souls.
 Hythe: Altea helps them, after they turn. Poor bastards.
+<<stop>>
 <<endif>>
-<<if $alteaSceneFenDone is true>>
+<<if $charPOV is "Fighter" and $alteaSceneFenDone is true>>
 Hythe: Oh, is it time for the Bonfire already?
 Hythe: I've been observing this fellow. It hasn't moved.
 Hythe: Fen says they fuse with the earth...
 Hythe: Do you think that's true?
 Hythe: What do you think Altea does for them?
+<<stop>>
 <<endif>>
 ===
 title: BathhouseNPC
 position: 299,49
 ---
-<<if $charPOV is "Fighter">>
+<<if $charPOV is "Fighter" and $alteaSceneFenDone is false>>
 Grimbolde: Back when this was a monastery, this was probably the bathhouse.
 Grimbolde: The creatures here use it for whatever vile frolicking they do in their spare time.
 Grimbolde: When they're not skittering around and shrieking.
+//<<set $spokenToGrimboldeFighter to true>>
+<<stop>>
+<<endif>>
+//AFTER ALTEA AND FEN SCENE
+//<<if $gardenFoundFighter is true and $charPOV is "Fighter">>
+//<<if $alteaSceneFenDone is true>>
+<<if $charPOV is "Fighter" and $alteaSceneFenDone is true>>
+Grimbolde: Thank goodness, it's time to gather at the Bonfire.
+Grimbolde: Something about it makes these creatures shut up.
+Grimbolde: Blissful, blissful silence.
+Grimbolde: ...until Fen starts talking.
+The Fighter: <i>You say nothing.</i>
+<<stop>>
 <<endif>>
 
 <<if $charPOV is "Diviner">>
@@ -260,39 +297,36 @@ Grimbolde: ...
 Grimbolde: Altea's in the stables.
 Grimbolde: She locked the doors hours ago. 
 Grimbolde: I wouldn't think she was in there at all if not for the light.
-<<endif>>
-
-//AFTER ALTEA AND FEN SCENE
-//<<if $gardenFoundFighter is true and $charPOV is "Fighter">>
-<<if $alteaSceneFenDone is true>>
-Grimbolde: Thank goodness, it's time to gather at the Bonfire.
-Grimbolde: Something about it makes these creatures shut up.
-Grimbolde: Blissful, blissful silence.
-Grimbolde: ...until Fen starts talking.
-The Fighter: <i>You say nothing.</i>
+<<stop>>
 <<endif>>
 ===
 title: OutsideGardenNPC
 position: 309,59
 ---
-<<if $charPOV is "Fighter">>
+<<if $charPOV is "Fighter" and $alteaSceneFenDone is false>>
 Hildegard: A druid passed through here once.
 Hildegard: They planted some things, and they grew into... that.
 Hildegard: No one's been able to figure out how to get through it to see what might be back there.
 Hildegard: I hear the trees singing to each other, sometimes.
 Hildegard: I wish I could sing.
+//<<set $spokenToHildegardFighter to true>>
+<<stop>>
 <<endif>>
+<<if $charPOV is "Fighter" and $alteaSceneFenDone is true>>
+//<<if $spokenToHildegardFighter is true>>
+Hildegard: Oh, the Bonfire...
+Hildegard: I wish I could see its light from here.
+Hildegard: I don't want to leave the trees. I'd imagine they get lonely.
+<<stop>>
+<<endif>>
+
 <<if $charPOV is "Diviner">>
 Hildegard: Fen! That new person went inside!
 Hildegard: She has a beautiful singing voice.
 Fen: Don't be jealous, dear! You just have to practice.
 Hildegard: Can you ask her to teach me?
 Fen: Well... maybe if she isn't busy.
-<<endif>>
-<<if $alteaSceneFenDone is true>>
-Hildegard: Oh, the Bonfire...
-Hildegard: I wish I could see its light from here.
-Hildegard: I don't want to leave the trees. I'd imagine they get lonely.
+<<stop>>
 <<endif>>
 ===
 title: BathhouseCreature1
@@ -319,6 +353,7 @@ title: SongofBeastsTree
 The Fighter: <i>This tree looks stranger than the others. Not quite right.</i>
 The Fighter: <i>Mere words do not feel sufficient to communicate with it.</i>
 The Fighter: <i>Maybe song will be.</i>
+<i>When singing, press the up and down arrow keys to cycle through your song knives.</i>
 //RUN THE SONG, THEN START TIMELINE THAT JUMPS TO THIS NODE:
 //<<jump PhoebeintheGarden>>
 ===

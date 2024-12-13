@@ -14,6 +14,7 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
     public SimpleController divinerController;
 
     public GameObject PlayerPhoebe;
+    public GameObject PlayerFen;
 
     public RookeryActivate rookeryControls;
     public CinemachineVirtualCamera fenCam01;

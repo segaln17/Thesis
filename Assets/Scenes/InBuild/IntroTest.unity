@@ -12219,6 +12219,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d368cc32cf061413486a05e4bec08077, type: 3}
+--- !u!114 &482321729 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2155731224193483436, guid: d368cc32cf061413486a05e4bec08077,
+    type: 3}
+  m_PrefabInstance: {fileID: 482321728}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad3c8a9961b7e450d9d3e4a53ee5dee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &484945130
 GameObject:
   m_ObjectHideFlags: 0
@@ -25277,7 +25289,7 @@ Camera:
   far clip plane: 1000
   field of view: 60.000004
   orthographic: 0
-  orthographic size: 4.5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -25301,8 +25313,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991101284}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20201817, y: 0, z: 0, w: 0.9793818}
-  m_LocalPosition: {x: -15.72, y: 25.39, z: 10.199997}
+  m_LocalRotation: {x: 0.20201814, y: 0, z: 0, w: 0.9793818}
+  m_LocalPosition: {x: -15.72, y: 12.2, z: 10.199999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39124,7 +39136,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Singing Tutorial: '
+  m_text: "Singing Tutorial: \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3627c14de5b774f279caecf16a363092, type: 2}
   m_sharedMaterial: {fileID: 4587770832020611425, guid: 3627c14de5b774f279caecf16a363092,
@@ -44624,6 +44636,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instructions: {fileID: 1423652255}
+  portalPlane: {fileID: 1703111078}
+  songScript: {fileID: 482321729}
+  noteQueue: []
+  goalPhrase: WDAS
+  isSinging: 0
+  isinCollider: 0
+  isOutsideCollider: 0
+  timerActive: 0
+  hitWindowTime: 0
+  hitWindowCap: 0.5
 --- !u!1001 &1610083505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46657,7 +46679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4a20a12804b4e75ba42e6c335ff8f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Overworld
+  sceneName: FallingPortal
 --- !u!1 &1703296722
 GameObject:
   m_ObjectHideFlags: 0
@@ -48768,7 +48790,7 @@ Camera:
   far clip plane: 1000
   field of view: 60.000004
   orthographic: 1
-  orthographic size: 4.5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -48792,8 +48814,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817349063}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20201817, y: 0, z: 0, w: 0.9793818}
-  m_LocalPosition: {x: -15.72, y: 25.39, z: 10.199997}
+  m_LocalRotation: {x: 0.20201814, y: 0, z: 0, w: 0.9793818}
+  m_LocalPosition: {x: -15.72, y: 12.2, z: 10.199999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

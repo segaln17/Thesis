@@ -28,7 +28,15 @@ public class CustomCommands : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        creature.SetActive(false);
+        if (creature.CompareTag("Player"))
+        {
+            return;
+        }
+        else
+        {
+            creature.SetActive(false);
+        }
+        
         firstPOVzoomed.Priority = 1;
         //firstPOVusual.Priority = 12;
     }

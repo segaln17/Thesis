@@ -11,7 +11,7 @@ public class DivinerHideSpriteScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //playerDiviner.SetActive(true);
     }
 
     // Update is called once per frame
