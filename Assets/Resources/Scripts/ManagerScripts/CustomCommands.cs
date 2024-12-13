@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Yarn.Unity;
 
 public class CustomCommands : MonoBehaviour
@@ -87,5 +88,11 @@ public class CustomCommands : MonoBehaviour
     public void DoorOpen()
     {
         soundSource.PlayOneShot(doorOpen);
+    }
+
+    [YarnCommand("restart")]
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("LandingPage");
     }
 }

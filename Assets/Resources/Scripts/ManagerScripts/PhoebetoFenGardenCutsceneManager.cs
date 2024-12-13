@@ -21,6 +21,7 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
     public CinemachineVirtualCamera phoebecam01;
     public GameObject phoebefeet;
     public GameObject phoebecolorway;
+    public GameObject fencolorway;
 
     public GameObject stableLight;
 
@@ -82,6 +83,8 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         //start the mini cutscene
         timelineScript.GoTimeline();
+        fencolorway.gameObject.SetActive(false);
+        outsideRookeryTrigger.gameObject.SetActive(false);
         Debug.Log("switched to fen");
         StopCoroutine("WaitSwitchtoFen");
     }

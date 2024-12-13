@@ -137,6 +137,7 @@ position: 259,9
 ---
 //<<if $charPOV is "Fighter">>
 <<if $spokenToFenFighterTavern is false>>
+<<changeCam FenTavernManager>>
 The Fighter: <i>Before you is a small but strangely imposing figure, sitting alone.</i>
 The Fighter: <i>Though she is small, she has gravity, and sitting in the tavern by herself, one can almost pretend this is normal.</i>
 Strangely Congenial Person: I haven't seen you before, have I?
@@ -162,7 +163,8 @@ Fen: I have a theory about it, actually, but it's a bit morbid. I'll refrain fro
 The Fighter: <i>You say nothing. Fen cannot help herself.</i>
 Fen: Well, so with people-types like us, the longer we remain here the more hollowed out we become.
 Fen: I believe that our life force is being drawn up and into the very atmosphere to fuel this place.
-Fen: Maybe even to fuel a celestial body, in this place that should be subterranean, but where the moon sits low and never sets...
+Fen: Maybe even to fuel a celestial body, in this place that should be subterranean, 
+Fen: but where the moon sits low and never sets...
 The Fighter: <i>You fidget, still silent.</i>
 Fen: Oh, but I'm boring you. I get caught up in these things.
 Fen: I'm studying this place; I'm a diviner, you see.
@@ -174,12 +176,17 @@ Fen: Some are too talkative to appreciate it, but others are more sensitive.
 Fen: I found this the other day. It looks like sheet music, almost.
 Fen: Here, maybe you'll have a use for it.
 <<playKnock GardenCutsceneManager>>
+//do we need this text?
 The Fighter: <i>She hands you a knife with music etched into the blade.</i>
 The Fighter: <i>Strangely, it looks similar to the one you already possess.</i>
 //GIVES PHOEBE SONG OF BEASTS
 //the clink from the gardenscene:
 <<getSongofBeasts InventoryManager>>
+<<revealCreature FenTavernManager>>
+<<wait  2>>
+<<disappearCreature FenTavernManager>>
 Fen: Maybe something around here will respond to it!
+<<changeBackCam FenTavernManager>>
 <<set $spokenToFenFighterTavern to true>>
 <<stop>>
 
@@ -206,6 +213,11 @@ position: 279,29
 Heloise: Welcome to our little slice of hell.
 Heloise: We gather here to pretend it's night, and that food still appetizes us.
 Heloise: Come back here when you're ready for "dinner".
+<<endif>>
+<<if $charPOV is "Diviner">>
+Heloise: You're here. Is it almost time?
+Fen: We should wait for our new arrival, make her feel welcome.
+Heloise: Fine by me. I don't get hungry.
 <<endif>>
 <<if $alteaSceneFenDone is true>>
 Heloise: You're back.
@@ -328,8 +340,10 @@ Creature with Many Heads: The moon must hatch.
 Creature with Wings: Take this, and find its hatching song.
 //GIVE THE MUSIC BOX
 <<playKnock GardenCutsceneManager>>
+<<revealCreature GardenCutsceneManager>>
 <<getMusicBoxBase InventoryManager>>
-<<wait  1>>
+<<wait  2>>
+<<disappearCreature GardenCutsceneManager>>
 Creature with Wings: The one who is ancient but also young will help you.
 Creature with Many Heads: The one who is burned on the inside can help but may not.
 Creature that Looks Worried: She does not know how to ask nicely.
@@ -419,15 +433,19 @@ Fen: Well, alright then.
 <<revealFen PlayerDiviner>>
 <<wait  0.5>>
 <<set $alteaSceneFenDone to true>>
+//BONFIRE TRIGGER ACTIVE
+<<revealCreature BonfireManager>>
+//switch to Phoebe
 <<colliderActive FenToPhoebeManager>>
+//<<disappearCreature FenGameObjectManagerBonfire>>
 <<disappearCreature YarnStableCutsceneCollider>> //new addition
 //<<colliderActive SwitchToPhoebeCollider>>
-//BONFIRE TRIGGER ACTIVE
 <<stop>>
 ===
 title: BonfireConversation1
 ---
 //camera change, objects change
+<<changeCam BonfireManager>>
 <<wait 1>>
 Fen: It's poetic, I think.
 Fen: When you've been around as long as I have, and you see as much as I have.
@@ -522,6 +540,9 @@ Fen: or I'll lose track of it altogether and it'll get cold again,
 Fen: and then I'll just be upset for the rest of the day.
 Fen: ...Or night?
 Fen: Or... whatever time this is.
+<<changeBackCam BonfireManager>>
+<i>This is the end of the demo. Thank you for playing!</i>
+<<restart BonfireManager>>
 <<stop>>
 ===
 title: AlteaAtTheSpine
