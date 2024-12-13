@@ -15,6 +15,8 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
     public GameObject PlayerPhoebe;
 
     public GameObject PlayerDiviner;
+
+    public GameObject fenColorway;
     //3rd person Fen
     public CinemachineVirtualCamera fenCam01;
     //1st person Fen
@@ -23,8 +25,7 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
     public CinemachineVirtualCamera phoebecam01;
     //first person Phoebe
     public CinemachineVirtualCamera phoebeCam02;
-
-    //public GameObject fensprite;
+    
     public GameObject phoebefeet;
     public GameObject phoebecolorway;
     public bool isswitching;
@@ -37,6 +38,7 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
         isswitching = false;
         isswitched = false;
         cutsceneEndedInCollider = false;
+        PlayerDiviner.SetActive(true);
     }
 
     // Update is called once per frame
@@ -66,46 +68,40 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
         
     }
     
-    IEnumerator FenReveal()
-    {
-        yield return new WaitForSeconds(2f);
-        phoebeCam02.Priority = 1;
-        phoebecam01.Priority = 1;
-        fenCam02.Priority = 1;
-        fenCam01.Priority = 12;
-        //fensprite.SetActive(true);
-        //phoebecam01.Priority = 12;
-        //phoebefeet.SetActive(false);
-        //phoebecolorway.SetActive(true);
-        //PlayerPhoebe.GetComponent<SimpleController>().enabled = false;
-        isswitched = true;
-        StopCoroutine(FenReveal());
-
-    }
     
     IEnumerator WaitSwitchtoPhoebe()
     {
         Debug.Log("switching to Phoebe");
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
+        fenColorway.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        fenCam02.Priority = 1;
+        fenCam01.Priority = 12;
+        Debug.Log("third POV Fen");
+        yield return new WaitForSeconds(3f);
+        fenColorway.SetActive(false);
         //turn off Fen controls
         divinerController.GetComponent<SimpleController>().enabled = false;
-        
+        divinerController.GetComponent<Collider>().enabled = false;
+        yield return new WaitForSeconds(3f);
+        //switch camera to Phoebe
         //turn Phoebe's gameobject on
         PlayerPhoebe.gameObject.SetActive(true);
-        
-        //switch camera to Phoebe - 3rd person
+        phoebecolorway.SetActive(true);
         phoebecam01.Priority = 12;
-        phoebeCam02.Priority = 1;
         fenCam01.Priority = 0;
-        
-        yield return new WaitForSeconds(4f);
-        //switch camera to Phoebe - 1st person
+        fenCam02.Priority = 0;
+        Debug.Log("camshouldswitch");
+        PlayerDiviner.gameObject.SetActive(false);
+        Debug.Log("fen off");
+        yield return new WaitForSeconds(3f);
         phoebeCam02.Priority = 12;
         phoebecam01.Priority = 1;
-        fenCam02.gameObject.SetActive(false);
-        fenCam02.Priority = 1;
+        yield return new WaitForSeconds(3f);
+        phoebefeet.SetActive(true);
+        phoebecolorway.SetActive(false);
         fenCam01.gameObject.SetActive(false);
-        fenCam01.Priority = 1;
+        fenCam02.gameObject.SetActive(false);
         
         //set charPOV to Fighter
         yarnDialogueTrigger.SetCharacterPOV(GameManager.CharacterPOV.Fighter);
@@ -116,5 +112,7 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
         //yarnDialogueTrigger.gameObject.SetActive(false);
         //yield return new WaitForSeconds(0.5f);
         //timelineScript.GoTimeline();
+        Debug.Log("switched to Phoebe");
+        StopCoroutine("WaitSwitchtoPhoebe");
     }
 }
