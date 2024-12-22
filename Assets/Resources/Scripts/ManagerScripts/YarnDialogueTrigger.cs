@@ -40,8 +40,8 @@ public class YarnDialogueTrigger : MonoBehaviour
                 if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
                 {
                     FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
+                    
                 }
-
                 cutsceneRun = true;
             }
             

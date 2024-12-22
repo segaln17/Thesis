@@ -33,7 +33,7 @@ public class SongScript : MonoBehaviour
     public AudioClip hum11;
     public AudioClip hum12;*/
 
-    public GameObject fighter;
+   // public GameObject fighter;
 
     public humRegister state;
     //public float deadZoneMax = 1f;
@@ -85,8 +85,8 @@ public class SongScript : MonoBehaviour
             songAnim.SetBool("Idle", true);
             songAnim.SetBool("Sheathe", false);
             //playerSprite.SetActive(false);
-            fighter.GetComponent<SimpleController>().enabled = false;
-            fighter.GetComponent<Rigidbody>().isKinematic = true;
+            //fighter.GetComponent<SimpleController>().enabled = false;
+            //fighter.GetComponent<Rigidbody>().isKinematic = true;
 
             if (inventoryManager.HasItem("Song of Beasts"))
             {
@@ -145,8 +145,8 @@ public class SongScript : MonoBehaviour
                 songAnim.SetBool("Sheathe", true);
                 songAnim.SetBool("Idle", false);
                 
-            fighter.GetComponent<SimpleController>().enabled = true;
-            fighter.GetComponent<Rigidbody>().isKinematic = false;
+            //fighter.GetComponent<SimpleController>().enabled = true;
+           // fighter.GetComponent<Rigidbody>().isKinematic = false;
             //playerSprite.SetActive(true);
         }
     }

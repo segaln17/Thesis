@@ -8,9 +8,9 @@ using Yarn.Unity;
 public class HedgeScript : MonoBehaviour
 {
     public YarnCutsceneManager yarnCutsceneManager;
-    
-    public SongScript songScript; 
-    
+
+    public GameObject audioManager;
+
     public List<string> noteQueue = new List<string>();
 
     [Header("Garden Songs")]
@@ -46,7 +46,7 @@ public class HedgeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioManager = GameObject.Find("AudioManager");
     }
 
     // Update is called once per frame
@@ -63,7 +63,7 @@ public class HedgeScript : MonoBehaviour
             }
         }
 
-        if (songScript.sheetActive)
+        if (audioManager.GetComponent<SongScript>().sheetActive)
         {
             isSinging = true;
         }
@@ -231,7 +231,7 @@ public class HedgeScript : MonoBehaviour
 
                 if (isGarden)
                 {
-                    songScript.sheetActive = false;
+                audioManager.GetComponent<SongScript>().sheetActive = false;
                     isSinging = false;
                     doorsAnimator.SetBool("doorsopengarden", true);
                     StartCoroutine("WaitTimeline");
@@ -261,7 +261,7 @@ public class HedgeScript : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             hedge1animator.SetBool("hedgeOpen", true);
-            songScript.sheetActive = false;
+        audioManager.GetComponent<SongScript>().sheetActive = false;
             isSinging = false;
             yield return new WaitForSeconds(1f);
             gardenEnter.SetActive(true);
@@ -323,14 +323,14 @@ public class HedgeScript : MonoBehaviour
 
         IEnumerator TreeSing()
         {
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(1f);
             treeSing.PlayOneShot(treehum01);
-            yield return new WaitForSeconds(.75f); 
+            yield return new WaitForSeconds(3f); 
             treeSing.PlayOneShot(treehum02);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             treeSing.PlayOneShot(treehum03);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             treeSing.PlayOneShot(treehum04);
-            yield return new WaitForSeconds(2f);
+           
         }
 }

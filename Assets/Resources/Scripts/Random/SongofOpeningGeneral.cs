@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SongofOpeningGeneral : MonoBehaviour
 {
-    public SongScript songScript;
+    //public SongScript songScript;
+    public GameObject audioManager;
 
     public List<string> noteQueue = new List<string>();
 
@@ -21,7 +22,7 @@ public class SongofOpeningGeneral : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        audioManager = GameObject.Find("AudioManager");
     }
 
     // Update is called once per frame
@@ -38,7 +39,7 @@ public class SongofOpeningGeneral : MonoBehaviour
             }
         }
 
-        if (songScript.sheetActive)
+        if (audioManager.GetComponent<SongScript>().sheetActive)
         {
             isSinging = true;
         }
@@ -150,7 +151,7 @@ public class SongofOpeningGeneral : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         hedgeAnimator.SetBool("Active", true);
-        songScript.sheetActive = false;
+        audioManager.GetComponent<SongScript>().sheetActive = false;
         isSinging = false;
         yield return new WaitForSeconds(1f);
         noteQueue.Clear();

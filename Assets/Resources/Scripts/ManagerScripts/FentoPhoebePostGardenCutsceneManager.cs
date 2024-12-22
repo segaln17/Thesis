@@ -5,8 +5,6 @@ using Cinemachine;
 
 public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
 {
-    public SimpleController divinerController;
-
     public YarnDialogueTrigger alteaCutsceneTrigger;
     public YarnDialogueTrigger yarnDialogueTrigger;
     
@@ -81,8 +79,8 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         fenColorway.SetActive(false);
         //turn off Fen controls
-        divinerController.GetComponent<SimpleController>().enabled = false;
-        divinerController.GetComponent<Collider>().enabled = false;
+        PlayerDiviner.GetComponent<SimpleController>().enabled = false;
+        PlayerDiviner.GetComponent<Collider>().enabled = false;
         yield return new WaitForSeconds(3f);
         //switch camera to Phoebe
         //turn Phoebe's gameobject on
@@ -92,7 +90,7 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
         fenCam01.Priority = 0;
         fenCam02.Priority = 0;
         Debug.Log("camshouldswitch");
-        PlayerDiviner.gameObject.SetActive(false);
+        //PlayerDiviner.gameObject.SetActive(false);
         Debug.Log("fen off");
         yield return new WaitForSeconds(3f);
         phoebeCam02.Priority = 12;
@@ -113,6 +111,6 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
         //yield return new WaitForSeconds(0.5f);
         //timelineScript.GoTimeline();
         Debug.Log("switched to Phoebe");
-        StopCoroutine("WaitSwitchtoPhoebe");
+        StopCoroutine(WaitSwitchtoPhoebe());
     }
 }
