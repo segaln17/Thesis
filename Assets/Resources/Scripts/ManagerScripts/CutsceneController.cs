@@ -23,6 +23,7 @@ public class CutsceneController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //Debug.Log("cutscenecontrolleron");
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             rb.AddForce(Vector3.forward.normalized * force);

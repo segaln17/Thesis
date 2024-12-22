@@ -16,21 +16,21 @@ public class SimpleController : MonoBehaviour
 
     //THE THINGS BELOW ARE AN ATTEMPT AT PARENTING CONTROLS TO WHERE THE CAMERA IS FACING
     //mouse sensitivity
-    [Header("Camera Rotation")] 
-    public Transform camera;
-    public float sensX = 1f;
-    public float sensY = 1f;
+    //[Header("Camera Rotation")] 
+   // public Transform camera;
+    //public float sensX = 1f;
+    //public float sensY = 1f;
 
-    public float xRotation;
-    public float yRotation;
+    //public float xRotation;
+    //public float yRotation;
 
     public Transform orientation;
     
-    public float mouseX;
-    public float mouseY;
+   // public float mouseX;
+    //public float mouseY;
     
-    [Header("Camera Switch")]
-    public GameObject camManager;
+    //[Header("Camera Switch")]
+    //public GameObject camManager;
 
     [Header("Movement Conditions")] 
     public float playerHeight;
@@ -46,8 +46,8 @@ public class SimpleController : MonoBehaviour
     private RaycastHit slopeHit;
     
     //scene check
-    private Scene currentScene;
-    public GameObject feetSpriteFighter;
+    //private Scene currentScene;
+    //public GameObject feetSpriteFighter;
     
 
     /*[Header("Stair Conditions")] 
@@ -58,7 +58,7 @@ public class SimpleController : MonoBehaviour
 
     private void Awake()
     {
-        currentScene = SceneManager.GetActiveScene();
+        //currentScene = SceneManager.GetActiveScene();
         isPlayerWalking = false;
         //string sceneName = currentScene.name;
     }
@@ -68,6 +68,7 @@ public class SimpleController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         isPlayerWalking = false;
+        //Cursor.visible = false;
 
         /*
         if (currentScene == SceneManager.GetSceneByName("GreyBoxing"))
@@ -93,17 +94,7 @@ public class SimpleController : MonoBehaviour
         }
 
         else
-        {
-            //mouse input for movement direction
-        mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-        mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
-
-        yRotation += mouseX;
-        xRotation -= mouseY;
-        
-
-        FirstPerson();
-        //ground check
+        { //ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 1f, whatIsGround);
         
         //handle drag
@@ -115,21 +106,11 @@ public class SimpleController : MonoBehaviour
         }
         SpeedControl();
         
-        //switch player rotation lock
-        if (camManager.GetComponent<SwitchPlayer>().firstPersonPOVOn)
-        {
-            FirstPerson();
-        }
-        if (camManager.GetComponent<SwitchPlayer>().firstPersonPOVOn == false)
-        {
-            ThirdPerson();
-        }
-        
         //rotate cam and orientation:
-        camera.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        camera.position = orientation.position;        
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
-        transform.rotation = orientation.rotation;
+        //GetComponent<Camera>().rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        //GetComponent<Camera>().position = orientation.position;        
+        //orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+        //transform.rotation = orientation.rotation;
         
         //controller using input to get directions
         
@@ -178,19 +159,7 @@ public class SimpleController : MonoBehaviour
         
   
     }
-
-    public void FirstPerson()
-    {
-        //for first person controller, min and max control lookroom (min is up, max is down)
-        //for a third person controller, we would just have to make the clamp values be 0, 0
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-    }
-
-    public void ThirdPerson()
-    {
-        xRotation = Mathf.Clamp(xRotation, 0f, 0f);
-    }
-
+    
     public bool OnSlope()
     {
         if(Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 1f))
@@ -229,44 +198,5 @@ public class SimpleController : MonoBehaviour
             }
         }
     }
-    
-   /* void stepClimb()
-    {
-        RaycastHit hitLower;
-        if (Physics.Raycast(stepRayLower.transform.position, transform.forward, out hitLower, 0.2f))
-        {
-            Debug.DrawLine(stepRayLower.transform.position ,stepRayUpper.transform.position + Vector3.forward * 0.2f );
-
-            RaycastHit hitUpper;
-            if (!Physics.Raycast(stepRayUpper.transform.position, transform.forward, out hitUpper, 2f))
-            {
-                Debug.DrawLine(stepRayUpper.transform.position ,stepRayUpper.transform.position + Vector3.forward * 2 );
-                Debug.Log("Going up baybee");
-                rb.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
-            }
-        }
-
-        RaycastHit hitLower45;
-        if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(1.5f,0,1), out hitLower45, 0.2f))
-        { 
-
-            RaycastHit hitUpper45;
-            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(1.5f,0,1), out hitUpper45, 2f))
-            {
-                rb.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
-            }
-        }
-
-        RaycastHit hitLowerMinus45;
-        if (Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(-1.5f,0,1), out hitLowerMinus45, 0.2f))
-        {
-
-            RaycastHit hitUpperMinus45;
-            if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(-1.5f,0,1), out hitUpperMinus45, 2f))
-            {
-                rb.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
-            }
-        }
-    }*/
     
 }

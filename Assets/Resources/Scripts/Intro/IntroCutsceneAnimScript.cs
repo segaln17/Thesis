@@ -11,10 +11,12 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public Animator fighterAnim;
     public Animator flytrapAnim;
     public Animator huskAnim;
-    public Animator walkAnim;
+    //public Animator walkAnim;
 
     [Header("GameObjects")] 
     public GameObject fighter;
+
+    //public GameObject fighter02;
     public GameObject flyTrap;
     public GameObject husk;
     public GameObject slashObject;
@@ -89,6 +91,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         fightFlytrapButton.gameObject.SetActive(false);
         waitFlytrapButton.gameObject.SetActive(false);
         fighter.GetComponent<SimpleController>().enabled = true;
+        //fighter.GetComponent<CutsceneController>().enabled = false;
         shatter02.SetActive(true);
         phoebefeet.SetActive(true);
         swoop.Play();
