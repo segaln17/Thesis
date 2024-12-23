@@ -14,7 +14,7 @@ public class YarnDialogueTrigger : MonoBehaviour
 
     public bool inYarnTrigger;
 
-    public bool cutsceneRun;
+    public bool cutsceneRun = false;
 
     private InMemoryVariableStorage inMemoryVariableStorage;
 
@@ -27,7 +27,7 @@ public class YarnDialogueTrigger : MonoBehaviour
     {
         dialogueIndicator.gameObject.SetActive(false);
         inYarnTrigger = false;
-        cutsceneRun = false;
+        //cutsceneRun = false;
     }
 
     // Update is called once per frame

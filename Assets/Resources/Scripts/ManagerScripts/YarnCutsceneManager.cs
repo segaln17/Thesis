@@ -37,7 +37,7 @@ public class YarnCutsceneManager : MonoBehaviour
         dialogueRunner.startAutomatically = true;
 
         Debug.Log("cutscene");
-        cutsceneRun = true;
+        //cutsceneRun = true;
     }
 
     [YarnCommand("gardenCutscene")]
