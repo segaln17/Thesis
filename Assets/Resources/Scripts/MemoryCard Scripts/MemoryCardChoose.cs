@@ -1,0 +1,96 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+
+public class MemoryCardChoose : MonoBehaviour
+{
+    //button for existing cards:
+    public Button existingCard01;
+    public Button existingCard02;
+    
+    //memory text for each card:
+    public TextMeshProUGUI card01Text;
+    public TextMeshProUGUI card02Text;
+    
+    //button for new card:
+    public Button newCard;
+    
+    //button for memory card:
+    public Button memoryCard;
+    
+    //text for memory card that will change depending on what is combined:
+    public TextMeshProUGUI memoryText;
+    
+    //what card is chosen:
+    private bool isChosen;
+    private Button chosenCard;
+    
+    //what card is forgotten/fades:
+    private Button forgottenCard;
+    private bool isForgotten;
+    
+    //position where chosen card should go:
+    public GameObject chosenCardPos;
+    
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        //memory card should be inactive
+        memoryCard.gameObject.SetActive(false);
+        
+        //the other cards should probably start inactive too and something in the scene should set them active when this minigame happens
+        //but for testing purposes i'm starting with them active here
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void Choose01()
+    {
+        isChosen = true;
+        chosenCard = existingCard01;
+        forgottenCard = existingCard02;
+        StartCoroutine("StartForget");
+        memoryText.text = card01Text.text;
+        RevealMemory();
+    }
+
+    public void Choose02()
+    {
+        isChosen = true;
+        chosenCard = existingCard02;
+        forgottenCard = existingCard01;
+        StartCoroutine("StartForget");
+        memoryText.text = card02Text.text;
+        RevealMemory();
+    }
+
+    IEnumerator StartForget()
+    {
+        yield return new WaitForSeconds(2f);
+        //play animation of card fading away? or just set it inactive?
+        forgottenCard.gameObject.SetActive(false);
+        yield return new WaitForSeconds(2f);
+    }
+
+    public void RevealMemory()
+    {
+        memoryCard.gameObject.SetActive(true);
+        chosenCard.transform.position = Vector3.Lerp(chosenCard.transform.position, chosenCardPos.transform.position, 3f);
+    }
+    
+    //set up next set of cards:
+    public void NextSet()
+    {
+        //change what existingCards 01 and 02 are
+        //change the text of newCard
+        //change card01 and card02's memory text accordingly
+        //reset positions
+    }
+}
