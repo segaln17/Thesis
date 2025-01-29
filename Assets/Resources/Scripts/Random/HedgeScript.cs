@@ -21,7 +21,7 @@ public class HedgeScript : MonoBehaviour
     public bool isGarden = false;
     public bool isOutsideGarden = false;
     public bool isMoon = false;
-    public GameObject gardenEnter;
+    //public GameObject gardenEnter;
 
     [Header("Trees Sing")] 
     public AudioSource treeSing;
@@ -261,10 +261,10 @@ public class HedgeScript : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             hedge1animator.SetBool("hedgeOpen", true);
-        audioManager.GetComponent<SongScript>().sheetActive = false;
+            audioManager.GetComponent<SongScript>().sheetActive = false;
             isSinging = false;
             yield return new WaitForSeconds(1f);
-            gardenEnter.SetActive(true);
+            //gardenEnter.SetActive(true);
             //hedge2animator.Play("hedge2test");
             noteQueue.Clear();
         }

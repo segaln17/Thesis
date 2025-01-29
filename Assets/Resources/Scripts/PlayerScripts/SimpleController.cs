@@ -37,6 +37,7 @@ public class SimpleController : MonoBehaviour
     public LayerMask whatIsGround;
     public bool grounded;
     public float groundDrag;
+    public float groundlessDrag;
    
     
     [Header("Slope Conditions")] 
@@ -102,7 +103,7 @@ public class SimpleController : MonoBehaviour
             rb.drag = groundDrag;
         }
         else {
-            rb.drag = 1; 
+            rb.drag = groundlessDrag; 
         }
         SpeedControl();
         
