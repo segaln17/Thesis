@@ -13,6 +13,8 @@ public class WallPlacement : MonoBehaviour
     public Collider  wallPlacementColl;
     public float offset = -1.4f;
     public float yoffset = .5f;
+    public float zrangehigh = 295f;
+    public float zrangelow = 292f;
 
     public GameObject paperplaceMan;
     // Start is called before the first frame update
@@ -67,7 +69,7 @@ public class WallPlacement : MonoBehaviour
             
             wallPlacementColl.enabled = false;
             //Debug.Log(sheet.transform.position.z);
-            if (sheet.transform.position.z <= 295f && sheet.transform.position.z >= 292f)
+            if (sheet.transform.position.z <= zrangehigh && sheet.transform.position.z >= zrangelow)
             {
                 Debug.Log("placed");
                 sheet.tag = "Untagged";

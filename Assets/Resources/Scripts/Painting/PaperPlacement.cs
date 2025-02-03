@@ -17,6 +17,9 @@ public class PaperPlacement : MonoBehaviour
     public bool isDone = false;
     public bool isRotated = false;
 
+    public float sheetscalexhigh = 1;
+    public float sheetscalexlow = .9997f;
+
     private void Start()
     {
        paperPlacementColl = GetComponent<Collider>();
@@ -64,7 +67,7 @@ public class PaperPlacement : MonoBehaviour
             currentSheet.transform.rotation = transform.rotation;
             
             paperPlacementColl.enabled = false;
-            if (currentSheet.transform.localScale.x <= 1 && currentSheet.transform.localScale.x >= 0.9997f)
+            if (currentSheet.transform.localScale.x <= sheetscalexhigh && currentSheet.transform.localScale.x >= sheetscalexlow)
             {
                 isDone = true;
                 return;

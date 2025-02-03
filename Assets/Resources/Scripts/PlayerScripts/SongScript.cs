@@ -8,11 +8,11 @@ public class SongScript : MonoBehaviour
 {
     public InventoryManager inventoryManager;
     //public static SongScript instance;
-   // public GameObject playerSprite;
+    // public GameObject playerSprite;
 
-   public GameObject song01;
-   public GameObject song02;
-   
+    public GameObject song01;
+    public GameObject song02;
+
     public bool sheetActive;
     public Animator songAnim;
 
@@ -22,29 +22,29 @@ public class SongScript : MonoBehaviour
     public AudioClip hum02;
     public AudioClip hum03;
     public AudioClip hum04;
-    
-    /*public AudioClip hum05;
+
+    public AudioClip hum05;
     public AudioClip hum06;
     public AudioClip hum07;
     public AudioClip hum08;
-    
+
     public AudioClip hum09;
     public AudioClip hum10;
     public AudioClip hum11;
-    public AudioClip hum12;*/
+    public AudioClip hum12;
 
-   // public GameObject fighter;
+    // public GameObject fighter;
 
     public humRegister state;
-    //public float deadZoneMax = 1f;
-    //public float registerCeiling = 5f;
     public enum humRegister
     {
+        leftCap,
         high,
         mid,
-        low
+        low,
+        rightCap
     }
-
+    
     private void Awake()
     {
         /*
@@ -67,21 +67,20 @@ public class SongScript : MonoBehaviour
         state = humRegister.mid;
         song01.SetActive(true);
         song02.SetActive(false);
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             sheetActive = !sheetActive;
         }
 
         if (sheetActive)
         {
-            //Debug.Log(Input.GetAxis("Mouse ScrollWheel"));
-            //sheetMusic.SetActive(true);
+          
             songAnim.SetBool("Idle", true);
             songAnim.SetBool("Sheathe", false);
             //playerSprite.SetActive(false);
@@ -102,51 +101,52 @@ public class SongScript : MonoBehaviour
                     song01.SetActive(true);
                 }
             }
-            
-            
-            /*if(Input.GetAxisRaw("Mouse ScrollWheel") >= deadZoneMax && Input.GetAxisRaw("Mouse ScrollWheel") <= registerCeiling && state == humRegister.mid)
-            {
-                state = humRegister.high;
-            }
-            
-            if(Input.GetAxisRaw("Mouse ScrollWheel") >= deadZoneMax && Input.GetAxisRaw("Mouse ScrollWheel") <= registerCeiling && state == humRegister.low)
-            {
-                state = humRegister.mid;
-            }
-            
-            if(Input.GetAxisRaw("Mouse ScrollWheel") <= -deadZoneMax && Input.GetAxisRaw("Mouse ScrollWheel") >= -registerCeiling && state == humRegister.mid)
-            {
-                state = humRegister.low;
-
-            }
-            if(Input.GetAxisRaw("Mouse ScrollWheel") <= -deadZoneMax && Input.GetAxisRaw("Mouse ScrollWheel") >= -registerCeiling && state == humRegister.high)
-            {
-                state = humRegister.mid;
-            }*/
 
             if (state == humRegister.mid)
             {
                 midRange();
             }
-            
-            /*if (state == humRegister.low)
+
+            if (state == humRegister.low)
             {
                 lowRange();
             }
-            
+
             if (state == humRegister.high)
             {
                 highRange();
-            }*/
-            
+            }
+
+            if (state == humRegister.leftCap)
+            {
+                state = humRegister.low;
+            }
+
+            if (state == humRegister.rightCap)
+            {
+                state = humRegister.high;
+            }
+
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                state++;
+         
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                state--;
+            }
+
+
         }
         else
         {
-                songAnim.SetBool("Sheathe", true);
-                songAnim.SetBool("Idle", false);
-                
+            songAnim.SetBool("Sheathe", true);
+            songAnim.SetBool("Idle", false);
+
             //fighter.GetComponent<SimpleController>().enabled = true;
-           // fighter.GetComponent<Rigidbody>().isKinematic = false;
+            // fighter.GetComponent<Rigidbody>().isKinematic = false;
             //playerSprite.SetActive(true);
         }
     }
@@ -171,7 +171,7 @@ public class SongScript : MonoBehaviour
         }
     }
 
-    /*void lowRange()
+    void lowRange()
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -208,9 +208,10 @@ public class SongScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             SongAudio.PlayOneShot(hum07);
-        }*/
-        
+        }
 
 
-  
+
+
+    }
 }

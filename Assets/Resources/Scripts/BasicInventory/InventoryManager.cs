@@ -52,5 +52,5 @@ public class InventoryManager : MonoBehaviour
         return existingItem != null && existingItem.quantity > 0;
     }
 
-   
+
 }
