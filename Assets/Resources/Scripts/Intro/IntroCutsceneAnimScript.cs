@@ -16,6 +16,8 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     [Header("GameObjects")] 
     public GameObject fighter;
 
+    public GameObject dialogueTrigger;
+
     //public GameObject fighter02;
     public GameObject flyTrap;
     public GameObject husk;
@@ -50,6 +52,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     void Start()
     {
         paused = false;
+        dialogueTrigger.SetActive(false);
         //Time.timeScale = 1;
         fightFlytrapButton.gameObject.SetActive(false);
         waitFlytrapButton.gameObject.SetActive(false);
@@ -114,6 +117,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public void FlytrapWait()
     {
         sparkleObject.SetActive(true);
+        dialogueTrigger.SetActive(true);
         fightFlytrapButton.gameObject.SetActive(false);
         waitFlytrapButton.gameObject.SetActive(false);
         fighter.GetComponent<SimpleController>().enabled = true;

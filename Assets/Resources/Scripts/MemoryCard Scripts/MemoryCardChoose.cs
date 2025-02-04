@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class MemoryCardChoose : MonoBehaviour
 {
+    //card side script:
+    public CardSideRender cardFlipper1;
+    
     //button for existing cards:
     public Button existingCard01;
     public Button existingCard02;
@@ -33,7 +36,8 @@ public class MemoryCardChoose : MonoBehaviour
     
     //position where chosen card should go:
     public GameObject chosenCardPos;
-    
+
+    public int clickAmount;
     
     // Start is called before the first frame update
     void Start()
@@ -48,7 +52,20 @@ public class MemoryCardChoose : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        /*
+        if (cardFlipper1.gameObject.CompareTag("card1") && cardFlipper1.isRead == true)
+        {
+            Choose01();
+        }
+        if (cardFlipper1.gameObject.CompareTag("card2") && cardFlipper1.isRead == true)
+        {
+            Choose02();
+        }
+        */
+       
+        //ideal plan:
+        //click the button once to flip the card
+        //if you click that same button again, it chooses that card and then the choose process happens
     }
 
     public void Choose01()

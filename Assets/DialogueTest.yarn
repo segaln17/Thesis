@@ -12,6 +12,30 @@ position: -208,-211
 <<declare $spokenToHildegardFighter = false as bool>>
 <<declare $spokenToGrimboldeFighter = false as bool>>
 ===
+title: IntroWalk1
+---
+//title screen clears, Phoebe stands as the fog clears
+//first screen camera transition
+<i>This was a ravine, a moment ago. But it's not anymore.</i>
+<<turnOffCollider IntroDialogue1>>
+<<stop>>
+===
+title: IntroWalk2
+---
+//second screen
+<i>This place smells like a room that hasn't been opened in years.</i>
+<<turnOffCollider IntroDialogue2>>
+<<stop>>
+===
+title: FlytrapWait
+---
+//abyssal flytrap, but wait button is pressed
+//wait button activates the collider to assign this node
+<i>The air around the plant stinks of sour milk and oysters, the soil dark, watered by the goop from the plant's own mouth.</i>
+<i>It's not paying you any attention, and lets you pass.</i>
+<<turnOffCollider FlytrapDialogue>>
+<<stop>>
+===
 ///THIS IS FOR TESTING TIMELINE YARNCOMMANDS
 title: TimelineTest
 ---
