@@ -10,11 +10,15 @@ public class SongScript : MonoBehaviour
     //public static SongScript instance;
     // public GameObject playerSprite;
 
-    public GameObject song01;
-    public GameObject song02;
+    //public GameObject song01;
+    //public GameObject song02;
 
     public bool sheetActive;
+
+    //public GameObject hand;
+
     public Animator songAnim;
+    public Animator songSwitch;
 
     public AudioSource SongAudio;
 
@@ -33,6 +37,9 @@ public class SongScript : MonoBehaviour
     public AudioClip hum11;
     public AudioClip hum12;
 
+    //private IEnumerator sheathCoroutine;
+    // private IEnumerator switchBeastCoroutine;
+    // private IEnumerator switchOpenCoroutine;
     // public GameObject fighter;
 
     public humRegister state;
@@ -65,9 +72,8 @@ public class SongScript : MonoBehaviour
     void Start()
     {
         state = humRegister.mid;
-        song01.SetActive(true);
-        song02.SetActive(false);
-
+        //sheathCoroutine = Sheathing();
+    
     }
 
     // Update is called once per frame
@@ -80,7 +86,7 @@ public class SongScript : MonoBehaviour
 
         if (sheetActive)
         {
-          
+            
             songAnim.SetBool("Idle", true);
             songAnim.SetBool("Sheathe", false);
             //playerSprite.SetActive(false);
@@ -91,14 +97,14 @@ public class SongScript : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
-                    song02.SetActive(true);
-                    song01.SetActive(false);
+                    songSwitch.SetBool("beastsong", true);
+
                 }
 
                 if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
-                    song02.SetActive(false);
-                    song01.SetActive(true);
+                   
+                    songSwitch.SetBool("beastsong", false);
                 }
             }
 
@@ -144,7 +150,6 @@ public class SongScript : MonoBehaviour
         {
             songAnim.SetBool("Sheathe", true);
             songAnim.SetBool("Idle", false);
-
             //fighter.GetComponent<SimpleController>().enabled = true;
             // fighter.GetComponent<Rigidbody>().isKinematic = false;
             //playerSprite.SetActive(true);
@@ -209,9 +214,6 @@ public class SongScript : MonoBehaviour
         {
             SongAudio.PlayOneShot(hum07);
         }
-
-
-
 
     }
 }
