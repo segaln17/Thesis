@@ -49,7 +49,7 @@ position: -223,-93
 ---
 <<if $charPOV is "Fighter">>
     <<wait 8>>
-    Windy: Oh. Well, this is unexpected.
+    Windy: Oh. A newbie, sword and all.
     Windy: This place swallowed another one, huh?
     <<set $WindyOpeningRun to true>>
     <<stop>>
@@ -68,29 +68,36 @@ position: -172,85
     //<<stop>>
 //<<if $charPOV is "Fighter">>
 <<if $spokenToWindy is false>>
-    Windy: You're the third newcomer we've gotten in whatever measure of time it is, at this point.
-    Windy: Impossible to tell, since the damn sun never rises and the damn moon never sets.
-    Windy: How'd you get here?
+    Windy: Wow. Another newbie. And here I thought Altea was the last for a while.
+    Windy: Guess I owe Zora the next cask I find out here.
+    Windy: How'd you get here, newbie?
     The Fighter: <i>You say nothing.</i>
-    Windy: Not the talkative type, I see.
+    Windy: Oh, not the talkative type? That's fine.
+    Windy: Ugh, the Moon's going to be brighter soon, and I'm too far out.
     Windy: Did you see where that little pest went? It took my trowel.
     The Fighter: <i>You shake your head.</i>
-    Windy: Drat. And I only just found that trowel in the rubble near the well.
-    Windy: Do you know how you got here?
+    Windy: Drat. And I only just found that trowel.
+    Windy: The ruins by the well are no picnic, trust me. It's like a breeding ground for the axe-handed skinks.
+    Windy: Although they don't breed. At least, I don't think they do.
+    Windy: Anyway. Do you know how you got here? 
     Windy: Do you even know where here is?
     The Fighter: <i>You say nothing.</i>
-    Windy: Okay, well, you should talk to Fen. She's the only one who's ever ended up here on purpose.
-    Windy: She'll help you get sorted out. Probably.
+    Windy: Still nothing, huh?
+    Windy: Okay, well, you should talk to Fen. 
+    Windy: She's the only one who's ever ended up here on purpose.
+    Windy: Unless... you did too?
+    Windy: Nevermind, I doubt it. 
+    Windy: You seem like someone who would fall down a ravine and end up here.
+    Windy: Fen'll help you get sorted out. If you can stand her yammering.
     Windy: And get to the bonfire if you start feeling queasy. They all feel queasy at first.
+    Windy: Well, not me, but other people usually get queasy.
     Windy: Oh, and don't look down. There's nothing down there but the sun, deep, deep down.
     Windy: All the way under the water.
     <<set $spokenToWindy to true>>
     <<stop>>
 <<else>>
     Windy: Oh, did I not mention? Fen's at the tavern.
-    Windy: Just past those vines.
-    Windy: Like most of the plants here they respond to song, not violence.
-    Windy: Unfortunately.
+    Windy: If you see Zora, don't tell her I owe her, okay?
     Windy: Now, where did that little varmint go?
     <<stop>>
 <<endif>>
@@ -107,18 +114,23 @@ position: 209,-41
     Byron: Hey, you! You're breathing!
     Byron: The Beneath caught a fresh one! Been a while, not since Altea!
     Byron: Breathing, the both of you—not been here long enough not to, eh?
+    Byron: Have you noticed you don't have to blink anymore?
+    Byron: Or relieve yourself? Nothing created nor destroyed, as they say...
     Byron: I'm too far from the Bonfire now, but they need kindling for the fire. Or the moon will hatch, and consume us all...
     Byron: And we wouldn't want that.
-    Byron: I'd like to see the moon hatch, but I'll be a husk long before then, won't I?
-    Byron: And then Altea will have to take care of me!
+    Byron: Who knows what would happen if that ever-present moon fell out of the sky.
+    Byron: I'd like to see it hatch, but I'll be a husk long before then, won't I?
+    Byron: And then Lady Altea will have to take care of me!
     Byron: Oh, what a punishment that would be for her, but what a pleasure for me!
     Byron: <i>He dissolves into manic laughter.</i>
     <<set $spokenToByronFighter to true>>
     <<stop>>
     <<endif>>
 <<if $spokenToByronFighter is true>>
-    Byron: Fen's a fool if they think anyone's getting into that garden anytime soon.
-    Byron: It'd make good kindling...
+    //Byron: Fen's a fool if they think anyone's getting into that garden anytime soon.
+    Byron: That garden would make good kindling.
+    Byron: Too bad Fen won't let anyone take a hatchet to it...
+    Byron: A real shame, that.
     <<stop>>
     <<endif>>
 ===
@@ -137,6 +149,7 @@ position: 229,-21
 Verity: There's no point in fighting it. Any of it.
 Verity: Even the monsters. Killing them does nothing.
 Verity: They're stuck here, same as us.
+Verity: Might as well just melt into the Fields of Sorrow before this place can turn me itself.
 <<stop>>
 <<endif>>
 ===
@@ -144,10 +157,15 @@ title: TavernNPC1
 position: 239,-11
 ---
 <<if $charPOV is "Fighter">>
-Zora: This is the tavern. If you want to eat or sleep, this is the place.
-Zora: Between you and me, I don't think any of us need to sleep, anymore.
+//Zora: This is the tavern. If you want to eat or sleep, this is the place.
+//Zora: Between you and me, I don't think any of us need to sleep, anymore.
+Zora: Hey, welcome to the tavern!
+Zora: Want anything? We've got... really old mead.
+Zora: It won't get you drunk, though. Nothing will, anymore.
+Zora: And people don't need to sleep, either, just so you don't panic later.
 Zora: But some people still pretend they can.
-Zora: There's probably some kind of bed free, if you're one of those types.
+Zora: There's probably some kind of bed free, but I wouldn't recommend it.
+Zora: It's a lot easier to just accept that your body is on pause, forever.
 <<stop>>
 <<endif>>
 ===
@@ -155,10 +173,13 @@ title: TavernNPC2
 position: 249,-1
 ---
 <<if $charPOV is "Fighter">>
-Amos: You see that person, over there?
-Amos: That's Fen.
+Amos: You see her, over there? In the green?
+Amos: Wait, no, don't be obvious!
+Amos: That's <i>Fen</i>.
 Amos: You know, <i>Fen the Diviner</i>?
-Amos: They're a legend. How'd they end up down here?
+Amos: Seriously, do you live under a rock? Fen's a legend.
+Amos: I've always wondered how she got here. Word has it she convinced the Beneath to let her in.
+Amos: On <i>purpose</i>!
 <<stop>>
 <<endif>>
 <<if $charPOV is "Diviner">>
@@ -167,8 +188,10 @@ Fen: Oh, well. It's a long story.
 Fen: I was looking for something.
 Amos: Did you find it?
 Fen: ...I'm not sure yet.
-Amos: What kind of thing was it?
-Fen: Oh, darling. Just a personal possession of mine, that's all.
+Amos: What kind of thing was it? 
+Amos: ...Wedding ring? Lover's tiara?
+Fen: Oh, darling. 
+Fen: Just a personal possession of mine, that's all.
 Amos: I'm sorry for all the questions, I'm just a little starstruck.
 Fen: It's quite alright, dear. Everyone is.
 <<stop>>
@@ -184,16 +207,18 @@ The Fighter: <i>Before you is a small but strangely imposing figure, sitting alo
 The Fighter: <i>Though she is small, she has gravity, and sitting in the tavern by herself, one can almost pretend this is normal.</i>
 Strangely Congenial Person: I haven't seen you before, have I?
 Strangely Congenial Person: Isn't this a strange place in which we find ourselves? And to think, I meant to come here.
-Strangely Congenial Person: It'd be silly, if things didn't just sit here and rot.
+Strangely Congenial Person: It'd be silly, if things didn't just sit here in stasis and rot.
 Fen: I'm Fen. What's your name?
 The Fighter: <i>You hesitate. You are not comfortable sharing this yet.</i>
-Fen: You're a shy one, then! Wouldn't think so with your weaponry.
+Fen: Oh, you're a shy one! Wouldn't think so with your weaponry.
 Fen: But I'll bet you get that a lot.
+Fen: I'm getting off topic, you're probably very confused and disoriented.
 Fen: Where to start...
 Fen: Have you met Altea?
 Fen: She's the other new one, aside from you.
 Fen: Well, I should say "us." I have not been here very long either.
-Fen: She's... prickly. But she's a cleric of the order of an illustrious Saint, the Lady of Radiant Sorrow, so that's nice.
+Fen: She's... prickly. But she's a cleric of the order of the Saint of Radiant Sorrow, so that's nice.
+Fen: A nice violent sect. She caused a coup in her own hometown, so I heard!
 Fen: Do you know, sometimes I wonder about how long we'll stay here.
 Fen: Because, well, the reality is that we're stuck here.
 Fen: They call it the Beneath, this space between realities.
@@ -213,8 +238,10 @@ Fen: I'm studying this place; I'm a diviner, you see.
 Fen: I'm trying to divine its secrets.
 The Fighter: <i>You chuckle, but say nothing.</i>
 Fen: Say, do you sing?
-Fen: I've noticed the plants in this place respond strangely to song.
-Fen: Some are too talkative to appreciate it, but others are more sensitive.
+Fen: I've noticed quite a few people who end up down here are musicians.
+Fen: I've wondered if it's a pattern.
+Fen: You have no instrument, so I thought I'd ask.
+//Fen: Some are too talkative to appreciate it, but others are more sensitive.
 Fen: I found this the other day. It looks like sheet music, almost.
 Fen: Here, maybe you'll have a use for it.
 <<playKnock GardenCutsceneManager>>
@@ -227,7 +254,9 @@ The Fighter: <i>Strangely, it looks similar to the one you already possess.</i>
 <<revealCreature FenTavernManager>>
 <<wait  2>>
 <<disappearCreature FenTavernManager>>
-Fen: Maybe something around here will respond to it!
+Fen: Windy found it by the garden, but she's given up music.
+Fen: Consider it a welcome gift!
+//Fen: Maybe something around here will respond to it!
 <<changeBackCam FenTavernManager>>
 <<set $spokenToFenFighterTavern to true>>
 <<stop>>

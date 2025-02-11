@@ -22,11 +22,18 @@ public class CardSideRender : MonoBehaviour
         
     }
 
-    public void ClickTarot()
+    public void ClickPaper()
     {
         cardAnimator.SetBool("Clicked", true);
         flipButton.enabled = false;
         isRead = true;
         chooseButton.gameObject.SetActive(true);
+    }
+
+    public void ClickTarot()
+    {
+        cardAnimator.SetBool("Clicked", true);
+        flipButton.enabled = false;
+        isRead = true;
     }
 }

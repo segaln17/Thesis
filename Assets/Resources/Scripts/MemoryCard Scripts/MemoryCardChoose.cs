@@ -36,8 +36,8 @@ public class MemoryCardChoose : MonoBehaviour
     
     //position where chosen card should go:
     public GameObject chosenCardPos;
-
-    public int clickAmount;
+    
+    //public int clickAmount;
     
     // Start is called before the first frame update
     void Start()
@@ -90,7 +90,10 @@ public class MemoryCardChoose : MonoBehaviour
 
     IEnumerator StartForget()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
+        forgottenCard.animator.SetBool("NotChosen", true);
+        Debug.Log("forgetting");
+        yield return new WaitForSeconds(3f);
         //play animation of card fading away? or just set it inactive?
         forgottenCard.gameObject.SetActive(false);
         yield return new WaitForSeconds(2f);
@@ -99,7 +102,7 @@ public class MemoryCardChoose : MonoBehaviour
     public void RevealMemory()
     {
         memoryCard.gameObject.SetActive(true);
-        chosenCard.transform.position = Vector3.Lerp(chosenCard.transform.position, chosenCardPos.transform.position, 3f);
+        chosenCard.transform.position = Vector3.Lerp(chosenCard.transform.position, chosenCardPos.transform.position, 4f);
     }
     
     //set up next set of cards:
