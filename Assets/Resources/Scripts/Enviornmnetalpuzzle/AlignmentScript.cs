@@ -5,6 +5,8 @@ using UnityEngine;
 public class AlignmentScript : MonoBehaviour
 {
     public GameObject surprise;
+    public GameObject fragment01;
+    public GameObject fragment02;
 
     public List<GameObject> alignmentPuzzleObjects = new List<GameObject>();
     public bool isChecking = false;
@@ -22,6 +24,8 @@ public class AlignmentScript : MonoBehaviour
         if(alignmentPuzzleObjects.Count >= targetCastLimit)
         {
             surprise.SetActive(true);
+            fragment01.SetActive(false);
+            fragment02.SetActive(false);
         }
     }
     private void OnTriggerEnter(Collider other)
