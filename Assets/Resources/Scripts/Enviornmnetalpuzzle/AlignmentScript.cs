@@ -19,7 +19,7 @@ public class AlignmentScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(alignmentPuzzleObjects.Count == targetCastLimit)
+        if(alignmentPuzzleObjects.Count >= targetCastLimit)
         {
             surprise.SetActive(true);
         }
