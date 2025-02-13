@@ -34,15 +34,8 @@ public class MemoryCardChoose : MonoBehaviour
     private Button forgottenCard;
     private bool isForgotten;
     
-    //if a memory has been revealed
-    public bool revealed = false;
-    
     //position where chosen card should go:
     public GameObject chosenCardPos;
-    
-    //scrapbook:
-    public GameObject scrapbook;
-    public ScrapbookSave scrapbookScript;
     
     //public int clickAmount;
     
@@ -51,7 +44,6 @@ public class MemoryCardChoose : MonoBehaviour
     {
         //memory card should be inactive
         memoryCard.gameObject.SetActive(false);
-        scrapbook.SetActive(false);
         
         //the other cards should probably start inactive too and something in the scene should set them active when this minigame happens
         //but for testing purposes i'm starting with them active here
@@ -110,26 +102,7 @@ public class MemoryCardChoose : MonoBehaviour
     public void RevealMemory()
     {
         memoryCard.gameObject.SetActive(true);
-        revealed = true;
-        if (scrapbookScript.MemoryList.Count <3)
-        {
-            scrapbookScript.MemoryList.Add(memoryText);
-        }
-        else
-        {
-            scrapbookScript.MemoryList.RemoveAt(0);
-            scrapbookScript.MemoryList.Add(memoryText);
-        }
-
-        scrapbookScript.memory.text = memoryText.text;
-        StartCoroutine(StartScrapbook());
         //chosenCard.transform.position = Vector3.Lerp(chosenCard.transform.position, chosenCardPos.transform.position, 4f);
-    }
-    
-    IEnumerator StartScrapbook()
-    {
-        yield return new WaitForSeconds(1.5f);
-        scrapbook.SetActive(true);
     }
     
     //set up next set of cards:
