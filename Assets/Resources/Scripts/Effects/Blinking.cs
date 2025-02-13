@@ -23,7 +23,7 @@ public class Blinking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(hitWindowTime);
+        //Debug.Log(hitWindowTime);
 
         if (timerActive)
         {
@@ -79,5 +79,6 @@ public class Blinking : MonoBehaviour
         hitWindowTime = 0;
         //timerActive = false;
     }
+    
 
 }

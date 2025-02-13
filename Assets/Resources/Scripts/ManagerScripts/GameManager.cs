@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject menu;
     //public GameObject inventory;
 
-    private bool paused;
+    public bool paused;
 
     public GameObject fighter;
 
@@ -101,4 +101,5 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
         }
     }
+    
 }

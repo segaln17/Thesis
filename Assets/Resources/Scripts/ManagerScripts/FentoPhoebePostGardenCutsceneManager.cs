@@ -17,6 +17,8 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
     public GameObject songManager;
 
     public GameObject fenColorway;
+    public GameObject fenfeet;
+    
     //3rd person Fen
     public CinemachineVirtualCamera fenCam01;
     //1st person Fen
@@ -28,6 +30,7 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
     
     public GameObject phoebefeet;
     public GameObject phoebecolorway;
+
     public bool isswitching;
     public bool isswitched;
 
