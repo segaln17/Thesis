@@ -14,6 +14,8 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
 
     public GameObject PlayerDiviner;
 
+    public GameObject songManager;
+
     public GameObject fenColorway;
     //3rd person Fen
     public CinemachineVirtualCamera fenCam01;
@@ -56,6 +58,7 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
     }
     
     private void OnTriggerEnter(Collider other)
+    //should this be OnTriggerStay?
     {
         
         if (other.gameObject.CompareTag("Player"))
@@ -106,6 +109,7 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
         
         //turn on Phoebe controls
         PlayerPhoebe.GetComponent<SimpleController>().enabled = true;
+        songManager.SetActive(true);
         yield return new WaitForSeconds(1f);
         //yarnDialogueTrigger.gameObject.SetActive(false);
         //yield return new WaitForSeconds(0.5f);

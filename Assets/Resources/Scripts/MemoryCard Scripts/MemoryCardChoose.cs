@@ -102,7 +102,7 @@ public class MemoryCardChoose : MonoBehaviour
     public void RevealMemory()
     {
         memoryCard.gameObject.SetActive(true);
-        chosenCard.transform.position = Vector3.Lerp(chosenCard.transform.position, chosenCardPos.transform.position, 4f);
+        //chosenCard.transform.position = Vector3.Lerp(chosenCard.transform.position, chosenCardPos.transform.position, 4f);
     }
     
     //set up next set of cards:
