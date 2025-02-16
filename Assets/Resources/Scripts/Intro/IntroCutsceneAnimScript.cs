@@ -21,6 +21,10 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public GameObject flytrapShadowSprite;
     public GameObject flytrapShadowDecal;
 
+    public GameObject blinkingObj;
+    public GameObject tessObj;
+    public GameObject healthCanvas;
+
     
     public GameObject flyTrap;
     public GameObject slashObject;
@@ -88,7 +92,10 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         fighterShadow.SetActive(true);
         swoop.Play();
         mainCam01.SetActive(false);
+        healthCanvas.SetActive(false);
         fighterPOV.Priority = 15;
+        blinkingObj.SetActive(true);
+        tessObj.SetActive(true);
       
 
         if (flytrapAnim != null)
@@ -115,8 +122,10 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         fighterShadow.SetActive(true);
         swoop.Play();
         mainCam01.SetActive(false);
+        healthCanvas.SetActive(false);
         fighterPOV.Priority = 15;
-        
+        blinkingObj.SetActive(true);
+        tessObj.SetActive(true);
 
         if (flytrapAnim != null)
         {
