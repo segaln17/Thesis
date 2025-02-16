@@ -104,11 +104,13 @@ public class MemoryCardChoose : MonoBehaviour
         yield return new WaitForSeconds(3f);
         //play animation of card fading away? or just set it inactive?
         forgottenCard.gameObject.SetActive(false);
-        yield return new WaitForSeconds(2f);
+        
     }
 
     public void RevealMemory()
     {
+        newCard.gameObject.SetActive(false);
+        chosenCard.gameObject.SetActive(false);
         memoryCard.gameObject.SetActive(true);
         revealed = true;
         if (scrapbookScript.MemoryList.Count <3)
@@ -128,7 +130,8 @@ public class MemoryCardChoose : MonoBehaviour
     
     IEnumerator StartScrapbook()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(6f);
+        memoryCard.gameObject.SetActive(false);
         scrapbook.SetActive(true);
     }
     

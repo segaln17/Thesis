@@ -7,6 +7,8 @@ public class AlignmentScript : MonoBehaviour
     public GameObject surprise;
     public GameObject fragment01;
     public GameObject fragment02;
+    public GameObject memoryCard;
+    public GameObject memoryCardButton;
 
     public List<GameObject> alignmentPuzzleObjects = new List<GameObject>();
     public bool isChecking = false;
@@ -26,6 +28,7 @@ public class AlignmentScript : MonoBehaviour
             surprise.SetActive(true);
             fragment01.SetActive(false);
             fragment02.SetActive(false);
+            StartCoroutine(memoryCardTrigger());
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -37,5 +40,14 @@ public class AlignmentScript : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         isChecking = false;
+    }
+
+    IEnumerator memoryCardTrigger()
+    {
+        yield return new WaitForSeconds(4f);
+        memoryCard.SetActive(true);
+        surprise.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        memoryCardButton.SetActive(true);
     }
 }

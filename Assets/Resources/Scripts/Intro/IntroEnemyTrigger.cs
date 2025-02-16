@@ -37,10 +37,7 @@ public class IntroEnemyTrigger : MonoBehaviour
                 //player.GetComponent<SimpleController>().enabled = true;
                 enemyManager.GetComponent<IntroCutsceneAnimScript>().FlyTrapTrigger();
             }
-            else if (thisGameObject.tag == "husk")
-            {
-                enemyManager.GetComponent<IntroCutsceneAnimScript>().HuskTrigger();
-            }
+           
         }
     }
 }
