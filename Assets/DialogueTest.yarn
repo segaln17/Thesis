@@ -11,6 +11,7 @@ position: -208,-211
 <<declare $spokenToHeloiseFighter = false as bool>>
 <<declare $spokenToHildegardFighter = false as bool>>
 <<declare $spokenToGrimboldeFighter = false as bool>>
+<<declare $hedgehogRun = false as bool>>
 ===
 title: IntroWalk1
 ---
@@ -44,14 +45,23 @@ Cube: Hi
 Sphere: Hi
 <<stop>>
 ===
+title: HedgehogRun
+---
+<<if $charPOV is "Fighter">>
+    <<timelineGo CreatureRunCollider>>
+    <<set $hedgehogRun to true>>
+    <<revealCreature Windy>>
+    <<stop>>
+<<endif>>
+===
 title: Opening
 position: -223,-93
 ---
-<<if $charPOV is "Fighter">>
-    <<wait 8>>
-    Windy: Oh. A newbie, sword and all.
-    Windy: This place swallowed another one, huh?
-    <<set $WindyOpeningRun to true>>
+<<if $charPOV is "Fighter" and $hedgehogRun is true>>
+        <<wait 4>>
+        Windy: Oh. A newbie, sword and all.
+        Windy: This place swallowed another one, huh?
+        <<set $WindyOpeningRun to true>>
     <<stop>>
 <<endif>>
 <<if $WindyOpeningRun is true>>
