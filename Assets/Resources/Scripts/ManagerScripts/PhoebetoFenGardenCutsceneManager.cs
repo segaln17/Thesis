@@ -84,14 +84,14 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
     {
         Debug.Log("switching to Fen from Garden");
         isPulsing = true;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
         isPulsing = false;
 
         phoebecamfirstPerson.Priority = 1;
         phoebecam01.Priority = 12;
         pulsingCamera = phoebecam01;
         isPulsing = true;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
         isPulsing = false;
         yield return new WaitForSeconds(1f);
 
@@ -125,13 +125,13 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
         AerialCam.Priority = 0;
         fenCam01.Priority = 12;
         isPulsing = true;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
         isPulsing = false;
         Debug.Log("camshouldswitch");
         yield return new WaitForSeconds(3f);
         pulsingCamera = fenCam02;
         isPulsing = true;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
         isPulsing = false;
 
 
@@ -154,8 +154,9 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         //start the mini cutscene
         isPulsing = true;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1.5f);
         isPulsing = false;
+        fenCam02.m_Lens.FieldOfView = 60f;
         timelineScript.GoTimeline();
         fencolorway.gameObject.SetActive(false);
         outsideRookeryTrigger.gameObject.SetActive(false);
