@@ -6,14 +6,29 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+  
     public static GameManager Instance;
 
-    public GameObject menu;
+    [Header("Game Manager")]
+    public GameObject fighterMenu;
+    public GameObject DivinerrMenu;
+    //public GameObject ClericMenu;
     //public GameObject inventory;
 
+    public GameObject fighter;
+    public GameObject diviner;
+
+    [Header("Inventory")]
     public bool paused;
 
-    public GameObject fighter;
+    //inventorydisplay:
+    public GameObject displayOverideObj;
+
+    public GameObject displayObject;
+    public GameObject displayTextPanel;
+    public GameObject inventoryText;
+
+    
 
     private Scene sceneName;
 
@@ -23,14 +38,14 @@ public class GameManager : MonoBehaviour
         Diviner,
         Cleric
     }
-
+    [Header("Character POV")]
     public CharacterPOV currentPOV = CharacterPOV.Fighter;
     
     // Start is called before the first frame update
     private void Start()
     {
         paused = false;
-        menu.SetActive(false);
+        fighterMenu.SetActive(false);
     }
 
     void Awake()
@@ -86,8 +101,12 @@ public class GameManager : MonoBehaviour
 
         if (paused)
         {
+            if (currentPOV == CharacterPOV.Fighter)
+            {
+                fighterMenu.SetActive(true);
+                displayOverideObj.SetActive(true);
+            }
             
-            menu.SetActive(true);
             
             //inventory.SetActive(true);
            
@@ -95,9 +114,17 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            menu.SetActive(false); 
+            if (currentPOV == CharacterPOV.Fighter)
+            {
+                fighterMenu.SetActive(false);
+                displayOverideObj.SetActive(false);
+                displayObject.SetActive(false);
+                displayTextPanel.SetActive(false);
+                inventoryText.SetActive(false);
+            }
+            
             //inventory.SetActive(false);
-           
+
             Time.timeScale = 1;
         }
     }

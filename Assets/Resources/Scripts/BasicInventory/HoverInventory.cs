@@ -23,6 +23,7 @@ public class HoverInventory : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private bool mouseOver = false;
 
     public GameObject inventoryPanel;
+
    
     // Start is called before the first frame update
     void Start()
@@ -35,17 +36,20 @@ public class HoverInventory : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     // Update is called once per frame
     void Update()
     {
-        if (mouseOver)
-        {
-            Debug.Log("looking");
-        }
+            if (mouseOver)
+            {
+                Debug.Log("looking");
+            }
 
-        if (inventoryPanel.activeInHierarchy == false)
-        {
-            inventoryImage.gameObject.SetActive(false);
-            inventoryText.gameObject.SetActive(false);
-            textPanel.gameObject.SetActive(false);
-        }
+            if (inventoryPanel.activeInHierarchy == false)
+            {
+                inventoryImage.gameObject.SetActive(false);
+                inventoryText.gameObject.SetActive(false);
+                textPanel.gameObject.SetActive(false);
+            }
+        
+        
+       
     }
 
     public void OnPointerEnter(PointerEventData eventData)
