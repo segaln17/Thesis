@@ -2,6 +2,7 @@
 tags:
 position: -208,-211
 ---
+//Act 1
 <<declare $spokenToWindy = false as bool>>
 <<declare $WindyOpeningRun = false as bool>>
 <<declare $spokenToByronFighter = false as bool>>
@@ -12,6 +13,11 @@ position: -208,-211
 <<declare $spokenToHildegardFighter = false as bool>>
 <<declare $spokenToGrimboldeFighter = false as bool>>
 <<declare $hedgehogRun = false as bool>>
+<<declare $spokenToHytheFighter = false as bool>>
+
+//Act 2
+<<declare $spokenToHeloiseDiviner = false as bool>>
+<<declare $spokenToHildegardDiviner = false as bool>>
 ===
 title: IntroWalk1
 ---
@@ -249,10 +255,13 @@ Fen: I'm trying to divine its secrets.
 The Fighter: <i>You chuckle, but say nothing.</i>
 Fen: Say, do you sing?
 Fen: I've noticed quite a few people who end up down here are musicians.
-Fen: I've wondered if it's a pattern.
-Fen: You have no instrument, so I thought I'd ask.
+Fen: I've wondered if this world gets louder when it turns them.
+Fen: By eating musicians, the Beneath takes their knack for music and makes it into its own sonic resonance,
+Fen: something like that. It's a theory I've been nursing.
+Fen: You have no instrument, so I thought I'd see if you fit into the pattern.
+<<wait  1>>
 //Fen: Some are too talkative to appreciate it, but others are more sensitive.
-Fen: I found this the other day. It looks like sheet music, almost.
+Fen: In case you do sing, I found this the other day. It looks like sheet music, almost.
 Fen: Here, maybe you'll have a use for it.
 <<playKnock GardenCutsceneManager>>
 //do we need this text?
@@ -265,7 +274,11 @@ The Fighter: <i>Strangely, it looks similar to the one you already possess.</i>
 <<wait  2>>
 <<disappearCreature FenTavernManager>>
 Fen: Windy found it by the garden, but she's given up music.
+Fen: People think it's because she's divorced, but she denies it.
 Fen: Consider it a welcome gift!
+Fen: The garden's up the hill, just outside. I go up there sometimes to think.
+Fen: Some of the plants up there respond to music, if you feel so inclined to try.
+Fen: Let me know if anything interesting happens!
 //Fen: Maybe something around here will respond to it!
 <<changeBackCam FenTavernManager>>
 <<set $spokenToFenFighterTavern to true>>
@@ -273,11 +286,9 @@ Fen: Consider it a welcome gift!
 
 //<<if $spokenToFenFighterTavern is true>>
 <<else>>
-Fen: Have you seen that strange grove behind the ridge, just north of here?
-Fen: Those trees conspire, I think.
-Fen: Hildegard told me she's heard them sing to each other.
-Fen: None of us here can sing, strangely enough.
-Fen: There must be secrets there, waiting to be found...
+Fen: You really ought to take a look at the garden, even just to take in the view.
+Fen: Trust me. I know these things.
+Fen: I'm a <i>diviner</i>.
 <<stop>>
 <<endif>>
 ===
@@ -295,34 +306,69 @@ position: 279,29
 Heloise: Welcome to our little slice of hell.
 Heloise: We gather here to pretend it's night, and that food still appetizes us.
 Heloise: Come back here when you're ready for "dinner".
+<<set $spokenToHeloiseFighter to true>>
 <<stop>>
-//<<set $spokenToHeloiseFighter to true>>
+<<endif>>
+
+<<if $charPOV is "Fighter" and $spokenToHeloiseFighter is true and $alteaSceneFenDone is false>>
+Heloise: Oh, you're ready?
+Heloise: We're not.
+Heloise: Come back later.
+<<stop>>
 <<endif>>
 
 //<<if $alteaSceneFenDone is true>>
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is true>>
 Heloise: You're back.
-Heloise: Are you ready?
-Heloise: Look into the flames. Do they seem ready to you?
+Heloise: You found something to amuse yourself with, I take it.
+Heloise: Good.
+Heloise: Everyone should, eventually.
+Heloise: Or you end up like Verity, whining alone in a field.
+Heloise: If you're ready, look into the fire. It's the only real ritual we have.
 <<stop>>
 <<endif>>
 
-<<if $charPOV is "Diviner">>
-Heloise: You're here. Is it almost time?
-Fen: We should wait for our new arrival, make her feel welcome.
-Heloise: Fine by me. I don't get hungry.
+<<if $charPOV is "Diviner" and $spokenToHeloiseDiviner is false>>
+Heloise: Have you convinced Altea to join us tonight?
+Fen: ...No. Not yet.
+Heloise: Then Liesel owes me a tooth.
+<<set $spokenToHeloiseDiviner to true>>
+<<stop>>
+<<endif>>
+
+<<if $charPOV is "Diviner" and $spokenToHeloiseDiviner is true>>
+Fen: Why do you need the teeth, Heloise? This isn't the first tooth bet I've heard you make.
+Heloise: Oh, I don't know. I just like them.
+Heloise: I like holding them in my hands and looking at them.
+Fen: That's fair, I suppose.
+Heloise: They're wasted on Liesel.
+Fen: If you say so.
+Heloise: She doesn't appreciate them like I do.
 <<stop>>
 <<endif>>
 ===
 title: HuskNPC
 position: 289,39
 ---
-<<if $charPOV is "Fighter" and $alteaSceneFenDone is false>>
+<<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToHytheFighter is false>>
 Hythe: You've seen them, then? The husks?
+Hythe: These are old ones, I think. They're basically the wall now.
+Hythe: And this fellow next to me is in the middle of the process.
 Hythe: Most of them are harmless. Used to be like us--lost souls.
 Hythe: Altea helps them, after they turn. Poor bastards.
+<<set $spokenToHytheFighter to true>>
 <<stop>>
 <<endif>>
+
+<<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToHytheFighter is true>>
+Hythe: I like sitting out here and watching the husks.
+Hythe: They don't do much, but that's okay.
+Hythe: I like talking to them. I can say whatever I want to them and they never react.
+Hythe: I can even scream at them if I want to, and they have to just sit there.
+Hythe: Nature is beautiful, don't you think?
+<<stop>>
+<<endif>>
+
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is true>>
 Hythe: Oh, is it time for the Bonfire already?
 Hythe: I've been observing this fellow. It hasn't moved.
@@ -335,26 +381,40 @@ Hythe: What do you think Altea does for them?
 title: BathhouseNPC
 position: 299,49
 ---
-<<if $charPOV is "Fighter" and $alteaSceneFenDone is false>>
-Grimbolde: Back when this was a monastery, this was probably the bathhouse.
-Grimbolde: The creatures here use it for whatever vile frolicking they do in their spare time.
+<<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToGrimboldeFighter is false>>
+Grimbolde: Oh. Hello. Haven't seen you before.
+Grimbolde: I hide out here by the old bathhouse to get some goddamned peace and quiet.
+Grimbolde: Except I can't get that, because the creatures use it for whatever vile frolicking they do in their spare time.
 Grimbolde: When they're not skittering around and shrieking.
-//<<set $spokenToGrimboldeFighter to true>>
+Grimbolde: But I can't go anywhere else because the very bones of this place make noise.
+Grimbolde: It's horrible. You're going to hate it.
+<<set $spokenToGrimboldeFighter to true>>
 <<stop>>
 <<endif>>
+
+<<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToGrimboldeFighter is true>>
+Grimbolde: If anyone tells you Windy and I are divorced, it's not true.
+Grimbolde: I've never been married.
+Grimbolde: I'm a bachelor for life.
+Grimbolde: And I'm not interested in being set up. Got it?
+<<stop>>
+<<endif>>
+
 //AFTER ALTEA AND FEN SCENE
 //<<if $gardenFoundFighter is true and $charPOV is "Fighter">>
 //<<if $alteaSceneFenDone is true>>
-<<if $charPOV is "Fighter" and $alteaSceneFenDone is true>>
+<<if $charPOV is "Fighter" and $alteaSceneFenDone is true and $spokenToGrimboldeFighter is true>>
 Grimbolde: Thank goodness, it's time to gather at the Bonfire.
-Grimbolde: Something about it makes these creatures shut up.
-Grimbolde: Blissful, blissful silence.
-Grimbolde: ...until Fen starts talking.
+Grimbolde: No creatures allowed down there.
+Grimbolde: That's all I want. Blissful, blissful silence.
+Grimbolde: Except that at "Dinner," Fen's always talking.
+Grimbolde: Hell, everywhere, all the time.
+Grimbolde: Isn't it awful?
 The Fighter: <i>You say nothing.</i>
 <<stop>>
 <<endif>>
 
-<<if $charPOV is "Diviner">>
+<<if $charPOV is "Diviner" and $alteaSceneFenDone is false>>
 Grimbolde: Oh, Fen, can something be done about these things?
 Grimbolde: I hate them.
 Grimbolde: Their voices scrape my mind like nails on slate.
@@ -370,29 +430,58 @@ Grimbolde: I wouldn't think she was in there at all if not for the light.
 title: OutsideGardenNPC
 position: 309,59
 ---
-<<if $charPOV is "Fighter" and $alteaSceneFenDone is false>>
-Hildegard: A druid passed through here once.
-Hildegard: They planted some things, and they grew into... that.
-Hildegard: No one's been able to figure out how to get through it to see what might be back there.
-Hildegard: I hear the trees singing to each other, sometimes.
-Hildegard: I wish I could sing.
-//<<set $spokenToHildegardFighter to true>>
+<<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToHildegardFighter is false>>
+Hildegard: Did Fen tell you to find me?
+Hildegard: I'm alright, really. I'm just listening.
+Hildegard: I'm waiting for the trees to sing.
+<<set $spokenToHildegardFighter to true>>
 <<stop>>
 <<endif>>
+
+<<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToHildegardFighter is true>>
+Hildegard: Did you come here alone?
+Hildegard: I came with my brother. He... he loved music.
+Hildegard: ...
+Hildegard: I can almost hear his favorite song in the chorus of the cliffs.
+Hildegard: If I listen hard enough.
+<<stop>>
+<<endif>>
+
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is true>>
 //<<if $spokenToHildegardFighter is true>>
 Hildegard: Oh, the Bonfire...
 Hildegard: I wish I could see its light from here.
-Hildegard: I don't want to leave the trees. I'd imagine they get lonely.
+Hildegard: I haven't been since my brother turned.
+Hildegard: Maybe I'll... maybe I'll go later.
 <<stop>>
 <<endif>>
 
-<<if $charPOV is "Diviner">>
-Hildegard: Fen! That new person went inside!
-Hildegard: She has a beautiful singing voice.
-Fen: Don't be jealous, dear! You just have to practice.
-Hildegard: Can you ask her to teach me?
-Fen: Well... maybe if she isn't busy.
+<<if $charPOV is "Diviner" and $spokenToHildegardDiviner is false>>
+Hildegard: Fen, I'm feeling so peculiar.
+Fen: How so, dear?
+Hildegard: My head... it feels far away. And my body...
+Fen: Have you mentioned this to Altea?
+Hildegard: No... I feel foolish admitting this but I'm afraid of her.
+Hildegard: And she never comes up here.
+Fen: Well, if this strange feeling persists, tell me, okay?
+Fen: And I'll talk to her for you.
+Fen: She's just prickly, that's all.
+Hildegard: ...Okay.
+<<set $spokenToHildegardDiviner to true>>
+//Hildegard: She has a beautiful singing voice.
+//Fen: Don't be jealous, dear! You just have to practice.
+//Hildegard: Can you ask her to teach me?
+//Fen: Well... maybe if she isn't busy.
+<<stop>>
+<<endif>>
+
+<<if $charPOV is "Diviner" and $spokenToHildegardDiviner is true>>
+Hildegard: The moon...
+Hildegard: I can hear it...
+Hildegard: It's singing his favorite song.
+Fen: ...are you alright, Hildegard?
+Hildegard: Oh, Fen... I didn't see you.
+Hildegard: I have the strangest feeling that I'll see him soon...
 <<stop>>
 <<endif>>
 ===
@@ -485,7 +574,7 @@ Fen: Altea, dear, are you in there?
 <<wait  3>>
 <<playKnock YarnStableCutsceneSetUpCollider>>
 //knock again
-Fen: I know you're likely busy, but it's time for dinner, and I was hoping you would join us tonight-
+Fen: I know you're likely busy, but it's time for dinner, and I was hoping you would join us tonight--
 //timeline run for door opening and revealing ALtea
 <<changeCam PlayerDiviner>>
 <<openDoor YarnStableCutsceneSetUpCollider>>
@@ -493,18 +582,24 @@ Fen: I know you're likely busy, but it's time for dinner, and I was hoping you w
 Altea: What do you want?
 Fen: Well, seeing as we're all gathering at the Bonfire,
 Fen: I thought I'd extend the invitation.
-<<wait  2>>
+<<wait  1.5>>
 Fen: Again.
-<<wait  2>>
+<<wait  1.5>>
 Fen: Just in case you've changed your mind?
 Altea: I'm busy.
-Fen: I assumed you would say that, but, Altea, there's a new arrival!
-Fen: She's a bright one, too!
-Fen: Made her way into the garden, clever thing!
-Altea: What?
-Fen: Not one for talking, but quite a lovely singer, too!
+Fen: I assumed you would say that, but, Altea...
+Fen: Oh, and there's a newcomer! You ought to meet her, she seems lovely.
+//Fen: She's a bright one, too!
+//Fen: Made her way into the garden, clever thing!
+//Altea: What?
+Fen: Not one for talking, but quite a lovely singer!
 Altea: Someone new's here.
 Fen: Yes! Isn't it exciting?
+Altea: And they're not bawling like a baby?
+Fen: No, she seems to be adjusting just fine!
+Fen: I'm hoping she does something interesting. She has the look of someone who will do something interesting.
+Fen: I have a sense about these things.
+Fen: Do come and meet her, Altea. I think you'd find her as interesting as I do!
 <<wait  1>>
 Altea: Hm.
 <<wait  2>>
@@ -512,20 +607,21 @@ Altea: No.
 Fen: No?
 Altea: I'm busy, Fen.
 Altea: I have a lot of work to do.
-Fen: But it's important to stay grounded so-
+Fen: But it's important to stay grounded--
 Altea: It's insanity.
 Altea: It's like you think pretending this is a real town,
-Altea: and not a derelict monastery in what might as well be the bowels of hell,
+Altea: and not a derelict ruin in what might as well be the bowels of hell,
 Altea: is going to get us all out of here.
 Altea: Keep us normal.
-Altea: I'm not like you. I'm a realist.
+Altea: Make this place allergic to us, somehow.
+Altea: But I'm not like you. I'm a realist.
 Altea: This place is a hellhole,
 Altea: and these husks aren't going to fix themselves.
 <<wait  1>>
-Fen: But-
-Altea: Do you not want me to call upon my Lady to help these poor things?
-Fen: Well-
-Altea: Then let me work. I'm not coming to "dinner."
+Fen: But--
+Altea: Do you not want me to call upon my Lady to help these poor, helpless, wretched things?
+Fen: Well, yes, but--
+Altea: Then let me work. I'm not coming to "Dinner."
 <<closeDoor YarnStableCutsceneSetUpCollider>>
 <<disappearCreature YarnStableCutsceneSetUpCollider>>
 <<changeBackCam PlayerDiviner>>
