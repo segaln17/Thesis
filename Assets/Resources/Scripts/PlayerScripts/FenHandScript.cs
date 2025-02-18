@@ -6,7 +6,7 @@ using UnityEngine;
 public class FenHandScript : MonoBehaviour
 {
     public GameObject fenHandUI;
-
+    
     public bool isHandOut;
     // Start is called before the first frame update
     void Start()

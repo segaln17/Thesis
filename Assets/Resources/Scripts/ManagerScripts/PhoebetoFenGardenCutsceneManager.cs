@@ -34,9 +34,12 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
     public GameObject fencolorway;
     public GameObject gardenYarnTrigger;
     public GameObject audioManager;
+    public GameObject phoebeTess;
+    public GameObject fenTess;
 
     public GameObject hyperSpaceWarp;
     public bool isPulsing = false;
+    public bool isNormal = false;
     
     public int normal = 60;
     public int zoom = 30;
@@ -72,7 +75,7 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
         {
             pulsingCamera.m_Lens.FieldOfView = Mathf.Lerp(pulsingCamera.m_Lens.FieldOfView, zoom, Time.deltaTime * smooth);
         }
-        else
+        else if(!isPulsing && isNormal)
         {
             pulsingCamera.m_Lens.FieldOfView = Mathf.Lerp(pulsingCamera.m_Lens.FieldOfView, normal, Time.deltaTime * smooth);
         }
@@ -84,20 +87,22 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
     {
         Debug.Log("switching to Fen from Garden");
         isPulsing = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         isPulsing = false;
+        isNormal = true;
 
         phoebecamfirstPerson.Priority = 1;
         phoebecam01.Priority = 12;
         pulsingCamera = phoebecam01;
+        phoebefeet.SetActive(false);
+        phoebeTess.SetActive(false);
         isPulsing = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         isPulsing = false;
-        yield return new WaitForSeconds(1f);
-
+        isNormal = true;
         Debug.Log("phoebethirdperson");
         PhoebeRB.isKinematic = true;
-        phoebefeet.SetActive(false);
+        
         phoebecolorway.SetActive(true);
         PlayerPhoebe.GetComponent<SimpleController>().enabled = false;
         Debug.Log("phoebecontrollershouldbeoff");
@@ -105,11 +110,12 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
         outsideRookeryTrigger.GetComponent<DialogueTrigger>().enabled = false;
         insideRookeryTrigger.GetComponent<DialogueTrigger>().enabled = false;
         isPulsing = true;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1.5f);
         isPulsing = false;
+        isNormal = true;
 
         //switch camera to Aerial
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(1.5f);
         audioManager.SetActive(false);
         gardenYarnTrigger.SetActive(false);
         phoebecam01.Priority = 0;
@@ -121,28 +127,33 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
 
 
         //switch camera to Fen
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.15f);
         AerialCam.Priority = 0;
         fenCam01.Priority = 12;
+        yield return new WaitForSeconds(1f);
         isPulsing = true;
         yield return new WaitForSeconds(1f);
         isPulsing = false;
+        isNormal = true;
         Debug.Log("camshouldswitch");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         pulsingCamera = fenCam02;
         isPulsing = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         isPulsing = false;
+        isNormal = true;
 
 
         //zoom in to Fen
         fenCam02.Priority = 12;
         fenCam01.Priority = 1;
+        fenTess.SetActive(true);
         hyperSpaceWarp.SetActive(true);
         isPulsing = true;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1.5f);
         isPulsing = false;
-        yield return new WaitForSeconds(1f);
+        isNormal = true;
+        yield return new WaitForSeconds(.5f);
 
         //set charPOV to diviner
         yarnDialogueTrigger.SetCharacterPOV(GameManager.CharacterPOV.Diviner);
@@ -156,6 +167,9 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
         isPulsing = true;
         yield return new WaitForSeconds(1.5f);
         isPulsing = false;
+        isNormal = true;
+        yield return new WaitForSeconds(1.5f);
+        isNormal = false;
         fenCam02.m_Lens.FieldOfView = 60f;
         timelineScript.GoTimeline();
         fencolorway.gameObject.SetActive(false);
