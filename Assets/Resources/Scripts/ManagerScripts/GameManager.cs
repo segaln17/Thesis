@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Manager")]
     public GameObject fighterMenu;
-    public GameObject DivinerrMenu;
+    public GameObject divinerMenu;
     //public GameObject ClericMenu;
     //public GameObject inventory;
 
@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         paused = false;
         fighterMenu.SetActive(false);
+        divinerMenu.SetActive(false);
     }
 
     void Awake()
@@ -106,6 +107,11 @@ public class GameManager : MonoBehaviour
                 fighterMenu.SetActive(true);
                 displayOverideObj.SetActive(true);
             }
+            else if (currentPOV == CharacterPOV.Diviner)
+            {
+                divinerMenu.SetActive(true);
+                displayOverideObj.SetActive(true);
+            }
             
             
             //inventory.SetActive(true);
@@ -117,6 +123,14 @@ public class GameManager : MonoBehaviour
             if (currentPOV == CharacterPOV.Fighter)
             {
                 fighterMenu.SetActive(false);
+                displayOverideObj.SetActive(false);
+                displayObject.SetActive(false);
+                displayTextPanel.SetActive(false);
+                inventoryText.SetActive(false);
+            }
+            else if (currentPOV == CharacterPOV.Diviner)
+            {
+                divinerMenu.SetActive(false);
                 displayOverideObj.SetActive(false);
                 displayObject.SetActive(false);
                 displayTextPanel.SetActive(false);

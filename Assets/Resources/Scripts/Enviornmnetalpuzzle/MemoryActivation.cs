@@ -7,6 +7,9 @@ public class MemoryActivation : MonoBehaviour
 
     public GameObject memoryAppear;
     public MemoryManager memoryManager;
+
+    public MemoryCardChoose memoryCardChoose;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,25 +24,43 @@ public class MemoryActivation : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (GameManager.Instance.currentPOV == GameManager.CharacterPOV.Diviner)
         {
-            memoryManager.inMemoryGame = true;
-            memoryAppear.SetActive(true);
-        }
-        else
-        {
-            memoryManager.inMemoryGame = false;
-            memoryAppear.SetActive(false);
+            if (other.gameObject.CompareTag("Player"))
+            {
+                memoryManager.inMemoryGame = true;
+                memoryAppear.SetActive(true);
+            }
+            else
+            {
+                memoryManager.inMemoryGame = false;
+                memoryAppear.SetActive(false);
+            }
+
+            if (this.CompareTag("Archaeologist"))
+            {
+                memoryCardChoose.existingText01.text = memoryCardChoose.archaeFragment01;
+                memoryCardChoose.existingText02.text = memoryCardChoose.archaeFragment02;
+            }
+            else if (this.CompareTag("Dreamer"))
+            {
+                memoryCardChoose.existingText01.text = memoryCardChoose.dreamerFragment01;
+                memoryCardChoose.existingText02.text = memoryCardChoose.dreamerFragment02;
+            }
+
         }
         
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (GameManager.Instance.currentPOV == GameManager.CharacterPOV.Diviner)
         {
-            memoryAppear.SetActive(false);
-            memoryManager.inMemoryGame = false;
+            if (other.gameObject.CompareTag("Player"))
+            {
+                memoryAppear.SetActive(false);
+                memoryManager.inMemoryGame = false;
+            }
         }
 
     }

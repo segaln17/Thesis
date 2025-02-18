@@ -14,6 +14,8 @@ public class AlignmentScript : MonoBehaviour
     public bool isChecking = false;
 
     public int targetCastLimit;
+
+    public GameObject specificMemoryCard;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +48,7 @@ public class AlignmentScript : MonoBehaviour
     {
         yield return new WaitForSeconds(4f);
         memoryCard.SetActive(true);
+        specificMemoryCard.SetActive(true);
         surprise.SetActive(false);
         yield return new WaitForSeconds(1f);
         memoryCardButton.SetActive(true);

@@ -15,8 +15,11 @@ public class MemoryManager : MonoBehaviour
     //---Bools---
     public bool inMemoryGame;
     public bool dreamerCollected=false;
+    public bool archaeCollected = false;
 
     public GameObject dreamerCollider;
+
+    public GameObject archaeCollider;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,16 @@ public class MemoryManager : MonoBehaviour
                 CloseScrapbook();
                 dreamerCollider.SetActive(false);
                 dreamerCollected = true;
+            }
+        }
+
+        if (archaeCollider.CompareTag("Archaeologist"))
+        {
+            if (inMemoryGame && Input.GetKeyDown(KeyCode.Space))
+            {
+                CloseScrapbook();
+                archaeCollider.SetActive(false);
+                archaeCollected = true;
             }
         }
         

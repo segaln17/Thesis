@@ -79,7 +79,7 @@ public class SongScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (GameManager.Instance.currentPOV == GameManager.CharacterPOV.Fighter && Input.GetKeyDown(KeyCode.Space))
         {
             sheetActive = !sheetActive;
         }

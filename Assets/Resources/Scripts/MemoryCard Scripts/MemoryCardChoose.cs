@@ -13,6 +13,10 @@ public class MemoryCardChoose : MonoBehaviour
     public Button existingCard01;
     public Button existingCard02;
     
+    //text for existing cards:
+    public TextMeshProUGUI existingText01;
+    public TextMeshProUGUI existingText02;
+    
     //memory text for each card:
     public TextMeshProUGUI card01Text;
     public TextMeshProUGUI card02Text;
@@ -43,6 +47,13 @@ public class MemoryCardChoose : MonoBehaviour
     //scrapbook:
     public GameObject scrapbook;
     public ScrapbookSave scrapbookScript;
+    
+    //strings that are text for each card set:
+    public string dreamerFragment01;
+    public string dreamerFragment02;
+
+    public string archaeFragment01;
+    public string archaeFragment02;
     
     //public int clickAmount;
     
