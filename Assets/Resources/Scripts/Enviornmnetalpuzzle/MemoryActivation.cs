@@ -9,6 +9,8 @@ public class MemoryActivation : MonoBehaviour
     public MemoryManager memoryManager;
 
     public MemoryCardChoose memoryCardChoose;
+    public bool colliderDreamerInside = false;
+    public bool colliderArchaelogistInside = false;
     
     // Start is called before the first frame update
     void Start()
@@ -30,19 +32,21 @@ public class MemoryActivation : MonoBehaviour
             {
                 memoryManager.inMemoryGame = true;
                 memoryAppear.SetActive(true);
-                /*
+                
                 if (gameObject.CompareTag("Archaeologist"))
                 {
-                    memoryCardChoose.existingText01.text = memoryCardChoose.archaeFragment01;
-                    memoryCardChoose.existingText02.text = memoryCardChoose.archaeFragment02;
+                    colliderArchaelogistInside = true;
+                    /*memoryCardChoose.existingText01.text = memoryCardChoose.archaeFragment01;
+                    memoryCardChoose.existingText02.text = memoryCardChoose.archaeFragment02;*/
                 }
             
                 else if (gameObject.CompareTag("Dreamer"))
                 {
-                    memoryCardChoose.existingText01.text = memoryCardChoose.dreamerFragment01;
-                    memoryCardChoose.existingText02.text = memoryCardChoose.dreamerFragment02;
+                    colliderDreamerInside = true;
+                    /*memoryCardChoose.existingText01.text = memoryCardChoose.dreamerFragment01;
+                    memoryCardChoose.existingText02.text = memoryCardChoose.dreamerFragment02;*/
                 }
-                */
+                
             }
             else
             {
@@ -62,6 +66,8 @@ public class MemoryActivation : MonoBehaviour
             {
                 memoryAppear.SetActive(false);
                 memoryManager.inMemoryGame = false;
+                colliderArchaelogistInside = false;
+                colliderDreamerInside = false;
             }
         }
 

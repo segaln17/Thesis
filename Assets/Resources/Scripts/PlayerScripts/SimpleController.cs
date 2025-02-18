@@ -13,6 +13,7 @@ public class SimpleController : MonoBehaviour
     public float force = 5.0f;
     private Vector3 movementDirection;
     public bool isPlayerWalking;
+    public GameObject footstepSounds;
 
     //THE THINGS BELOW ARE AN ATTEMPT AT PARENTING CONTROLS TO WHERE THE CAMERA IS FACING
     //mouse sensitivity
@@ -69,6 +70,7 @@ public class SimpleController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         isPlayerWalking = false;
+        footstepSounds.SetActive(false);
         //Cursor.visible = false;
 
         /*
@@ -101,9 +103,15 @@ public class SimpleController : MonoBehaviour
         //handle drag
         if (grounded) {
             rb.drag = groundDrag;
+                if (isPlayerWalking)
+                {
+                    footstepSounds.SetActive(true);
+                }
+                else {footstepSounds.SetActive(false); }
         }
         else {
-            rb.drag = groundlessDrag; 
+            rb.drag = groundlessDrag;
+            footstepSounds.SetActive(false);
         }
         SpeedControl();
         

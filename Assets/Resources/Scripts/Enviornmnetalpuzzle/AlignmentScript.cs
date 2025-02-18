@@ -49,8 +49,12 @@ public class AlignmentScript : MonoBehaviour
         yield return new WaitForSeconds(4f);
         memoryCard.SetActive(true);
         specificMemoryCard.SetActive(true);
-        surprise.SetActive(false);
+        
+        Debug.Log("playingcardtriggercoroutine");
         yield return new WaitForSeconds(1f);
         memoryCardButton.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        surprise.SetActive(false);
+        gameObject.SetActive(false);
     }
 }

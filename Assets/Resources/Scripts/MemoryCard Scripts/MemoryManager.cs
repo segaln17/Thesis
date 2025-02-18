@@ -5,20 +5,27 @@ using UnityEngine.UI;
 
 public class MemoryManager : MonoBehaviour
 {
+    [Header ("Main Objects")]
     public GameObject memoryGame;
     public GameObject scrapbookText;
     public Image scrapbook;
 
     public Sprite bookSpriteClosed;
     public Sprite bookSpriteOpen;
+    public GameObject scrapBookObj;
 
     //---Bools---
+    [Header("Main Bools")]
     public bool inMemoryGame;
     public bool dreamerCollected=false;
     public bool archaeCollected = false;
 
+    [Header("Dreamer Variables")]
+    public MemoryActivation dreamActivation;
     public GameObject dreamerCollider;
 
+    [Header("Archaeo Variables")]
+    public MemoryActivation archActivation;
     public GameObject archaeCollider;
     // Start is called before the first frame update
     void Start()
@@ -30,10 +37,10 @@ public class MemoryManager : MonoBehaviour
     void Update()
     {
 
-
-        if (dreamerCollider.CompareTag("Dreamer"))
+       
+        if (dreamActivation.colliderDreamerInside)
         {
-            if (inMemoryGame && Input.GetKeyDown(KeyCode.Space))
+            if (inMemoryGame && Input.GetKeyDown(KeyCode.E))
             {
                 CloseScrapbook();
                 dreamerCollider.SetActive(false);
@@ -41,9 +48,9 @@ public class MemoryManager : MonoBehaviour
             }
         }
 
-        if (archaeCollider.CompareTag("Archaeologist"))
+        if (archActivation.colliderArchaelogistInside)
         {
-            if (inMemoryGame && Input.GetKeyDown(KeyCode.Space))
+            if (inMemoryGame && Input.GetKeyDown(KeyCode.E))
             {
                 CloseScrapbook();
                 archaeCollider.SetActive(false);
@@ -66,8 +73,11 @@ public class MemoryManager : MonoBehaviour
         scrapbook.sprite = bookSpriteClosed;
         scrapbookText.SetActive(false);
         yield return new WaitForSeconds(3f);
-        scrapbookText.SetActive(true);
-        memoryGame.SetActive(false);    
+        memoryGame.SetActive(false);
+        yield return new WaitForSeconds(3f);
+        scrapbook.sprite = bookSpriteOpen;
+        scrapBookObj.SetActive(false);
+
     }
 
 }
