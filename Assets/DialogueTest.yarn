@@ -83,7 +83,7 @@ position: -172,85
     //<<jump Opening>>
     //<<stop>>
 //<<if $charPOV is "Fighter">>
-<<if $spokenToWindy is false>>
+<<if $charPOV is "Fighter" and $spokenToWindy is false>>
     Windy: Wow. Another newbie. And here I thought Altea was the last for a while.
     Windy: Guess I owe Zora the next cask I find out here.
     Windy: How'd you get here, newbie?
@@ -111,7 +111,8 @@ position: -172,85
     Windy: All the way under the water.
     <<set $spokenToWindy to true>>
     <<stop>>
-<<else>>
+    <<endif>>
+<<if $charPOV is "Fighter" and $spokenToWindy is true>>
     Windy: Oh, did I not mention? Fen's at the tavern.
     Windy: If you see Zora, don't tell her I owe her, okay?
     Windy: Now, where did that little varmint go?

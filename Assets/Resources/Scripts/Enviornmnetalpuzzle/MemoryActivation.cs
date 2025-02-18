@@ -30,22 +30,24 @@ public class MemoryActivation : MonoBehaviour
             {
                 memoryManager.inMemoryGame = true;
                 memoryAppear.SetActive(true);
+                /*
+                if (gameObject.CompareTag("Archaeologist"))
+                {
+                    memoryCardChoose.existingText01.text = memoryCardChoose.archaeFragment01;
+                    memoryCardChoose.existingText02.text = memoryCardChoose.archaeFragment02;
+                }
+            
+                else if (gameObject.CompareTag("Dreamer"))
+                {
+                    memoryCardChoose.existingText01.text = memoryCardChoose.dreamerFragment01;
+                    memoryCardChoose.existingText02.text = memoryCardChoose.dreamerFragment02;
+                }
+                */
             }
             else
             {
                 memoryManager.inMemoryGame = false;
                 memoryAppear.SetActive(false);
-            }
-
-            if (this.CompareTag("Archaeologist"))
-            {
-                memoryCardChoose.existingText01.text = memoryCardChoose.archaeFragment01;
-                memoryCardChoose.existingText02.text = memoryCardChoose.archaeFragment02;
-            }
-            else if (this.CompareTag("Dreamer"))
-            {
-                memoryCardChoose.existingText01.text = memoryCardChoose.dreamerFragment01;
-                memoryCardChoose.existingText02.text = memoryCardChoose.dreamerFragment02;
             }
 
         }

@@ -29,6 +29,8 @@ public class MemoryCardChoose : MonoBehaviour
     
     //text for memory card that will change depending on what is combined:
     public TextMeshProUGUI memoryText;
+    //second page
+    public TextMeshProUGUI memoryText2;
     
     //what card is chosen:
     private bool isChosen;
@@ -54,6 +56,8 @@ public class MemoryCardChoose : MonoBehaviour
 
     public string archaeFragment01;
     public string archaeFragment02;
+
+    public MemoryActivation memoryActivationScript;
     
     //public int clickAmount;
     
@@ -71,6 +75,17 @@ public class MemoryCardChoose : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (memoryActivationScript.gameObject.CompareTag("Archaeologist"))
+        {
+            existingText01.text = archaeFragment01;
+            existingText02.text = archaeFragment02;
+        }
+
+        if (memoryActivationScript.gameObject.CompareTag("Dreamer"))
+        {
+            existingText01.text = dreamerFragment01;
+            existingText02.text = dreamerFragment02;
+        }
         /*
         if (cardFlipper1.gameObject.CompareTag("card1") && cardFlipper1.isRead == true)
         {
@@ -127,6 +142,12 @@ public class MemoryCardChoose : MonoBehaviour
         if (scrapbookScript.MemoryList.Count <3)
         {
             scrapbookScript.MemoryList.Add(memoryText);
+            /*
+            if (scrapbookScript.MemoryList.Count == 1)
+            {
+                scrapbookScript.memory.text += "/n" + memoryText.text;
+            }
+            */
         }
         else
         {
@@ -134,7 +155,7 @@ public class MemoryCardChoose : MonoBehaviour
             scrapbookScript.MemoryList.Add(memoryText);
         }
 
-        scrapbookScript.memory.text = memoryText.text;
+        scrapbookScript.memory.text += memoryText.text + "\n";
         StartCoroutine(StartScrapbook());
         //chosenCard.transform.position = Vector3.Lerp(chosenCard.transform.position, chosenCardPos.transform.position, 4f);
     }

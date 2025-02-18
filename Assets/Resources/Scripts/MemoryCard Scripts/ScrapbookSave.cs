@@ -13,7 +13,7 @@ public class ScrapbookSave : MonoBehaviour
     //public TextMeshProUGUI memory2;
     //public TextMeshProUGUI memory3;
     
-    public MemoryCardChoose memoryScript;
+    //public MemoryCardChoose memoryScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +44,7 @@ public class ScrapbookSave : MonoBehaviour
         }
         */
         
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (scrapbook.activeInHierarchy && Input.GetKeyDown(KeyCode.Space))
         {
             CloseScrapbook();
         }
