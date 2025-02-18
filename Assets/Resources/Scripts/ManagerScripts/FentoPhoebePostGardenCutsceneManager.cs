@@ -34,6 +34,8 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
     public bool isswitching;
     public bool isswitched;
 
+    public Transform fenBonfire;
+    
     public bool cutsceneEndedInCollider;
     // Start is called before the first frame update
     void Start()
@@ -106,6 +108,7 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
         phoebecolorway.SetActive(false);
         fenCam01.gameObject.SetActive(false);
         fenCam02.gameObject.SetActive(false);
+        PlayerDiviner.transform.position = fenBonfire.position;
         
         //set charPOV to Fighter
         yarnDialogueTrigger.SetCharacterPOV(GameManager.CharacterPOV.Fighter);

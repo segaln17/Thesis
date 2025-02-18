@@ -20,6 +20,11 @@ public class MemoryCardChoose : MonoBehaviour
     //memory text for each card:
     public TextMeshProUGUI card01Text;
     public TextMeshProUGUI card02Text;
+
+    public Animator page1;
+    public Animator page2;
+    public GameObject page01text;
+    public GameObject page02text;
     
     //button for new card:
     public Button newCard;
@@ -155,7 +160,19 @@ public class MemoryCardChoose : MonoBehaviour
             scrapbookScript.MemoryList.Add(memoryText);
         }
 
-        scrapbookScript.memory.text += memoryText.text + "\n";
+        //if count is less than 3:
+        if (scrapbookScript.MemoryList.Count <2)
+        {
+            scrapbookScript.memory.text += memoryText.text + "\n";
+            memoryText.gameObject.SetActive(false);
+        }
+        else if (scrapbookScript.MemoryList.Count ==2)
+        {
+            scrapbookScript.memory.text += memoryText2.text + "\n";
+            memoryText.gameObject.SetActive(false);
+        }
+        //else if count is 3:
+        //add it to the second memorytext object
         StartCoroutine(StartScrapbook());
         //chosenCard.transform.position = Vector3.Lerp(chosenCard.transform.position, chosenCardPos.transform.position, 4f);
     }
@@ -165,6 +182,21 @@ public class MemoryCardChoose : MonoBehaviour
         yield return new WaitForSeconds(6f);
         memoryCard.gameObject.SetActive(false);
         scrapbook.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        if (scrapbookScript.MemoryList.Count == 1)
+        {
+            //page1.SetBool();
+            //triggers animation
+            yield return new WaitForSeconds(1f);
+            memoryText.gameObject.SetActive(true);
+        }
+        else if (scrapbookScript.MemoryList.Count == 2)
+        {
+            //page2.SetBool();
+            yield return new WaitForSeconds(1f);
+            memoryText2.gameObject.SetActive(true);
+        }
+        
     }
     
     //set up next set of cards:
