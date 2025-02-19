@@ -42,16 +42,25 @@ public class MemoryGuidance : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (GameManager.Instance.currentPOV == GameManager.CharacterPOV.Diviner)
+        if (other.gameObject.CompareTag("Player") && GameManager.Instance.currentPOV == GameManager.CharacterPOV.Diviner)
         {
             inMemoryCollider = true;
         }
         
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player") && GameManager.Instance.currentPOV == GameManager.CharacterPOV.Diviner)
+        {
+            inMemoryCollider = true;
+        }
+        
+    }
+    
     private void OnTriggerExit(Collider other)
     {
-        if (GameManager.Instance.currentPOV == GameManager.CharacterPOV.Diviner)
+        if (other.gameObject.CompareTag("Player") && GameManager.Instance.currentPOV == GameManager.CharacterPOV.Diviner)
         {
             inMemoryCollider = false;
         }

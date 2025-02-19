@@ -14,6 +14,7 @@ position: -208,-211
 <<declare $spokenToGrimboldeFighter = false as bool>>
 <<declare $hedgehogRun = false as bool>>
 <<declare $spokenToHytheFighter = false as bool>>
+<<declare $alteaSpineDone = false as bool>>
 
 //Act 2
 <<declare $spokenToHeloiseDiviner = false as bool>>
@@ -740,12 +741,14 @@ Fen: and then I'll just be upset for the rest of the day.
 Fen: ...Or night?
 Fen: Or... whatever time this is.
 <<changeBackCam BonfireManager>>
-<i>This is the end of the demo. Thank you for playing!</i>
-<<restart BonfireManager>>
+
+//<i>This is the end of the demo. Thank you for playing!</i>
+//<<restart BonfireManager>>
 <<stop>>
 ===
 title: AlteaAtTheSpine
 ---
+<<if $charPOV is "Fighter" and $alteaSpineDone is false>>
 Altea: ...
 <<wait  2>>
 Altea: What are you doing out here.
@@ -769,24 +772,38 @@ Altea: Don't worry about that.
 Altea: It's for the greater good, I promise you.
 Altea: Now, run along.
 //ALTEA LEAVES?
-<<disappearCreature PlayerClericStandIn>>
+//<<disappearCreature PlayerClericStandInSpine>>
 //OR PLAYER TURNS (camera would do something)
 //CREATURE APPEARS
-<<revealCreature bridge_dog>>
+<<revealCreature PlayerClericStandInSpine>>
+<<wait  1.5>>
+<<changeCam PlayerClericStandInSpine>>
 Creature that Looks Worried: The moon must hatch.
+<<playKnock CommandHolderSpine>>
+<<revealCreature CommandHolderSpine>>
+<<wait  2>>
+<<disappearCreature CommandHolderSpine>>
 //GIVE FIGURINE
-<<getMusicBoxFigure InventoryManagers>>
+<<getMusicBoxFigure InventoryManager>>
 Creature that Looks Worried: Go to the bathing place.
 Creature that Looks Worried: See what she has done.
+<<changeBackCam PlayerClericStandInSpine>>
+<<colliderActive PhoebetoFenSpineManager>>
 //switch into Fen
+<<set $alteaSpineDone to true>>
+<<disappearCreature Hound>>
 <<stop>>
+<<endif>>
 ===
 title: FenMemoryTransition
 ---
 //I WILL FIX THIS
 <<wait  1>>
-Fen: It's about that time to go remember stuff.
-Fen: I can check my compass in my hand to guide me.
+Fen: Things are dying down a bit...
+Fen: I should go take a walk. Look for things that make me remember.
+Fen: Gods know I need it.
+Fen: If I forget where I should go, the compass in my hand should help guide me.
+Fen: If that enchantment I cast before I got here even still works...
 <<stop>>
 ===
 title: BonfireTransition

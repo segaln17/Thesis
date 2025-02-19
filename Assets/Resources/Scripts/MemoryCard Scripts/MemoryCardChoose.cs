@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class MemoryCardChoose : MonoBehaviour
 {
+    
     //card side script:
     public CardSideRender cardFlipper1;
     
@@ -20,7 +21,11 @@ public class MemoryCardChoose : MonoBehaviour
     //memory text for each card:
     public TextMeshProUGUI card01Text;
     public TextMeshProUGUI card02Text;
+    
+    //text in tea swirl:
+    public TextMeshProUGUI swirlText;
 
+    //animators for page fade
     public Animator page1;
     public Animator page2;
     public GameObject page01text;
@@ -29,7 +34,7 @@ public class MemoryCardChoose : MonoBehaviour
     //button for new card:
     public Button newCard;
     
-    //button for memory card:
+    //button for memory card/tea swirl:
     public Button memoryCard;
     
     //text for memory card that will change depending on what is combined:
@@ -49,7 +54,7 @@ public class MemoryCardChoose : MonoBehaviour
     public bool revealed = false;
     
     //position where chosen card should go:
-    public GameObject chosenCardPos;
+    //public GameObject chosenCardPos;
     
     //scrapbook:
     public GameObject scrapbook;
@@ -64,7 +69,7 @@ public class MemoryCardChoose : MonoBehaviour
 
     public MemoryActivation memoryActivationScript;
     
-    //public int clickAmount;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -80,6 +85,7 @@ public class MemoryCardChoose : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (memoryActivationScript.gameObject.CompareTag("Archaeologist"))
         {
             existingText01.text = archaeFragment01;
@@ -112,8 +118,11 @@ public class MemoryCardChoose : MonoBehaviour
         isChosen = true;
         chosenCard = existingCard01;
         forgottenCard = existingCard02;
-        StartCoroutine("StartForget");
         memoryText.text = card01Text.text;
+        swirlText.text = memoryText.text;
+        Debug.Log("memory1");
+        StopAllCoroutines();
+        StartCoroutine("StartForget");
         RevealMemory();
     }
 
@@ -122,8 +131,12 @@ public class MemoryCardChoose : MonoBehaviour
         isChosen = true;
         chosenCard = existingCard02;
         forgottenCard = existingCard01;
-        StartCoroutine("StartForget");
         memoryText.text = card02Text.text;
+        swirlText.text = memoryText.text;
+        Debug.Log("memory2");
+        StopAllCoroutines();
+        StartCoroutine("StartForget");
+        
         RevealMemory();
     }
 
@@ -135,18 +148,25 @@ public class MemoryCardChoose : MonoBehaviour
         yield return new WaitForSeconds(3f);
         //play animation of card fading away? or just set it inactive?
         forgottenCard.gameObject.SetActive(false);
+        StopCoroutine(StartForget());
         
     }
 
     public void RevealMemory()
     {
+        //tarot card away
         newCard.gameObject.SetActive(false);
+        //card you picked away
         chosenCard.gameObject.SetActive(false);
+        //swirl on
         memoryCard.gameObject.SetActive(true);
+        swirlText.gameObject.SetActive(true);
+        Debug.Log(memoryText.text);
         revealed = true;
         if (scrapbookScript.MemoryList.Count <3)
         {
             scrapbookScript.MemoryList.Add(memoryText);
+            //return;
             /*
             if (scrapbookScript.MemoryList.Count == 1)
             {
@@ -154,22 +174,28 @@ public class MemoryCardChoose : MonoBehaviour
             }
             */
         }
-        else
+        else if (scrapbookScript.MemoryList.Count >= 3)
         {
             scrapbookScript.MemoryList.RemoveAt(0);
             scrapbookScript.MemoryList.Add(memoryText);
         }
 
         //if count is less than 3:
-        if (scrapbookScript.MemoryList.Count <2)
+        if (scrapbookScript.MemoryList.Count ==1)
         {
-            scrapbookScript.memory.text += memoryText.text + "\n";
-            memoryText.gameObject.SetActive(false);
+            //why is it adding it more than once here:
+            //scrapbookScript.memory.text += swirlText.text + "\n";
+            scrapbookScript.memory.text = swirlText.text;
+            
+            //memoryText.gameObject.SetActive(false);
+            memoryText.gameObject.SetActive(true);
         }
         else if (scrapbookScript.MemoryList.Count ==2)
         {
-            scrapbookScript.memory.text += memoryText2.text + "\n";
-            memoryText.gameObject.SetActive(false);
+            //why is it adding it more than once here:
+            scrapbookScript.memory.text = memoryText2.text + "\n";
+            //memoryText.gameObject.SetActive(false);
+            memoryText.gameObject.SetActive(true);
         }
         //else if count is 3:
         //add it to the second memorytext object
@@ -181,30 +207,25 @@ public class MemoryCardChoose : MonoBehaviour
     {
         yield return new WaitForSeconds(6f);
         memoryCard.gameObject.SetActive(false);
+        memoryText.gameObject.SetActive(false);
+        swirlText.gameObject.SetActive(false);
         scrapbook.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        //yield return new WaitForSeconds(1f);
         if (scrapbookScript.MemoryList.Count == 1)
         {
-            //page1.SetBool();
+            page1.SetBool("Replacing", true);
             //triggers animation
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(4f);
             memoryText.gameObject.SetActive(true);
+            page1.gameObject.SetActive(false);
         }
         else if (scrapbookScript.MemoryList.Count == 2)
         {
-            //page2.SetBool();
-            yield return new WaitForSeconds(1f);
+            page2.SetBool("Replacing", true);
+            yield return new WaitForSeconds(4f);
             memoryText2.gameObject.SetActive(true);
+            page2.gameObject.SetActive(false);
         }
         
-    }
-    
-    //set up next set of cards:
-    public void NextSet()
-    {
-        //change what existingCards 01 and 02 are
-        //change the text of newCard
-        //change card01 and card02's memory text accordingly
-        //reset positions
     }
 }

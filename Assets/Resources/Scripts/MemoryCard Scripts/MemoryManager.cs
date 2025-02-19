@@ -27,6 +27,11 @@ public class MemoryManager : MonoBehaviour
     [Header("Archaeo Variables")]
     public MemoryActivation archActivation;
     public GameObject archaeCollider;
+    
+    [Header("Button Sets")]
+    //sets of buttons:
+    public GameObject dreamerButtons;
+    public GameObject archaeButtons;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +67,9 @@ public class MemoryManager : MonoBehaviour
 
     public void CloseScrapbook()
     {
+        //adding this and seeing if it does anything
+        StopAllCoroutines();
+        
         StartCoroutine(BookClose());
         
     }

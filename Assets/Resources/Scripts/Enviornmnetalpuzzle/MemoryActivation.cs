@@ -31,11 +31,13 @@ public class MemoryActivation : MonoBehaviour
             if (other.gameObject.CompareTag("Player"))
             {
                 memoryManager.inMemoryGame = true;
-                memoryAppear.SetActive(true);
+                
                 
                 if (gameObject.CompareTag("Archaeologist"))
                 {
                     colliderArchaelogistInside = true;
+                    memoryManager.archaeButtons.SetActive(true);
+                    memoryManager.dreamerButtons.SetActive(false);
                     /*memoryCardChoose.existingText01.text = memoryCardChoose.archaeFragment01;
                     memoryCardChoose.existingText02.text = memoryCardChoose.archaeFragment02;*/
                 }
@@ -43,10 +45,12 @@ public class MemoryActivation : MonoBehaviour
                 else if (gameObject.CompareTag("Dreamer"))
                 {
                     colliderDreamerInside = true;
+                    memoryManager.dreamerButtons.SetActive(true);
+                    memoryManager.archaeButtons.SetActive(false);
                     /*memoryCardChoose.existingText01.text = memoryCardChoose.dreamerFragment01;
                     memoryCardChoose.existingText02.text = memoryCardChoose.dreamerFragment02;*/
                 }
-                
+                memoryAppear.SetActive(true);
             }
             else
             {
