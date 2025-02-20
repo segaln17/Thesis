@@ -20,6 +20,8 @@ public class PaperPlacement : MonoBehaviour
     public float sheetscalexhigh = 1;
     public float sheetscalexlow = .9997f;
 
+    
+
     private void Start()
     {
        paperPlacementColl = GetComponent<Collider>();
@@ -79,6 +81,10 @@ public class PaperPlacement : MonoBehaviour
     public void turnOnCollider()
     {
         currentSheet.GetComponent<Collider>().enabled = true;
+        
+        Debug.Log("Collideron");
+        StartCoroutine(turnonClick2());
+
     }
 
     public void turnOnClickandDrag()
@@ -88,22 +94,29 @@ public class PaperPlacement : MonoBehaviour
             StartCoroutine(Rotated());
         }
         
-        turnOnCollider();
-       
-       
+            turnOnCollider();
+ 
     }
 
     public IEnumerator Rotated()
     {
-            currentSheet.transform.position = Vector3.Lerp(currentSheet.transform.position, new Vector3(currentSheet.transform.position.x, rotateyval, currentSheet.transform.position.z), Time.deltaTime * 1f);
+        paperPlacementColl.enabled = false;
+        currentSheet.transform.position = Vector3.Lerp(currentSheet.transform.position, new Vector3(currentSheet.transform.position.x, rotateyval, currentSheet.transform.position.z), Time.deltaTime * 1f);
             currentSheet.transform.localScale = Vector3.Lerp(currentSheet.transform.localScale,new Vector3(0.35f, 0.35f,0.35f), Time.deltaTime * 1f);
             currentSheet.transform.eulerAngles = Vector3.Lerp(currentSheet.transform.eulerAngles,
                 new Vector3(currentSheet.transform.eulerAngles.x - 90f, currentSheet.transform.eulerAngles.y,
-                    currentSheet.transform.eulerAngles.z), Time.deltaTime * 1f);
-            paperPlacementColl.enabled = false;
-            yield return new WaitForSeconds(2.15f);
+                    currentSheet.transform.eulerAngles.z), Time.deltaTime * .5f);
+            //paperPlacementColl.enabled = false;
+            yield return new WaitForSeconds(2f);
             isRotated = true;
         StopCoroutine(Rotated());
+    }
+
+    public IEnumerator turnonClick2()
+    {
+        yield return new WaitForSeconds(5f);
+        currentSheet.GetComponent<ClickandDrag02>().enabled = true;
+        Debug.Log("CanClick");
     }
     
 }

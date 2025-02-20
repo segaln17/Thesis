@@ -26,11 +26,11 @@ public class PaintingSceneManager : MonoBehaviour
     public GameObject paperPlacement;
     public CinemachineVirtualCamera rookeryCam;
     public CinemachineVirtualCamera rookeryCam02;
-
-    
+    public GameObject flashObject;
+    public GameObject makecyanotypeObj;
 
     [Header("UI")] 
-    public Button placingButton;
+    //public Button placingButton;
     public Button printButton;
     public Button wallPlacementButton;
     public Button resetButton;
@@ -43,6 +43,8 @@ public class PaintingSceneManager : MonoBehaviour
 
     [Header("Bools")] 
     public bool paintbrushActive = false;
+    //public AudioSource rookAud;
+    //public AudioClip paintingS;
     
     [Header("States")]
     public paintingState state;
@@ -62,7 +64,7 @@ public class PaintingSceneManager : MonoBehaviour
     {
         //placeableObjectsIndex = placeableObjects.Length;
         //stampedObjectsIndex = stampedObjects.Length;
-        placingButton.gameObject.SetActive(false);
+        //placingButton.gameObject.SetActive(false);
         printButton.gameObject.SetActive(false);
         wallPlacementButton.gameObject.SetActive(false);
         resetButton.gameObject.SetActive(false);
@@ -94,7 +96,9 @@ public class PaintingSceneManager : MonoBehaviour
             {
                 if (cyanobrushCollider.iscarrying == false)
                 {
-                    placingButton.gameObject.SetActive(true);
+                    printButton.gameObject.SetActive(true);
+                    mousePainter.SetActive(false);
+                    //placingButton.gameObject.SetActive(true);
                     //MANUAL METHOD
                     if (Input.GetKeyDown(KeyCode.D))
                     {
@@ -106,14 +110,15 @@ public class PaintingSceneManager : MonoBehaviour
         }
         if (state == paintingState.placing)
         {
-            placingButton.gameObject.SetActive(false);
+            //placingButton.gameObject.SetActive(false);
             printButton.gameObject.SetActive(true);
-            
+            mousePainter.SetActive(false);
+
         }
 
         if (state == paintingState.printing)
         {
-            printing();
+            //printing();
             printButton.gameObject.SetActive(false);
             wallPlacementButton.gameObject.SetActive(true);
         }
@@ -147,6 +152,7 @@ public class PaintingSceneManager : MonoBehaviour
         state = paintingState.newsheet;
         rookeryCam02.Priority = 1;
         rookeryCam.Priority = 12;
+        makecyanotypeObj.GetComponent<SphereCollider>().enabled = false;
         //cyanoBrush.GetComponent<BoxCollider>().enabled = true;
         if (paintbrushActive)
         {
@@ -168,6 +174,9 @@ public class PaintingSceneManager : MonoBehaviour
     
     public void placing()
     {
+        flashObject.SetActive(true);
+        //printButton.gameObject.SetActive(false);
+       // wallPlacementButton.gameObject.SetActive(true);
         foreach (GameObject placeable in placeableObjects)
         { 
             foreach (GameObject stamp in stampedObjects)
@@ -188,6 +197,8 @@ public class PaintingSceneManager : MonoBehaviour
 
     public void printing()
     {
+        
+
         foreach (GameObject placedObj in placeableObjects)
         {
             foreach (Transform origPos in originalPos)
@@ -199,6 +210,7 @@ public class PaintingSceneManager : MonoBehaviour
                 
             }
         }
+       
     }
 
     public void wallPlacing()
@@ -206,7 +218,12 @@ public class PaintingSceneManager : MonoBehaviour
         state = paintingState.wallPlacing;
         rookeryCam.Priority = 1;
         rookeryCam02.Priority = 12;
-        paperPlacementScript.turnOnClickandDrag();
+
+        if (paperPlacementScript.isRotated == false)
+        {
+            paperPlacementScript.turnOnClickandDrag();
+        }
+        
         
         //call reset whenever it's done
     }
@@ -230,7 +247,6 @@ public class PaintingSceneManager : MonoBehaviour
         rookeryCam02.Priority = 1;
         rookeryControls.firstPerson.Priority = 12;
         outsideRookeryTrigger.gameObject.SetActive(true);
-        rookeryControls.Player.SetActive(true);
         paperPlacementScript.isDone = false;
         paperPlacementScript.isRotated = false;
         paperPlacementScript.sheet01 = false;
@@ -238,20 +254,13 @@ public class PaintingSceneManager : MonoBehaviour
         paintbrushActive = false;
         endButton.gameObject.SetActive(false);
         resetButton.gameObject.SetActive(false);
-        placingButton.gameObject.SetActive(false);
+        //placingButton.gameObject.SetActive(false);
         printButton.gameObject.SetActive(false);
         wallPlacementButton.gameObject.SetActive(false);
         gameObject.SetActive(false);
-        /*
-        //SWITCH TO DIVINER --> I put this code basically in a new script too to split it up a bit more?
-        rookeryControls.PlayerDiviner.SetActive(true);
-        rookeryControls.firstPersonDiviner.Priority = 12;
-        yarnDialogueTrigger.SetCharacterPOV(GameManager.CharacterPOV.Diviner);
-        divinerController.GetComponent<SimpleController>().enabled = true;
-        yarnDialogueTrigger.gameObject.SetActive(false);
-        */
-        
-        //state = paintingState.newsheet;
+        rookeryControls.Player.SetActive(true);
+        makecyanotypeObj.GetComponent<SphereCollider>().enabled = true;
+
     }
     
     

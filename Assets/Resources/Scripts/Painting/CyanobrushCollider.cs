@@ -15,6 +15,10 @@ public class CyanobrushCollider : MonoBehaviour
     private Vector3 originalBathPos;
     
     public bool iscarrying;
+
+    public AudioSource rookAud;
+    public AudioClip bucket;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -39,15 +43,17 @@ public class CyanobrushCollider : MonoBehaviour
    private void OnMouseDown()
    {
        iscarrying = !iscarrying;
-       
-       screenPoint = Camera.main.WorldToScreenPoint(brush.transform.position);
+        rookAud.PlayOneShot(bucket);
+
+        screenPoint = Camera.main.WorldToScreenPoint(brush.transform.position);
        offset = brush.transform.position -
                 Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y + 2, screenPoint.z));
  
    }
    private void isDragging()
    {
-       Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+       
+        Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
        Vector3 cursorPos = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
        cursorPos.y = Mathf.Clamp(transform.position.y, cursorymin, cursorymax);
        brush.transform.position = cursorPos;

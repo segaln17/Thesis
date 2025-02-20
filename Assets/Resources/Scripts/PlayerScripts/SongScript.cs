@@ -16,6 +16,7 @@ public class SongScript : MonoBehaviour
     public bool sheetActive;
 
     //public GameObject hand;
+    public GameManager gameManager;
 
     public Animator songAnim;
     public Animator songSwitch;
@@ -79,7 +80,7 @@ public class SongScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.currentPOV == GameManager.CharacterPOV.Fighter && Input.GetKeyDown(KeyCode.Space))
+        if (gameManager.currentPOV == GameManager.CharacterPOV.Fighter && Input.GetKeyDown(KeyCode.Space))
         {
             sheetActive = !sheetActive;
         }

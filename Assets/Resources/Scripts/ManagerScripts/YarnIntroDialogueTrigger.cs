@@ -19,6 +19,8 @@ public class YarnIntroDialogueTrigger : MonoBehaviour
 
     private InMemoryVariableStorage inMemoryVariableStorage;
 
+    public GameManager gameManager;
+
     public TextMeshProUGUI dialogueIndicator;
     //public bool isFighter;
     //public bool isDiviner;
@@ -107,9 +109,10 @@ public class YarnIntroDialogueTrigger : MonoBehaviour
 
     public void SetCharacterPOV(GameManager.CharacterPOV targetPOV)
     {
-        GameManager.Instance.currentPOV = targetPOV;
+        
         //inMemoryVariableStorage.SetValue("$charPOV", targetPOV.ToString());
         FindObjectOfType<InMemoryVariableStorage>().SetValue("$charPOV", targetPOV.ToString());
+        gameManager.currentPOV = targetPOV;
     }
 
     [YarnCommand("turnOffCollider")]

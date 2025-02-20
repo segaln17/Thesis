@@ -17,6 +17,8 @@ public class YarnDialogueTrigger : MonoBehaviour
     public bool cutsceneRun = false;
 
     private InMemoryVariableStorage inMemoryVariableStorage;
+    public GameManager gameManager;
+    
 
     public TextMeshProUGUI dialogueIndicator;
     public bool isFighter;
@@ -118,9 +120,10 @@ public class YarnDialogueTrigger : MonoBehaviour
 
     public void SetCharacterPOV(GameManager.CharacterPOV targetPOV)
     {
-        GameManager.Instance.currentPOV = targetPOV;
+        
         //inMemoryVariableStorage.SetValue("$charPOV", targetPOV.ToString());
         FindObjectOfType<InMemoryVariableStorage>().SetValue("$charPOV", targetPOV.ToString());
+        gameManager.currentPOV = targetPOV;
     }
     /*
     public void ChangeCharacterPOV()

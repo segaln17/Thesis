@@ -29,6 +29,8 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
 
     [Header("POV Assets")]
     public Rigidbody PhoebeRB;
+    public Rigidbody fenRb;
+    public GameObject fenfeet;
     public GameObject phoebefeet;
     public GameObject phoebecolorway;
     public GameObject fencolorway;
@@ -107,6 +109,7 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
         isNormal = true;
         Debug.Log("phoebethirdperson");
         PhoebeRB.isKinematic = true;
+        fenRb.isKinematic = false;
         
         phoebecolorway.SetActive(true);
         PlayerPhoebe.GetComponent<SimpleController>().enabled = false;
@@ -173,10 +176,12 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         isPulsing = false;
         isNormal = true;
+        timelineScript.GoTimeline();
         yield return new WaitForSeconds(1.5f);
         isNormal = false;
         fenCam02.m_Lens.FieldOfView = 60f;
-        timelineScript.GoTimeline();
+        phoebecamfirstPerson.m_Lens.FieldOfView = 60f;
+        fenfeet.SetActive(true);
         fencolorway.gameObject.SetActive(false);
         outsideRookeryTrigger.gameObject.SetActive(false);
         //hyperSpaceWarp.SetActive(false);

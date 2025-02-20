@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
   
-    public static GameManager Instance;
+    //public static GameManager Instance;
 
     [Header("Game Manager")]
     public GameObject fighterMenu;
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null)
+        /*if (Instance == null)
         {
             DontDestroyOnLoad(gameObject);
             Instance = this;
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
 
         }
 
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);*/
     }
 
     // Update is called once per frame

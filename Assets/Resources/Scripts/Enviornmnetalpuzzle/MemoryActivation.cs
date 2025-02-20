@@ -11,6 +11,8 @@ public class MemoryActivation : MonoBehaviour
     public MemoryCardChoose memoryCardChoose;
     public bool colliderDreamerInside = false;
     public bool colliderArchaelogistInside = false;
+
+    public GameManager gameManager;
     
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,7 @@ public class MemoryActivation : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (GameManager.Instance.currentPOV == GameManager.CharacterPOV.Diviner)
+        if (gameManager.currentPOV == GameManager.CharacterPOV.Diviner)
         {
             if (other.gameObject.CompareTag("Player"))
             {
@@ -64,7 +66,7 @@ public class MemoryActivation : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (GameManager.Instance.currentPOV == GameManager.CharacterPOV.Diviner)
+        if (gameManager.currentPOV == GameManager.CharacterPOV.Diviner)
         {
             if (other.gameObject.CompareTag("Player"))
             {
