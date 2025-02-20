@@ -67,6 +67,7 @@ public class YarnIntroDialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("entered");
         if (other.gameObject.CompareTag("Player"))
         {
             if (this.gameObject.CompareTag("Cutscene"))
@@ -75,7 +76,8 @@ public class YarnIntroDialogueTrigger : MonoBehaviour
             }
             else
             {
-                dialogueIndicator.gameObject.SetActive(true);   
+                dialogueIndicator.gameObject.SetActive(true);
+                inYarnTrigger = true;
             }
         }
 
