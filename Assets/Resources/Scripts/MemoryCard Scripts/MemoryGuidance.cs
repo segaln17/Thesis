@@ -16,6 +16,7 @@ public class MemoryGuidance : MonoBehaviour
     public GameObject memoryCollider;
 
     public bool inMemoryCollider = false;
+    public GameManager gameManager;
     
     // Start is called before the first frame update
     void Start()
@@ -42,7 +43,7 @@ public class MemoryGuidance : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && GameManager.Instance.currentPOV == GameManager.CharacterPOV.Diviner)
+        if (other.gameObject.CompareTag("Player") && gameManager.currentPOV == GameManager.CharacterPOV.Diviner)
         {
             inMemoryCollider = true;
         }
@@ -51,7 +52,7 @@ public class MemoryGuidance : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && GameManager.Instance.currentPOV == GameManager.CharacterPOV.Diviner)
+        if (other.gameObject.CompareTag("Player") && gameManager.currentPOV == GameManager.CharacterPOV.Diviner)
         {
             inMemoryCollider = true;
         }
@@ -60,7 +61,7 @@ public class MemoryGuidance : MonoBehaviour
     
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && GameManager.Instance.currentPOV == GameManager.CharacterPOV.Diviner)
+        if (other.gameObject.CompareTag("Player") && gameManager.currentPOV == GameManager.CharacterPOV.Diviner)
         {
             inMemoryCollider = false;
         }

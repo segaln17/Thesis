@@ -17869,6 +17869,7 @@ MonoBehaviour:
   dialogueCollider: {fileID: 534007023}
   inYarnTrigger: 0
   cutsceneRun: 0
+  gameManager: {fileID: 0}
   dialogueIndicator: {fileID: 307375671}
 --- !u!65 &534007023
 BoxCollider:
@@ -17973,6 +17974,7 @@ MonoBehaviour:
   diviner: {fileID: 885723564}
   inYarnTrigger: 0
   cutsceneRun: 0
+  gameManager: {fileID: 1668962210}
   dialogueIndicator: {fileID: 307375671}
   isFighter: 0
   isDiviner: 0
@@ -30554,6 +30556,7 @@ MonoBehaviour:
   dialogueCollider: {fileID: 902481473}
   inYarnTrigger: 0
   cutsceneRun: 0
+  gameManager: {fileID: 0}
   dialogueIndicator: {fileID: 307375671}
 --- !u!65 &902481473
 BoxCollider:
@@ -30593,6 +30596,7 @@ MonoBehaviour:
   diviner: {fileID: 885723564}
   inYarnTrigger: 0
   cutsceneRun: 0
+  gameManager: {fileID: 0}
   dialogueIndicator: {fileID: 307375671}
   isFighter: 0
   isDiviner: 0
@@ -46069,6 +46073,7 @@ MonoBehaviour:
   dialogueCollider: {fileID: 1313578720}
   inYarnTrigger: 0
   cutsceneRun: 0
+  gameManager: {fileID: 0}
   dialogueIndicator: {fileID: 307375671}
 --- !u!1001 &1315625921
 PrefabInstance:
@@ -59141,6 +59146,11 @@ PrefabInstance:
       value: In the shadow of a mountainous spine, your second-eldest sister carved
         her voice into a pocketknife.
       objectReference: {fileID: 0}
+    - target: {fileID: 1824197156705618079, guid: 9ba5d1355c8824d5c91a7c4530d74437,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1668962210}
     - target: {fileID: 4331729484045317630, guid: 9ba5d1355c8824d5c91a7c4530d74437,
         type: 3}
       propertyPath: thisText
@@ -59281,6 +59291,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ba5d1355c8824d5c91a7c4530d74437, type: 3}
+--- !u!114 &1668962210 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6787854751736680173, guid: 9ba5d1355c8824d5c91a7c4530d74437,
+    type: 3}
+  m_PrefabInstance: {fileID: 1668962209}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54082c8b496894c5ca3776fec8195624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1673634191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72810,6 +72832,7 @@ MonoBehaviour:
   dialogueCollider: {fileID: 2096305699}
   inYarnTrigger: 0
   cutsceneRun: 0
+  gameManager: {fileID: 0}
   dialogueIndicator: {fileID: 307375671}
 --- !u!114 &2096305704
 MonoBehaviour:
@@ -72828,6 +72851,7 @@ MonoBehaviour:
   diviner: {fileID: 885723564}
   inYarnTrigger: 0
   cutsceneRun: 0
+  gameManager: {fileID: 1668962210}
   dialogueIndicator: {fileID: 307375671}
   isFighter: 0
   isDiviner: 0

@@ -173,10 +173,11 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         isPulsing = false;
         isNormal = true;
+        timelineScript.GoTimeline();
         yield return new WaitForSeconds(1.5f);
         isNormal = false;
         fenCam02.m_Lens.FieldOfView = 60f;
-        timelineScript.GoTimeline();
+        phoebecamfirstPerson.m_Lens.FieldOfView = 60f;
         fencolorway.gameObject.SetActive(false);
         outsideRookeryTrigger.gameObject.SetActive(false);
         //hyperSpaceWarp.SetActive(false);

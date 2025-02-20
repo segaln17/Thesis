@@ -10,6 +10,7 @@ public class Lift : MonoBehaviour
     public Rigidbody fenRigidbody;
 
     public GameObject elevatorObj;
+    public GameManager gameManager;
 
     //orientation phoebe, probably need to add fen and altea 2
     //public Vector3 movementDirection;
@@ -19,9 +20,15 @@ public class Lift : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
+
+            if(gameManager.currentPOV == GameManager.CharacterPOV.Fighter) 
         {
             phoebeRigidbody.AddForce(direction * strength);
         }
+            else if (gameManager.currentPOV == GameManager.CharacterPOV.Diviner)
+            {
+                fenRigidbody.AddForce(direction * strength);
+            }
     }
 
     private void OnTriggerExit(Collider other)
@@ -30,12 +37,14 @@ public class Lift : MonoBehaviour
         {
             elevatorObj.SetActive(false);
 
-            //float horizontalInput = Input.GetAxisRaw("Horizontal");
-            //float verticalInput = Input.GetAxisRaw("Vertical");
-
-            //movementDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
-            phoebeRigidbody.AddForce(orientation.forward * strength, ForceMode.Impulse);
+            if(gameManager.currentPOV == GameManager.CharacterPOV.Fighter)
+            {
+                phoebeRigidbody.AddForce(orientation.forward * strength, ForceMode.Impulse);
+            }else if (gameManager.currentPOV == GameManager.CharacterPOV.Diviner)
+            {
+                fenRigidbody.AddForce(orientation.forward * strength, ForceMode.Impulse);
+            }
+            
         }
     }
 }
