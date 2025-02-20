@@ -565,7 +565,7 @@ Fen: Maybe I should stop talking to myself.
 title: HighPriestessTimelineTrigger
 ---
 <<if $charPOV is "Diviner">>
-    <<colliderActive YarnStableCutsceneSetupCollider>>
+    //<<colliderActive YarnStableCutsceneSetupCollider>>
     <<timelineGo STABLETIMELINE>>
     <<jump HighPriestess>>
 //<<else>>
