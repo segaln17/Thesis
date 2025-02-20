@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.024233192, g: 0.006546579, b: 0.024047974, a: 1}
+  m_IndirectSpecularColor: {r: 0.06895562, g: 0.01281342, b: 0.040940497, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: f6cde1bf52bd84076b46f12ac38c3e99,
+  m_LightingDataAsset: {fileID: 112000000, guid: 368c0f759e4e74d34b5bf0a077edfeaf,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: c05accba5247749d1adb8ef32d661a96,
     type: 2}
@@ -52830,6 +52830,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8385617604681943024, guid: e7268f7c14dd946dabffa9c1c472fe23,
         type: 3}
+      propertyPath: footstepSounds
+      value: 
+      objectReference: {fileID: 1800129840}
+    - target: {fileID: 8385617604681943024, guid: e7268f7c14dd946dabffa9c1c472fe23,
+        type: 3}
       propertyPath: feetSpriteFighter
       value: 
       objectReference: {fileID: 0}
@@ -59249,6 +59254,27 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 861862209104275331, guid: 9ba5d1355c8824d5c91a7c4530d74437,
+        type: 3}
+      propertyPath: thisText
+      value: In the shadow of a mountainous spine, your second-eldest sister carved
+        her voice into a pocketknife.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331729484045317630, guid: 9ba5d1355c8824d5c91a7c4530d74437,
+        type: 3}
+      propertyPath: thisText
+      value: Keratin developed like a plant's cuticle.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331729484045317630, guid: 9ba5d1355c8824d5c91a7c4530d74437,
+        type: 3}
+      propertyPath: thisTitle
+      value: A Waxy Feather
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996761510545870704, guid: 9ba5d1355c8824d5c91a7c4530d74437,
+        type: 3}
+      propertyPath: thisText
+      value: For someone willing to try to understand.
+      objectReference: {fileID: 0}
     - target: {fileID: 5723962122360303447, guid: 9ba5d1355c8824d5c91a7c4530d74437,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -59344,10 +59370,25 @@ PrefabInstance:
       propertyPath: displayOverideObj
       value: 
       objectReference: {fileID: 763817162}
+    - target: {fileID: 8266299162667641513, guid: 9ba5d1355c8824d5c91a7c4530d74437,
+        type: 3}
+      propertyPath: thisText
+      value: It will not play without it.
+      objectReference: {fileID: 0}
     - target: {fileID: 8747236425609175225, guid: 9ba5d1355c8824d5c91a7c4530d74437,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114311541758511634, guid: 9ba5d1355c8824d5c91a7c4530d74437,
+        type: 3}
+      propertyPath: thisText
+      value: Rust like blood under her nails, salt under her eyes.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114311541758511634, guid: 9ba5d1355c8824d5c91a7c4530d74437,
+        type: 3}
+      propertyPath: thisTitle
+      value: A Music Box's Tiny Ballerina
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -63463,6 +63504,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1063884193893751692, guid: 3671ecbe8d2aeed47882bfa6312270ea,
     type: 3}
   m_PrefabInstance: {fileID: 235992092}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1800129840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4580941000610326198, guid: e7268f7c14dd946dabffa9c1c472fe23,
+    type: 3}
+  m_PrefabInstance: {fileID: 1492741117}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1801811250
 GameObject:

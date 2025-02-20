@@ -59,7 +59,10 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+
         }
+
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
@@ -81,7 +84,7 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SceneManager.LoadScene("IntroTest");
+            SceneManager.LoadScene("Introduction");
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {

@@ -54,9 +54,14 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
     void Start()
     {
         audioManager = GameObject.Find("AudioManager");
+        //phoebeTess = GameObject.Find("GameManager/Canvas/PhoebeTesselations");
+        ///fenTess = GameObject.Find("GameManager/Canvas/FenTesselations");
+
         stableLight.SetActive(false);
         pulsingCamera = phoebecamfirstPerson;
+
         
+      
     }
 
     // Update is called once per frame
