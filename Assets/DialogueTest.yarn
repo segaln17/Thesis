@@ -160,6 +160,11 @@ Tree: <i>It doesn't appear that this tree has anything to say to you.</i>
 <<stop>>
 <<endif>>
 ===
+title: TrowelGuy
+---
+Creature with a trowel: olleh
+<<stop>>
+===
 title: NoPointNPC
 position: 229,-21
 ---
@@ -560,7 +565,7 @@ Fen: Maybe I should stop talking to myself.
 title: HighPriestessTimelineTrigger
 ---
 <<if $charPOV is "Diviner">>
-    <<colliderActive YarnStableCutsceneCollider>>
+    <<colliderActive YarnStableCutsceneSetupCollider>>
     <<timelineGo STABLETIMELINE>>
     <<jump HighPriestess>>
 //<<else>>
