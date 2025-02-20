@@ -3,19 +3,28 @@ tags:
 position: -208,-211
 ---
 //Act 1
+
+//Phoebe talk
 <<declare $spokenToWindy = false as bool>>
 <<declare $WindyOpeningRun = false as bool>>
 <<declare $spokenToByronFighter = false as bool>>
 <<declare $spokenToFenFighterTavern = false as bool>>
 <<declare $gardenFoundFighter = false as bool>>
-<<declare $alteaSceneFenDone = false as bool>>
 <<declare $spokenToHeloiseFighter = false as bool>>
 <<declare $spokenToHildegardFighter = false as bool>>
 <<declare $spokenToGrimboldeFighter = false as bool>>
 <<declare $hedgehogRun = false as bool>>
 <<declare $spokenToHytheFighter = false as bool>>
 <<declare $alteaSpineDone = false as bool>>
+<<declare $spokenToZoraFighter = false as bool>>
 
+//Fen talk
+<<declare $alteaSceneFenDone = false as bool>>
+<<declare $spokenToWindyDiviner = false as bool>>
+<<declare $spokenToAmosDiviner = false as bool>>
+<<declare $spokenToZoraDiviner = false as bool>>
+<<declare $spokenToHytheDiviner = false as bool>>
+<<declare $spokenToGrimboldeDiviner = false as bool>>
 //Act 2
 <<declare $spokenToHeloiseDiviner = false as bool>>
 <<declare $spokenToHildegardDiviner = false as bool>>
@@ -119,6 +128,42 @@ position: -172,85
     Windy: Now, where did that little varmint go?
     <<stop>>
 <<endif>>
+
+<<if $charPOV is "Diviner" and $spokenToWindyDiviner is false>>
+    Windy: Is it true what they're saying?
+    Fen: What do you mean? That you're divorced?
+    Windy: That's blatantly untrue and I don't know who started that rumor.
+    Windy: But no, that's not what I mean.
+    Windy: People are saying you're losing your mind.
+    Fen: ...
+    Fen: Where did you hear that? Altea?
+    Windy: I shan't say.
+    Windy: But it wasn't Altea. Though she was the first to say it.
+    Windy: She called you an out-of-touch old fool.
+    Windy: Mired in the past that's slipping away from you.
+    Windy: You know, because you're <i>immortal</i>, or whatever.
+    Windy: People are wondering if it's true.
+    Fen: It's not.
+    Windy: Are you sure?
+    Fen: I was there for the First Bastion Fire, and I recall the aftermath of the Second, and the rebuilding efforts for both.
+    Windy: Okay, well, I don't know what those are.
+    Fen: I remember the death of the Saint of Radiant Sorrow. I remember seeing Her forces gain influence across the continent.
+    Fen: So what if I don't remember the name of the village I came from? I remember where it was.
+    Fen: Or... that it was off of a marsh. That I remember.
+    Fen: ...
+    Windy: Hmm. I guess Grimbolde was right.
+    Fen: I should go. I have... things to do.
+    Windy: Sure you do.
+    <<set $spokenToWindyDiviner to true>>
+    <<stop>>
+<<endif>>
+
+<<if $charPOV is "Diviner" and $spokenToWindyDiviner is true>>
+    Windy: Look, I'm sorry, I was harsh.
+    Windy: You're just the only grounded one here.
+    Windy: No one wants to see you turn.
+    <<stop>>
+<<endif>>
 ===
 title: VineTutorial
 ---
@@ -179,7 +224,7 @@ Verity: Might as well just melt into the Fields of Sorrow before this place can 
 title: TavernNPC1
 position: 239,-11
 ---
-<<if $charPOV is "Fighter">>
+<<if $charPOV is "Fighter" and $spokenToZoraFighter is false>>
 //Zora: This is the tavern. If you want to eat or sleep, this is the place.
 //Zora: Between you and me, I don't think any of us need to sleep, anymore.
 Zora: Hey, welcome to the tavern!
@@ -189,6 +234,22 @@ Zora: And people don't need to sleep, either, just so you don't panic later.
 Zora: But some people still pretend they can.
 Zora: There's probably some kind of bed free, but I wouldn't recommend it.
 Zora: It's a lot easier to just accept that your body is on pause, forever.
+<<set $spokenToZoraFighter = true>>
+<<stop>>
+<<endif>>
+
+<<if $charPOV is "Fighter" and $spokenToZoraFighter is true>>
+Zora: While you were out, did you see Windy?
+Zora: Gray hair, kind of rude, probably berating some creature for existing in her presence?
+Zora: Did she say anything about a bet we had?
+Zora: Nevermind. She'll never pay up. She never does.
+<<stop>>
+<<endif>>
+
+<<if $charPOV is "Diviner" and $spokenToZoraDiviner is false>>
+Zora: What'll it be, Fen?
+Fen: Oh, nothing.
+Zora: Fine by me. Nothing is what we have.
 <<stop>>
 <<endif>>
 ===
@@ -205,7 +266,7 @@ Amos: I've always wondered how she got here. Word has it she convinced the Benea
 Amos: On <i>purpose</i>!
 <<stop>>
 <<endif>>
-<<if $charPOV is "Diviner">>
+<<if $charPOV is "Diviner" and $spokenToAmosDiviner is false>>
 Amos: You never told me how you got here, you know.
 Fen: Oh, well. It's a long story.
 Fen: I was looking for something.
@@ -217,6 +278,16 @@ Fen: Oh, darling.
 Fen: Just a personal possession of mine, that's all.
 Amos: I'm sorry for all the questions, I'm just a little starstruck.
 Fen: It's quite alright, dear. Everyone is.
+<<set $spokenToAmosDiviner = true>>
+<<stop>>
+<<endif>>
+<<if $charPOV is "Diviner" and $spokenToAmosDiviner is true>>
+Amos: Altea will come around. I'm sure of it.
+Amos: You've been trying so hard.
+Fen: I've just been trying to make her see the value of community, you know?
+Amos: Absolutely.
+Fen: You understand, don't you?
+Amos: Absolutely I do.
 <<stop>>
 <<endif>>
 ===
@@ -390,9 +461,10 @@ position: 299,49
 ---
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToGrimboldeFighter is false>>
 Grimbolde: Oh. Hello. Haven't seen you before.
-Grimbolde: I hide out here by the old bathhouse to get some goddamned peace and quiet.
+Grimbolde: I hide out here by the road to the old bathhouse to get some goddamned peace and quiet.
 Grimbolde: Except I can't get that, because the creatures use it for whatever vile frolicking they do in their spare time.
 Grimbolde: When they're not skittering around and shrieking.
+Grimbolde: And over in that building there, in the stables, there's all these horrible crashes at random intervals.
 Grimbolde: But I can't go anywhere else because the very bones of this place make noise.
 Grimbolde: It's horrible. You're going to hate it.
 <<set $spokenToGrimboldeFighter to true>>
@@ -415,13 +487,12 @@ Grimbolde: Thank goodness, it's time to gather at the Bonfire.
 Grimbolde: No creatures allowed down there.
 Grimbolde: That's all I want. Blissful, blissful silence.
 Grimbolde: Except that at "Dinner," Fen's always talking.
-Grimbolde: Hell, everywhere, all the time.
+Grimbolde: It's hell, everywhere, all the time.
 Grimbolde: Isn't it awful?
-The Fighter: <i>You say nothing.</i>
 <<stop>>
 <<endif>>
 
-<<if $charPOV is "Diviner" and $alteaSceneFenDone is false>>
+<<if $charPOV is "Diviner" and $alteaSceneFenDone is false and $spokenToGrimboldeDiviner is false>>
 Grimbolde: Oh, Fen, can something be done about these things?
 Grimbolde: I hate them.
 Grimbolde: Their voices scrape my mind like nails on slate.
@@ -431,6 +502,16 @@ Grimbolde: ...
 Grimbolde: Altea's in the stables.
 Grimbolde: She locked the doors hours ago. 
 Grimbolde: I wouldn't think she was in there at all if not for the light.
+<<set $spokenToGrimboldeDiviner = true>>
+<<stop>>
+<<endif>>
+
+<<if $charPOV is "Diviner" and $alteaSceneFenDone is false and $spokenToGrimboldeDiviner is true>>
+Grimbolde: She won't come out.
+Grimbolde: She never comes out.
+Fen: I'll do my best to convince her.
+Grimbolde: But can you get her to stop that racket?
+Grimbolde: It's not happening right now, but it'll happen again. It always does.
 <<stop>>
 <<endif>>
 ===
@@ -746,6 +827,7 @@ Fen: and then I'll just be upset for the rest of the day.
 Fen: ...Or night?
 Fen: Or... whatever time this is.
 <<changeBackCam BonfireManager>>
+<<revealCreature SpineObjectsManager>>
 
 //<i>This is the end of the demo. Thank you for playing!</i>
 //<<restart BonfireManager>>
