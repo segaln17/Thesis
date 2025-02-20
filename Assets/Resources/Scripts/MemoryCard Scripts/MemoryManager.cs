@@ -7,7 +7,11 @@ public class MemoryManager : MonoBehaviour
 {
     [Header ("Main Objects")]
     public GameObject memoryGame;
-    public GameObject scrapbookText;
+    public GameObject scrapbookTextpg1;
+    public GameObject scrapbookTextpg2;
+    public GameObject existingTextpg1;
+    public GameObject existingTextpg2;
+    public GameObject eInteract;
     public Image scrapbook;
 
     public Sprite bookSpriteClosed;
@@ -28,10 +32,8 @@ public class MemoryManager : MonoBehaviour
     public MemoryActivation archActivation;
     public GameObject archaeCollider;
     
-    [Header("Button Sets")]
-    //sets of buttons:
-    public GameObject dreamerButtons;
-    public GameObject archaeButtons;
+
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -79,7 +81,11 @@ public class MemoryManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         //sprite change to book closed
         scrapbook.sprite = bookSpriteClosed;
-        scrapbookText.SetActive(false);
+        scrapbookTextpg1.SetActive(false);
+        scrapbookTextpg2.SetActive(false);
+        existingTextpg1.SetActive(false);
+        existingTextpg2.SetActive(false);
+        eInteract.SetActive(false);
         yield return new WaitForSeconds(3f);
         memoryGame.SetActive(false);
         yield return new WaitForSeconds(3f);

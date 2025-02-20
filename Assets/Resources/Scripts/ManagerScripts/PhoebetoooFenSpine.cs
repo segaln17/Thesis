@@ -13,7 +13,8 @@ public class PhoebetoooFenSpine : MonoBehaviour
     [Header("Characters")]
     public GameObject PlayerPhoebe;
     public GameObject PlayerFen;
-
+    public GameObject spineBridge;
+   
 
     [Header("Cameras")]
     public CinemachineVirtualCamera fenCam01;
@@ -26,7 +27,9 @@ public class PhoebetoooFenSpine : MonoBehaviour
 
     [Header("POV Assets")]
     public Rigidbody PhoebeRB;
+    public Rigidbody fenRb;
     public GameObject phoebefeet;
+    public GameObject fenFeet;
     public GameObject phoebecolorway;
     public GameObject fencolorway;
     public GameObject alteacutsceneTrigger;
@@ -76,26 +79,25 @@ public class PhoebetoooFenSpine : MonoBehaviour
         isPulsing = false;
         isNormal = true;
 
+        phoebefeet.SetActive(false);
         phoebecamfirstPerson.Priority = 1;
         phoebecam01.Priority = 12;
         pulsingCamera = phoebecam01;
-        phoebefeet.SetActive(false);
+        
         phoebeTess.SetActive(false);
+        hyperSpaceWarp.SetActive(true);
         isPulsing = true;
         yield return new WaitForSeconds(1.5f);
         isPulsing = false;
         isNormal = true;
         Debug.Log("phoebethirdperson");
         PhoebeRB.isKinematic = true;
+        fenRb.isKinematic = false;
 
         phoebecolorway.SetActive(true);
         PlayerPhoebe.GetComponent<SimpleController>().enabled = false;
         Debug.Log("phoebecontrollershouldbeoff");
-
-        isPulsing = true;
-        yield return new WaitForSeconds(1.5f);
-        isPulsing = false;
-        isNormal = true;
+       
 
         //switch camera to Aerial
         yield return new WaitForSeconds(1.5f);
@@ -106,6 +108,11 @@ public class PhoebetoooFenSpine : MonoBehaviour
         hyperSpaceWarp.SetActive(true);
         AerialCam.Priority = 12;
         pulsingCamera = fenCam01;
+       
+        isPulsing = true;
+        yield return new WaitForSeconds(1.5f);
+        isPulsing = false;
+        isNormal = true;
         yield return new WaitForSeconds(1f);
 
 
@@ -113,6 +120,7 @@ public class PhoebetoooFenSpine : MonoBehaviour
         yield return new WaitForSeconds(1.15f);
         AerialCam.Priority = 0;
         fenCam01.Priority = 12;
+        fencolorway.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
         isPulsing = true;
         yield return new WaitForSeconds(1f);
@@ -152,10 +160,14 @@ public class PhoebetoooFenSpine : MonoBehaviour
         isPulsing = false;
         isNormal = true;
         yield return new WaitForSeconds(1.5f);
-        isNormal = false;
+        
+        fenCam01.m_Lens.FieldOfView = 60f;
         fenCam02.m_Lens.FieldOfView = 60f;
+        phoebecam01.m_Lens.FieldOfView = 60f;
+        phoebecamfirstPerson.m_Lens.FieldOfView = 60f;
         timelineScript.GoTimeline();
         fencolorway.gameObject.SetActive(false);
+        fenFeet.SetActive(true);
         //hyperSpaceWarp.SetActive(false);
         Debug.Log("switched to fen");
         StopCoroutine(SwitchtoFenSecond());

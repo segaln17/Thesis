@@ -108,6 +108,7 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
     IEnumerator WaitSwitchtoPhoebe()
     {
         Debug.Log("switching to Phoebe");
+        pulsingCamera = fenCam02;
         isPulsing = true;
         yield return new WaitForSeconds(1.5f);
         isPulsing = false;
@@ -119,6 +120,7 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
         fenCam02.Priority = 1;
         fenCam01.Priority = 12;
         Debug.Log("third POV Fen");
+        pulsingCamera = fenCam01;
         isPulsing = true;
         yield return new WaitForSeconds(1.5f);
         isPulsing = false;
@@ -127,13 +129,15 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
         fenColorway.SetActive(false);
         //turn off Fen controls
         PlayerDiviner.GetComponent<SimpleController>().enabled = false;
-        PlayerDiviner.GetComponent<Collider>().enabled = false;
+        fenfeet.SetActive(false);
+        //PlayerDiviner.GetComponent<Collider>().enabled = false;
         yield return new WaitForSeconds(3f);
         //switch camera to Phoebe
         //turn Phoebe's gameobject on
         PlayerPhoebe.gameObject.SetActive(true);
         phoebecolorway.SetActive(true);
 
+        
         isPulsing = true;
         yield return new WaitForSeconds(1.5f);
         isPulsing = false;
@@ -144,15 +148,17 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
         gardenAerialCam.Priority = 12;
         fenCam01.Priority = 0;
         fenCam02.Priority = 0;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
 
         phoebecam01.Priority = 12;
+        gardenAerialCam.Priority = 0;
         fenCam01.Priority = 0;
         fenCam02.Priority = 0;
         Debug.Log("camshouldswitch");
         //PlayerDiviner.gameObject.SetActive(false);
         Debug.Log("fen off");
         fenRb.isKinematic = true;
+        pulsingCamera = phoebecam01;
         isPulsing = true;
         yield return new WaitForSeconds(1.5f);
         isPulsing = false;
@@ -165,9 +171,10 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         phoeberb.isKinematic = (false);
         phoebefeet.SetActive(true);
+        
         phoebecolorway.SetActive(false);
-        fenCam01.gameObject.SetActive(false);
-        fenCam02.gameObject.SetActive(false);
+        //fenCam01.gameObject.SetActive(false);
+        //fenCam02.gameObject.SetActive(false);
         PlayerDiviner.transform.position = fenBonfire.position;
         
         //set charPOV to Fighter
