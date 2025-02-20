@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fenHandUI: {fileID: 0}
+  gameManager: {fileID: 0}
   isHandOut: 0
 --- !u!1 &2175328288293989708
 GameObject:
@@ -219,12 +220,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3479335441321835484}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1078091934167382367}
+  m_Father: {fileID: 4483018959540538473}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3909835491930232489
 GameObject:
@@ -469,7 +470,6 @@ Transform:
   - {fileID: 4483018959540538473}
   - {fileID: 7280142185886027620}
   - {fileID: 7121362824396065027}
-  - {fileID: 9194402711790458955}
   - {fileID: 3644955875419701463}
   - {fileID: 7572831337426036726}
   m_Father: {fileID: 0}
@@ -519,6 +519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 775
   isPlayerWalking: 0
+  footstepSounds: {fileID: 0}
   orientation: {fileID: 4483018959540538473}
   playerHeight: 2
   whatIsGround:
@@ -639,6 +640,7 @@ Transform:
   m_Children:
   - {fileID: 5861086146618097291}
   - {fileID: 8575742651633096396}
+  - {fileID: 9194402711790458955}
   m_Father: {fileID: 1078091934167382367}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7422517215945570421
@@ -828,6 +830,7 @@ MonoBehaviour:
   diviner: {fileID: 5591003021013943940}
   inYarnTrigger: 0
   cutsceneRun: 0
+  gameManager: {fileID: 0}
   dialogueIndicator: {fileID: 0}
   isFighter: 1
   isDiviner: 0
