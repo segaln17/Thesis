@@ -33,7 +33,8 @@ title: IntroWalk1
 ---
 //title screen clears, Phoebe stands as the fog clears
 //first screen camera transition
-<i>This was a ravine, a moment ago. But it's not anymore.</i>
+<i>This was a ravine, a moment ago.</i>
+<i>But it's not anymore.</i>
 //<<turnOffCollider IntroDialogue1>>
 <<stop>>
 ===
@@ -94,19 +95,22 @@ position: -172,85
 //<<if $charPOV is "Fighter">>
 <<if $charPOV is "Fighter" and $spokenToWindy is false>>
     Windy: Wow. Another newbie. And here I thought Altea was the last for a while.
-    Windy: Guess I owe Zora the next cask I find out here.
+    Windy: Damn. Guess that means I lose the bet.
     Windy: How'd you get here, newbie?
-    The Fighter: <i>You say nothing.</i>
+    //The Fighter: <i>You say nothing.</i>
+    The Fighter: ...
     Windy: Oh, not the talkative type? That's fine.
     Windy: Ugh, the Moon's going to be brighter soon, and I'm too far out.
     Windy: Did you see where that little pest went? It took my trowel.
-    The Fighter: <i>You shake your head.</i>
+    //The Fighter: <i>You shake your head.</i>
+    The Fighter: ...
     Windy: Drat. And I only just found that trowel.
     Windy: The ruins by the well are no picnic, trust me. It's like a breeding ground for the axe-handed skinks.
     Windy: Although they don't breed. At least, I don't think they do.
     Windy: Anyway. Do you know how you got here? 
     Windy: Do you even know where here is?
-    The Fighter: <i>You say nothing.</i>
+    //The Fighter: <i>You say nothing.</i>
+    The Fighter: ...
     Windy: Still nothing, huh?
     Windy: Okay, well, you should talk to Fen. 
     Windy: She's the only one who's ever ended up here on purpose.
@@ -383,7 +387,7 @@ position: 279,29
 <<if $charPOV is "Fighter" and $spokenToHeloiseFighter is false>>
 Heloise: Welcome to our little slice of hell.
 Heloise: We gather here to pretend it's night, and that food still appetizes us.
-Heloise: Come back here when you're ready for "dinner".
+Heloise: Come back here when you're ready for "Dinner".
 <<set $spokenToHeloiseFighter to true>>
 <<stop>>
 <<endif>>
@@ -401,7 +405,7 @@ Heloise: You're back.
 Heloise: You found something to amuse yourself with, I take it.
 Heloise: Good.
 Heloise: Everyone should, eventually.
-Heloise: Or you end up like Verity, whining alone in a field.
+//Heloise: Or you end up like Verity, whining alone in a field.
 Heloise: If you're ready, look into the fire. It's the only real ritual we have.
 <<stop>>
 <<endif>>
@@ -828,6 +832,7 @@ Fen: ...Or night?
 Fen: Or... whatever time this is.
 <<changeBackCam BonfireManager>>
 <<revealCreature SpineObjectsManager>>
+<<revealCreature spinePathManager>>
 
 //<i>This is the end of the demo. Thank you for playing!</i>
 //<<restart BonfireManager>>
@@ -838,6 +843,7 @@ title: AlteaAtTheSpine
 <<if $charPOV is "Fighter" and $alteaSpineDone is false>>
 Altea: ...
 <<wait  2>>
+<<hideCreature BonfireManager>>
 Altea: What are you doing out here.
 The Fighter: <i>It's not a question, but an accusation. You do not respond.</i>
 Altea: This is important. I can't be interrupted.
@@ -865,6 +871,7 @@ Altea: Now, run along.
 <<revealCreature PlayerClericStandInSpine>>
 <<wait  1.5>>
 <<changeCam PlayerClericStandInSpine>>
+<<wait  2>>
 Creature that Looks Worried: The moon must hatch.
 <<playKnock CommandHolderSpine>>
 <<revealCreature CommandHolderSpine>>
@@ -879,6 +886,7 @@ Creature that Looks Worried: See what she has done.
 //switch into Fen
 <<set $alteaSpineDone to true>>
 <<disappearCreature Hound>>
+<<revealCreature FenPostBonfireMemory>>
 <<stop>>
 <<endif>>
 ===
