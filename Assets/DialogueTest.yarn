@@ -94,7 +94,8 @@ position: -172,85
     //<<stop>>
 //<<if $charPOV is "Fighter">>
 <<if $charPOV is "Fighter" and $spokenToWindy is false>>
-    Windy: Wow. Another newbie. And here I thought Altea was the last for a while.
+    Windy: Wow. Another newbie. 
+    //And here I thought Altea was the last for a while.
     Windy: Damn. Guess that means I lose the bet.
     Windy: How'd you get here, newbie?
     //The Fighter: <i>You say nothing.</i>
@@ -211,7 +212,11 @@ Tree: <i>It doesn't appear that this tree has anything to say to you.</i>
 ===
 title: TrowelGuy
 ---
-Creature with a trowel: olleh
+Creature with a Trowel: .olleh
+//Creature with a Trowel: if you sing at the garden hedge, something nice will happen!
+Creature with a Trowel: !neppah lliw ecin gnihtemos egdeh nedrag eht ta gnis uoy fi
+Creature with a Trowel: !em tsurt 
+Creature with a Trowel: !siht elots i
 <<stop>>
 ===
 title: NoPointNPC
@@ -347,8 +352,8 @@ Fen: In case you do sing, I found this the other day. It looks like sheet music,
 Fen: Here, maybe you'll have a use for it.
 <<playKnock GardenCutsceneManager>>
 //do we need this text?
-The Fighter: <i>She hands you a knife with music etched into the blade.</i>
-The Fighter: <i>Strangely, it looks similar to the one you already possess.</i>
+//The Fighter: <i>She hands you a knife with music etched into the blade.</i>
+//The Fighter: <i>Strangely, it looks similar to the one you already have.</i>
 //GIVES PHOEBE SONG OF BEASTS
 //the clink from the gardenscene:
 <<getSongofBeasts InventoryManager>>
@@ -365,10 +370,12 @@ Fen: Let me know if anything interesting happens!
 <<changeBackCam FenTavernManager>>
 <<set $spokenToFenFighterTavern to true>>
 <<stop>>
+<<endif>>
 
 //<<if $spokenToFenFighterTavern is true>>
-<<else>>
-Fen: You really ought to take a look at the garden, even just to take in the view.
+<<if $charPOV is "Fighter" and $spokenToFenFighterTavern is true>>
+Fen: You really ought to take a look at the garden, up the hill.
+Fen: Even just to take in the view
 Fen: Trust me. I know these things.
 Fen: I'm a <i>diviner</i>.
 <<stop>>
@@ -552,7 +559,7 @@ Hildegard: Maybe I'll... maybe I'll go later.
 Hildegard: Fen, I'm feeling so peculiar.
 Fen: How so, dear?
 Hildegard: My head... it feels far away. And my body...
-Fen: Have you mentioned this to Altea?
+Fen: Have you mentioned this to Altea? Maybe she can help?
 Hildegard: No... I feel foolish admitting this but I'm afraid of her.
 Hildegard: And she never comes up here.
 Fen: Well, if this strange feeling persists, tell me, okay?
@@ -581,7 +588,7 @@ title: BathhouseCreature1
 position: 319,69
 ---
 <<if $charPOV is "Fighter">>
-Creature: ylduol os sgnis noom ruo nehw nus eht rof ew evah deen tahw?
+Creature: ?ylduol os sgnis noom ruo nehw nus eht rof ew evah deen tahw
 <<endif>>
 <<if $charPOV is "Diviner">>
 Creature: <i>Hissssssss...</i>
@@ -774,8 +781,9 @@ title: BonfireConversation2
 <<wait  3>>
 //low voices in background, bonfire ambience
 //teakettle over flames in this node
-Fen: Say, have you seen that skeleton, over the bridge?
-The Fighter: <i>You shake your head.</i>
+Fen: Say, have you seen that skeleton, over the bridge on that other island?
+Fen: It's just across the water from here.
+//The Fighter: <i>You shake your head.</i>
 Fen: It's quite something.
 Fen: A natural marvel of this place.
 //checks water
@@ -793,8 +801,9 @@ Fen: It's strange, being so old but so... miniscule compared to this place.
 Fen: It's been ages since I've felt dwarfed in age by something,
 Fen: and a plane like this... well.
 Fen: I don't have to tell you how strange this place is.
-The Fighter: <i>You say nothing.</i>
-The Fighter: <i>Fen seems to take this as agreement.</i>
+//The Fighter: <i>You say nothing.</i>
+The Fighter: ...
+//The Fighter: <i>Fen seems to take this as agreement.</i>
 Fen: Oh, but yes, the skeleton!
 Fen: That's something even stranger still.
 Fen: To think something could die, down here.
@@ -819,7 +828,7 @@ The Fighter: <i>Why you're here?</i>
 Fen: You should go see it, Fighter.
 Fen: It's quite something.
 Fen: Maybe it will inspire you!
-The Fighter: <i>You think for a moment, then nod, and move to leave.</i>
+The Fighter: <i>You think for a moment, then move to leave.</i>
 Fen: Wait a moment?
 <<wait  1>>
 Fen: If you see any signs of scavenging, or decomposition,
@@ -845,12 +854,13 @@ Altea: ...
 <<wait  2>>
 <<hideCreature BonfireManager>>
 Altea: What are you doing out here.
-The Fighter: <i>It's not a question, but an accusation. You do not respond.</i>
+The Fighter: <i>It's not a question, but an accusation.</i>
+The Fighter: ...
 Altea: This is important. I can't be interrupted.
 Altea: Go back to the Bonfire.
-The Fighter: <i>You do not move.</i>
+<<wait  1>>
 Altea: Are you deaf? Leave me alone.
-The Fighter: <i>You still do not move.</i>
+<<wait  1>>
 Altea: Fen sent you here, didn't she?
 Altea: She can't help meddling when it comes to the husks.
 Altea: I told her I'd get results, and I'll <i>get</i> those results.
@@ -860,7 +870,7 @@ Altea: You know what?
 Altea: Go tell her I'm making progress.
 Altea: This one's almost fused with this hellhole, anyway.
 Altea: I'm doing it a favor.
-The Fighter: <i> You look at the husk, the tap sticking out of its side.</i>
+The Fighter: <i> You take in the husk beside her, the tap sticking out of its side.</i>
 Altea: Don't worry about that.
 Altea: It's for the greater good, I promise you.
 Altea: Now, run along.
@@ -899,6 +909,9 @@ Fen: I should go take a walk. Look for things that make me remember.
 Fen: Gods know I need it.
 Fen: If I forget where I should go, the compass in my hand should help guide me.
 Fen: If that enchantment I cast before I got here even still works...
+<<wait  0.5>>
+Fen: That willow tree up on the roof of the rookery...
+Fen: Could I get up there again?
 <<stop>>
 ===
 title: BonfireTransition
