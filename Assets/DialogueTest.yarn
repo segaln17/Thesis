@@ -122,6 +122,7 @@ position: -172,85
     Windy: She's at the tavern.
     Windy: And get to the bonfire if you start feeling queasy. They all feel queasy at first.
     Windy: Well, not me, but other people usually get queasy.
+    Windy: Talk to me again if you get lost or confused or whatever.
     Windy: Oh, and don't look down. There's nothing down there but the sun, deep, deep down.
     Windy: All the way under the water.
     <<set $spokenToWindy to true>>
@@ -135,6 +136,7 @@ position: -172,85
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToWindyDiviner is false>>
+    Windy: Hey, I've been wondering.
     Windy: Is it true what they're saying?
     Fen: What do you mean? That you're divorced?
     Windy: That's blatantly untrue and I don't know who started that rumor.
@@ -143,22 +145,20 @@ position: -172,85
     Fen: ...
     Fen: Where did you hear that? Altea?
     Windy: I shan't say.
-    Windy: But it wasn't Altea. Though she was the first to say it.
-    Windy: She called you an out-of-touch old fool.
+    Windy: But she did kind of start it.
+    Windy: She called you out-of-touch.
     Windy: Mired in the past that's slipping away from you.
     Windy: You know, because you're <i>immortal</i>, or whatever.
+    Windy: Her words.
     Windy: People are wondering if it's true.
-    Fen: It's not.
-    Windy: Are you sure?
     Fen: I was there for the First Bastion Fire, and I recall the aftermath of the Second, and the rebuilding efforts for both.
-    Windy: Okay, well, I don't know what those are.
+    //Windy: I've never been to Bastion, if that's even a place.
     Fen: I remember the death of the Saint of Radiant Sorrow. I remember seeing Her forces gain influence across the continent.
     Fen: So what if I don't remember the name of the village I came from? I remember where it was.
     Fen: Or... that it was off of a marsh. That I remember.
     Fen: ...
-    Windy: Hmm. I guess Grimbolde was right.
+    Windy: Hmm.
     Fen: I should go. I have... things to do.
-    Windy: Sure you do.
     <<set $spokenToWindyDiviner to true>>
     <<stop>>
 <<endif>>
@@ -180,7 +180,9 @@ position: 209,-41
 //<<if $charPOV is "Fighter">>
 <<if $spokenToByronFighter is false>>
     Byron: Hey, you! You're breathing!
-    Byron: The Beneath caught a fresh one! Been a while, not since Altea!
+    Byron: The Beneath caught a fresh one! No one breathes around here.
+    Byron: Besides Altea, of course. But she's more new, too.
+    //Been a while, not since Altea!
     Byron: Breathing, the both of you—not been here long enough not to, eh?
     Byron: Have you noticed you don't have to blink anymore?
     Byron: Or relieve yourself? Nothing created nor destroyed, as they say...
@@ -196,8 +198,9 @@ position: 209,-41
     <<endif>>
 <<if $spokenToByronFighter is true>>
     //Byron: Fen's a fool if they think anyone's getting into that garden anytime soon.
-    Byron: That garden would make good kindling.
-    Byron: Too bad Fen won't let anyone take a hatchet to it...
+    Byron: There's a garden on the other side of the campfire, near the tavern...
+    Byron: It would make good kindling.
+    Byron: Too bad Fen won't let anyone take a hatchet to it.
     Byron: A real shame, that.
     <<stop>>
     <<endif>>
@@ -214,9 +217,11 @@ title: TrowelGuy
 ---
 Creature with a Trowel: .olleh
 //Creature with a Trowel: if you sing at the garden hedge, something nice will happen!
+Creature with a Trowel: .llih a pu nedrag a si ereht rehtag seno llat eht erehw raen 
+//near where the tall ones gather there is a garden up a hill
 Creature with a Trowel: !neppah lliw ecin gnihtemos egdeh nedrag eht ta gnis uoy fi
 Creature with a Trowel: !em tsurt 
-Creature with a Trowel: !siht elots i
+Creature with a Trowel: !gniht siht elots i
 <<stop>>
 ===
 title: NoPointNPC
@@ -259,6 +264,7 @@ Zora: Nevermind. She'll never pay up. She never does.
 Zora: What'll it be, Fen?
 Fen: Oh, nothing.
 Zora: Fine by me. Nothing is what we have.
+<<set $spokenToZoraDiviner to true>>
 <<stop>>
 <<endif>>
 ===
@@ -307,21 +313,24 @@ position: 259,9
 <<if $spokenToFenFighterTavern is false>>
 <<changeCam FenTavernManager>>
 The Fighter: <i>Before you is a small but strangely imposing figure, sitting alone.</i>
-The Fighter: <i>Though she is small, she has gravity, and sitting in the tavern by herself, one can almost pretend this is normal.</i>
+The Fighter: <i>Though she is small, she has gravity, and sitting here by herself, one can almost pretend this is normal.</i>
 Strangely Congenial Person: I haven't seen you before, have I?
 Strangely Congenial Person: Isn't this a strange place in which we find ourselves? And to think, I meant to come here.
 Strangely Congenial Person: It'd be silly, if things didn't just sit here in stasis and rot.
 Fen: I'm Fen. What's your name?
-The Fighter: <i>You hesitate. You are not comfortable sharing this yet.</i>
+The Fighter: <i>You are not comfortable sharing this yet.</i>
+The Fighter: ...
 Fen: Oh, you're a shy one! Wouldn't think so with your weaponry.
 Fen: But I'll bet you get that a lot.
 Fen: I'm getting off topic, you're probably very confused and disoriented.
 Fen: Where to start...
 Fen: Have you met Altea?
-Fen: She's the other new one, aside from you.
+Fen: She's the other new one, aside from you. New-ish.
 Fen: Well, I should say "us." I have not been here very long either.
 Fen: She's... prickly. But she's a cleric of the order of the Saint of Radiant Sorrow, so that's nice.
 Fen: A nice violent sect. She caused a coup in her own hometown, so I heard!
+The Fighter: ...
+<<wait  0.5>>
 Fen: Do you know, sometimes I wonder about how long we'll stay here.
 Fen: Because, well, the reality is that we're stuck here.
 Fen: They call it the Beneath, this space between realities.
@@ -330,12 +339,15 @@ Fen: <i>She pauses, then brightens.</i>
 Fen: But might as well make the most of it, mustn't we! No use moping like Altea.
 Fen: In such a space where there should be no life, the flora and fauna are teeming!
 Fen: I have a theory about it, actually, but it's a bit morbid. I'll refrain from sharing it.
-The Fighter: <i>You say nothing. Fen cannot help herself.</i>
-Fen: Well, so with people-types like us, the longer we remain here the more hollowed out we become.
+The Fighter: ...
+<<wait  1>>
+The Fighter: <i>It's clear that Fen cannot help herself.</i>
+Fen: Well, so with people-types like us, 
+Fen: the longer we remain here the more hollowed out we become.
 Fen: I believe that our life force is being drawn up and into the very atmosphere to fuel this place.
 Fen: Maybe even to fuel a celestial body, in this place that should be subterranean, 
 Fen: but where the moon sits low and never sets...
-The Fighter: <i>You fidget, still silent.</i>
+The Fighter: ...
 Fen: Oh, but I'm boring you. I get caught up in these things.
 Fen: I'm studying this place; I'm a diviner, you see.
 Fen: I'm trying to divine its secrets.
@@ -344,7 +356,7 @@ Fen: Say, do you sing?
 Fen: I've noticed quite a few people who end up down here are musicians.
 Fen: I've wondered if this world gets louder when it turns them.
 Fen: By eating musicians, the Beneath takes their knack for music and makes it into its own sonic resonance,
-Fen: something like that. It's a theory I've been nursing.
+Fen: or something like that. It's a theory I've been nursing.
 Fen: You have no instrument, so I thought I'd see if you fit into the pattern.
 <<wait  1>>
 //Fen: Some are too talkative to appreciate it, but others are more sensitive.
@@ -363,7 +375,8 @@ Fen: Here, maybe you'll have a use for it.
 Fen: Windy found it by the garden, but she's given up music.
 Fen: People think it's because she's divorced, but she denies it.
 Fen: Consider it a welcome gift!
-Fen: The garden's up the hill, just outside. I go up there sometimes to think.
+Fen: The garden's up the hill, just outside, the way you came in. 
+Fen: I go up there sometimes to think.
 Fen: Some of the plants up there respond to music, if you feel so inclined to try.
 Fen: Let me know if anything interesting happens!
 //Fen: Maybe something around here will respond to it!
@@ -374,8 +387,8 @@ Fen: Let me know if anything interesting happens!
 
 //<<if $spokenToFenFighterTavern is true>>
 <<if $charPOV is "Fighter" and $spokenToFenFighterTavern is true>>
-Fen: You really ought to take a look at the garden, up the hill.
-Fen: Even just to take in the view
+Fen: You really ought to take a look at the garden, up that very tall hill.
+Fen: Even just to take in the view.
 Fen: Trust me. I know these things.
 Fen: I'm a <i>diviner</i>.
 <<stop>>
@@ -460,10 +473,13 @@ Hythe: Nature is beautiful, don't you think?
 
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is true>>
 Hythe: Oh, is it time for the Bonfire already?
-Hythe: I've been observing this fellow. It hasn't moved.
+Hythe: I think I'd much rather observe this fellow, to tell you the truth.
+//Hythe: I've been observing this fellow. It hasn't moved.
 Hythe: Fen says they fuse with the earth...
 Hythe: Do you think that's true?
 Hythe: What do you think Altea does for them?
+Hythe: Do you think it's painful?
+Hythe: ...Do you think she'd allow an audience?
 <<stop>>
 <<endif>>
 ===
