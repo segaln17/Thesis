@@ -114,7 +114,7 @@ public class PaperPlacement : MonoBehaviour
 
     public IEnumerator turnonClick2()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1.5f);
         currentSheet.GetComponent<ClickandDrag02>().enabled = true;
         Debug.Log("CanClick");
     }

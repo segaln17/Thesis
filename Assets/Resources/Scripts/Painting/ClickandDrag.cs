@@ -34,6 +34,7 @@ public class ClickandDrag : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Mouse0) && !justClicked)
                 {
+                rookAud.pitch = UnityEngine.Random.Range(.7f, 1);
                 rookAud.PlayOneShot(clickSoundDrop);
                 transform.position = new Vector3(transform.position.x, transform.position.y - placeYOffset, transform.position.z);
                 iscarrying = false;
@@ -47,6 +48,7 @@ public class ClickandDrag : MonoBehaviour
 
     private void OnMouseDown()
     {
+        rookAud.pitch = UnityEngine.Random.Range(.7f, 1);
         rookAud.PlayOneShot(clickSound);
         if (!iscarrying)
         {

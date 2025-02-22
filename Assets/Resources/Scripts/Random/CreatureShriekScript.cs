@@ -3,11 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CreatureShriekScript : MonoBehaviour
 {
     public AudioSource creatureNoiseSource;
 
     public AudioClip creatureShriek;
+    private AudioClip currentClip;
+    public float lowRange = 0.4f;
+    public float highRange = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +30,27 @@ public class CreatureShriekScript : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                creatureNoiseSource.PlayOneShot(creatureShriek);
+                
+                PlayClip(creatureShriek);
+            }
+        }
+    }
+
+    public void PlayClip(AudioClip clip)
+    {
+        if (currentClip != clip) //checks if the provided clip is still playing
+        {
+            creatureNoiseSource.Stop(); //if not, it stops playback and changes the clip
+            currentClip = clip;
+            creatureNoiseSource.pitch = UnityEngine.Random.Range(lowRange, highRange);
+            creatureNoiseSource.PlayOneShot(currentClip);
+        }
+        else
+        {//otherwise, it checks if the src is currently playing the audioclip and plays it if it isn't
+            if (!creatureNoiseSource.isPlaying)
+            {
+                creatureNoiseSource.pitch = UnityEngine.Random.Range(lowRange, highRange);
+                creatureNoiseSource.PlayOneShot(currentClip);
             }
         }
     }

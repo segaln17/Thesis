@@ -14,6 +14,7 @@ public class SimpleController : MonoBehaviour
     private Vector3 movementDirection;
     public bool isPlayerWalking;
     public GameObject footstepSounds;
+    public AudioSource footstepAudio;
 
     //THE THINGS BELOW ARE AN ATTEMPT AT PARENTING CONTROLS TO WHERE THE CAMERA IS FACING
     //mouse sensitivity
@@ -105,6 +106,7 @@ public class SimpleController : MonoBehaviour
             rb.drag = groundDrag;
                 if (isPlayerWalking)
                 {
+                    footstepAudio.pitch = UnityEngine.Random.Range(0.85f, 1);
                     footstepSounds.SetActive(true);
                 }
                 else {footstepSounds.SetActive(false); }

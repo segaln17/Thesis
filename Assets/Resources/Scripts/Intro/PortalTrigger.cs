@@ -79,6 +79,35 @@ public class PortalTrigger : MonoBehaviour
                 // numNotesSung += 1;
                 //sungNotes += noteQueue.Dequeue();
             }
+
+            if (noteQueue.Count == 4 && ListtoString(noteQueue) != goalPhrase)
+            {
+                noteQueue = new List<string>();
+            }
+            if (noteQueue.Count == 4 && noteQueue[3] != "S")
+            {
+                noteQueue.RemoveAt(3);
+                noteQueue.RemoveAt(2);
+                noteQueue.RemoveAt(1);
+                noteQueue.RemoveAt(0);
+            }
+
+            if (noteQueue.Count == 3 && noteQueue[2] != "A")
+            {
+                noteQueue.RemoveAt(2);
+                noteQueue.RemoveAt(1);
+                noteQueue.RemoveAt(0);
+            }
+
+            if (noteQueue.Count == 2 && noteQueue[1] != "D")
+            {
+                noteQueue.RemoveAt(1);
+                noteQueue.RemoveAt(0);
+            }
+            if (noteQueue.Count == 1 && noteQueue[0] != "W")
+            {
+                noteQueue.RemoveAt(0);
+            }
         }
 
         CheckNotes();

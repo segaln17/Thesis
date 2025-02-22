@@ -126,9 +126,7 @@ public class PaintingSceneManager : MonoBehaviour
         if (state == paintingState.wallPlacing)
         {
             wallPlacing();//camera changes to wall, click n drag script is back on, lerp to a collider on the wall then reset once lerped?
-            resetButton.gameObject.SetActive(true);
-            wallPlacementButton.gameObject.SetActive(false);
-            endButton.gameObject.SetActive(true);
+    
         }
 
         if (state == paintingState.reset)
@@ -222,6 +220,12 @@ public class PaintingSceneManager : MonoBehaviour
         if (paperPlacementScript.isRotated == false)
         {
             paperPlacementScript.turnOnClickandDrag();
+        }
+        if(paperPlacementScript.isRotated == true)
+        {
+            resetButton.gameObject.SetActive(true);
+            wallPlacementButton.gameObject.SetActive(false);
+            endButton.gameObject.SetActive(true);
         }
         
         
