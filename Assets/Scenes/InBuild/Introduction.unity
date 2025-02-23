@@ -40497,6 +40497,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1173362625}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1173362800 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2878687792649692693, guid: e7268f7c14dd946dabffa9c1c472fe23,
+    type: 3}
+  m_PrefabInstance: {fileID: 1492741117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1173629150
 GameObject:
   m_ObjectHideFlags: 0
@@ -45264,8 +45270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d24a4ebc2cbc44c208f6a17d1db4eff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensX: 175
-  sensY: 175
+  sensX: 275
+  sensY: 275
   orientation: {fileID: 1492741122}
   xRotation: 0
   yRotation: 0
@@ -52056,6 +52062,11 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 4580941000610326198, guid: e7268f7c14dd946dabffa9c1c472fe23,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5531051144709814132, guid: e7268f7c14dd946dabffa9c1c472fe23,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -52221,6 +52232,11 @@ PrefabInstance:
       propertyPath: slopeGravity
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 8385617604681943024, guid: e7268f7c14dd946dabffa9c1c472fe23,
+        type: 3}
+      propertyPath: footstepAudio
+      value: 
+      objectReference: {fileID: 1173362800}
     - target: {fileID: 8385617604681943024, guid: e7268f7c14dd946dabffa9c1c472fe23,
         type: 3}
       propertyPath: maxSlopeAngle

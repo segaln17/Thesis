@@ -26,9 +26,6 @@ public class HedgeScript : MonoBehaviour
     [Header("Trees Sing")] 
     public AudioSource treeSing;
     public AudioClip treehum01;
-    public AudioClip treehum02;
-    public AudioClip treehum03;
-    public AudioClip treehum04;
     
 
     public Animator hedge1animator;
@@ -354,12 +351,6 @@ public class HedgeScript : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             treeSing.PlayOneShot(treehum01);
-            yield return new WaitForSeconds(3f); 
-            treeSing.PlayOneShot(treehum02);
-            yield return new WaitForSeconds(3f);
-            treeSing.PlayOneShot(treehum03);
-            yield return new WaitForSeconds(3f);
-            treeSing.PlayOneShot(treehum04);
            
         }
 }
