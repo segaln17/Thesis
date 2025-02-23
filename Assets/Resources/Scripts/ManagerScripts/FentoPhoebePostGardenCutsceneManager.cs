@@ -20,6 +20,7 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
     public GameObject songManager;
 
     public GameObject fenColorway;
+    public GameObject fenSittingColorway;
     public GameObject fenfeet;
 
 
@@ -125,11 +126,12 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         isPulsing = false;
         isNormal = true;
+        fenfeet.SetActive(false);
         yield return new WaitForSeconds(3f);
         fenColorway.SetActive(false);
         //turn off Fen controls
         PlayerDiviner.GetComponent<SimpleController>().enabled = false;
-        fenfeet.SetActive(false);
+        
         //PlayerDiviner.GetComponent<Collider>().enabled = false;
         yield return new WaitForSeconds(3f);
         //switch camera to Phoebe
@@ -184,6 +186,7 @@ public class FentoPhoebePostGardenCutsceneManager : MonoBehaviour
         PlayerPhoebe.GetComponent<SimpleController>().enabled = true;
         songManager.SetActive(true);
         phoebetess.SetActive(true);
+        fenSittingColorway.SetActive(true);
         yield return new WaitForSeconds(1f);
         fenCam01.m_Lens.FieldOfView = 60f;
         fenCam02.m_Lens.FieldOfView = 60f;

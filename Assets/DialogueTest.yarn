@@ -858,6 +858,7 @@ Fen: Or... whatever time this is.
 <<changeBackCam BonfireManager>>
 <<revealCreature SpineObjectsManager>>
 <<revealCreature spinePathManager>>
+<<disappearCreature BonfireManager>>
 
 //<i>This is the end of the demo. Thank you for playing!</i>
 //<<restart BonfireManager>>
@@ -868,7 +869,7 @@ title: AlteaAtTheSpine
 <<if $charPOV is "Fighter" and $alteaSpineDone is false>>
 Altea: ...
 <<wait  2>>
-<<hideCreature BonfireManager>>
+<<disappearCreature BonfireManager>>
 Altea: What are you doing out here.
 The Fighter: <i>It's not a question, but an accusation.</i>
 The Fighter: ...

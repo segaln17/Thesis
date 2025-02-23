@@ -165,8 +165,7 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
 
         //set charPOV to diviner
         yarnDialogueTrigger.SetCharacterPOV(GameManager.CharacterPOV.Diviner);
-        //turn on Fen controller
-        PlayerFen.GetComponent<SimpleController>().enabled = true;
+        
         yield return new WaitForSeconds(1f);
         //turn off Fen's dialogue trigger from tavern scene
         yarnDialogueTrigger.gameObject.SetActive(false);
@@ -176,6 +175,8 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         isPulsing = false;
         isNormal = true;
+        //turn on Fen controller
+        PlayerFen.GetComponent<SimpleController>().enabled = true;
         timelineScript.GoTimeline();
         yield return new WaitForSeconds(1.5f);
         isNormal = false;
