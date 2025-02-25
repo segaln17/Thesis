@@ -91,14 +91,16 @@ public class SimpleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         //freeze player while dialogue is running
         if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == true)
         {
             return;
         }
+        */
 
-        else
-        { //ground check
+        //else
+        //{ //ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 1f, whatIsGround);
         
         //handle drag
@@ -166,7 +168,7 @@ public class SimpleController : MonoBehaviour
         //turn gravity off while on slope
         //rb.useGravity = !OnSlope();
        // stepClimb();
-        }
+        //}
         
   
     }

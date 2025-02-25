@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.Playables;
 using Yarn.Unity;
 
@@ -163,7 +164,8 @@ public class HedgeScript : MonoBehaviour
             }
         }
 
-        //SONG OF BEASTS: WDADDAWD
+        //SONG OF BEASTS: WDADDAWD 
+        //TODO: CHANGE TO SDAWD
         if (isGarden)
         {
             if (noteQueue.Count == 8 && ListtoString(noteQueue) != goalPhrase)

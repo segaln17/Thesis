@@ -130,7 +130,7 @@ position: -172,85
     <<endif>>
 <<if $charPOV is "Fighter" and $spokenToWindy is true>>
     Windy: Fen's at the tavern.
-    Windy: If you see Zora, don't tell her I owe her, okay?
+    Windy: If you see Zora there, don't tell her I owe her, okay?
     Windy: Now, where did that little varmint go?
     <<stop>>
 <<endif>>
@@ -544,6 +544,13 @@ Grimbolde: It's not happening right now, but it'll happen again. It always does.
 <<stop>>
 <<endif>>
 ===
+title: BabyNPC
+---
+Puppet: My name's Baby.
+Puppet: Don't laugh.
+Puppet: Now go away.
+<<stop>>
+===
 title: OutsideGardenNPC
 position: 309,59
 ---
@@ -761,7 +768,7 @@ title: BonfireConversation1
 ---
 //camera change, objects change
 <<changeCam BonfireManager>>
-<<wait 1>>
+<<wait 1>> //change this to be shorter???
 Fen: It's poetic, I think.
 Fen: When you've been around as long as I have, and you see as much as I have.
 Fen: You start to see everything like one big pattern.
