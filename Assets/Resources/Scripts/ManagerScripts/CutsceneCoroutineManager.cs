@@ -17,6 +17,9 @@ public class CutsceneCoroutineManager : MonoBehaviour
     public GameObject PlayerFen;
     //public GameObject PlayerAltea;
 
+    [Header("Maini Character Postions")]
+    public GameObject fenBonfirePosition;
+
     [Header("NPC Characters")]
     public GameObject Windy;
     //public GameObject Hildegarde;
@@ -73,7 +76,7 @@ public class CutsceneCoroutineManager : MonoBehaviour
 
     [Header("Important Objects")]
     //garden cutscene coroutine
-    //public GameObject gardenYarnTrigger;
+    public GameObject stableYarnTrigger;
     public GameObject stableLight;
 
     /////////////////////////////////////////////////////
@@ -223,6 +226,8 @@ public class CutsceneCoroutineManager : MonoBehaviour
         phoebecamthirdPerson.m_Lens.FieldOfView = 60f;
         phoebecamfirstPerson.m_Lens.FieldOfView = 60f;
         GardenAerialCam.m_Lens.FieldOfView = 60f;
+        phoebecamthirdPerson.Priority = 0;
+        phoebecamfirstPerson.Priority = 0;
 
         outsideRookeryTrigger.gameObject.SetActive(false);
         Debug.Log("switched to fen completed");
@@ -231,4 +236,120 @@ public class CutsceneCoroutineManager : MonoBehaviour
 
     /////////////////////////////////////////////////////
     ///------FEN TO PHOEBE POST STABLE---///
+    public IEnumerator FtoPpostStable()
+    {
+        //first person POV to third person POV
+        Debug.Log("switching to Phoebe");
+        stableYarnTrigger.SetActive(false);
+        pulsingCamera = fenfirstPerson;
+        isPulsing = true;
+        transitionAudio.PlayOneShot(transitionClip);
+        hyperSpaceWarp.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        isPulsing = false;
+        isNormal = true;
+        //pulse 1
+        
+        yield return new WaitForSeconds(3f);
+        fenfirstPerson.Priority = 0;
+        fenthirdPerson.Priority = 12;
+        
+
+
+        Debug.Log("third POV Fen");
+        pulsingCamera = fenthirdPerson;
+        isPulsing = true;
+        transitionAudio.PlayOneShot(transitionClip);
+        fenFullBodySpriteStanding.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        isPulsing = false;
+        isNormal = true;
+        //pulse 2
+
+        //Fen first person elements and controller off
+        fenfeetSprite.SetActive(false);
+        PlayerFen.GetComponent<SimpleController>().enabled = false;
+        fenRb.isKinematic = true;
+        fenTess.SetActive(false);
+        //turn off Fen controls
+
+        yield return new WaitForSeconds(1.5f);
+
+        isPulsing = true;
+        transitionAudio.PlayOneShot(transitionClip);
+        yield return new WaitForSeconds(1.5f);
+        isPulsing = false;
+        isNormal = true;
+        hyperSpaceWarp.SetActive(true);
+        //pulse 3
+
+        //switch to garden aerial cam
+        pulsingCamera = phoebecamthirdPerson;
+        yield return new WaitForSeconds(1.5f);
+        GardenAerialCam.Priority = 12;
+        fenfirstPerson.Priority = 0;
+        fenthirdPerson.Priority = 0;
+        fenFullBodySpriteStanding.SetActive(false);
+        yield return new WaitForSeconds(2.5f);
+
+        //Switch to Phooebe third Person
+        phoebecamthirdPerson.Priority = 12;
+        GardenAerialCam.Priority = 0;
+
+        isPulsing = true;
+        transitionAudio.PlayOneShot(transitionClip);
+        yield return new WaitForSeconds(1.5f);
+        isPulsing = false;
+        isNormal = true;
+        hyperSpaceWarp.SetActive(true);
+        //pulse 4
+
+        //Switch Phoebe first Person
+        pulsingCamera = phoebecamfirstPerson;
+        yield return new WaitForSeconds(2.5f);
+        phoebecamfirstPerson.Priority = 12;
+        phoebecamthirdPerson.Priority = 0;
+
+        isPulsing = true;
+        transitionAudio.PlayOneShot(transitionClip);
+        yield return new WaitForSeconds(1.5f);
+        isPulsing = false;
+        isNormal = true;
+        hyperSpaceWarp.SetActive(true);
+        //pulse 5
+
+        //set charPOV to Fighter
+        yarnDialogueTrigger.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        yarnDialogueTrigger.SetCharacterPOV(GameManager.CharacterPOV.Fighter);
+        
+        Debug.Log("fighterPOV gamemanager check");
+
+        yield return new WaitForSeconds(2f);
+        //turn on Phoebe controls
+        PlayerPhoebe.GetComponent<SimpleController>().enabled = true;
+        PhoebeRB.isKinematic = (false);
+        phoebefeetSprite.SetActive(true);
+        phoebeFullBodySprite.SetActive(false);
+        audioManager.SetActive(true);
+        phoebeTess.SetActive(true);
+
+        //Reposition Fen
+        yield return new WaitForSeconds(1f);
+        PlayerFen.transform.position = fenBonfirePosition.transform.position;
+        fenFullBodySpriteSitting.SetActive(true);
+        
+
+        //Reset
+        yield return new WaitForSeconds(1f);
+        fenfirstPerson.m_Lens.FieldOfView = 60f;
+        fenthirdPerson.m_Lens.FieldOfView = 60f;
+        fenthirdPersonTavern.m_Lens.FieldOfView = 60f;
+        phoebecamthirdPerson.m_Lens.FieldOfView = 60f;
+        phoebecamfirstPerson.m_Lens.FieldOfView = 60f;
+        GardenAerialCam.m_Lens.FieldOfView = 60f;
+
+        Debug.Log("switched to Phoebe");
+        StopCoroutine(FtoPpostStable());
+    }
 }
