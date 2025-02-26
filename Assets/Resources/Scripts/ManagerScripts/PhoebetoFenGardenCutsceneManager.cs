@@ -8,59 +8,19 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
 {
     [Header("Yarn Triggers")]
     public DialogueTrigger outsideRookeryTrigger;
-    public DialogueTrigger insideRookeryTrigger;
-    public YarnDialogueTrigger yarnDialogueTrigger;
-
-    public TimelineTest timelineScript;
-
-    [Header("Characters")]
-    public GameObject PlayerPhoebe;
-    public GameObject PlayerFen;
-
-
-    [Header("Cameras")]
-    public CinemachineVirtualCamera fenCam01;
-    public CinemachineVirtualCamera fenCam02;
-    public CinemachineVirtualCamera phoebecamfirstPerson;
-    public CinemachineVirtualCamera phoebecam01;
-    public CinemachineVirtualCamera AerialCam;
-
-    public CinemachineVirtualCamera pulsingCamera;
-
-    [Header("POV Assets")]
-    public Rigidbody PhoebeRB;
-    public Rigidbody fenRb;
-    public GameObject fenfeet;
-    public GameObject phoebefeet;
-    public GameObject phoebecolorway;
-    public GameObject fencolorway;
-    public GameObject gardenYarnTrigger;
-    public GameObject audioManager;
-    public GameObject phoebeTess;
-    public GameObject fenTess;
-
-    public GameObject hyperSpaceWarp;
-    public bool isPulsing = false;
-    public bool isNormal = false;
-    
-    public int normal = 60;
-    public int zoom = 30;
-    public float smooth = 5;
-  
-
-    public GameObject stableLight;
+    public GameObject coroutineManager;
 
     
 
     // Start is called before the first frame update
     void Start()
     {
-        audioManager = GameObject.Find("AudioManager");
+        //audioManager = GameObject.Find("AudioManager");
         //phoebeTess = GameObject.Find("GameManager/Canvas/PhoebeTesselations");
         ///fenTess = GameObject.Find("GameManager/Canvas/FenTesselations");
 
-        stableLight.SetActive(false);
-        pulsingCamera = phoebecamfirstPerson;
+        //stableLight.SetActive(false);
+       // pulsingCamera = phoebecamfirstPerson;
 
         
       
@@ -71,26 +31,25 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
     {
         if (outsideRookeryTrigger.dialoguePlayed)
         {
-            StartCoroutine("WaitSwitchtoFen");
-            stableLight.SetActive(true);
+            StartCoroutine(coroutineManager.GetComponent<CutsceneCoroutineManager>().PtoFfromGarden());
             outsideRookeryTrigger.dialoguePlayed = false;
             
         }
 
        
-        if (isPulsing)
+       /* if (isPulsing)
         {
             pulsingCamera.m_Lens.FieldOfView = Mathf.Lerp(pulsingCamera.m_Lens.FieldOfView, zoom, Time.deltaTime * smooth);
         }
         else if(!isPulsing && isNormal)
         {
             pulsingCamera.m_Lens.FieldOfView = Mathf.Lerp(pulsingCamera.m_Lens.FieldOfView, normal, Time.deltaTime * smooth);
-        }
+        }*/
 
 
     }
 
-    IEnumerator WaitSwitchtoFen()
+  /*  IEnumerator WaitSwitchtoFen()
     {
         Debug.Log("switching to Fen from Garden");
         isPulsing = true;
@@ -188,7 +147,7 @@ public class PhoebetoFenGardenCutsceneManager : MonoBehaviour
         //hyperSpaceWarp.SetActive(false);
         Debug.Log("switched to fen");
         StopCoroutine(WaitSwitchtoFen());
-    }
+    }*/
 
 
 }
