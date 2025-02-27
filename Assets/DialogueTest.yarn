@@ -95,34 +95,42 @@ position: -172,85
     //<<stop>>
 //<<if $charPOV is "Fighter">>
 <<if $charPOV is "Fighter" and $spokenToWindy is false>>
+    <<playClip WindyYarnCollider>>
     Windy: Wow. Another newbie. 
     //And here I thought Altea was the last for a while.
     Windy: Damn. Guess that means I lose the bet.
     Windy: How'd you get here, newbie?
     //The Fighter: <i>You say nothing.</i>
     The Fighter: ...
+    <<playClip WindyYarnCollider>>
     Windy: Oh, not the talkative type? That's fine.
     Windy: Ugh, the Moon's going to be brighter soon, and I'm too far out.
     Windy: Did you see where that little pest went? It took my trowel.
     //The Fighter: <i>You shake your head.</i>
     The Fighter: ...
+    <<playClip WindyYarnCollider>>
     Windy: Drat. And I only just found that trowel.
     Windy: The ruins by the well are no picnic, trust me. It's like a breeding ground for the axe-handed skinks.
     Windy: Although they don't breed. At least, I don't think they do.
+    <<playClip WindyYarnCollider>>
     Windy: Anyway. Do you know how you got here? 
     Windy: Do you even know where here is?
     //The Fighter: <i>You say nothing.</i>
     The Fighter: ...
+    <<playClip WindyYarnCollider>>
     Windy: Still nothing, huh?
     Windy: Okay, well, you should talk to Fen. 
     Windy: She's the only one who's ever ended up here on purpose.
     Windy: Unless... you did too?
+    <<playClip WindyYarnCollider>>
     Windy: Nevermind, I doubt it. 
     Windy: You seem like someone who would fall down a ravine and end up here.
     Windy: Fen'll help you get sorted out. If you can stand her yammering. 
     Windy: She's at the tavern.
+    <<playClip WindyYarnCollider>>
     Windy: And get to the bonfire if you start feeling queasy. They all feel queasy at first.
     Windy: Well, not me, but other people usually get queasy.
+    <<playClip WindyYarnCollider>>
     Windy: Talk to me again if you get lost or confused or whatever.
     Windy: Oh, and don't look down. There's nothing down there but the sun, deep, deep down.
     Windy: All the way under the water.
@@ -137,36 +145,48 @@ position: -172,85
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToWindyDiviner is false>>
+    <<playClip WindyYarnCollider>>
     Windy: Hey, I've been wondering.
     Windy: Is it true what they're saying?
+    <<playClip FenYarnCollider>>
     Fen: What do you mean? That you're divorced?
+    <<playClip WindyYarnCollider>>
     Windy: That's blatantly untrue and I don't know who started that rumor.
     Windy: But no, that's not what I mean.
     //Windy: People are saying you're losing your mind.
+    <<playClip WindyYarnCollider>>
     Windy: People are saying you're...
     Windy: Forgetting things.
     Fen: ...
+    <<playClip FenYarnCollider>>
     Fen: Where did you hear that? Altea?
+    <<playClip WindyYarnCollider>>
     Windy: I shan't say.
     Windy: But she did kind of start it.
     Windy: She called you out-of-touch.
     Windy: Mired in the past that's slipping away from you.
+    <<playClip WindyYarnCollider>>
     Windy: You know, because you're <i>immortal</i>, or whatever.
     Windy: Her words.
     Windy: People are wondering if it's true.
+    <<playClip FenYarnCollider>>
     Fen: I was there for the First Bastion Fire, and I recall the aftermath of the Second, and the rebuilding efforts for both.
     //Windy: I've never been to Bastion, if that's even a place.
     Fen: I remember the death of the Saint of Radiant Sorrow. I remember seeing Her forces gain influence across the continent.
+    <<playClip FenYarnCollider>>
     Fen: So what if I don't remember the name of the village I came from? I remember where it was.
     Fen: Or... that it was off of a marsh. That I remember.
     Fen: ...
+    <<playClip WindyYarnCollider>>
     Windy: Hmm.
+    <<playClip FenYarnCollider>>
     Fen: I should go. I have... things to do.
     <<set $spokenToWindyDiviner to true>>
     <<stop>>
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToWindyDiviner is true>>
+    <<playClip FenYarnCollider>>
     Windy: Look, I'm sorry, I was harsh.
     Windy: You're just the only grounded one here.
     Windy: No one wants to see you turn.
@@ -485,36 +505,49 @@ Heloise: Come back here when you're ready for "Dinner".
 <<playClip HeloiseYarnCollider>>
 Heloise: Oh, you're ready?
 Heloise: We're not.
+<<playClip HeloiseYarnCollider>>
 Heloise: Come back later.
 <<stop>>
 <<endif>>
 
 //<<if $alteaSceneFenDone is true>>
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is true>>
+<<playClip HeloiseYarnCollider>>
 Heloise: You're back.
 Heloise: You found something to amuse yourself with, I take it.
+<<playClip HeloiseYarnCollider>>
 Heloise: Good.
 Heloise: Everyone should, eventually.
 //Heloise: Or you end up like Verity, whining alone in a field.
+<<playClip HeloiseYarnCollider>>
 Heloise: If you're ready, look into the fire. It's the only real ritual we have.
 <<stop>>
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToHeloiseDiviner is false>>
+<<playClip HeloiseYarnCollider>>
 Heloise: Have you convinced Altea to join us tonight?
+<<playClip FenYarnCollider>>
 Fen: ...No. Not yet.
+<<playClip HeloiseYarnCollider>>
 Heloise: Then Liesel owes me a tooth.
 <<set $spokenToHeloiseDiviner to true>>
 <<stop>>
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToHeloiseDiviner is true>>
+<<playClip FenYarnCollider>>
 Fen: Why do you need the teeth, Heloise? 
+<<playClip HeloiseYarnCollider>>
 Heloise: Oh, I don't know. I just like them.
 Heloise: I like holding them in my hands and looking at them.
+<<playClip FenYarnCollider>>
 Fen: This isn't the first tooth bet I've heard you make.
+<<playClip HeloiseYarnCollider>>
 Heloise: They're wasted on Liesel.
+<<playClip FenYarnCollider>>
 Fen: If you say so.
+<<playClip HeloiseYarnCollider>>
 Heloise: She doesn't appreciate them like I do.
 <<stop>>
 <<endif>>
@@ -523,9 +556,11 @@ title: Hythe
 position: 289,39
 ---
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToHytheFighter is false>>
+<<playClip HytheYarnCollider>>
 Hythe: You've seen them, then? The husks?
 Hythe: These are old ones, I think. They're basically the wall now.
 Hythe: And this fellow next to me is in the middle of the process.
+<<playClip HytheYarnCollider>>
 Hythe: Most of them are harmless. Used to be like us--lost souls.
 Hythe: Altea helps them, after they turn. Poor bastards.
 <<set $spokenToHytheFighter to true>>
@@ -533,8 +568,10 @@ Hythe: Altea helps them, after they turn. Poor bastards.
 <<endif>>
 
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToHytheFighter is true>>
+<<playClip HytheYarnCollider>>
 Hythe: I like sitting out here and watching the husks.
 Hythe: They don't do much, but that's okay.
+<<playClip HytheYarnCollider>>
 Hythe: I like talking to them. I can say whatever I want to them and they never react.
 Hythe: I can even scream at them if I want to, and they have to just sit there.
 Hythe: Nature is beautiful, don't you think?
@@ -593,6 +630,7 @@ Grimbolde: Isn't it awful?
 Grimbolde: Oh, Fen, can something be done about these things?
 Grimbolde: I hate them.
 Grimbolde: Their voices scrape my mind like nails on slate.
+<<playClip FenYarnCollider>>
 Fen: Hmm...
 Fen: Have you tried pushing them out of the way?
 Grimbolde: ...
@@ -606,6 +644,7 @@ Grimbolde: I wouldn't think she was in there at all if not for the light.
 <<if $charPOV is "Diviner" and $alteaSceneFenDone is false and $spokenToGrimboldeDiviner is true>>
 Grimbolde: She won't come out.
 Grimbolde: She never comes out.
+<<playClip FenYarnCollider>>
 Fen: I'll do my best to convince her.
 Grimbolde: But can you get her to stop that racket?
 Grimbolde: It's not happening right now, but it'll happen again. It always does.
