@@ -472,14 +472,17 @@ title: Heloise
 position: 279,29
 ---
 <<if $charPOV is "Fighter" and $spokenToHeloiseFighter is false>>
+<<playClip HeloiseYarnCollider>>
 Heloise: Welcome to our little slice of hell.
 Heloise: We gather here to pretend it's night, and that food still appetizes us.
+<<playClip HeloiseYarnCollider>>
 Heloise: Come back here when you're ready for "Dinner".
 <<set $spokenToHeloiseFighter to true>>
 <<stop>>
 <<endif>>
 
 <<if $charPOV is "Fighter" and $spokenToHeloiseFighter is true and $alteaSceneFenDone is false>>
+<<playClip HeloiseYarnCollider>>
 Heloise: Oh, you're ready?
 Heloise: We're not.
 Heloise: Come back later.
