@@ -21,6 +21,7 @@ position: -208,-211
 //Fen talk
 <<declare $alteaSceneFenDone = false as bool>>
 <<declare $spokenToWindyDiviner = false as bool>>
+<<declare $spokenToByronDiviner = false as bool>>
 <<declare $spokenToAmosDiviner = false as bool>>
 <<declare $spokenToZoraDiviner = false as bool>>
 <<declare $spokenToHytheDiviner = false as bool>>
@@ -180,12 +181,12 @@ title: Byron
 position: 209,-41
 ---
 //<<if $charPOV is "Fighter">>
-<<if $spokenToByronFighter is false>>
+<<if $charPOV is "Fighter" and $spokenToByronFighter is false>>
     Byron: Hey, you! You're breathing!
     Byron: The Beneath caught a fresh one! No one breathes around here.
     Byron: Besides Altea, of course. But she's more new, too.
     //Been a while, not since Altea!
-    Byron: Breathing, the both of you—not been here long enough not to, eh?
+    //Byron: Breathing, the both of you—not been here long enough not to, eh?
     Byron: Have you noticed you don't have to blink anymore?
     Byron: Or relieve yourself? Nothing created nor destroyed, as they say...
     Byron: I'm too far from the Bonfire now, but they need kindling for the fire. Or the moon will hatch, and consume us all...
@@ -198,12 +199,38 @@ position: 209,-41
     <<set $spokenToByronFighter to true>>
     <<stop>>
     <<endif>>
-<<if $spokenToByronFighter is true>>
+<<if $charPOV is "Fighter" and $spokenToByronFighter is true>>
     //Byron: Fen's a fool if they think anyone's getting into that garden anytime soon.
     Byron: There's a garden on the other side of the campfire, near the tavern...
     Byron: It would make good kindling.
     Byron: Too bad Fen won't let anyone take a hatchet to it.
     Byron: A real shame, that.
+    <<stop>>
+    <<endif>>
+
+<<if $charPOV is "Diviner" and $spokenToByronDiviner is false>>
+    Byron: Oh. It's you.
+    Byron: Go bother someone else with your chattering.
+    Byron: It's like your teeth are loose in that skull of yours.
+    Byron: Someone ought to fix that.
+    Fen: Like Altea, you mean?
+    Byron: My Lady is as beautiful as she is merciless, it's true.
+    Byron: I'd recommend her certainly as candidate.
+    Fen: ...
+    Fen: Thanks for the input, Byron. 
+    Fen: By the way, those are bones. Not sticks.
+    Byron: You must be going mad then because these are the best pieces of kindling the Beneath has to offer.
+    Fen: Sure they are.
+    <<set $spokenToByronDiviner to true>>
+    <<stop>>
+<<endif>>
+<<if $charPOV is "Diviner" and $spokenToByronDiviner is true>>
+    Fen: By the way, you ought to comb your hair.
+    Fen: You look like an ancient mariner.
+    Byron: Why thank you.
+    Fen: Not a compliment.
+    Fen: You look like you'd eat your compatriots if your ship was stuck on the ice for too long.
+    Byron: Who's to say I haven't?
     <<stop>>
     <<endif>>
 ===
@@ -214,9 +241,19 @@ position: 219,-31
 Tree: <i>It doesn't appear that this tree has anything to say to you.</i>
 <<stop>>
 <<endif>>
+
+<<if $charPOV is "Diviner">>
+Tree: I sing through my roots deep within the earth to my sister the willow up on her hill,
+Tree: I her graceless sibling.
+Fen: Oh, don't say that. You're very graceful.
+Tree: ...
+Tree: Without blood I blush to bedrock.
+<<stop>>
+<<endif>>
 ===
 title: TrowelGuy
 ---
+<<if $charPOV is "Fighter">>
 Creature with a Trowel: .olleh
 //Creature with a Trowel: if you sing at the garden hedge, something nice will happen!
 Creature with a Trowel: .llih a pu nedrag a si ereht rehtag seno llat eht erehw raen 
@@ -225,6 +262,24 @@ Creature with a Trowel: !neppah lliw ecin gnihtemos egdeh nedrag eht ta gnis uoy
 Creature with a Trowel: !em tsurt 
 Creature with a Trowel: !gniht siht elots i
 <<stop>>
+<<endif>>
+
+<<if $charPOV is "Diviner">>
+Fen: Hello, you.
+Creature with a Trowel: !yadot tfeht dettimmoc i
+Fen: What's that you have there?
+Fen: Can I have it?
+Creature with a Trowel: !ti gniyrrac fo derob ma i sey!
+//revealsprite of trowel
+//splat noise
+//get rid of sprite in creature's mouth
+Fen: Ew. It's covered in spit.
+Fen: ...Thank you, friend.
+Creature with a Trowel: !sgniht rehto laets ot gniog ma i
+Fen: ...
+Fen: I have no idea what you just said but I hope you have fun.
+<<stop>>
+<<endif>>
 ===
 title: NoPointNPC
 position: 229,-21
@@ -234,6 +289,16 @@ Verity: There's no point in fighting it. Any of it.
 Verity: Even the monsters. Killing them does nothing.
 Verity: They're stuck here, same as us.
 Verity: Might as well just melt into the Fields of Sorrow before this place can turn me itself.
+<<stop>>
+<<endif>>
+
+<<if $charPOV is "Diviner">>
+Fen: Everything alright, Verity?
+Verity: It didn't work over there, but maybe it'll work here.
+Verity: It has to.
+Fen: Are you still trying for petrification?
+Verity: ...
+Verity: No comment.
 <<stop>>
 <<endif>>
 ===
@@ -953,6 +1018,62 @@ Creature that Looks Worried: See what she has done.
 <<stop>>
 <<endif>>
 ===
+title: BonfireTransition
+---
+Fen: Ah, you're back! And... with creatures in tow!
+Fen: So many creatures. 
+Fen: Oh, Windy will not be happy.
+<<wait  1>>
+Fen: Are you alright? You look... queasy.
+Creature with Fingernails: She cannot understand us.
+Creature with Fingernails: You have the song to help her understand.
+//SONG OF BEASTS SONG
+<<wait  4>>
+Fen: That was lovely, but--
+Creature with Wings: Old but young one!
+Creature with Fingernails: The burning one is sapping them!
+Fen: You can speak?
+Fen: In the common tongue?
+Fen: Fascinating.
+Creature with Fingernails: The singing one is our friend, she understands us! 
+Creature with Fingernails: But the burning one does not!
+Creature with Wings: The burning one is hungry and afraid.
+Creature with Fingernails: She takes the ones who were like you.
+Creature with Fingernails: The ones who sit.
+Creature with Wings: She has them in her boxy room, and she takes them,
+Creature with Wings: and she steals what them there is left,
+Creature with Wings: and she throws them away afterwards.
+Creature with Fingernails: Our friend saw it.
+Creature with Wings: The burning one hurts them.
+Creature with Wings: What she is doing is not helping.
+Creature with Fingernails: The moon is hungry, but you know that.
+Creature with Wings: You know that, old but young one.
+Both: The moon is hungry and hungry and hungry.
+<<wait  0.75>>
+//<i>Loran's Spine has followed you.</i>
+//<i>Your home, long since fallen to madness and chaos and beasts,</i>
+//<i>is here. The spine of it, anyway.</i>
+//<i>You are haunted, and do not speak.</i>
+Fen: Oh, dear.
+<<wait  0.5>>
+Fen: I don't quite know how to respond to all that.
+Fen: Fighter, here, wait, sit down.
+Fen: Can I pour you a cup of tea?
+Fen: Smelling salts?
+Fen: Anything?
+<<wait  0.5>>
+Fen: Altea's hurting them? The husks?
+Fen: Why would she lie to me?
+Fen: I hoped maybe...
+<<wait  0.2>>
+Fen: Here, I'll go.
+Fen: I need to see this for myself.
+Fen: Fighter, please. Sit. Relax.
+Fen: Keep these creatures company. I don't know if they've seen fire this close before.
+Fen: I'll investigate. It's all under control.
+//POV SHIFT
+<<stop>>
+===
 title: FenMemoryTransition
 ---
 //at stable, looking at Altea's stuff
@@ -966,10 +1087,12 @@ Fen: Oh gods, it's happening, isn't it?
 Fen: I have to stay grounded.
 Fen: I can't turn. I <i>can't</i>.
 Fen: I'll read my old scrapbook, that's what I'll do. That always fixes me.
+Fen: Jog the old memory with my old writings. That'll do it.
 //SCRAPBOOK UI appear
 <<wait  1>>
 //Animation trigger: memories go away
-Fen: No, no, <i>NO--</i>
+Fen: No. No, no,
+Fen: no no no <i>NO--</i>
 Fen: Why is it gone? What's wrong with me?
 Fen: Why can't I <i>remember</i>?
 Fen: I have to remember. I have to stay me.
@@ -991,47 +1114,6 @@ Fen: Yes. Yes, that's the way.
 //<<wait  0.5>>
 //Fen: That willow tree up on the roof of the rookery...
 //Fen: Could I get up there again?
-===
-title: BonfireTransition
----
-Fen: Ah, you're back! And... with creatures in tow!
-Fen: So many creatures. Oh, Windy will not be happy.
-<<wait  1>>
-Fen: Are you alright? You look... queasy.
-Creature with Fingernails: She cannot understand us.
-Creature with Fingernails: Sing, so she can understand!
-//SONG OF BEASTS SONG
-<<wait  4>>
-Fen: That was lovely, but--
-Creature with Fingernails: The burning one is sapping them!
-Fen: Fighter, can you hear it speaking too?
-Creature with Fingernails: She is our friend, she understands us! But the burning one does not!
-Creature with Wings: She has them in her boxy room, and she takes them,
-Creature with Wings: and she throws them away afterwards.
-Creature with Fingernails: Our friend saw it.
-Creature with Wings: The burning one frightens us.
-Creature with Wings: What she is doing is not helping.
-Creature with Fingernails: The moon is only getting hungrier.
-//<i>Loran's Spine has followed you.</i>
-//<i>Your home, long since fallen to madness and chaos and beasts,</i>
-//<i>is here. The spine of it, anyway.</i>
-//<i>You are haunted, and do not speak.</i>
-Fen: Oh, dear.
-<<wait  0.5>>
-Fen: Fighter, here, wait, sit down.
-Fen: Can I pour you a cup of tea?
-Fen: Smelling salts?
-Fen: Anything?
-<<wait  0.5>>
-Fen: Altea's really not taking to this place, then.
-Fen: I hoped maybe...
-<<wait  0.2>>
-Fen: I'll go.
-Fen: I need to see this for myself.
-Fen: Fighter, please. Sit. Relax.
-Fen: Nothing good happens in a state of agitation.
-//POV SHIFT
-<<stop>>
 ===
 title: SparklePathIntro
 ---
