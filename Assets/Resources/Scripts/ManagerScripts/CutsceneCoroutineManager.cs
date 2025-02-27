@@ -75,9 +75,12 @@ public class CutsceneCoroutineManager : MonoBehaviour
     public float smooth = 5;
 
     [Header("Important Objects")]
+    public GameObject gameManager;
     //garden cutscene coroutine
-    public GameObject stableYarnTrigger;
     public GameObject stableLight;
+    //stable cutscene coroutine
+    public GameObject stableYarnTrigger;
+    
 
     /////////////////////////////////////////////////////
     // Start is called before the first frame update
@@ -319,10 +322,11 @@ public class CutsceneCoroutineManager : MonoBehaviour
         //pulse 5
 
         //set charPOV to Fighter
-        yarnDialogueTrigger.gameObject.SetActive(true);
+        //yarnDialogueTrigger.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
-        yarnDialogueTrigger.SetCharacterPOV(GameManager.CharacterPOV.Fighter);
-        
+        //yarnDialogueTrigger.SetCharacterPOV(GameManager.CharacterPOV.Fighter);
+        gameManager.GetComponent<GameManager>().currentPOV = GameManager.CharacterPOV.Fighter;
+
         Debug.Log("fighterPOV gamemanager check");
 
         yield return new WaitForSeconds(2f);
