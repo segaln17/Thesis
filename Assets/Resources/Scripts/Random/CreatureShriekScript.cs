@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 
 public class CreatureShriekScript : MonoBehaviour
@@ -12,6 +13,7 @@ public class CreatureShriekScript : MonoBehaviour
     private AudioClip currentClip;
     public float lowRange = 0.4f;
     public float highRange = 1f;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,7 @@ public class CreatureShriekScript : MonoBehaviour
         
     }
 
-    private void OnTriggerStay(Collider other)
+    /*private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -34,6 +36,12 @@ public class CreatureShriekScript : MonoBehaviour
                 PlayClip(creatureShriek);
             }
         }
+    }*/
+
+    [YarnCommand("playClip")]
+    public void talkingClip()
+    {
+        PlayClip(creatureShriek);
     }
 
     public void PlayClip(AudioClip clip)

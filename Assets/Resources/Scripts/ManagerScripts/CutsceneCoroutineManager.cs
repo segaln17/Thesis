@@ -22,15 +22,11 @@ public class CutsceneCoroutineManager : MonoBehaviour
 
     [Header("NPC Characters")]
     public GameObject Windy;
-    //public GameObject Hildegarde;
+    public GameObject Heloise;
     //public GameObject Grimbolde;
 
-    //[Header("Main Character Locations")]
-    //public GameObject FenPositionCampfire;
-    //public GameObject FenPositionTavern;
-
-    //[Header("NPC Character Locations")]
-    //public GameObject WindyPosition01;
+    [Header("NPC Character Locations")]
+    public GameObject HeloiseCampfireCutscenePosition;
     //public GameObject WindyPosition02;
     //public GameObject Hildegarde;
     //public GameObject Grimbolde;
@@ -197,7 +193,7 @@ public class CutsceneCoroutineManager : MonoBehaviour
         //Sixth pulse finish
 
         //set charPOV to diviner
-        yarnDialogueTrigger.SetCharacterPOV(GameManager.CharacterPOV.Diviner);
+        gameManager.GetComponent<GameManager>().currentPOV = GameManager.CharacterPOV.Diviner;
         //turn off Fen's dialogue trigger from tavern scene
         yarnDialogueTrigger.gameObject.SetActive(false);
         //start the mini cutscene
@@ -341,6 +337,7 @@ public class CutsceneCoroutineManager : MonoBehaviour
         //Reposition Fen
         yield return new WaitForSeconds(1f);
         PlayerFen.transform.position = fenBonfirePosition.transform.position;
+        Heloise.transform.position = HeloiseCampfireCutscenePosition.transform.position;
         fenFullBodySpriteSitting.SetActive(true);
         
 

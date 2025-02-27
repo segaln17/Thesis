@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Yarn.Unity;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,7 +29,8 @@ public class GameManager : MonoBehaviour
     public GameObject displayTextPanel;
     public GameObject inventoryText;
 
-    
+    private InMemoryVariableStorage inMemoryVariableStorage;
+
 
     private Scene sceneName;
 
@@ -51,18 +53,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        /*if (Instance == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-
-        }
-
-        DontDestroyOnLoad(gameObject);*/
+      
     }
 
     // Update is called once per frame
@@ -130,6 +121,8 @@ public class GameManager : MonoBehaviour
                 displayObject.SetActive(false);
                 displayTextPanel.SetActive(false);
                 inventoryText.SetActive(false);
+                SetCharacterPOV(CharacterPOV.Fighter);
+
             }
             else if (currentPOV == CharacterPOV.Diviner)
             {
@@ -138,6 +131,7 @@ public class GameManager : MonoBehaviour
                 displayObject.SetActive(false);
                 displayTextPanel.SetActive(false);
                 inventoryText.SetActive(false);
+                SetCharacterPOV(CharacterPOV.Diviner);
             }
             
             //inventory.SetActive(false);
@@ -145,5 +139,13 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
         }
     }
-    
+
+    public void SetCharacterPOV(CharacterPOV targetPOV)
+    {
+
+        //inMemoryVariableStorage.SetValue("$charPOV", targetPOV.ToString());
+        FindObjectOfType<InMemoryVariableStorage>().SetValue("$charPOV", targetPOV.ToString());
+        currentPOV = targetPOV;
+    }
+
 }

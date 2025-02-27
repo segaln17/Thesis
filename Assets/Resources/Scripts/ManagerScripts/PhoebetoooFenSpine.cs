@@ -147,7 +147,7 @@ public class PhoebetoooFenSpine : MonoBehaviour
         yield return new WaitForSeconds(.5f);
 
         //set charPOV to diviner
-        yarnDialogueTrigger.SetCharacterPOV(GameManager.CharacterPOV.Diviner);
+        //yarnDialogueTrigger.SetCharacterPOV(GameManager.CharacterPOV.Diviner);
         //turn on Fen controller
         PlayerFen.GetComponent<SimpleController>().enabled = true;
         yield return new WaitForSeconds(1f);

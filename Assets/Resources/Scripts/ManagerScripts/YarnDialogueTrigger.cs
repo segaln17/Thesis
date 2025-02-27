@@ -16,19 +16,19 @@ public class YarnDialogueTrigger : MonoBehaviour
 
     public bool cutsceneRun = false;
 
-    private InMemoryVariableStorage inMemoryVariableStorage;
+   
     public GameManager gameManager;
     
 
     public TextMeshProUGUI dialogueIndicator;
-    public bool isFighter;
-    public bool isDiviner;
 
     // Start is called before the first frame update
     void Start()
     {
         dialogueIndicator.gameObject.SetActive(false);
         inYarnTrigger = false;
+       // gameSetCharacterPOV(GameManager.CharacterPOV.Fighter);
+
         //cutsceneRun = false;
     }
 
@@ -90,26 +90,33 @@ public class YarnDialogueTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("in yarn trigger");
-            inYarnTrigger = true;
+            
             if (other.gameObject == fighter) //change to other.gameobject.name?
             {
-                isFighter = true;
-                isDiviner = false;
-                SetCharacterPOV(GameManager.CharacterPOV.Fighter);
-                //dialogueIndicator.gameObject.SetActive(false);
+                inYarnTrigger = true;
+              
+         
             }
 
             else if (other.gameObject == diviner)
             {
-                isDiviner = true;
-                isFighter = false;
-                SetCharacterPOV(GameManager.CharacterPOV.Diviner);
-                //dialogueIndicator.gameObject.SetActive(false);
+                inYarnTrigger = true;
+   
             }
-            //dialogueIndicator.gameObject.SetActive(false);
-            
-            
+        
         }
+        /*else if(gameObject.CompareTag("Bonfire") && other.gameObject.CompareTag("Player"))
+        {
+            if (other.gameObject == fighter) //change to other.gameobject.name?
+            {
+                inYarnTrigger = true;
+
+
+            }else if(other.gameObject == diviner)
+            {
+                inYarnTrigger = false;
+            }
+        }*/
     }
 
     private void OnTriggerExit(Collider other)
@@ -117,31 +124,5 @@ public class YarnDialogueTrigger : MonoBehaviour
         dialogueIndicator.gameObject.SetActive(false);
         inYarnTrigger = false;
     }
-
-    public void SetCharacterPOV(GameManager.CharacterPOV targetPOV)
-    {
-        
-        //inMemoryVariableStorage.SetValue("$charPOV", targetPOV.ToString());
-        FindObjectOfType<InMemoryVariableStorage>().SetValue("$charPOV", targetPOV.ToString());
-        gameManager.currentPOV = targetPOV;
-    }
-    /*
-    public void ChangeCharacterPOV()
-    {
-        inMemoryVariableStorage.TryGetValue("$charPOV", out string charPOV);
-        if (isFighter)
-        {
-            charPOV = "Fighter";
-            inMemoryVariableStorage.SetValue("$charPOV", charPOV);
-        }
-
-        if (isDiviner)
-        {
-            charPOV = "Diviner";
-            inMemoryVariableStorage.SetValue("$charPOV", charPOV);
-        }
-        //TODO: Implement Altea once we have a gameobject for her
-    }
-    */
     
 }
