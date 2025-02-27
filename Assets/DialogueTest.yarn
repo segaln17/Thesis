@@ -943,10 +943,6 @@ Fen: I've never seen the rest.
 //Fen: or wherever it came from if it didn't die here.
 Fen: All that's here is <i>spine</i>.
 //Fen: Isn't that fascinating?
-<i>You used to live in the shadow of a spine, didn't you?</i>
-<i>Your hometown, built on bones.</i>
-<i>Cursed bones. Furious, haunted bones.</i>
-<i>Your sisters are buried with those bones now. Somewhere beneath the sand.</i>
 Fen: You should go see it, Fighter.
 //Fen: Wait a moment?
 //<<wait  1>>
@@ -963,6 +959,14 @@ Fen: and then I'll just be upset.
 <<revealCreature spinePathManager>>
 <<disappearCreature BonfireManager>>
 //<<restart BonfireManager>>
+<<stop>>
+===
+title: PhoebeSpine2nd
+---
+<i>You used to live in the shadow of a spine, didn't you?</i>
+<i>Your hometown, built on bones.</i>
+<i>Cursed bones. Furious, haunted bones.</i>
+<i>Your sisters are buried with those bones now. Somewhere beneath the sand.</i>
 <<stop>>
 ===
 title: AlteaAtTheSpine
