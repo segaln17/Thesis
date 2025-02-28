@@ -96,19 +96,24 @@ position: -172,85
 //<<if $charPOV is "Fighter">>
 <<if $charPOV is "Fighter" and $spokenToWindy is false>>
     <<playClip WindyYarnCollider>>
+    <<changeAvatar WindyYarnCollider>>
     Windy: Wow. Another newbie. 
     //And here I thought Altea was the last for a while.
     Windy: Damn. Guess that means I lose the bet.
     Windy: How'd you get here, newbie?
     //The Fighter: <i>You say nothing.</i>
+    <<changeAvatar PhoebeYarn>>
     The Fighter: ...
     <<playClip WindyYarnCollider>>
+    <<changeAvatar WindyYarnCollider>>
     Windy: Oh, not the talkative type? That's fine.
     Windy: Ugh, the Moon's going to be brighter soon, and I'm too far out.
     Windy: Did you see where that little pest went? It took my trowel.
     //The Fighter: <i>You shake your head.</i>
+    <<changeAvatar PhoebeYarn>>
     The Fighter: ...
     <<playClip WindyYarnCollider>>
+    <<changeAvatar WindyYarnCollider>>
     Windy: Drat. And I only just found that trowel.
     Windy: The ruins by the well are no picnic, trust me. It's like a breeding ground for the axe-handed skinks.
     Windy: Although they don't breed. At least, I don't think they do.
@@ -116,7 +121,9 @@ position: -172,85
     Windy: Anyway. Do you know how you got here? 
     Windy: Do you even know where here is?
     //The Fighter: <i>You say nothing.</i>
+    <<changeAvatar PhoebeYarn>>
     The Fighter: ...
+    <<changeAvatar WindyYarnCollider>>
     <<playClip WindyYarnCollider>>
     Windy: Still nothing, huh?
     Windy: Okay, well, you should talk to Fen. 
@@ -138,6 +145,7 @@ position: -172,85
     <<stop>>
     <<endif>>
 <<if $charPOV is "Fighter" and $spokenToWindy is true>>
+    <<changeAvatar WindyYarnCollider>>
     Windy: Fen's at the tavern.
     Windy: If you see Zora there, don't tell her I owe her, okay?
     Windy: Now, where did that little varmint go?
@@ -146,21 +154,25 @@ position: -172,85
 
 <<if $charPOV is "Diviner" and $spokenToWindyDiviner is false>>
     <<playClip WindyYarnCollider>>
+    <<changeAvatar WindyYarnCollider>>
     Windy: Hey, I've been wondering.
     Windy: Is it true what they're saying?
     <<playClip FenYarnCollider>>
     Fen: What do you mean? That you're divorced?
     <<playClip WindyYarnCollider>>
+    <<changeAvatar WindyYarnCollider>>
     Windy: That's blatantly untrue and I don't know who started that rumor.
     Windy: But no, that's not what I mean.
     //Windy: People are saying you're losing your mind.
     <<playClip WindyYarnCollider>>
     Windy: People are saying you're...
     Windy: Forgetting things.
+    <<changeAvatar WindyYarnCollider>>
     Fen: ...
     <<playClip FenYarnCollider>>
     Fen: Where did you hear that? Altea?
     <<playClip WindyYarnCollider>>
+    <<changeAvatar WindyYarnCollider>>
     Windy: I shan't say.
     Windy: But she did kind of start it.
     Windy: She called you out-of-touch.
@@ -170,6 +182,7 @@ position: -172,85
     Windy: Her words.
     Windy: People are wondering if it's true.
     <<playClip FenYarnCollider>>
+    <<changeAvatar FenYarnCollider>>
     Fen: I was there for the First Bastion Fire, and I recall the aftermath of the Second, and the rebuilding efforts for both.
     //Windy: I've never been to Bastion, if that's even a place.
     Fen: I remember the death of the Saint of Radiant Sorrow. I remember seeing Her forces gain influence across the continent.
@@ -178,6 +191,7 @@ position: -172,85
     Fen: Or... that it was off of a marsh. That I remember.
     Fen: ...
     <<playClip WindyYarnCollider>>
+    <<changeAvatar WindyYarnCollider>>
     Windy: Hmm.
     <<playClip FenYarnCollider>>
     Fen: I should go. I have... things to do.
@@ -186,7 +200,8 @@ position: -172,85
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToWindyDiviner is true>>
-    <<playClip FenYarnCollider>>
+    <<playClip WindyYarnCollider>>
+    <<changeAvatar WindyYarnCollider>>
     Windy: Look, I'm sorry, I was harsh.
     Windy: You're just the only grounded one here.
     Windy: No one wants to see you turn.
@@ -202,18 +217,24 @@ position: 209,-41
 ---
 //<<if $charPOV is "Fighter">>
 <<if $charPOV is "Fighter" and $spokenToByronFighter is false>>
+    <<changeAvatar ByronYarnCollider>>
+    <<playClip ByronYarnCollider>>
     Byron: Hey, you! You're breathing!
     Byron: The Beneath caught a fresh one! No one breathes around here.
     Byron: Besides Altea, of course. But she's more new, too.
+    <<playClip ByronYarnCollider>>
     //Been a while, not since Altea!
     //Byron: Breathing, the both of you—not been here long enough not to, eh?
     Byron: Have you noticed you don't have to blink anymore?
     Byron: Or relieve yourself? Nothing created nor destroyed, as they say...
+    <<playClip ByronYarnCollider>>
     Byron: I'm too far from the Bonfire now, but they need kindling for the fire. Or the moon will hatch, and consume us all...
     Byron: And we wouldn't want that.
     Byron: Who knows what would happen if that ever-present moon fell out of the sky.
+    <<playClip ByronYarnCollider>>
     Byron: I'd like to see it hatch, but I'll be a husk long before then, won't I?
     Byron: And then Lady Altea will have to take care of me!
+    <<playClip ByronYarnCollider>>
     Byron: Oh, what a punishment that would be for her, but what a pleasure for me!
     Byron: <i>He dissolves into manic laughter.</i>
     <<set $spokenToByronFighter to true>>
@@ -221,35 +242,58 @@ position: 209,-41
     <<endif>>
 <<if $charPOV is "Fighter" and $spokenToByronFighter is true>>
     //Byron: Fen's a fool if they think anyone's getting into that garden anytime soon.
+    <<changeAvatar ByronYarnCollider>>
+    <<playClip ByronYarnCollider>>
     Byron: There's a garden on the other side of the campfire, near the tavern...
     Byron: It would make good kindling.
     Byron: Too bad Fen won't let anyone take a hatchet to it.
+    <<playClip ByronYarnCollider>>
     Byron: A real shame, that.
     <<stop>>
     <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToByronDiviner is false>>
+    <<changeAvatar ByronYarnCollider>>
+    <<playClip ByronYarnCollider>>
     Byron: Oh. It's you.
     Byron: Go bother someone else with your chattering.
     Byron: It's like your teeth are loose in that skull of yours.
     Byron: Someone ought to fix that.
+    <<changeAvatar FenYarnCollider>>
+    <<playClip FenYarnCollider>>
     Fen: Like Altea, you mean?
+    <<changeAvatar ByronYarnCollider>>
+    <<playClip ByronYarnCollider>>
     Byron: My Lady is as beautiful as she is merciless, it's true.
     Byron: I'd recommend her certainly as candidate.
+    <<changeAvatar FenYarnCollider>>
     Fen: ...
+    <<playClip FenYarnCollider>>
     Fen: Thanks for the input, Byron. 
     Fen: By the way, those are bones. Not sticks.
+    <<changeAvatar ByronYarnCollider>>
+    <<playClip ByronYarnCollider>>
     Byron: You must be going mad then because these are the best pieces of kindling the Beneath has to offer.
+    <<changeAvatar FenYarnCollider>>
+    <<playClip FenYarnCollider>>
     Fen: Sure they are.
     <<set $spokenToByronDiviner to true>>
     <<stop>>
 <<endif>>
 <<if $charPOV is "Diviner" and $spokenToByronDiviner is true>>
+    <<changeAvatar FenYarnCollider>>
+    <<playClip FenYarnCollider>>
     Fen: By the way, you ought to comb your hair.
     Fen: You look like an ancient mariner.
+    <<changeAvatar ByronYarnCollider>>
+    <<playClip ByronYarnCollider>>
     Byron: Why thank you.
+    <<changeAvatar FenYarnCollider>>
+    <<playClip FenYarnCollider>>
     Fen: Not a compliment.
     Fen: You look like you'd eat your compatriots if your ship was stuck on the ice for too long.
+    <<changeAvatar ByronYarnCollider>>
+    <<playClip ByronYarnCollider>>
     Byron: Who's to say I haven't?
     <<stop>>
     <<endif>>
@@ -258,15 +302,23 @@ title: SilentTree
 position: 219,-31
 ---
 <<if $charPOV is "Fighter">>
+<<changeAvatar TalkingTreeYarnCollider>>
+<<playClip TalkingTreeYarnCollider>>
 Tree: <i>It doesn't appear that this tree has anything to say to you.</i>
 <<stop>>
 <<endif>>
 
 <<if $charPOV is "Diviner">>
+<<changeAvatar TalkingTreeYarnCollider>>
+<<playClip TalkingTreeYarnCollider>>
 Tree: I sing through my roots deep within the earth to my sister the willow up on her hill,
 Tree: I her graceless sibling.
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Oh, don't say that. You're very graceful.
+<<changeAvatar TalkingTreeYarnCollider>>
 Tree: ...
+<<playClip TalkingTreeYarnCollider>>
 Tree: Without blood I blush to bedrock.
 <<stop>>
 <<endif>>
@@ -274,28 +326,45 @@ Tree: Without blood I blush to bedrock.
 title: TrowelGuy
 ---
 <<if $charPOV is "Fighter">>
+<<changeAvatar YarnColliderTrowelCreature>>
+<<playClip YarnColliderTrowelCreature>>
 Creature with a Trowel: .olleh
 //Creature with a Trowel: if you sing at the garden hedge, something nice will happen!
 Creature with a Trowel: .llih a pu nedrag a si ereht rehtag seno llat eht erehw raen 
 //near where the tall ones gather there is a garden up a hill
 Creature with a Trowel: !neppah lliw ecin gnihtemos egdeh nedrag eht ta gnis uoy fi
+<<playClip YarnColliderTrowelCreature>>
 Creature with a Trowel: !em tsurt 
 Creature with a Trowel: !gniht siht elots i
 <<stop>>
 <<endif>>
 
 <<if $charPOV is "Diviner">>
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Hello, you.
+<<changeAvatar YarnColliderTrowelCreature>>
+<<playClip YarnColliderTrowelCreature>>
 Creature with a Trowel: !yadot tfeht dettimmoc i
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: What's that you have there?
 Fen: Can I have it?
+<<changeAvatar YarnColliderTrowelCreature>>
+<<playClip YarnColliderTrowelCreature>>
 Creature with a Trowel: !ti gniyrrac fo derob ma i sey!
 //revealsprite of trowel
 //splat noise
 //get rid of sprite in creature's mouth
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Ew. It's covered in spit.
 Fen: ...Thank you, friend.
+<<changeAvatar YarnColliderTrowelCreature>>
+<<playClip YarnColliderTrowelCreature>>
 Creature with a Trowel: !sgniht rehto laets ot gniog ma i
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: ...
 Fen: I have no idea what you just said but I hope you have fun.
 <<stop>>
@@ -305,19 +374,30 @@ title: Verity
 position: 229,-21
 ---
 <<if $charPOV is "Fighter">> ///if the player is being Phoebe
+<<changeAvatar VerityYarnCollider>>
+<<playClip VerityYarnCollider>>
 Verity: There's no point in fighting it. Any of it.
 Verity: Even the monsters. Killing them does nothing.
 Verity: They're stuck here, same as us.
+<<playClip VerityYarnCollider>>
 Verity: Might as well just melt into the Fields of Sorrow before this place can turn me itself.
 <<stop>>
 <<endif>>
 
 <<if $charPOV is "Diviner">>
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Everything alright, Verity?
+<<changeAvatar VerityYarnCollider>>
+<<playClip VerityYarnCollider>>
 Verity: It didn't work over there, but maybe it'll work here.
 Verity: It has to.
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Are you still trying for petrification?
+<<changeAvatar VerityYarnCollider>>
 Verity: ...
+<<playClip VerityYarnCollider>>
 Verity: No comment.
 <<stop>>
 <<endif>>
@@ -326,13 +406,17 @@ title: Zora
 position: 239,-11
 ---
 <<if $charPOV is "Fighter" and $spokenToZoraFighter is false>>
+<<changeAvatar ZoraYarnCollider>>
+<<playClip ZoraYarnCollider>>
 //Zora: This is the tavern. If you want to eat or sleep, this is the place.
 //Zora: Between you and me, I don't think any of us need to sleep, anymore.
 Zora: Hey, welcome to the tavern!
 Zora: Want anything? We've got... really old mead.
+<<playClip ZoraYarnCollider>>
 Zora: It won't get you drunk, though. Nothing will, anymore.
 Zora: And people don't need to sleep, either, just so you don't panic later.
 Zora: But some people still pretend they can.
+<<playClip ZoraYarnCollider>>
 Zora: There's probably some kind of bed free, but I wouldn't recommend it.
 Zora: It's a lot easier to just accept that your body is on pause, forever.
 <<set $spokenToZoraFighter = true>>
@@ -340,16 +424,25 @@ Zora: It's a lot easier to just accept that your body is on pause, forever.
 <<endif>>
 
 <<if $charPOV is "Fighter" and $spokenToZoraFighter is true>>
+<<changeAvatar ZoraYarnCollider>>
+<<playClip ZoraYarnCollider>>
 Zora: While you were out, did you see Windy?
 Zora: Gray hair, kind of rude, probably berating some creature for existing in her presence?
 Zora: Did she say anything about a bet we had?
+<<playClip ZoraYarnCollider>>
 Zora: Nevermind. She'll never pay up. She never does.
 <<stop>>
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToZoraDiviner is false>>
+<<changeAvatar ZoraYarnCollider>>
+<<playClip ZoraYarnCollider>>
 Zora: What'll it be, Fen?
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Oh, nothing.
+<<changeAvatar ZoraYarnCollider>>
+<<playClip ZoraYarnCollider>>
 Zora: Fine by me. Nothing is what we have.
 <<set $spokenToZoraDiviner to true>>
 <<stop>>
@@ -359,36 +452,61 @@ title: Amos
 position: 249,-1
 ---
 <<if $charPOV is "Fighter">>
+<<changeAvatar AmosYarnCollider>>
+<<playClip AmosYarnCollider>>
 Amos: You see her, over there? In the green?
 Amos: Wait, no, don't be obvious!
+<<playClip AmosYarnCollider>>
 Amos: That's <i>Fen</i>.
 Amos: You know, <i>Fen the Diviner</i>?
-Amos: Seriously, do you live under a rock? Fen's a legend.
+Amos: Fen's a legend. She's been everywhere, they say.
+<<playClip AmosYarnCollider>>
 Amos: I've always wondered how she got here. Word has it she convinced the Beneath to let her in.
 Amos: On <i>purpose</i>!
 <<stop>>
 <<endif>>
 <<if $charPOV is "Diviner" and $spokenToAmosDiviner is false>>
+<<changeAvatar AmosYarnCollider>>
+<<playClip AmosYarnCollider>>
 Amos: You never told me how you got here, you know.
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Oh, well. It's a long story.
 Fen: I was looking for something.
+<<changeAvatar AmosYarnCollider>>
+<<playClip AmosYarnCollider>>
 Amos: Did you find it?
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: ...I'm not sure yet.
+<<changeAvatar AmosYarnCollider>>
+<<playClip AmosYarnCollider>>
 Amos: What kind of thing was it? 
 Amos: ...Wedding ring? Lover's tiara?
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Oh, darling. 
 Fen: Just a personal possession of mine, that's all.
+<<changeAvatar AmosYarnCollider>>
+<<playClip AmosYarnCollider>>
 Amos: I'm sorry for all the questions, I'm just a little starstruck.
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: It's quite alright, dear. Everyone is.
 <<set $spokenToAmosDiviner = true>>
 <<stop>>
 <<endif>>
 <<if $charPOV is "Diviner" and $spokenToAmosDiviner is true>>
+<<changeAvatar AmosYarnCollider>>
+<<playClip AmosYarnCollider>>
 Amos: Altea will come around. I'm sure of it.
 Amos: You've been trying so hard.
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: I've just been trying to make her see the value of community, you know?
-Amos: Absolutely.
 Fen: You understand, don't you?
+<<changeAvatar AmosYarnCollider>>
+<<playClip AmosYarnCollider>>
 Amos: Absolutely I do.
 <<stop>>
 <<endif>>
@@ -399,53 +517,78 @@ position: 259,9
 //<<if $charPOV is "Fighter">>
 <<if $spokenToFenFighterTavern is false>>
 <<changeCam FenTavernManager>>
-The Fighter: <i>Before you is a small but strangely imposing figure, sitting alone.</i>
-The Fighter: <i>Though she is small, she has gravity, and sitting here by herself, one can almost pretend this is normal.</i>
+//<i>Before you is a small but strangely imposing figure, sitting alone.</i>
+//<i>Though she is small, she has gravity, and sitting here by herself, one can almost pretend this is normal.</i>
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Strangely Congenial Person: I haven't seen you before, have I?
 Strangely Congenial Person: Isn't this a strange place in which we find ourselves? And to think, I meant to come here.
 Strangely Congenial Person: It'd be silly, if things didn't just sit here in stasis and rot.
 Fen: I'm Fen. What's your name?
-The Fighter: <i>You are not comfortable sharing this yet.</i>
+//The Fighter: <i>You are not comfortable sharing this yet.</i>
+<<changeAvatar PhoebeYarn>>
 The Fighter: ...
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Oh, you're a shy one! Wouldn't think so with your weaponry.
 Fen: But I'll bet you get that a lot.
+<<playClip FenYarnCollider>>
 Fen: I'm getting off topic, you're probably very confused and disoriented.
 Fen: Where to start...
+<<playClip FenYarnCollider>>
 Fen: Have you met Altea?
 Fen: She's the other new one, aside from you. New-ish.
+<<playClip FenYarnCollider>>
 Fen: Well, I should say "us." I have not been here very long either.
-Fen: She's... prickly. But she's a cleric of the order of the Saint of Radiant Sorrow, so that's nice.
-Fen: A nice violent sect. She caused a coup in her own hometown, so I heard!
+Fen: She's... prickly. //But she's a cleric of the order of the Saint of Radiant Sorrow, so that's nice.
+//Fen: A nice violent sect. She caused a coup in her own hometown, so I heard!
+<<changeAvatar PhoebeYarn>>
 The Fighter: ...
 <<wait  0.5>>
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Do you know, sometimes I wonder about how long we'll stay here.
 Fen: Because, well, the reality is that we're stuck here.
+<<playClip FenYarnCollider>>
 Fen: They call it the Beneath, this space between realities.
 Fen: It's where lost things go. I'm afraid that includes you, now.
-Fen: <i>She pauses, then brightens.</i>
+<<playClip FenYarnCollider>>
+//Fen: <i>She pauses, then brightens.</i>
 Fen: But might as well make the most of it, mustn't we! No use moping like Altea.
 Fen: In such a space where there should be no life, the flora and fauna are teeming!
+<<playClip FenYarnCollider>>
 Fen: I have a theory about it, actually, but it's a bit morbid. I'll refrain from sharing it.
+<<changeAvatar PhoebeYarn>>
 The Fighter: ...
 <<wait  1>>
-The Fighter: <i>It's clear that Fen cannot help herself.</i>
-Fen: Well, so with people-types like us, 
+//The Fighter: <i>It's clear that Fen cannot help herself.</i>
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
+Fen: Well, alright, so with people-types like us, 
 Fen: the longer we remain here the more hollowed out we become.
+<<playClip FenYarnCollider>>
 Fen: I believe that our life force is being drawn up and into the very atmosphere to fuel this place.
 Fen: Maybe even to fuel a celestial body, in this place that should be subterranean, 
+<<playClip FenYarnCollider>>
 Fen: but where the moon sits low and never sets...
+<<changeAvatar PhoebeYarn>>
 The Fighter: ...
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Oh, but I'm boring you. I get caught up in these things.
 Fen: I'm studying this place; I'm a diviner, you see.
 Fen: I'm trying to divine its secrets.
-The Fighter: <i>You chuckle, but say nothing.</i>
+//The Fighter: <i>You chuckle, but say nothing.</i>
+<<playClip FenYarnCollider>>
 Fen: Say, do you sing?
 Fen: I've noticed quite a few people who end up down here are musicians.
 Fen: I've wondered if this world gets louder when it turns them.
+<<playClip FenYarnCollider>>
 Fen: By eating musicians, the Beneath takes their knack for music and makes it into its own sonic resonance,
 Fen: or something like that. It's a theory I've been nursing.
 Fen: You have no instrument, so I thought I'd see if you fit into the pattern.
 <<wait  1>>
+<<playClip FenYarnCollider>>
 //Fen: Some are too talkative to appreciate it, but others are more sensitive.
 Fen: In case you do sing, I found this the other day. It looks like sheet music, almost.
 Fen: Here, maybe you'll have a use for it.
@@ -459,11 +602,14 @@ Fen: Here, maybe you'll have a use for it.
 <<revealCreature FenTavernManager>>
 <<wait  2>>
 <<disappearCreature FenTavernManager>>
+<<playClip FenYarnCollider>>
 Fen: Windy found it by the garden, but she's given up music.
 Fen: People think it's because she's divorced, but she denies it.
 Fen: Consider it a welcome gift!
+<<playClip FenYarnCollider>>
 Fen: The garden's up the hill, just outside, the way you came in. 
 Fen: I go up there sometimes to think.
+<<playClip FenYarnCollider>>
 Fen: Some of the plants up there respond to music, if you feel so inclined to try.
 Fen: Let me know if anything interesting happens!
 //Fen: Maybe something around here will respond to it!
@@ -474,8 +620,11 @@ Fen: Let me know if anything interesting happens!
 
 //<<if $spokenToFenFighterTavern is true>>
 <<if $charPOV is "Fighter" and $spokenToFenFighterTavern is true>>
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: You really ought to take a look at the garden, up that very tall hill.
 Fen: Even just to take in the view.
+<<playClip FenYarnCollider>>
 Fen: Trust me. I know these things.
 Fen: I'm a <i>diviner</i>.
 <<stop>>
@@ -493,6 +642,7 @@ position: 279,29
 ---
 <<if $charPOV is "Fighter" and $spokenToHeloiseFighter is false>>
 <<playClip HeloiseYarnCollider>>
+<<changeAvatar HeloiseYarnCollider>>
 Heloise: Welcome to our little slice of hell.
 Heloise: We gather here to pretend it's night, and that food still appetizes us.
 <<playClip HeloiseYarnCollider>>
@@ -503,6 +653,7 @@ Heloise: Come back here when you're ready for "Dinner".
 
 <<if $charPOV is "Fighter" and $spokenToHeloiseFighter is true and $alteaSceneFenDone is false>>
 <<playClip HeloiseYarnCollider>>
+<<changeAvatar HeloiseYarnCollider>>
 Heloise: Oh, you're ready?
 Heloise: We're not.
 <<playClip HeloiseYarnCollider>>
@@ -513,6 +664,7 @@ Heloise: Come back later.
 //<<if $alteaSceneFenDone is true>>
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is true>>
 <<playClip HeloiseYarnCollider>>
+<<changeAvatar HeloiseYarnCollider>>
 Heloise: You're back.
 Heloise: You found something to amuse yourself with, I take it.
 <<playClip HeloiseYarnCollider>>
@@ -526,10 +678,13 @@ Heloise: If you're ready, look into the fire. It's the only real ritual we have.
 
 <<if $charPOV is "Diviner" and $spokenToHeloiseDiviner is false>>
 <<playClip HeloiseYarnCollider>>
+<<changeAvatar HeloiseYarnCollider>>
 Heloise: Have you convinced Altea to join us tonight?
 <<playClip FenYarnCollider>>
+<<changeAvatar FenYarnCollider>>
 Fen: ...No. Not yet.
 <<playClip HeloiseYarnCollider>>
+<<changeAvatar HeloiseYarnCollider>>
 Heloise: Then Liesel owes me a tooth.
 <<set $spokenToHeloiseDiviner to true>>
 <<stop>>
@@ -537,17 +692,23 @@ Heloise: Then Liesel owes me a tooth.
 
 <<if $charPOV is "Diviner" and $spokenToHeloiseDiviner is true>>
 <<playClip FenYarnCollider>>
+<<changeAvatar FenYarnCollider>>
 Fen: Why do you need the teeth, Heloise? 
 <<playClip HeloiseYarnCollider>>
+<<changeAvatar HeloiseYarnCollider>>
 Heloise: Oh, I don't know. I just like them.
 Heloise: I like holding them in my hands and looking at them.
 <<playClip FenYarnCollider>>
+<<changeAvatar FenYarnCollider>>
 Fen: This isn't the first tooth bet I've heard you make.
 <<playClip HeloiseYarnCollider>>
+<<changeAvatar HeloiseYarnCollider>>
 Heloise: They're wasted on Liesel.
 <<playClip FenYarnCollider>>
+<<changeAvatar FenYarnCollider>>
 Fen: If you say so.
 <<playClip HeloiseYarnCollider>>
+<<changeAvatar HeloiseYarnCollider>>
 Heloise: She doesn't appreciate them like I do.
 <<stop>>
 <<endif>>
@@ -557,6 +718,7 @@ position: 289,39
 ---
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToHytheFighter is false>>
 <<playClip HytheYarnCollider>>
+<<changeAvatar HytheYarnCollider>>
 Hythe: You've seen them, then? The husks?
 Hythe: These are old ones, I think. They're basically the wall now.
 Hythe: And this fellow next to me is in the middle of the process.
@@ -569,6 +731,7 @@ Hythe: Altea helps them, after they turn. Poor bastards.
 
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToHytheFighter is true>>
 <<playClip HytheYarnCollider>>
+<<changeAvatar HytheYarnCollider>>
 Hythe: I like sitting out here and watching the husks.
 Hythe: They don't do much, but that's okay.
 <<playClip HytheYarnCollider>>
@@ -579,12 +742,16 @@ Hythe: Nature is beautiful, don't you think?
 <<endif>>
 
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is true>>
+<<changeAvatar HytheYarnCollider>>
+<<playClip HytheYarnCollider>>
 Hythe: Oh, is it time for the Bonfire already?
 Hythe: I think I'd much rather observe this fellow, to tell you the truth.
 //Hythe: I've been observing this fellow. It hasn't moved.
 Hythe: Fen says they fuse with the earth...
+<<playClip HytheYarnCollider>>
 Hythe: Do you think that's true?
 Hythe: What do you think Altea does for them?
+<<playClip HytheYarnCollider>>
 Hythe: Do you think it's painful?
 Hythe: ...Do you think she'd allow an audience?
 <<stop>>
@@ -594,11 +761,15 @@ title: Grimbolde
 position: 299,49
 ---
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToGrimboldeFighter is false>>
+<<changeAvatar GrimboldeYarnCollider>>
+<<playClip GrimboldeYarnCollider>>
 Grimbolde: Oh. Hello. Haven't seen you before.
 Grimbolde: I hide out here by the road to the old bathhouse to get some goddamned peace and quiet.
+<<playClip GrimboldeYarnCollider>>
 Grimbolde: Except I can't get that, because the creatures use it for whatever vile frolicking they do in their spare time.
 Grimbolde: When they're not skittering around and shrieking.
 Grimbolde: And over in that building there, in the stables, there's all these horrible crashes at random intervals.
+<<playClip GrimboldeYarnCollider>>
 Grimbolde: But I can't go anywhere else because the very bones of this place make noise.
 Grimbolde: It's horrible. You're going to hate it.
 <<set $spokenToGrimboldeFighter to true>>
@@ -606,8 +777,11 @@ Grimbolde: It's horrible. You're going to hate it.
 <<endif>>
 
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToGrimboldeFighter is true>>
+<<changeAvatar GrimboldeYarnCollider>>
+<<playClip GrimboldeYarnCollider>>
 Grimbolde: If anyone tells you Windy and I are divorced, it's not true.
 Grimbolde: I've never been married.
+<<playClip GrimboldeYarnCollider>>
 Grimbolde: I'm a bachelor for life.
 Grimbolde: And I'm not interested in being set up. Got it?
 <<stop>>
@@ -617,9 +791,12 @@ Grimbolde: And I'm not interested in being set up. Got it?
 //<<if $gardenFoundFighter is true and $charPOV is "Fighter">>
 //<<if $alteaSceneFenDone is true>>
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is true and $spokenToGrimboldeFighter is true>>
+<<changeAvatar GrimboldeYarnCollider>>
+<<playClip GrimboldeYarnCollider>>
 Grimbolde: Thank goodness, it's time to gather at the Bonfire.
 Grimbolde: No creatures allowed down there.
 Grimbolde: That's all I want. Blissful, blissful silence.
+<<playClip GrimboldeYarnCollider>>
 Grimbolde: Except that at "Dinner," Fen's always talking.
 Grimbolde: It's hell, everywhere, all the time.
 Grimbolde: Isn't it awful?
@@ -627,13 +804,18 @@ Grimbolde: Isn't it awful?
 <<endif>>
 
 <<if $charPOV is "Diviner" and $alteaSceneFenDone is false and $spokenToGrimboldeDiviner is false>>
+<<changeAvatar GrimboldeYarnCollider>>
+<<playClip GrimboldeYarnCollider>>
 Grimbolde: Oh, Fen, can something be done about these things?
 Grimbolde: I hate them.
 Grimbolde: Their voices scrape my mind like nails on slate.
 <<playClip FenYarnCollider>>
+<<changeAvatar FenYarnCollider>>
 Fen: Hmm...
 Fen: Have you tried pushing them out of the way?
+<<changeAvatar GrimboldeYarnCollider>>
 Grimbolde: ...
+<<playClip GrimboldeYarnCollider>>
 Grimbolde: Altea's in the stables.
 Grimbolde: She locked the doors hours ago. 
 Grimbolde: I wouldn't think she was in there at all if not for the light.
@@ -642,10 +824,15 @@ Grimbolde: I wouldn't think she was in there at all if not for the light.
 <<endif>>
 
 <<if $charPOV is "Diviner" and $alteaSceneFenDone is false and $spokenToGrimboldeDiviner is true>>
+<<changeAvatar GrimboldeYarnCollider>>
+<<playClip GrimboldeYarnCollider>>
 Grimbolde: She won't come out.
 Grimbolde: She never comes out.
 <<playClip FenYarnCollider>>
+<<changeAvatar FenYarnCollider>>
 Fen: I'll do my best to convince her.
+<<changeAvatar GrimboldeYarnCollider>>
+<<playClip GrimboldeYarnCollider>>
 Grimbolde: But can you get her to stop that racket?
 Grimbolde: It's not happening right now, but it'll happen again. It always does.
 <<stop>>
@@ -653,8 +840,10 @@ Grimbolde: It's not happening right now, but it'll happen again. It always does.
 ===
 title: BabyNPC
 ---
+<<changeAvatar BabyYarnCollider>>
+<<playClip BabyYarnCollider>>
 Puppet: My name's Baby.
-Puppet: Don't laugh.
+Puppet: Don't laugh. I hate it.
 Puppet: Now go away.
 <<stop>>
 ===
@@ -662,6 +851,8 @@ title: OutsideGardenNPC
 position: 309,59
 ---
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToHildegardFighter is false>>
+<<playClip HildegardYarnCollider>>
+<<changeAvatar HildegardYarnCollider>>
 Hildegard: Did Fen tell you to find me?
 Hildegard: I'm alright, really. I'm just listening.
 Hildegard: I'm waiting for the trees to sing.
@@ -670,9 +861,12 @@ Hildegard: I'm waiting for the trees to sing.
 <<endif>>
 
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToHildegardFighter is true>>
+<<playClip HildegardYarnCollider>>
+<<changeAvatar HildegardYarnCollider>>
 Hildegard: Did you come here alone?
 Hildegard: I came with my brother. He... he loved music.
 Hildegard: ...
+<<playClip HildegardYarnCollider>>
 Hildegard: I can almost hear his favorite song in the chorus of the cliffs.
 Hildegard: If I listen hard enough.
 <<stop>>
@@ -680,23 +874,41 @@ Hildegard: If I listen hard enough.
 
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is true>>
 //<<if $spokenToHildegardFighter is true>>
+<<playClip HildegardYarnCollider>>
+<<changeAvatar HildegardYarnCollider>>
 Hildegard: Oh, the Bonfire...
 Hildegard: I wish I could see its light from here.
+<<playClip HildegardYarnCollider>>
 Hildegard: I haven't been since my brother turned.
 Hildegard: Maybe I'll... maybe I'll go later.
 <<stop>>
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToHildegardDiviner is false>>
+<<changeAvatar HildegardYarnCollider>>
+<<playClip HildegardYarnCollider>>
 Hildegard: Fen, I'm feeling so peculiar.
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: How so, dear?
+<<playClip HildegardYarnCollider>>
+<<changeAvatar HildegardYarnCollider>>
 Hildegard: My head... it feels far away. And my body...
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Have you mentioned this to Altea? Maybe she can help?
+<<playClip HildegardYarnCollider>>
+<<changeAvatar HildegardYarnCollider>>
 Hildegard: No... I feel foolish admitting this but I'm afraid of her.
 Hildegard: And she never comes up here.
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Well, if this strange feeling persists, tell me, okay?
 Fen: And I'll talk to her for you.
 Fen: She's just prickly, that's all.
+<<changeAvatar FenYarnCollider>>
+<<playClip HildegardYarnCollider>>
+<<changeAvatar HildegardYarnCollider>>
 Hildegard: ...Okay.
 <<set $spokenToHildegardDiviner to true>>
 //Hildegard: She has a beautiful singing voice.
@@ -707,10 +919,16 @@ Hildegard: ...Okay.
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToHildegardDiviner is true>>
+<<playClip HildegardYarnCollider>>
+<<changeAvatar HildegardYarnCollider>>
 Hildegard: The moon...
 Hildegard: I can hear it...
 Hildegard: It's singing his favorite song.
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: ...are you alright, Hildegard?
+<<playClip HildegardYarnCollider>>
+<<changeAvatar HildegardYarnCollider>>
 Hildegard: Oh, Fen... I didn't see you.
 Hildegard: I have the strangest feeling that I'll see him soon...
 <<stop>>
@@ -720,9 +938,13 @@ title: BathhouseCreature1
 position: 319,69
 ---
 <<if $charPOV is "Fighter">>
+<<changeAvatar CampfireHedgehogYarnCollider>>
+<<playClip CampfireHedgehogYarnCollider>>
 Creature: ?ylduol os sgnis noom ruo nehw nus eht rof ew evah deen tahw
 <<endif>>
 <<if $charPOV is "Diviner">>
+<<changeAvatar CampfireHedgehogYarnCollider>>
+<<playClip CampfireHedgehogYarnCollider>>
 Creature: <i>Hissssssss...</i>
 <<endif>>
 ===
@@ -778,11 +1000,15 @@ title: FenPostGardenTransition
 ---
 <<if $charPOV is "Diviner">>
 <<wait  2>>
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: I feel as though I've been sitting here for ages.
 Fen: I should stretch my legs.
+<<playClip FenYarnCollider>>
 Fen: Perhaps I'll check on Altea!
 Fen: She'll likely be in the stables, I'd imagine.
 <<wait  1>>
+<<playClip FenYarnCollider>>
 Fen: Maybe I should stop talking to myself.
 <<endif>>
 ===
@@ -801,63 +1027,109 @@ title: HighPriestess
 <<hideFen PlayerDiviner>>
 //knock on the door
 <<playKnock YarnStableCutsceneSetUpCollider>>
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Altea, dear, are you in there?
 <<wait  3>>
 <<playKnock YarnStableCutsceneSetUpCollider>>
 //knock again
+<<playClip FenYarnCollider>>
 Fen: I know you're likely busy, but it's time for dinner, and I was hoping you would join us tonight--
 //timeline run for door opening and revealing ALtea
 <<changeCam PlayerDiviner>>
 <<openDoor YarnStableCutsceneSetUpCollider>>
 <<revealCreature YarnStableCutsceneSetUpCollider>>
+<<changeAvatar PlayerClericStandInStable>>
+<<playClip PlayerClericStandInStable>>
 Altea: What do you want?
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Well, seeing as we're all gathering at the Bonfire,
 Fen: I thought I'd extend the invitation.
 <<wait  1.5>>
+<<playClip FenYarnCollider>>
 Fen: Again.
 <<wait  1.5>>
+<<playClip FenYarnCollider>>
 Fen: Just in case you've changed your mind?
+<<playClip PlayerClericStandInStable>>
+<<changeAvatar PlayerClericStandInStable>>
 Altea: I'm busy.
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: I assumed you would say that, but, Altea...
 Fen: Oh, and there's a newcomer! You ought to meet her, she seems lovely.
 //Fen: She's a bright one, too!
 //Fen: Made her way into the garden, clever thing!
 //Altea: What?
 Fen: Not one for talking, but quite a lovely singer!
+<<changeAvatar PlayerClericStandInStable>>
+<<playClip PlayerClericStandInStable>>
 Altea: Someone new's here.
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Yes! Isn't it exciting?
+<<changeAvatar PlayerClericStandInStable>>
+<<playClip PlayerClericStandInStable>>
 Altea: And they're not bawling like a baby?
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: No, she seems to be adjusting just fine!
 Fen: I'm hoping she does something interesting. She has the look of someone who will do something interesting.
 Fen: I have a sense about these things.
+<<playClip FenYarnCollider>>
 Fen: Do come and meet her, Altea. I think you'd find her as interesting as I do!
 <<wait  1>>
+<<changeAvatar PlayerClericStandInStable>>
+<<playClip PlayerClericStandInStable>>
 Altea: Hm.
 <<wait  2>>
+<<changeAvatar PlayerClericStandInStable>>
+<<playClip PlayerClericStandInStable>>
 Altea: No.
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: No?
+<<changeAvatar PlayerClericStandInStable>>
+<<playClip PlayerClericStandInStable>>
 Altea: I'm busy, Fen.
 Altea: I have a lot of work to do.
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: But it's important to stay grounded--
+<<changeAvatar PlayerClericStandInStable>>
+<<playClip PlayerClericStandInStable>>
 Altea: It's insanity.
 Altea: It's like you think pretending this is a real town,
 Altea: and not a derelict ruin in what might as well be the bowels of hell,
+<<playClip PlayerClericStandInStable>>
 Altea: is going to get us all out of here.
 Altea: Keep us normal.
 Altea: Make this place allergic to us, somehow.
+<<playClip PlayerClericStandInStable>>
 Altea: But I'm not like you. I'm a realist.
 Altea: This place is a hellhole,
 Altea: and these husks aren't going to fix themselves.
 <<wait  1>>
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: But--
+<<changeAvatar PlayerClericStandInStable>>
+<<playClip PlayerClericStandInStable>>
 Altea: Do you not want me to call upon my Lady to help these poor, helpless, wretched things?
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Well, yes, but--
+<<changeAvatar PlayerClericStandInStable>>
+<<playClip PlayerClericStandInStable>>
 Altea: Then let me work. I'm not coming to "Dinner."
 <<closeDoor YarnStableCutsceneSetUpCollider>>
 <<disappearCreature YarnStableCutsceneSetUpCollider>>
 <<changeBackCam PlayerDiviner>>
 <<wait  1>>
+<<changeAvatar FenYarnCollider>>
 //timeline for door close
+<<playClip FenYarnCollider>>
 Fen: Well, alright then.
 <<revealFen PlayerDiviner>>
 <<wait  0.5>>
@@ -876,22 +1148,28 @@ title: BonfireConversation1
 //camera change, objects change
 <<changeCam BonfireManager>>
 <<wait 0.5>> //change this to be shorter???
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: It's poetic, I think.
 Fen: When you've been around as long as I have,
 Fen: you start to see everything like one big pattern.
+<<playClip FenYarnCollider>>
 Fen: Things grow, things shrivel, things die.
 Fen: There's a poetry to it. To the cycle.
 //sip tea noise or animation
 <<wait  1>>
+<<playClip FenYarnCollider>>
 Fen: Oh, you noticed the mug! 
 Fen: I take it with me everywhere. I did a favor for a potter, years ago,
 Fen: divined a cure for his children when they fell ill.
 //Fen: predicted the health of his fledgling children after they fell ill.
 Fen: Plague of the lungs, if I remember correctly.
+<<playClip FenYarnCollider>>
 Fen: It was everywhere back then.
 Fen: I was in Bastion at the time, I think. Before the first fire.
 Fen: Their sewer system was a mess then.
 <<wait  0.5>>
+<<playClip FenYarnCollider>>
 Fen: ...Where was I?
 Fen: Ah.
 Fen: The potter let me mold my own tea mug, and paint it how I liked.
@@ -899,16 +1177,19 @@ Fen: His youngest child liked chickens.
 Fen: She had a lovely smile.
 //campfire crackle is louder
 <<wait  1>>
+<<playClip FenYarnCollider>>
 Fen: I wonder how they all turned out.
 Fen: The potter's long gone, I'd imagine.
 Fen: Maybe his children are still around?
 <<wait  0.5>>
+<<playClip FenYarnCollider>>
 Fen: No need to look so sad, dear Fighter.
 Fen: This is just how it is, when you're as old as I am.
 Fen: You learn to grow around it.
 Fen: So to speak.
 //sip tea again
 <<wait  2>>
+<<playClip FenYarnCollider>>
 Fen: Oh, dear.
 Fen: This cup's gone cold.
 //effects to make it look like time has passed
@@ -922,7 +1203,9 @@ A Snobbish Voice: So I told him that I had never read it, and then he said I was
 A Shrill Voice: It stole my hat! It really did!
 Windy: Byron's not coming, again. 
 Grimbolde: What's next, another husk for Hythe to gawk at?
-A Softer Voice: More tea, Fen?
+Amos: More tea, Fen?
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Yes, thank you.
 A Shrill Voice: If you see a hat with a really great feather in it...
 A Snobbish Voice: It's not like any of that even matters down here. 
@@ -933,11 +1216,16 @@ Grimbolde: What?
 Heloise: The beasts.
 Liesel: They're not beasts.
 <<wait  0.5>>
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: This is a lively bunch, Fighter, wouldn't you say?
+<<changeAvatar PhoebeYarn>>
 The Fighter: ...
 <<wait  1>>
 //low voices in background, bonfire ambience
 //teakettle over flames in this node
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Say, have you seen that skeleton, over the bridge on that other island?
 Fen: It's just across the water from here.
 //The Fighter: <i>You shake your head.</i>
@@ -946,15 +1234,21 @@ Fen: It's quite something.
 //checks water
 <<wait  0.5>>
 //Fen: Ah, drat.
+<<playClip FenYarnCollider>>
 Fen: I forget sometimes how slow boiling water over an actual fire can be.
 Fen: But I can't just go using spellcraft around here all willy-nilly, can I?
 //The Fighter: <i>You shrug awkwardly. Fen seems amused by this.</i>
+<<changeAvatar PhoebeYarn>>
 The Fighter: ...
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Oh, dear, you look distressed. That was a rhetorical question.
 //checks water again
 //<<wait  0.5>>
 Fen: Heloise, is it hot enough yet?
 Heloise: Nope.
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Rats.
 <<wait  0.5>>
 A Snobbish Voice: ...so I said, if you could turn into any of the creatures around here what would you be,
@@ -967,10 +1261,13 @@ A Snobbish Voice: and he said, a tharpy, and I said that's ridiculous...
 //The Fighter: <i>You say nothing.</i>
 //The Fighter: ...
 //The Fighter: <i>Fen seems to take this as agreement.</i>
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Oh, but yes, the skeleton!
 //Fen: That's something even stranger still.
 Fen: To think something could once die, down here.
 Fen: Could decompose, and leave remains.
+<<playClip FenYarnCollider>>
 Fen: Fascinating.
 Fen: You don't get that, with the husks.
 //Fen: As far as I am aware, the husks just... become absorbed into the terrain.
@@ -979,18 +1276,21 @@ Fen: You don't get that, with the husks.
 //Fen: Would you like to hear the strangest part?
 //<<wait  0.2>>
 //The Fighter: <i>She leans in, almost conspiratorially.</i>
+<<playClip FenYarnCollider>>
 Fen: And it's not even the whole thing.
 Fen: I've never seen the rest.
 //Fen: The rest must be either lost to the sun-lake or some similar fate,
 //Fen: or wherever it came from if it didn't die here.
 Fen: All that's here is <i>spine</i>.
 //Fen: Isn't that fascinating?
+<<playClip FenYarnCollider>>
 Fen: You should go see it, Fighter.
 //Fen: Wait a moment?
 //<<wait  1>>
 Fen: And if you see any signs of scavenging, or decomposition,
 //Fen: or if the sun does anything interesting under the water,
 Fen: would you let me know?
+<<playClip FenYarnCollider>>
 Fen: I have to wait for this damned kettle to boil,
 Fen: or I'll lose track of it altogether and it'll get cold again,
 Fen: and then I'll just be upset.
@@ -1014,29 +1314,41 @@ title: PhoebeSpine2nd
 title: AlteaAtTheSpine
 ---
 <<if $charPOV is "Fighter" and $alteaSpineDone is false>>
+<<changeAvatar PlayerClericStandInSpine>>
 Altea: ...
 <<wait  2>>
 <<disappearCreature BonfireManager>>
+<<playClip PlayerClericStandInSpine>>
 Altea: What are you doing out here.
-<i>It's not a question, but an accusation.</i>
+//<i>It's not a question, but an accusation.</i>
+<<changeAvatar PhoebeYarn>>
 The Fighter: ...
+<<changeAvatar PlayerClericStandInSpine>>
+<<playClip PlayerClericStandInSpine>>
 Altea: This is important. I can't be interrupted.
 Altea: Go back to the Bonfire.
 <<wait  1>>
+<<playClip PlayerClericStandInSpine>>
 Altea: Are you deaf? Leave me alone.
 <<wait  1>>
+<<playClip PlayerClericStandInSpine>>
 Altea: Fen sent you here, didn't she?
 Altea: She can't help meddling when it comes to the husks.
 Altea: I told her I'd get results, and I'll <i>get</i> those results.
+<<playClip PlayerClericStandInSpine>>
 Altea: One way or another.
 <<wait  2>>
+<<playClip PlayerClericStandInSpine>>
 Altea: You know what?
 Altea: Go tell her I'm making progress.
+<<playClip PlayerClericStandInSpine>>
 Altea: This one's almost fused with this hellhole, anyway.
 Altea: I'm doing it a favor.
-<i> You take in the husk beside her, the tap sticking out of its side.</i>
-Altea: Don't worry about that.
+//<i> You take in the husk beside her, the tap sticking out of its side.</i>
+<<playClip PlayerClericStandInSpine>>
+Altea: Don't worry about this one.
 Altea: It's for the greater good, I promise you.
+<<playClip PlayerClericStandInSpine>>
 Altea: Now, run along.
 //ALTEA LEAVES?
 //<<disappearCreature PlayerClericStandInSpine>>
@@ -1066,18 +1378,25 @@ Creature that Looks Worried: See what she has done.
 ===
 title: BonfireTransition
 ---
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Ah, you're back! And... with creatures in tow!
 Fen: So many creatures. 
 Fen: Oh, Windy will not be happy.
 <<wait  1>>
+<<playClip FenYarnCollider>>
 Fen: Are you alright? You look... queasy.
 Creature with Fingernails: She cannot understand us.
 Creature with Fingernails: You have the song to help her understand.
 //SONG OF BEASTS SONG
 <<wait  4>>
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: That was lovely, but--
 Creature with Wings: Old but young one!
 Creature with Fingernails: The burning one is sapping them!
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: You can speak?
 Fen: In the common tongue?
 Fen: Fascinating.
@@ -1100,22 +1419,29 @@ Both: The moon is hungry and hungry and hungry.
 //<i>Your home, long since fallen to madness and chaos and beasts,</i>
 //<i>is here. The spine of it, anyway.</i>
 //<i>You are haunted, and do not speak.</i>
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Oh, dear.
 <<wait  0.5>>
+<<playClip FenYarnCollider>>
 Fen: I don't quite know how to respond to all that.
 Fen: Fighter, here, wait, sit down.
+<<playClip FenYarnCollider>>
 Fen: Can I pour you a cup of tea?
 Fen: Smelling salts?
 Fen: Anything?
 <<wait  0.5>>
+<<playClip FenYarnCollider>>
 Fen: Altea's hurting them? The husks?
 Fen: Why would she lie to me?
 Fen: I hoped maybe...
 <<wait  0.2>>
+<<playClip FenYarnCollider>>
 Fen: Here, I'll go.
 Fen: I need to see this for myself.
 Fen: Fighter, please. Sit. Relax.
 Fen: Keep these creatures company. I don't know if they've seen fire this close before.
+<<playClip FenYarnCollider>>
 Fen: I'll investigate. It's all under control.
 //POV SHIFT
 <<stop>>
@@ -1124,29 +1450,39 @@ title: FenMemoryTransition
 ---
 //at stable, looking at Altea's stuff
 
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: Oh, dear gods...
 Fen: Altea, what have you done?
 //HEADACHE MOMENT
 <<wait  2>>
+<<playClip FenYarnCollider>>
 Fen: It's happening.
 Fen: Oh gods, it's happening, isn't it?
+<<playClip FenYarnCollider>>
 Fen: I have to stay grounded.
 Fen: I can't turn. I <i>can't</i>.
 Fen: I'll read my old scrapbook, that's what I'll do. That always fixes me.
+<<playClip FenYarnCollider>>
 Fen: Jog the old memory with my old writings. That'll do it.
 //SCRAPBOOK UI appear
 <<wait  1>>
 //Animation trigger: memories go away
+<<playClip FenYarnCollider>>
 Fen: No. No, no,
 Fen: no no no <i>NO--</i>
+<<playClip FenYarnCollider>>
 Fen: Why is it gone? What's wrong with me?
 Fen: Why can't I <i>remember</i>?
+<<playClip FenYarnCollider>>
 Fen: I have to remember. I have to stay me.
 Fen: Gods, this was so much easier when I needed to breathe.
 <<wait  0.5>>
+<<playClip FenYarnCollider>>
 Fen: I'll go to the roof of the Rookery. That's what I'll do.
 Fen: I need to think.
 Fen: I need to remember. I remember easier up there.
+<<playClip FenYarnCollider>>
 Fen: Yes. Yes, that's the way.
 <<stop>>
 
@@ -1165,6 +1501,7 @@ title: SparklePathIntro
 ---
 <<if $charPOV is "Diviner">>
 //timeline to play animation of sparkle
+<<changeAvatar FenYarnCollider>>
 Fen: Well, now. That's curious.
 <<endif>>
 ===
@@ -1172,15 +1509,19 @@ title: FenOnTheHill
 ---
 <<if $charPOV is "Diviner">>
 //timeline to change camera to look at the Moon
+<<changeAvatar FenYarnCollider>>
+<<playClip FenYarnCollider>>
 Fen: I know you've got it, up there.
 Fen: I can feel it.
 Fen: Like a buzzing in the back of my mind.
 //play soundscape?
 <<wait  1>>
+<<playClip FenYarnCollider>>
 Fen: It's almost like you're nearly at the end of your digestion, isn't it?
 Fen: Or maybe it's gestation.
 Fen: Maybe you <i>are</i> hatching.
 <<wait  2>>
+<<playClip FenYarnCollider>>
 Fen: I know you've got my death up there.
 Fen: I know you're hoarding the stuff.
 //buzzing/pulsing Moon sound plays, maybe lighting change too, camera changes.
@@ -1189,16 +1530,21 @@ Fen: You've eaten enough.
 //Fen: This place has stagnated for too long.
 //hum gets louder
 <<wait  1>>
+<<playClip FenYarnCollider>>
 Fen: I have not lived countless centuries,
 Fen: traversed countless continents,
 Fen: to lose the scent down here.
+<<playClip FenYarnCollider>>
 Fen: I know you have it.
 Fen: I can feel it like a missing shadow.
+<<playClip FenYarnCollider>>
 Fen: It's <i>mine</i>, not some nutrients to repurpose.
 <<wait  2>>
+<<playClip FenYarnCollider>>
 //Fen: I'm coming for it, you false moon. You hive.
 Fen: I'm tired, and I'm taking it back.
 <<wait  1>>
+<<playClip FenYarnCollider>>
 Fen: Even if it means this place crumbles.
 //timeline play to black out? demo end screen?
 <<endif>>

@@ -18,6 +18,7 @@ public class HedgeScript : MonoBehaviour
     public string goalPhrase = "WDAS";
     public bool isSinging = false;
     public bool isinHedge = false;
+    public bool inOpening = false;
 
     public bool isGarden = false;
     public bool isOutsideGarden = false;
@@ -100,35 +101,39 @@ public class HedgeScript : MonoBehaviour
                 //sungNotes += noteQueue.Dequeue();
             }
 
-            if (noteQueue.Count == 4 && ListtoString(noteQueue) != goalPhrase)
+            if (inOpening)
             {
-                noteQueue = new List<string>();
-            }
-            if (noteQueue.Count == 4 && noteQueue[3] != "S")
-            {
-                noteQueue.RemoveAt(3);
-                noteQueue.RemoveAt(2);
-                noteQueue.RemoveAt(1);
-                noteQueue.RemoveAt(0);
-            }
+                if (noteQueue.Count == 4 && ListtoString(noteQueue) != goalPhrase)
+                {
+                    noteQueue = new List<string>();
+                }
+                if (noteQueue.Count == 4 && noteQueue[3] != "S")
+                {
+                    noteQueue.RemoveAt(3);
+                    noteQueue.RemoveAt(2);
+                    noteQueue.RemoveAt(1);
+                    noteQueue.RemoveAt(0);
+                }
 
-            if (noteQueue.Count == 3 && noteQueue[2] != "A")
-            {
-                noteQueue.RemoveAt(2);
-                noteQueue.RemoveAt(1);
-                noteQueue.RemoveAt(0);
-            }
+                if (noteQueue.Count == 3 && noteQueue[2] != "A")
+                {
+                    noteQueue.RemoveAt(2);
+                    noteQueue.RemoveAt(1);
+                    noteQueue.RemoveAt(0);
+                }
 
-            if (noteQueue.Count == 2 && noteQueue[1] != "D")
-            {
-                noteQueue.RemoveAt(1);
-                noteQueue.RemoveAt(0);
-            }
-            if (noteQueue.Count == 1 && noteQueue[0] != "W")
-            {
-                noteQueue.RemoveAt(0);
-            }
+                if (noteQueue.Count == 2 && noteQueue[1] != "D")
+                {
+                    noteQueue.RemoveAt(1);
+                    noteQueue.RemoveAt(0);
+                }
+                if (noteQueue.Count == 1 && noteQueue[0] != "W")
+                {
+                    noteQueue.RemoveAt(0);
+                }
 
+            }
+            
         }
         CheckNotes();
 
@@ -168,39 +173,9 @@ public class HedgeScript : MonoBehaviour
         //TODO: CHANGE TO SDAWD
         if (isGarden)
         {
-            if (noteQueue.Count == 8 && ListtoString(noteQueue) != goalPhrase)
+            if (noteQueue.Count == 5 && ListtoString(noteQueue) != goalPhrase)
             {
                 noteQueue = new List<string>();
-            }
-            if (noteQueue.Count == 8 && noteQueue[7] != "D")
-            {
-                noteQueue.RemoveAt(7);
-                noteQueue.RemoveAt(6);
-                noteQueue.RemoveAt(5);
-                noteQueue.RemoveAt(4);
-                noteQueue.RemoveAt(3);
-                noteQueue.RemoveAt(2);
-                noteQueue.RemoveAt(1);
-                noteQueue.RemoveAt(0);
-            }
-            if (noteQueue.Count == 7 && noteQueue[6] != "W")
-            {
-                noteQueue.RemoveAt(6);
-                noteQueue.RemoveAt(5);
-                noteQueue.RemoveAt(4);
-                noteQueue.RemoveAt(3);
-                noteQueue.RemoveAt(2);
-                noteQueue.RemoveAt(1);
-                noteQueue.RemoveAt(0);
-            }
-            if (noteQueue.Count == 6 && noteQueue[5] != "A")
-            {
-                noteQueue.RemoveAt(5);
-                noteQueue.RemoveAt(4);
-                noteQueue.RemoveAt(3);
-                noteQueue.RemoveAt(2);
-                noteQueue.RemoveAt(1);
-                noteQueue.RemoveAt(0);
             }
             if (noteQueue.Count == 5 && noteQueue[4] != "D")
             {
@@ -210,7 +185,7 @@ public class HedgeScript : MonoBehaviour
                 noteQueue.RemoveAt(1);
                 noteQueue.RemoveAt(0);
             }
-            if (noteQueue.Count == 4 && noteQueue[3] != "D")
+            if (noteQueue.Count == 4 && noteQueue[3] != "W")
             {
                 noteQueue.RemoveAt(3);
                 noteQueue.RemoveAt(2);
@@ -228,7 +203,7 @@ public class HedgeScript : MonoBehaviour
                 noteQueue.RemoveAt(1);
                 noteQueue.RemoveAt(0);
             }
-            if (noteQueue.Count == 1 && noteQueue[0] != "W")
+            if (noteQueue.Count == 1 && noteQueue[0] != "S")
             {
                 noteQueue.RemoveAt(0);
             }

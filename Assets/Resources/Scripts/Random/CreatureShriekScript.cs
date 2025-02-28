@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Yarn.Unity;
 
 
@@ -13,6 +14,9 @@ public class CreatureShriekScript : MonoBehaviour
     private AudioClip currentClip;
     public float lowRange = 0.4f;
     public float highRange = 1f;
+
+    public Image avatarImage;
+    public Sprite avatar;
     
     // Start is called before the first frame update
     void Start()
@@ -38,6 +42,13 @@ public class CreatureShriekScript : MonoBehaviour
         }
     }*/
 
+
+    [YarnCommand("changeAvatar")]
+    public void ChangeAvatar()
+    {
+        avatarImage.sprite = avatar;
+    }
+    
     [YarnCommand("playClip")]
     public void talkingClip()
     {
