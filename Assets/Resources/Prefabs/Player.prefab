@@ -223,11 +223,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6649194629746506128}
+  - component: {fileID: 8385617604681943024}
+  - component: {fileID: 6414891430281142995}
   - component: {fileID: 2792980822257684978}
   - component: {fileID: 7381430267545947103}
-  - component: {fileID: 8385617604681943024}
   - component: {fileID: 3719756934585677030}
-  - component: {fileID: 6414891430281142995}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -254,6 +254,48 @@ Transform:
   - {fileID: 5591709194044571504}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8385617604681943024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5571203642160640714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1d9eec309f8a402c94670f418bf213f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 3
+  isPlayerWalking: 0
+  footstepSounds: {fileID: 0}
+  footstepAudio: {fileID: 0}
+  orientation: {fileID: 8796379795203788207}
+  playerHeight: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  grounded: 0
+  groundDrag: 0
+  groundlessDrag: 0
+  maxSlopeAngle: 0
+  slopeForce: 15
+  slopeGravity: 80
+--- !u!114 &6414891430281142995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5571203642160640714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee7e052da0feaf4b8f4d750291f9af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstPerson: {fileID: 0}
+  thirdPerson: {fileID: 0}
+  firstPersonPOVOn: 1
 --- !u!33 &2792980822257684978
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -285,33 +327,6 @@ CapsuleCollider:
   m_Height: 3.05
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8385617604681943024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5571203642160640714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1d9eec309f8a402c94670f418bf213f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 3
-  isPlayerWalking: 0
-  footstepSounds: {fileID: 0}
-  footstepAudio: {fileID: 0}
-  orientation: {fileID: 8796379795203788207}
-  playerHeight: 0
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  grounded: 0
-  groundDrag: 0
-  groundlessDrag: 0
-  maxSlopeAngle: 0
-  slopeForce: 15
-  slopeGravity: 80
 --- !u!54 &3719756934585677030
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -339,21 +354,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 1
---- !u!114 &6414891430281142995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5571203642160640714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ee7e052da0feaf4b8f4d750291f9af0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstPerson: {fileID: 0}
-  thirdPerson: {fileID: 0}
-  firstPersonPOVOn: 1
 --- !u!1 &6041615112464950391
 GameObject:
   m_ObjectHideFlags: 0

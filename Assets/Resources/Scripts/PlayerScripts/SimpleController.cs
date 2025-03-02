@@ -15,11 +15,15 @@ public class SimpleController : MonoBehaviour
     public bool isPlayerWalking;
     public GameObject footstepSounds;
     public AudioSource footstepAudio;
+    public AudioSource impactSound;
+    public AudioClip Slap;
+    public float impactMag = 1f;
+    bool canPlayJumpLandingSound = false;
 
     //THE THINGS BELOW ARE AN ATTEMPT AT PARENTING CONTROLS TO WHERE THE CAMERA IS FACING
     //mouse sensitivity
     //[Header("Camera Rotation")] 
-   // public Transform camera;
+    // public Transform camera;
     //public float sensX = 1f;
     //public float sensY = 1f;
 
@@ -211,5 +215,23 @@ public class SimpleController : MonoBehaviour
             }
         }
     }
-    
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Debug.Log("oncollision");
+        if (collision.gameObject.layer == 3)
+        {
+            //Debug.Log("Oncollisionground");
+            if (collision.relativeVelocity.y >= impactMag)
+            {
+               
+                   Debug.Log("should play");
+                    impactSound.PlayOneShot(Slap);
+                
+
+            }
+        }
+
+    }
+
 }

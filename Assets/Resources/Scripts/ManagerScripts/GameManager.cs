@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using Yarn.Unity;
 
@@ -81,12 +82,14 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("Overworld");
         }
-        /*
+        
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            SceneManager.LoadScene("PaintingScene");
+            //Cursor.lockState = CursorLockMode.Locked;
+           // Cursor.lockState = CursorLockMode.None;
+            Mouse.current.WarpCursorPosition(new Vector2(Screen.width / 2, Screen.height / 2));
         }
-        */
+        
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
