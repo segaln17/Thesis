@@ -3,10 +3,13 @@ tags:
 position: -208,-211
 ---
 //Act 1
+//general
+<<declare $readFenJournal = false as bool>>
 
 //Phoebe talk
 <<declare $spokenToWindy = false as bool>>
 <<declare $WindyOpeningRun = false as bool>>
+<<declare $spokenToVerityFighter = false as bool>>
 <<declare $spokenToByronFighter = false as bool>>
 <<declare $spokenToFenFighterTavern = false as bool>>
 <<declare $gardenFoundFighter = false as bool>>
@@ -373,7 +376,7 @@ Fen: I have no idea what you just said but I hope you have fun.
 title: Verity
 position: 229,-21
 ---
-<<if $charPOV is "Fighter">> ///if the player is being Phoebe
+<<if $charPOV is "Fighter" and $spokenToVerityFighter is false>> ///if the player is being Phoebe
 <<changeAvatar VerityYarnCollider>>
 <<playClip VerityYarnCollider>>
 Verity: There's no point in fighting it. Any of it.
@@ -381,6 +384,15 @@ Verity: Even the monsters. Killing them does nothing.
 Verity: They're stuck here, same as us.
 <<playClip VerityYarnCollider>>
 Verity: Might as well just melt into the Fields of Sorrow before this place can turn me itself.
+<<set $spokenToVerityFighter to true>>
+<<stop>>
+<<endif>>
+
+<<if $charPOV is "Fighter" and $spokenToVerityFighter is true>>
+<<changeAvatar VerityYarnCollider>>
+<<playClip VerityYarnCollider>>
+Verity: Leave me alone.
+Verity: I'm trying to turn into a rock and you're distracting me.
 <<stop>>
 <<endif>>
 
@@ -448,20 +460,58 @@ Zora: Fine by me. Nothing is what we have.
 <<stop>>
 <<endif>>
 ===
+title: FenJournal
+---
+<<if $readFenJournal is false>>
+<i>A meticulously kept journal, that of a scholar.</i>
+<i>Diagrams and arcane runes litter its pages.</i>
+Journal: "I have discovered that any use of spellwork down here backfires and fizzles out."
+Journal: "It's like the Beneath is allergic to it."
+Journal: "Or, perhaps, absorbs any spell that is cast back into itself?"
+Journal: "This merits further study."
+Journal: "Though unfortunately, this means I will have to boil water for tea manually."
+<<set $readFenJournal to true>>
+<<stop>>
+<<endif>>
+<<if $readFenJournal is true>>
+<i>The journal continues.</i>
+Journal: "It's interesting that the new arrival, the cleric, is of the order of the Saint of Radiant Sorrow."
+Journal: "Quite a violent sect. Staged a coup in White Stair."
+Journal: "Maybe her faith has the same effect as the music thing? Does the Beneath feed on it?"
+Journal: "The Saint <i>did</i> only become something after she died, preserved as a shell."
+Journal: "Very morbid. But also, the liquid light of the Saint, and the underwater Sun here..."
+Journal: "Could there be a connection there too? Or am I speculating too wildly?"
+Journal: "Much to think about. Nothing to do but think."
+<<stop>>
+<<endif>>
+===
+title: SylvanBook
+---
+<i>A tattered tome, preserving legends in its pages.</i>
+<i>It sits open to a page entitled 'Sylvan the Overcomer.'
+Book: "And, his patience rewarded, Sylvan the Overcomer, with his legendary strength,"
+Book: "wrestled the Worldeater Fish, covered its gills with his hands,"
+Book: "so it gasped, and shuddered, and surfaced,"
+Book: "and Sylvan threw it out of the water and onto the shore,"
+Book: "where he carved it open, and removed the Moon, which it had consumed."
+Book: "Sylvan tossed the Moon into the heavens, and it settled there, and the tides calmed,"
+Book: "and the world was once again saved."
+<<stop>>
+===
 title: Amos
 position: 249,-1
 ---
 <<if $charPOV is "Fighter">>
 <<changeAvatar AmosYarnCollider>>
 <<playClip AmosYarnCollider>>
-Amos: You see her, over there? In the green?
+Amos: You see her, over there? In the green and yellow?
 Amos: Wait, no, don't be obvious!
 <<playClip AmosYarnCollider>>
 Amos: That's <i>Fen</i>.
 Amos: You know, <i>Fen the Diviner</i>?
 Amos: Fen's a legend. She's been everywhere, they say.
 <<playClip AmosYarnCollider>>
-Amos: I've always wondered how she got here. Word has it she convinced the Beneath to let her in.
+Amos: Word has it she convinced the Beneath to let her in. 
 Amos: On <i>purpose</i>!
 <<stop>>
 <<endif>>
@@ -517,13 +567,11 @@ position: 259,9
 //<<if $charPOV is "Fighter">>
 <<if $spokenToFenFighterTavern is false>>
 <<changeCam FenTavernManager>>
-//<i>Before you is a small but strangely imposing figure, sitting alone.</i>
-//<i>Though she is small, she has gravity, and sitting here by herself, one can almost pretend this is normal.</i>
 <<changeAvatar FenYarnCollider>>
 <<playClip FenYarnCollider>>
 Strangely Congenial Person: I haven't seen you before, have I?
 Strangely Congenial Person: Isn't this a strange place in which we find ourselves? And to think, I meant to come here.
-Strangely Congenial Person: It'd be silly, if things didn't just sit here in stasis and rot.
+//Strangely Congenial Person: It'd be silly, if things didn't just sit here in stasis and rot.
 Fen: I'm Fen. What's your name?
 //The Fighter: <i>You are not comfortable sharing this yet.</i>
 <<changeAvatar PhoebeYarn>>
@@ -532,39 +580,46 @@ The Fighter: ...
 <<playClip FenYarnCollider>>
 Fen: Oh, you're a shy one! Wouldn't think so with your weaponry.
 Fen: But I'll bet you get that a lot.
+Fen: Don't worry, you don't have to speak if you don't want to.
 <<playClip FenYarnCollider>>
 Fen: I'm getting off topic, you're probably very confused and disoriented.
+Fen: I haven't really had to do this much, so please forgive my rambling.
 Fen: Where to start...
 <<playClip FenYarnCollider>>
 Fen: Have you met Altea?
 Fen: She's the other new one, aside from you. New-ish.
 <<playClip FenYarnCollider>>
 Fen: Well, I should say "us." I have not been here very long either.
-Fen: She's... prickly. //But she's a cleric of the order of the Saint of Radiant Sorrow, so that's nice.
+Fen: She's... prickly. But I think she's got a good heart, somewhere underneath all that armor.//But she's a cleric of the order of the Saint of Radiant Sorrow, so that's nice.
 //Fen: A nice violent sect. She caused a coup in her own hometown, so I heard!
 <<changeAvatar PhoebeYarn>>
 The Fighter: ...
 <<wait  0.5>>
 <<changeAvatar FenYarnCollider>>
 <<playClip FenYarnCollider>>
-Fen: Do you know, sometimes I wonder about how long we'll stay here.
+Fen: This building is lovely, isn't it? So full of light.
+Fen: There's at least no shortage of light in this place.
+Fen: You must be wondering how long you'll be here.
+Fen: I wonder that sometimes myself.
 Fen: Because, well, the reality is that we're stuck here.
 <<playClip FenYarnCollider>>
 Fen: They call it the Beneath, this space between realities.
 Fen: It's where lost things go. I'm afraid that includes you, now.
 <<playClip FenYarnCollider>>
-//Fen: <i>She pauses, then brightens.</i>
 Fen: But might as well make the most of it, mustn't we! No use moping like Altea.
+Fen: The Beneath certainly has its own marvels.
 Fen: In such a space where there should be no life, the flora and fauna are teeming!
 <<playClip FenYarnCollider>>
-Fen: I have a theory about it, actually, but it's a bit morbid. I'll refrain from sharing it.
+Fen: I have a theory about it, but it's a bit morbid. I'll refrain from sharing it.
 <<changeAvatar PhoebeYarn>>
 The Fighter: ...
 <<wait  1>>
 //The Fighter: <i>It's clear that Fen cannot help herself.</i>
 <<changeAvatar FenYarnCollider>>
 <<playClip FenYarnCollider>>
-Fen: Well, alright, so with people-types like us, 
+Fen: Well, alright, I'll tell you.
+<<playClip FenYarnCollider>>
+Fen: So with people-types like us, 
 Fen: the longer we remain here the more hollowed out we become.
 <<playClip FenYarnCollider>>
 Fen: I believe that our life force is being drawn up and into the very atmosphere to fuel this place.
@@ -846,6 +901,38 @@ Puppet: My name's Baby.
 Puppet: Don't laugh. I hate it.
 Puppet: Now go away.
 <<stop>>
+===
+title: BabyDiary
+---
+<i> This appears to be a diary, written in cramped, crabby script.</i>
+Diary: "I have tried everything but I cannot think of any other names to replace this accursed one."
+Diary: "I thought anything would be better than 'Baby.'"
+Diary: "It has ruined me. I'll be stuck with 'Baby' forever."
+Diary: "How undignified."
+<<stop>>
+===
+title: Steve
+---
+<<if $charPOV is "Fighter">>
+<<changeAvatar SteveYarnCollider>>
+<<playClip SteveYarnCollider>>
+Steve: Are you a person?
+Steve: I didn't know there were other people here!
+Steve: I thought it was just me.
+Steve: And Jacqueline.
+<<playClip SteveYarnCollider>>
+Steve: This is Jacqueline.
+Steve: We're fishing.
+Steve: I'm looking for the Big One.
+<<playClip SteveYarnCollider>>
+Steve: Oh, got another one!
+<i>There is nothing on the hook.</i>
+<<playClip SteveYarnCollider>>
+Steve: I agree, Jacqueline, this one's small fry.
+Steve: Excuse me, new person, I have to get back to it.
+Steve: The Big One's not going to catch itself.
+<<stop>>
+<<endif>>
 ===
 title: OutsideGardenNPC
 position: 309,59
@@ -1186,7 +1273,7 @@ Fen: Maybe his children are still around?
 Fen: No need to look so sad, dear Fighter.
 Fen: This is just how it is, when you're as old as I am.
 Fen: You learn to grow around it.
-Fen: So to speak.
+Fen: ...in a manner of speaking.
 //sip tea again
 <<wait  2>>
 <<playClip FenYarnCollider>>

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
 using TMPro;
+using UnityEngine.Events;
 
 public class YarnDialogueTrigger : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class YarnDialogueTrigger : MonoBehaviour
     
 
     public TextMeshProUGUI dialogueIndicator;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -94,35 +96,42 @@ public class YarnDialogueTrigger : MonoBehaviour
             if (other.gameObject == fighter) //change to other.gameobject.name?
             {
                 inYarnTrigger = true;
-              
-         
+                if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
+                {
+                    dialogueIndicator.gameObject.SetActive(true);
+                }
+                else if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == true)
+                {
+                    dialogueIndicator.gameObject.SetActive(false);
+                }
             }
 
             else if (other.gameObject == diviner)
             {
                 inYarnTrigger = true;
+                if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
+                {
+                    dialogueIndicator.gameObject.SetActive(true);
+                }
+                else if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == true)
+                {
+                    dialogueIndicator.gameObject.SetActive(false);
+                }
    
             }
-        
+            
         }
-        /*else if(gameObject.CompareTag("Bonfire") && other.gameObject.CompareTag("Player"))
-        {
-            if (other.gameObject == fighter) //change to other.gameobject.name?
-            {
-                inYarnTrigger = true;
-
-
-            }else if(other.gameObject == diviner)
-            {
-                inYarnTrigger = false;
-            }
-        }*/
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == true)
+        {
+            FindObjectOfType<DialogueRunner>().Stop();
+            FindObjectOfType<DialogueRunner>().startNode = nodeToCall;
+        }
         dialogueIndicator.gameObject.SetActive(false);
         inYarnTrigger = false;
     }
-    
 }
