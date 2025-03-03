@@ -83,13 +83,13 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Overworld");
         }
         
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        /*if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             //Cursor.lockState = CursorLockMode.Locked;
            // Cursor.lockState = CursorLockMode.None;
             Mouse.current.WarpCursorPosition(new Vector2(Screen.width / 2, Screen.height / 2));
         }
-        
+        */
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
