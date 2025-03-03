@@ -379,11 +379,15 @@ position: 229,-21
 <<if $charPOV is "Fighter" and $spokenToVerityFighter is false>> ///if the player is being Phoebe
 <<changeAvatar VerityYarnCollider>>
 <<playClip VerityYarnCollider>>
-Verity: There's no point in fighting it. Any of it.
-Verity: Even the monsters. Killing them does nothing.
-Verity: They're stuck here, same as us.
+Verity: I'm not fighting it. I'm becoming a rock.
+Verity: I'm melting into the field before it can get me.
+//Verity: There's no point in fighting it. Any of it.
+//Verity: Even the monsters. Killing them does nothing.
+//Verity: They're stuck here, same as us.
+<<wait 0.5>>
 <<playClip VerityYarnCollider>>
-Verity: Might as well just melt into the Fields of Sorrow before this place can turn me itself.
+Verity: If I wait long enough maybe it'll work.
+//Verity: Might as well just melt into the Fields of Sorrow before this place can turn me itself.
 <<set $spokenToVerityFighter to true>>
 <<stop>>
 <<endif>>
@@ -403,7 +407,7 @@ Fen: Everything alright, Verity?
 <<changeAvatar VerityYarnCollider>>
 <<playClip VerityYarnCollider>>
 Verity: It didn't work over there, but maybe it'll work here.
-Verity: It has to.
+Verity: I've been practicing.
 <<changeAvatar FenYarnCollider>>
 <<playClip FenYarnCollider>>
 Fen: Are you still trying for petrification?
@@ -426,10 +430,10 @@ Zora: Hey, welcome to the tavern!
 Zora: Want anything? We've got... really old mead.
 <<playClip ZoraYarnCollider>>
 Zora: It won't get you drunk, though. Nothing will, anymore.
-Zora: And people don't need to sleep, either, just so you don't panic later.
+Zora: And people don't need to sleep, either. Just so you don't panic later.
 Zora: But some people still pretend they can.
 <<playClip ZoraYarnCollider>>
-Zora: There's probably some kind of bed free, but I wouldn't recommend it.
+Zora: All the beds are gone, though.
 Zora: It's a lot easier to just accept that your body is on pause, forever.
 <<set $spokenToZoraFighter = true>>
 <<stop>>
@@ -439,7 +443,7 @@ Zora: It's a lot easier to just accept that your body is on pause, forever.
 <<changeAvatar ZoraYarnCollider>>
 <<playClip ZoraYarnCollider>>
 Zora: While you were out, did you see Windy?
-Zora: Gray hair, kind of rude, probably berating some creature for existing in her presence?
+Zora: Gray hair, kind of rude?
 Zora: Did she say anything about a bet we had?
 <<playClip ZoraYarnCollider>>
 Zora: Nevermind. She'll never pay up. She never does.
@@ -818,7 +822,6 @@ position: 299,49
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToGrimboldeFighter is false>>
 <<changeAvatar GrimboldeYarnCollider>>
 <<playClip GrimboldeYarnCollider>>
-Grimbolde: Oh. Hello. Haven't seen you before.
 Grimbolde: I hide out here by the road to the old bathhouse to get some goddamned peace and quiet.
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: Except I can't get that, because the creatures use it for whatever vile frolicking they do in their spare time.
@@ -911,16 +914,23 @@ Diary: "It has ruined me. I'll be stuck with 'Baby' forever."
 Diary: "How undignified."
 <<stop>>
 ===
+title: SheepIslandBook
+---
+<i>Whoever wrote this has terrible handwriting.</i>
+Note: DON'T LOOK DOWN 
+<<stop>>
+===
 title: Steve
 ---
 <<if $charPOV is "Fighter">>
 <<changeAvatar SteveYarnCollider>>
 <<playClip SteveYarnCollider>>
-Steve: Are you a person?
-Steve: I didn't know there were other people here!
-Steve: I thought it was just me.
-Steve: And Jacqueline.
+Fishing Man Without Pants: Are you a person?
+Fishing Man Without Pants: I didn't know there were other people here!
+Fishing Man Without Pants: I thought it was just me.
+Fishing Man Without Pants: And Jacqueline.
 <<playClip SteveYarnCollider>>
+Steve: I don't really remember my name but you can call me Steve.
 Steve: This is Jacqueline.
 Steve: We're fishing.
 Steve: I'm looking for the Big One.
@@ -941,7 +951,7 @@ position: 309,59
 <<playClip HildegardYarnCollider>>
 <<changeAvatar HildegardYarnCollider>>
 Hildegard: Did Fen tell you to find me?
-Hildegard: I'm alright, really. I'm just listening.
+Hildegard: I'm okay. I'm just listening.
 Hildegard: I'm waiting for the trees to sing.
 <<set $spokenToHildegardFighter to true>>
 <<stop>>
