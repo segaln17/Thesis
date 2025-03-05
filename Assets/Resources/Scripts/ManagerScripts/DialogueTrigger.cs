@@ -55,12 +55,14 @@ public class DialogueTrigger : MonoBehaviour
             {
                 if (gameObject.name != "RookeryInternalBefore" || gameObject.name != "RookeryExternalAfter")
                 {
+                    /*
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         dialogueIndicator.gameObject.SetActive(false);
                         StopCoroutine(dialogueCoroutine);
                         StartCoroutine(DialoguePlay());
                     }
+                    */
                 }
                 else if (gameObject.name == "RookeryExternalAfter")
                 {

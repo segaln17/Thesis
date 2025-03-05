@@ -8,6 +8,8 @@ using Yarn.Unity;
 
 public class PaintingSceneManager : MonoBehaviour
 {
+    public DialogueViewBase cloudView;
+    
     public RookeryActivate rookeryControls;
     public YarnDialogueTrigger yarnDialogueTrigger;
     public SimpleController divinerController;
@@ -19,6 +21,8 @@ public class PaintingSceneManager : MonoBehaviour
     public GameObject mousePainter;
 
     public SpriteMask paperMask;
+    
+    private string nodeToCall;
     //public GameObject cyanoBrush;
     //public GameObject paperFake;
     //public GameObject paperReal;
@@ -43,8 +47,22 @@ public class PaintingSceneManager : MonoBehaviour
 
     [Header("Bools")] 
     public bool paintbrushActive = false;
+
+    public bool paintHelpPlayed = false;
+    public bool placeHelpPlayed = false;
+    public bool printHelpPlayed = false;
+    public bool hangHelpPlayed = false;
+    public bool leaveHelpPlayed = false;
     //public AudioSource rookAud;
     //public AudioClip paintingS;
+
+    [Header("DialogueRunners")] 
+    public GameObject overworldDialogue;
+
+    public GameObject cloudDialogue;
+    public GameObject advanceNormal;
+    public GameObject advanceCloud;
+    
     
     [Header("States")]
     public paintingState state;
@@ -69,6 +87,8 @@ public class PaintingSceneManager : MonoBehaviour
         wallPlacementButton.gameObject.SetActive(false);
         resetButton.gameObject.SetActive(false);
         endButton.gameObject.SetActive(false);
+        cloudDialogue.SetActive(false);
+        advanceCloud.SetActive(false);
 
        /* for (int i = 0; i < placeableObjects.Length; i++)
         {
@@ -86,52 +106,95 @@ public class PaintingSceneManager : MonoBehaviour
         if (state == paintingState.newsheet)
         {
             resetButton.gameObject.SetActive(false);
+            //nodeToCall = "SheetTaking";
+            /*
+            if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
+            {
+                FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
+            }
+            */
             newSheet();
         }
         if (state == paintingState.painting)
         {
+            //TODO: FIGURE OUT WHY ADVANCE WONT WORK FOR CLOUD VIEW
+            /*
+            overworldDialogue.SetActive(false);
+            advanceNormal.SetActive(false);
+            cloudDialogue.SetActive(true);
+            advanceCloud.SetActive(true);
+            */
             //Debug.Log("painting");
             painting();
+            if (paintHelpPlayed == false)
+            {
+                nodeToCall = "Painting";
+                if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
+                {
+                    FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
+                    paintHelpPlayed = true;
+                }
+            }
+            
             if (paintbrushActive)
             {
                 if (cyanobrushCollider.iscarrying == false)
                 {
                     printButton.gameObject.SetActive(true);
                     mousePainter.SetActive(false);
+                    state = paintingState.placing;
                     //placingButton.gameObject.SetActive(true);
                     //MANUAL METHOD
+                    /*
                     if (Input.GetKeyDown(KeyCode.D))
                     {
                         state = paintingState.placing;
                         mousePainter.SetActive(false);
-                    }
+                    }*/
                 }
             }
         }
         if (state == paintingState.placing)
         {
-            //placingButton.gameObject.SetActive(false);
-            printButton.gameObject.SetActive(true);
-            mousePainter.SetActive(false);
+            if (placeHelpPlayed == false)
+            {
+                nodeToCall = "Placing";
+                if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
+                {
+                    FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
+                }
+
+                placeHelpPlayed = true;
+            }
 
         }
 
         if (state == paintingState.printing)
         {
-            //printing();
+            
             printButton.gameObject.SetActive(false);
             wallPlacementButton.gameObject.SetActive(true);
         }
 
         if (state == paintingState.wallPlacing)
         {
+            if (hangHelpPlayed == false)
+            {
+                nodeToCall = "HangingUp";
+                if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
+                {
+                    FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
+                }
+
+                hangHelpPlayed = true;
+            }
+           
             wallPlacing();//camera changes to wall, click n drag script is back on, lerp to a collider on the wall then reset once lerped?
     
         }
 
         if (state == paintingState.reset)
         {
-            //enterbutton.gameObject.SetActive(false);
             reset();
             
         }
@@ -139,6 +202,16 @@ public class PaintingSceneManager : MonoBehaviour
         if (state == paintingState.leave)
         {
             Leave();
+            if (leaveHelpPlayed == false)
+            {
+                nodeToCall = "Leaving";
+                if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
+                {
+                    FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
+                }
+
+                leaveHelpPlayed = true;
+            }
             endButton.gameObject.SetActive(false);
             resetButton.gameObject.SetActive(false);
             
@@ -157,6 +230,7 @@ public class PaintingSceneManager : MonoBehaviour
             state = paintingState.painting;
         }
     }
+    
     public void painting()
     {
         state = paintingState.painting;
@@ -164,12 +238,14 @@ public class PaintingSceneManager : MonoBehaviour
         
     }
 
+    [YarnCommand ("placing")]
     public void prepPlacing()
     {
         mousePainter.SetActive(false);
         state = paintingState.placing;
     }
     
+    [YarnCommand ("printing")]
     public void placing()
     {
         flashObject.SetActive(true);
@@ -188,6 +264,16 @@ public class PaintingSceneManager : MonoBehaviour
             
             //make them roll away or return to original spots:
 
+        }
+        if (printHelpPlayed == false)
+        {
+            nodeToCall = "Printing";
+            if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
+            {
+                FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
+            }
+
+            printHelpPlayed = true;
         }
         state = paintingState.printing;
         
@@ -211,6 +297,7 @@ public class PaintingSceneManager : MonoBehaviour
        
     }
 
+    [YarnCommand ("wallPlacing")]
     public void wallPlacing()
     {
         state = paintingState.wallPlacing;
@@ -243,9 +330,18 @@ public class PaintingSceneManager : MonoBehaviour
         state = paintingState.newsheet;
     }
 
+    [YarnCommand ("leave")]
     public void Leave()
     {
         //Debug.Log("leaving");
+        
+        //TODO: WHY ISNT ADVANCE WORKING
+        /*
+        cloudDialogue.SetActive(false);
+        advanceCloud.SetActive(false);
+        overworldDialogue.SetActive(true);
+        advanceNormal.SetActive(true);
+        */
         state = paintingState.leave;
         rookeryCam.Priority = 1;
         rookeryCam02.Priority = 1;
