@@ -5,6 +5,7 @@ position: -208,-211
 //Act 1
 //general
 <<declare $readFenJournal = false as bool>>
+<<declare $spokenToGrassFighter = false as bool>>
 
 //Phoebe talk
 <<declare $spokenToWindy = false as bool>>
@@ -20,6 +21,7 @@ position: -208,-211
 <<declare $spokenToHytheFighter = false as bool>>
 <<declare $alteaSpineDone = false as bool>>
 <<declare $spokenToZoraFighter = false as bool>>
+<<declare $spokenToLieselFighter = false as bool>>
 
 //Fen talk
 <<declare $alteaSceneFenDone = false as bool>>
@@ -29,6 +31,7 @@ position: -208,-211
 <<declare $spokenToZoraDiviner = false as bool>>
 <<declare $spokenToHytheDiviner = false as bool>>
 <<declare $spokenToGrimboldeDiviner = false as bool>>
+<<declare $spokenToLieselDiviner = false as bool>>
 //Act 2
 <<declare $spokenToHeloiseDiviner = false as bool>>
 <<declare $spokenToHildegardDiviner = false as bool>>
@@ -50,7 +53,9 @@ title: IntroWalk2
 ===
 title: FlytrapFight
 ---
-<i>The smell of wet soil lingers as the plant shrivels and vanishes.</i>
+<i>A slash like blinking,</i>
+<i>and it's gone.</i>
+<i>The smell of wet leaves and stale incense remains.</i>
 <<stop>>
 ===
 title: FlytrapWait
@@ -361,13 +366,19 @@ Fen: Can I have it?
 <<changeAvatar YarnColliderTrowelCreature>>
 <<playClip YarnColliderTrowelCreature>>
 Creature with a Trowel: !ti gniyrrac fo derob ma i sey!
+<<getTrowel InventoryManager>>
+<<revealCreature trowel>>
 //revealsprite of trowel
 //splat noise
+<<openDoor trowel>>
+<<wait  2>>
 //get rid of sprite in creature's mouth
+<<disappearCreature trowel>>
 <<changeAvatar FenYarnCollider>>
 <<playClip FenYarnCollider>>
-Fen: Ew. It's covered in spit.
+//Fen: Ew. It's covered in spit.
 Fen: ...Thank you, friend.
+Fen: I can tell you've been holding this in your mouth for a while.
 <<changeAvatar YarnColliderTrowelCreature>>
 <<playClip YarnColliderTrowelCreature>>
 Creature with a Trowel: !sgniht rehto laets ot gniog ma i
@@ -506,6 +517,37 @@ Book: "where he carved it open, and removed the Moon, which it had consumed."
 Book: "Sylvan tossed the Moon into the heavens, and it settled there, and the tides calmed,"
 Book: "and the world was once again saved."
 <<stop>>
+===
+title: PointyActor
+---
+<<if $charPOV is "Fighter">>
+Pointy Actor: Have I not reason, think you, to look pale?
+Pointy Actor: These two have 'ticed me hither to this place:
+Pointy Actor: A barren detested vale you see it is;
+Pointy Actor: The trees, though summer, yet forlorn and lean,
+Pointy Actor: O'ercome with moss and baleful mistletoe;
+Pointy Actor: Here never shines the sun, here nothing breeds
+Pointy Actor: unless the nightly owl or fatal raven...
+Grass: Shsshhshhhhshshhhhhh...
+Pointy Actor: You're too loud. I have to start over.
+Pointy Actor: Be grass quieter this time.
+Pointy Actor: Have I not reason, think you, to look pale--
+Grass: Ssshhshhshhhh...
+Pointy Actor: Ugh, I have to start over!
+<<stop>>
+<<endif>>
+===
+title: GrassActor
+---
+<<if $spokenToGrassFighter is false>>
+Grass: Sssssssshhhhshhhhshshhhhhhhh...
+<<set $spokenToGrassFighter to true>>
+<<stop>>
+<<endif>>
+<<if $spokenToGrassFighter is true>>
+Grass: I'm grass!
+<<stop>>
+<<endif>>
 ===
 title: Amos
 position: 249,-1
@@ -785,6 +827,71 @@ Heloise: She doesn't appreciate them like I do.
 <<stop>>
 <<endif>>
 ===
+title: TrickHedgehog
+---
+<<playClip TrickHedgehogYarn>>
+<<changeAvatar TrickHedgehogYarn>>
+Hedgehog: .kcirt a od reven lliw i
+<<playClip TrickHedgehogYarn>>
+Hedgehog: !reve reve reven
+<<stop>>
+===
+title: Liesel
+---
+<<if $charPOV is "Fighter" and $spokenToLieselFighter is false>>
+<<playClip LieselYarnCollider>>
+<<changeAvatar LieselYarnCollider>>
+Liesel: Oh, hello!
+Liesel: Have you seen a puppet anywhere?
+Liesel: His name's Baby. I can't find him.
+<<playClip LieselYarnCollider>>
+Liesel: Calling him Baby was my idea.
+Liesel: He's my best friend!
+Liesel: ...Don't tell Heloise.
+<<set $spokenToLieselFighter to true>>
+<<stop>>
+<<endif>>
+<<if $charPOV is "Fighter" and $spokenToLieselFighter is true>>
+<<changeAvatar LieselYarnCollider>>
+<<playClip LieselYarnCollider>>
+Liesel: I want to train the creatures to do tricks.
+Liesel: They're so sweet and kind, just look at their eyes!
+Liesel: Except, they love to gossip.
+<<stop>>
+<<endif>>
+
+<<if $charPOV is "Diviner" and $spokenToLieselDiviner is false>>
+<<changeAvatar LieselYarnCollider>>
+<<playClip LieselYarnCollider>>
+Liesel: I think Baby's avoiding me.
+<<playClip FenYarnCollider>>
+<<changeAvatar FenYarnCollider>>
+Fen: Why would he be doing such a thing?
+<<changeAvatar LieselYarnCollider>>
+<<playClip LieselYarnCollider>>
+Liesel: He's been telling people I work for him.
+Liesel: I don't! I don't even know why he's haunted.
+<<playClip LieselYarnCollider>>
+Liesel: He keeps having tantrums and I don't know what to do about them.
+<<set $spokenToLieselDiviner to true>>
+<<stop>>
+<<endif>>
+
+<<if $charPOV is "Diviner" and $spokenToLieselDiviner is true>>
+<<changeAvatar LieselYarnCollider>>
+<<playClip LieselYarnCollider>>
+Liesel: Do you think I can train the hedgehogs to jump through hoops?
+Liesel: I want to get them to jump over the fire.
+<<playClip FenYarnCollider>>
+<<changeAvatar FenYarnCollider>>
+Fen: Creatures aren't allowed by the fire, dear.
+<<changeAvatar LieselYarnCollider>>
+<<playClip LieselYarnCollider>>
+Liesel: Oh.
+Liesel: But maybe if they're good enough at jumping over the fire they can be!
+<<stop>>
+<<endif>>
+===
 title: Hythe
 position: 289,39
 ---
@@ -828,6 +935,13 @@ Hythe: Do you think it's painful?
 Hythe: ...Do you think she'd allow an audience?
 <<stop>>
 <<endif>>
+===
+title: JudgyBathhouseHound
+---
+<<playClip JudgyHoundYarn>>
+<<changeAvatar JudgyHoundYarn>>
+Hound: ...stnap on sah yug taht
+<<stop>>
 ===
 title: Grimbolde
 position: 299,49

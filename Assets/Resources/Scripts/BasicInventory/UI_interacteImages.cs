@@ -23,10 +23,17 @@ public class UI_interacteImages : MonoBehaviour
     
     //for Spine cutscene
     public string musicBoxFigure;
+    
+    //for Fen
+    public string trowel;
+    
+    //controls:
+    public string controls;
 
     private void Start()
     {
         inventoryManager.AddItem(song01);
+        inventoryManager.AddItem(controls);
     }
 
     void Update()
@@ -62,5 +69,11 @@ public class UI_interacteImages : MonoBehaviour
     {
         inventoryManager.AddItem(musicBoxFigure);
         Debug.Log("got music box figure");
+    }
+
+    [YarnCommand("getTrowel")]
+    public void GetTrowel()
+    {
+        inventoryManager.AddItem(trowel);
     }
 }

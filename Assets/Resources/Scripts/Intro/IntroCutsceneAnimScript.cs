@@ -16,7 +16,8 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     [Header("GameObjects")] 
     public GameObject fighter;
 
-    public GameObject dialogueTrigger;
+    public GameObject dialogueTriggerWait;
+    public GameObject dialogueTriggerFight;
     public GameObject fighterShadow;
     public GameObject flytrapShadowSprite;
     public GameObject flytrapShadowDecal;
@@ -58,8 +59,8 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     void Start()
     {
         paused = false;
-        dialogueTrigger.SetActive(false);
-        
+        dialogueTriggerWait.SetActive(false);
+        dialogueTriggerFight.SetActive(false);
         fightFlytrapButton.gameObject.SetActive(false);
         waitFlytrapButton.gameObject.SetActive(false);
        
@@ -83,6 +84,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         slashObject.SetActive(true);
         fightSounds.PlayOneShot(slash);
         fightSounds.PlayOneShot(shriek);
+        dialogueTriggerFight.SetActive(true);
         fightFlytrapButton.gameObject.SetActive(false);
         waitFlytrapButton.gameObject.SetActive(false);
         fighter.GetComponent<SimpleController>().enabled = true;
@@ -113,7 +115,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public void FlytrapWait()
     {
         sparkleObject.SetActive(true);
-        dialogueTrigger.SetActive(true);
+        dialogueTriggerWait.SetActive(true);
         fightFlytrapButton.gameObject.SetActive(false);
         waitFlytrapButton.gameObject.SetActive(false);
         fighter.GetComponent<SimpleController>().enabled = true;
