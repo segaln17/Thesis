@@ -7,15 +7,11 @@ using UnityEngine.UI;
 public class SongScript : MonoBehaviour
 {
     public InventoryManager inventoryManager;
-    //public static SongScript instance;
-    // public GameObject playerSprite;
 
-    //public GameObject song01;
-    //public GameObject song02;
 
     public bool sheetActive;
 
-    //public GameObject hand;
+
     public GameManager gameManager;
 
     public Animator songAnim;
@@ -28,20 +24,9 @@ public class SongScript : MonoBehaviour
     public AudioClip hum03;
     public AudioClip hum04;
 
-    public AudioClip hum05;
-    public AudioClip hum06;
-    public AudioClip hum07;
-    public AudioClip hum08;
 
-    public AudioClip hum09;
-    public AudioClip hum10;
-    public AudioClip hum11;
-    public AudioClip hum12;
 
-    //private IEnumerator sheathCoroutine;
-    // private IEnumerator switchBeastCoroutine;
-    // private IEnumerator switchOpenCoroutine;
-    // public GameObject fighter;
+
 
     public humRegister state;
     public enum humRegister
@@ -114,7 +99,7 @@ public class SongScript : MonoBehaviour
                 midRange();
             }
 
-            if (state == humRegister.low)
+           /* if (state == humRegister.low)
             {
                 lowRange();
             }
@@ -143,7 +128,7 @@ public class SongScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 state--;
-            }
+            }*/
 
 
         }
@@ -161,23 +146,27 @@ public class SongScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
+            //SongAudio.pitch = UnityEngine.Random.Range(.95f, 1f);
             SongAudio.PlayOneShot(hum01);
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
+            //SongAudio.pitch = UnityEngine.Random.Range(.95f, 1f);
             SongAudio.PlayOneShot(hum02);
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
+            //SongAudio.pitch = UnityEngine.Random.Range(.95f, 1);
             SongAudio.PlayOneShot(hum03);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
+            //SongAudio.pitch = UnityEngine.Random.Range(.95f, 1);
             SongAudio.PlayOneShot(hum04);
         }
     }
 
-    void lowRange()
+    /*void lowRange()
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -216,5 +205,5 @@ public class SongScript : MonoBehaviour
             SongAudio.PlayOneShot(hum07);
         }
 
-    }
+    }*/
 }
