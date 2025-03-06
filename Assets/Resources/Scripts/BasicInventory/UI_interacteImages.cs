@@ -25,15 +25,15 @@ public class UI_interacteImages : MonoBehaviour
     public string musicBoxFigure;
     
     //for Fen
-    public string trowel;
+    public string Trowel;
     
     //controls:
-    public string controls;
+    public string Controls;
 
     private void Start()
     {
         inventoryManager.AddItem(song01);
-        inventoryManager.AddItem(controls);
+        inventoryManager.AddItem(Controls);
     }
 
     void Update()
@@ -53,27 +53,43 @@ public class UI_interacteImages : MonoBehaviour
     [YarnCommand("getSongofBeasts")]
     public void GetSongOfBeasts()
     {
-        inventoryManager.AddItem(song02);
-        Debug.Log("got song of beasts");
+        if (inventoryManager.gameObject.CompareTag("Phoebe"))
+        {
+            inventoryManager.AddItem(song02);
+            Debug.Log("got song of beasts");
+        }
+       
     }
 
     [YarnCommand("getMusicBoxBase")]
     public void GetMusicBoxBase()
     {
-        inventoryManager.AddItem(musicBoxBase);
-        Debug.Log("got music box base");
+        if (inventoryManager.gameObject.CompareTag("Phoebe"))
+        {
+            inventoryManager.AddItem(musicBoxBase);
+            Debug.Log("got music box base");
+        }
+      
     }
     
     [YarnCommand("getMusicBoxFigure")]
     public void GetMusicBoxFigure()
     {
-        inventoryManager.AddItem(musicBoxFigure);
-        Debug.Log("got music box figure");
+        if (inventoryManager.gameObject.CompareTag("Phoebe"))
+        {
+            inventoryManager.AddItem(musicBoxFigure);
+            Debug.Log("got music box figure");
+        }
+        
     }
 
     [YarnCommand("getTrowel")]
     public void GetTrowel()
     {
-        inventoryManager.AddItem(trowel);
+        if (inventoryManager.gameObject.CompareTag("Fen"))
+        {
+            inventoryManager.AddItem(Trowel);
+        }
+        
     }
 }
