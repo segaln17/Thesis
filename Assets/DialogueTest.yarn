@@ -110,10 +110,10 @@ position: -172,85
 <<if $charPOV is "Fighter" and $spokenToWindy is false>>
     <<playClip WindyYarnCollider>>
     <<changeAvatar WindyYarnCollider>>
-    Windy: Wow. Another newbie. 
+    Windy: Another newly stolen, I see. 
     //And here I thought Altea was the last for a while.
-    Windy: Damn. Guess that means I lose the bet.
-    Windy: How'd you get here, newbie?
+    Windy: I suppose that means I lose the bet.
+    Windy: How'd you get here?
     //The Fighter: <i>You say nothing.</i>
     <<changeAvatar PhoebeYarn>>
     The Fighter: ...
@@ -151,7 +151,7 @@ position: -172,85
     Windy: And get to the bonfire if you start feeling queasy. They all feel queasy at first.
     Windy: Well, not me, but other people usually get queasy.
     <<playClip WindyYarnCollider>>
-    Windy: Talk to me again if you get lost or confused or whatever.
+    Windy: Talk to me again if you get lost or confused or if a hedgehog steals your property.
     Windy: Oh, and don't look down. There's nothing down there but the sun, deep, deep down.
     Windy: All the way under the water.
     <<set $spokenToWindy to true>>
@@ -196,6 +196,7 @@ position: -172,85
     Windy: People are wondering if it's true.
     <<playClip FenYarnCollider>>
     <<changeAvatar FenYarnCollider>>
+    Fen: Of course it's not true.
     Fen: I was there for the First Bastion Fire, and I recall the aftermath of the Second, and the rebuilding efforts for both.
     //Windy: I've never been to Bastion, if that's even a place.
     Fen: I remember the death of the Saint of Radiant Sorrow. I remember seeing Her forces gain influence across the continent.
@@ -206,6 +207,7 @@ position: -172,85
     <<playClip WindyYarnCollider>>
     <<changeAvatar WindyYarnCollider>>
     Windy: Hmm.
+    Windy: Maybe take a rest, Fen.
     <<playClip FenYarnCollider>>
     Fen: I should go. I have... things to do.
     <<set $spokenToWindyDiviner to true>>
@@ -215,7 +217,7 @@ position: -172,85
 <<if $charPOV is "Diviner" and $spokenToWindyDiviner is true>>
     <<playClip WindyYarnCollider>>
     <<changeAvatar WindyYarnCollider>>
-    Windy: Look, I'm sorry, I was harsh.
+    Windy: Look, I'm sorry if I sounded harsh.
     Windy: You're just the only grounded one here.
     Windy: No one wants to see you turn.
     <<stop>>
