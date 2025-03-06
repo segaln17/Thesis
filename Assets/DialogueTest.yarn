@@ -484,6 +484,7 @@ Zora: Fine by me. Nothing is what we have.
 ===
 title: FenJournal
 ---
+<<turnOnBook OverworldDialogueSystem>>
 <<if $readFenJournal is false>>
 <i>A meticulously kept journal, that of a scholar.</i>
 <i>Diagrams and arcane runes litter its pages.</i>
@@ -493,9 +494,11 @@ Journal: "Or, perhaps, absorbs any spell that is cast back into itself?"
 Journal: "This merits further study."
 Journal: "Though unfortunately, this means I will have to boil water for tea manually."
 <<set $readFenJournal to true>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<stop>>
 <<endif>>
 <<if $readFenJournal is true>>
+<<turnOnBook OverworldDialogueSystem>>
 <i>The journal continues.</i>
 Journal: "It's interesting that the new arrival, the cleric, is of the order of the Saint of Radiant Sorrow."
 Journal: "Quite a violent sect. Staged a coup in White Stair."
@@ -504,11 +507,13 @@ Journal: "The Saint <i>did</i> only become something after she died, preserved a
 Journal: "Very morbid. But also, the liquid light of the Saint, and the underwater Sun here..."
 Journal: "Could there be a connection there too? Or am I speculating too wildly?"
 Journal: "Much to think about. Nothing to do but think."
+<<turnOnDialogue OverworldDialogueSystem>>
 <<stop>>
 <<endif>>
 ===
 title: SylvanBook
 ---
+<<turnOnBook OverworldDialogueSystem>>
 <i>A tattered tome, preserving legends in its pages.</i>
 <i>It sits open to a page entitled 'Sylvan the Overcomer.'
 Book: "And, his patience rewarded, Sylvan the Overcomer, with his legendary strength,"
@@ -518,6 +523,7 @@ Book: "and Sylvan threw it out of the water and onto the shore,"
 Book: "where he carved it open, and removed the Moon, which it had consumed."
 Book: "Sylvan tossed the Moon into the heavens, and it settled there, and the tides calmed,"
 Book: "and the world was once again saved."
+<<turnOnDialogue OverworldDialogueSystem>>
 <<stop>>
 ===
 title: PointyActor
@@ -1036,17 +1042,21 @@ Puppet: Now go away.
 ===
 title: BabyDiary
 ---
+<<turnOnBook OverworldDialogueSystem>>
 <i> This appears to be a diary, written in cramped, crabby script.</i>
 Diary: "I have tried everything but I cannot think of any other names to replace this accursed one."
 Diary: "I thought anything would be better than 'Baby.'"
 Diary: "It has ruined me. I'll be stuck with 'Baby' forever."
 Diary: "How undignified."
+<<turnOnDialogue OverworldDialogueSystem>>
 <<stop>>
 ===
 title: SheepIslandBook
 ---
+<<turnOnBook OverworldDialogueSystem>>
 <i>Whoever wrote this has terrible handwriting.</i>
 Note: DON'T LOOK DOWN 
+<<turnOnDialogue OverworldDialogueSystem>>
 <<stop>>
 ===
 title: Steve
@@ -1185,10 +1195,12 @@ Tree: The song of our gestating moon?
 title: SongofBeastsTree
 ---
 //SONG OF BEASTS TRIGGER
-The Fighter: <i>This tree looks stranger than the others. Not quite right.</i>
-The Fighter: <i>Mere words do not feel sufficient to communicate with it.</i>
-The Fighter: <i>Maybe song will be.</i>
+<<turnOnCloud OverworldDialogueSystem>>
+<i>This tree looks stranger than the others. Not quite right.</i>
+<i>Mere words do not feel sufficient to communicate with it.</i>
+<i>Maybe song will be.</i>
 <i>When singing, press the up and down arrow keys to cycle through your song knives.</i>
+<<turnOnDialogue OverworldDialogueSystem>>
 //RUN THE SONG, THEN START TIMELINE THAT JUMPS TO THIS NODE:
 //<<jump PhoebeintheGarden>>
 ===
@@ -1251,6 +1263,7 @@ A Shrill Voice: I can't go through this with you again.
 ===
 title: GossipZine
 ---
+<<turnOnBook OverworldDialogueSystem>>
 <i>A handmade tabloid with bite marks in the corners of the pages.</i>
 Tabloid: "Dearest gentle reader,"
 Tabloid: "In our eternal purgatory, I've gathered the latest gossip and secrets for your enjoyment and persual."
@@ -1274,45 +1287,58 @@ Tabloid: "Our fiery cleric seems to be an object of some amorous attention,"
 Tabloid: "By a certain man sporting near-cutoffs..."
 Tabloid: "Too bad she won't give him the time of day."
 Tabloid: "Perhaps if he fully committed to the cutoffs..."
+<<turnOnDialogue OverworldDialogueSystem>>
 <<stop>>
 ===
 title: SheetTaking
 ---
+<<turnOnCloud OverworldDialogueSystem>>
 <i>It's been a while since you've made one of these.</i>
 <i>The steps are hazy in your mind,</i>
 <i>but you remember that first,</i>
 <i>you must take a sheet of paper.</i>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<stop>>
 ===
 title: Painting
 ---
+<<turnOnCloud OverworldDialogueSystem>>
 <i>Next, paint with the blue iron solution.</i>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<stop>>
 ===
 title: Placing
 ---
+<<turnOnCloud OverworldDialogueSystem>>
 <i>The contours of these objects could look nice in silhouette.</i>
 <i>Place them on the page as you wish.</i>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<placing CyanotypeManager>>
 <<stop>>
 ===
 title: Printing
 ---
+<<turnOnCloud OverworldDialogueSystem>>
 <i>Without the sun, the light in here will do.</i>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<printing CyanotypeManager>>
 <<stop>>
 ===
 title: HangingUp
 ---
+<<turnOnCloud OverworldDialogueSystem>>
 <i>Finished. Place it on the wall.</i>
 <i>Leave your mark on this place.</i>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<wallPlacing CyanotypeManager>>
 <<stop>>
 ===
 title: Leaving
 ---
+<<turnOnCloud OverworldDialogueSystem>>
 <i>You never got to do this when you were younger.</i>
 <i>It's... nice.</i>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<leave CyanotypeManager>>
 ===
 title: FenPostGardenTransition
@@ -1517,7 +1543,9 @@ Fen: This cup's gone cold.
 title: BonfireConversation2
 ---
 <<wait  0.5>>
+<<turnOnCloud OverworldDialogueManager>>
 <i>It's hard not to pick up other conversations, as you sit and listen.</i>
+<<turnOnDialogue OverworldDialogueSystem>>
 A Snobbish Voice: So I told him that I had never read it, and then he said I wasn't truly an intellectual.
 A Shrill Voice: It stole my hat! It really did!
 Windy: Byron's not coming, again. 
@@ -1624,10 +1652,12 @@ Fen: and then I'll just be upset.
 ===
 title: PhoebeSpine2nd
 ---
+<<turnOnCloud OverworldDialogueSystem>>
 <i>You used to live in the shadow of a spine, didn't you?</i>
 <i>Your hometown, built on bones.</i>
 <i>Cursed bones. Furious, haunted bones.</i>
 <i>Your sisters are buried with those bones now. Somewhere beneath the sand.</i>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<stop>>
 ===
 title: AlteaAtTheSpine
