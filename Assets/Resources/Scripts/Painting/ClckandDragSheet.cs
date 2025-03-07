@@ -59,7 +59,7 @@ public class ClckandDragSheet : MonoBehaviour
             iscarrying = true;
             screenPoint = Camera.main.WorldToScreenPoint(transform.position);
             offset = transform.position -
-                     Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y + 2, screenPoint.z));
+                     Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y + 5, screenPoint.z));
             justClicked = true;
         }
 
@@ -76,9 +76,19 @@ public class ClckandDragSheet : MonoBehaviour
     private void isDragging()
     {
        
-        Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+        Vector3 cursorPoint = new Vector3(Input.mousePosition.x+5, Input.mousePosition.y+5f, screenPoint.z+5f);
         Vector3 cursorPos = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
         cursorPos.y = Mathf.Clamp(transform.position.y, cursorymin, cursorymax);
+        transform.position = cursorPos;
+
+    }
+
+    private void isDragging2()
+    {
+        
+        Vector3 cursorPoint = new Vector3(Input.mousePosition.x-5f, Input.mousePosition.y-5f, screenPoint.z-5f);
+        Vector3 cursorPos = Camera.main.ScreenToWorldPoint(cursorPoint);
+        //cursorPos.y = Mathf.Clamp(transform.position.y, cursorymin, cursorymax);
         transform.position = cursorPos;
 
     }
