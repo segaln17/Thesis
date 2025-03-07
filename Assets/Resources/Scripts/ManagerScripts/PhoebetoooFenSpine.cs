@@ -5,6 +5,8 @@ using Cinemachine;
 
 public class PhoebetoooFenSpine : MonoBehaviour
 {
+    public GameObject gameManager;
+    
     [Header("Yarn Triggers")]
     public YarnDialogueTrigger yarnDialogueTrigger;
 
@@ -145,6 +147,8 @@ public class PhoebetoooFenSpine : MonoBehaviour
         isPulsing = false;
         isNormal = true;
         yield return new WaitForSeconds(.5f);
+        
+        gameManager.GetComponent<GameManager>().currentPOV = GameManager.CharacterPOV.Diviner;
 
         //set charPOV to diviner
         //yarnDialogueTrigger.SetCharacterPOV(GameManager.CharacterPOV.Diviner);
