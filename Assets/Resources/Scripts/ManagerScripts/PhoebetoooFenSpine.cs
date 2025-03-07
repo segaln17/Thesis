@@ -169,6 +169,7 @@ public class PhoebetoooFenSpine : MonoBehaviour
         fenCam02.m_Lens.FieldOfView = 60f;
         phoebecam01.m_Lens.FieldOfView = 60f;
         phoebecamfirstPerson.m_Lens.FieldOfView = 60f;
+        yield return new WaitForSeconds(2f);
         timelineScript.GoTimeline();
         fencolorway.gameObject.SetActive(false);
         fenFeet.SetActive(true);

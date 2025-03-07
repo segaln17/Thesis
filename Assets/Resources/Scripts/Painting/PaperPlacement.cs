@@ -14,6 +14,8 @@ public class PaperPlacement : MonoBehaviour
     public float rotateyval = 10f;
     public GameObject PaintingSceneMan;
 
+    public GameObject wallPos;
+
     public bool isDone = false;
     public bool isRotated = false;
     public bool sheetRotation = false;
@@ -95,7 +97,7 @@ public class PaperPlacement : MonoBehaviour
             currentSheet.GetComponent<ClckandDragSheet>().enabled = false;
             currentSheet.GetComponent<Collider>().enabled = false;
 
-            currentSheet.transform.position = Vector3.Lerp(currentSheet.transform.position, new Vector3(currentSheet.transform.position.x, rotateyval, currentSheet.transform.position.z), Time.deltaTime * 1f);
+            currentSheet.transform.position = Vector3.Lerp(currentSheet.transform.position, new Vector3(wallPos.transform.position.x, rotateyval, wallPos.transform.position.z), Time.deltaTime * 1f);
         currentSheet.transform.localScale = Vector3.Lerp(currentSheet.transform.localScale, new Vector3(0.35f, 0.35f, 0.35f), Time.deltaTime * 1f);
         currentSheet.transform.eulerAngles = Vector3.Lerp(currentSheet.transform.eulerAngles,
             new Vector3(currentSheet.transform.eulerAngles.x - 90f, currentSheet.transform.eulerAngles.y,
