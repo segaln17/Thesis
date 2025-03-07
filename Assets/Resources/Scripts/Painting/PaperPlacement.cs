@@ -21,10 +21,12 @@ public class PaperPlacement : MonoBehaviour
     public float sheetscalexhigh = 1;
     public float sheetscalexlow = .9997f;
 
-    public float sheetrotxhigh = -90f;
-    public float sheetrotxlow = -89.9997f;
+    public float timeElapsed = 0f;
+    public float lerpDuration =3f;
 
     
+
+
 
     private void Start()
     {
@@ -89,19 +91,31 @@ public class PaperPlacement : MonoBehaviour
 
     public void rotatingSheet()
     {
-        currentSheet.transform.position = Vector3.Lerp(currentSheet.transform.position, new Vector3(currentSheet.transform.position.x, rotateyval, currentSheet.transform.position.z), Time.deltaTime * 1f);
+        if (!isRotated && timeElapsed < lerpDuration) {
+            currentSheet.GetComponent<ClckandDragSheet>().enabled = false;
+            currentSheet.GetComponent<Collider>().enabled = false;
+
+            currentSheet.transform.position = Vector3.Lerp(currentSheet.transform.position, new Vector3(currentSheet.transform.position.x, rotateyval, currentSheet.transform.position.z), Time.deltaTime * 1f);
         currentSheet.transform.localScale = Vector3.Lerp(currentSheet.transform.localScale, new Vector3(0.35f, 0.35f, 0.35f), Time.deltaTime * 1f);
         currentSheet.transform.eulerAngles = Vector3.Lerp(currentSheet.transform.eulerAngles,
             new Vector3(currentSheet.transform.eulerAngles.x - 90f, currentSheet.transform.eulerAngles.y,
                 currentSheet.transform.eulerAngles.z), Time.deltaTime * .5f);
+            timeElapsed += Time.deltaTime;
 
-        if(currentSheet.transform.eulerAngles.x <= sheetrotxhigh && currentSheet.transform.eulerAngles.x >= sheetrotxlow)
+            if(timeElapsed >= lerpDuration)
         {
+            //currentSheet.transform.Rotate(-90f, 0, 0);
             isRotated = true;
+            sheetRotation = false;
+                currentSheet.GetComponent<ClckandDragSheet>().cursorymax = currentSheet.GetComponent<ClckandDragSheet>().cursoryminplus;
+                currentSheet.GetComponent<ClckandDragSheet>().cursorymin = currentSheet.GetComponent<ClckandDragSheet>().cursorymaxplus;
+                PaintingSceneMan.GetComponent<PaintingSceneManager>().state = PaintingSceneManager.paintingState.leave;
             return;
         }
         //paperPlacementColl.enabled = false;
         Debug.Log("should be rotating");
+
+        }
     }
 
     public void turnOnCollider()
@@ -137,7 +151,10 @@ public class PaperPlacement : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         currentSheet.GetComponent<ClckandDragSheet>().enabled = true;
-        currentSheet.GetComponent<Collider>().enabled = true;
+        //currentSheet.GetComponent<Collider>().enabled = true;
+        yield return new WaitForSeconds(8f);
+        currentSheet = null;
+        timeElapsed = 0;
         Debug.Log("Collideron");
         Debug.Log("CanClick");
     }

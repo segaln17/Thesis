@@ -18,6 +18,14 @@ public class MemoryManager : MonoBehaviour
     public Sprite bookSpriteOpen;
     public GameObject scrapBookObj;
 
+    public Image archscrapbook;
+    public Sprite archbookSpriteClosed;
+    public Sprite archbookSpriteOpen;
+    public GameObject archscrapBookObj;
+
+    public GameObject DivinerObj;
+    public GameObject teleportTransform;
+
     //---Bools---
     [Header("Main Bools")]
     public bool inMemoryGame;
@@ -31,13 +39,14 @@ public class MemoryManager : MonoBehaviour
     [Header("Archaeo Variables")]
     public MemoryActivation archActivation;
     public GameObject archaeCollider;
+    public bool teleportedToTower;
     
 
    
     // Start is called before the first frame update
     void Start()
     {
-        
+        teleportedToTower=false;
     }
 
     // Update is called once per frame
@@ -59,10 +68,15 @@ public class MemoryManager : MonoBehaviour
         {
             if (inMemoryGame && Input.GetKeyDown(KeyCode.E))
             {
-                CloseScrapbook();
+                CloseArchScrapbook();
                 archaeCollider.SetActive(false);
                 archaeCollected = true;
             }
+        }
+
+        if (archaeCollected && dreamerCollected && !teleportedToTower)
+        {
+            StartCoroutine(TeleporttoTower());
         }
         
     }
@@ -74,6 +88,15 @@ public class MemoryManager : MonoBehaviour
         
         StartCoroutine(BookClose());
         
+    }
+
+    public void CloseArchScrapbook()
+    {
+        //adding this and seeing if it does anything
+        StopAllCoroutines();
+
+        StartCoroutine(ArchBookClose());
+
     }
 
     IEnumerator BookClose()
@@ -91,6 +114,32 @@ public class MemoryManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         scrapbook.sprite = bookSpriteOpen;
         scrapBookObj.SetActive(false);
+
+    }
+
+    IEnumerator ArchBookClose()
+    {
+        yield return new WaitForSeconds(1f);
+        //sprite change to book closed
+        archscrapbook.sprite = bookSpriteClosed;
+        scrapbookTextpg1.SetActive(false);
+        scrapbookTextpg2.SetActive(false);
+        existingTextpg1.SetActive(false);
+        existingTextpg2.SetActive(false);
+        eInteract.SetActive(false);
+        yield return new WaitForSeconds(3f);
+        memoryGame.SetActive(false);
+        yield return new WaitForSeconds(3f);
+        archscrapbook.sprite = bookSpriteOpen;
+        archscrapBookObj.SetActive(false);
+
+    }
+
+    IEnumerator TeleporttoTower()
+    {
+        yield return new WaitForSeconds(6f);
+        DivinerObj.transform.position = teleportTransform.transform.position;
+        teleportedToTower = true;
 
     }
 

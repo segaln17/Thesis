@@ -101,6 +101,17 @@ public class PaintingSceneManager : MonoBehaviour
         {
             
             newSheet();
+            if (paintbrushActive)
+            {
+                if (cyanobrushCollider.iscarrying == false)
+                {
+                    //printButton.gameObject.SetActive(true);
+                    mousePainter.SetActive(false);
+                    state = paintingState.placing;
+                    //placingButton.gameObject.SetActive(true);
+
+                }
+            }
         }
         if (state == paintingState.painting)
         {
@@ -175,18 +186,9 @@ public class PaintingSceneManager : MonoBehaviour
 
         if (state == paintingState.leave)
         {
-            Leave();
-            if (leaveHelpPlayed == false)
-            {
-                nodeToCall = "Leaving";
-                if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
-                {
-                    FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
-                }
-
-                leaveHelpPlayed = true;
-            }
-            endButton.gameObject.SetActive(false);
+            //Leave();
+           
+            endButton.gameObject.SetActive(true);
             //resetButton.gameObject.SetActive(false);
             
         }
@@ -280,7 +282,7 @@ public class PaintingSceneManager : MonoBehaviour
         }
         if(paperPlacementScript.isRotated == true)
         {
-            endButton.gameObject.SetActive(true);
+            state = paintingState.leave;
         }
         
         
@@ -310,8 +312,18 @@ public class PaintingSceneManager : MonoBehaviour
     [YarnCommand ("leave")]
     public void Leave()
     {
-     
-        state = paintingState.leave;
+
+        //state = paintingState.leave;
+        if (leaveHelpPlayed == false)
+        {
+            nodeToCall = "Leaving";
+            if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
+            {
+                FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
+            }
+
+            leaveHelpPlayed = true;
+        }
         rookeryCam.Priority = 1;
         rookeryCam02.Priority = 1;
         rookeryControls.firstPerson.Priority = 12;

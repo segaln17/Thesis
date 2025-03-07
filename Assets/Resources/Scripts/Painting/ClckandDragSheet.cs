@@ -12,6 +12,9 @@ public class ClckandDragSheet : MonoBehaviour
     public float cursorymax = 18f;
     public float placeYOffset = 1f;
 
+    public float cursoryminplus = 5f;
+    public float cursorymaxplus = 5f;
+
     public bool iscarrying;
     public bool justClicked;
 

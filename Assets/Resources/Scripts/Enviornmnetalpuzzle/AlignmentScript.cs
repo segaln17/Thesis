@@ -9,6 +9,7 @@ public class AlignmentScript : MonoBehaviour
     public GameObject fragment02;
     public GameObject memoryCard;
     public GameObject memoryCardButton;
+    //public int triggercount;
 
     public List<GameObject> alignmentPuzzleObjects = new List<GameObject>();
     public bool isChecking = false;
@@ -19,7 +20,7 @@ public class AlignmentScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //triggercount = 0;
     }
 
     // Update is called once per frame
@@ -54,6 +55,7 @@ public class AlignmentScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         memoryCardButton.SetActive(true);
         yield return new WaitForSeconds(4f);
+        //triggercount++;
         surprise.SetActive(false);
         gameObject.SetActive(false);
     }

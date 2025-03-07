@@ -57,7 +57,7 @@ public class RayCasting : MonoBehaviour
         if (archpuzzleList.isChecking)
         {  
             RaycastHit[] hits;
-            hits = Physics.RaycastAll(transform.position, transform.forward, 500.0F, m_Mask.value, QueryTriggerInteraction.Collide);
+            hits = Physics.RaycastAll(transform.position, transform.up, 500.0F, m_Mask.value, QueryTriggerInteraction.Collide);
 
             Debug.Log("iscasting");
 
