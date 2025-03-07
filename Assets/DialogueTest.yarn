@@ -1872,15 +1872,18 @@ title: SparklePathIntro
 Fen: Well, now. That's curious.
 <<endif>>
 ===
-title: FenOnTheHill
+title: FenAtTheTop
 ---
 <<if $charPOV is "Diviner">>
 //timeline to change camera to look at the Moon
 <<changeAvatar PlayerDiviner>>
+//<<changeCam FenYellsAtMoonCollider>>
 <<playClip PlayerDiviner>>
 Fen: I know you've got it, up there.
 Fen: I can feel it.
 Fen: Like a buzzing in the back of my mind.
+<<playClip PlayerDiviner>>
+Fen: Like a missing shadow.
 //play soundscape?
 <<wait  1>>
 <<playClip PlayerDiviner>>
@@ -1902,9 +1905,6 @@ Fen: I have not lived countless centuries,
 Fen: traversed countless continents,
 Fen: to lose the scent down here.
 <<playClip PlayerDiviner>>
-Fen: I know you have it.
-Fen: I can feel it like a missing shadow.
-<<playClip PlayerDiviner>>
 Fen: It's <i>mine</i>, not some nutrients to repurpose.
 <<wait  2>>
 <<playClip PlayerDiviner>>
@@ -1913,6 +1913,7 @@ Fen: I'm tired, and I'm taking it back.
 <<wait  1>>
 <<playClip PlayerDiviner>>
 Fen: Even if it means this place crumbles.
+//<<changeBackCam FenYellsAtMoonCollider>>
 //timeline play to black out? demo end screen?
 <<endif>>
 ===
