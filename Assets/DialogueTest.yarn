@@ -1569,21 +1569,34 @@ title: BonfireConversation2
 <i>It's hard not to pick up other conversations, as you sit and listen.</i>
 <<wait  0.5>>
 <<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar SnobbishSprite>>
 A Snobbish Voice: So I told him that I had never read it, and then he said I wasn't truly an intellectual.
+<<changeAvatar Shrill>>
 A Shrill Voice: It stole my hat! It really did!
+<<changeAvatar WindyYarnCollider>>
 Windy: Byron's not coming, again. 
+<<changeAvatar GrimboldeYarnCollider>>
 Grimbolde: What's next, another husk for Hythe to gawk at?
+<<changeAvatar AmosYarnCollider>>
 Amos: More tea, Fen?
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Yes, thank you.
+<<changeAvatar Shrill>>
 A Shrill Voice: If you see a hat with a really great feather in it...
+<<changeAvatar SnobbishSprite>>
 A Snobbish Voice: It's not like any of that even matters down here. 
+<<changeAvatar GrimboldeYarnCollider>>
 Grimbolde: And I heard the most dreadful noise coming from the stables...
+<<changeAvatar HeloiseYarnCollider>>
 Heloise: Everyone shut up, I can't hear Liesel being wrong.
+<<changeAvatar LieselYarnCollider>>
 Liesel: You just don't see how pure of heart they are!
+<<changeAvatar GrimboldeYarnCollider>>
 Grimbolde: What?
+<<changeAvatar HeloiseYarnCollider>>
 Heloise: The beasts.
+<<changeAvatar LieselYarnCollider>>
 Liesel: They're not beasts.
 <<wait  0.5>>
 <<changeAvatar PlayerDiviner>>
@@ -1616,11 +1629,13 @@ Fen: Oh, dear, you look distressed. That was a rhetorical question.
 //checks water again
 //<<wait  0.5>>
 Fen: Heloise, is it hot enough yet?
+<<changeAvatar HeloiseYarnCollider>>
 Heloise: Nope.
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Rats.
 <<wait  0.5>>
+<<changeAvatar SnobbishSprite>>
 A Snobbish Voice: ...so I said, if you could turn into any of the creatures around here what would you be,
 A Snobbish Voice: and he said, a tharpy, and I said that's ridiculous...
 <<wait 0.3>>
