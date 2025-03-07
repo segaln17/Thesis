@@ -1357,7 +1357,7 @@ title: Leaving
 <i>You never got to do this when you were younger.</i>
 <i>It's... nice.</i>
 <<turnOnDialogue OverworldDialogueSystem>>
-<<leave CyanotypeManager>>
+//<<leave CyanotypeManager>>
 ===
 title: FenPostGardenTransition
 ---
@@ -1852,17 +1852,20 @@ Fen: I need to remember. I remember easier up there.
 <<playClip PlayerDiviner>>
 Fen: Yes. Yes, that's the way.
 <<stop>>
-
-//OLD STUFF:
-//<<wait  1>>
-//Fen: Things are dying down a bit...
-//Fen: I should go take a walk. Look for things that make me remember.
-//Fen: Gods know I need it.
-//Fen: If I forget where I should go, the compass in my hand should help guide me.
-//Fen: If that enchantment I cast before I got here even still works...
-//<<wait  0.5>>
-//Fen: That willow tree up on the roof of the rookery...
-//Fen: Could I get up there again?
+===
+title: FenMemoryIntro
+---
+//OLD STUFF FOR USE IN THIS BUILD
+<<wait  1>>
+Fen: Things are dying down a bit...
+Fen: I should go take a walk. Look for things that make me remember.
+Fen: Gods know I need it.
+Fen: If I forget where I should go, the compass in my hand should help guide me.
+Fen: If that enchantment I cast before I got here even still works...
+<<wait  0.5>>
+Fen: That willow tree up on the roof of the rookery...
+Fen: Could I get up there again?
+<<stop>>
 ===
 title: SparklePathIntro
 ---
