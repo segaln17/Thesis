@@ -16,9 +16,13 @@ public class PaperPlacement : MonoBehaviour
 
     public bool isDone = false;
     public bool isRotated = false;
+    public bool sheetRotation = false;
 
     public float sheetscalexhigh = 1;
     public float sheetscalexlow = .9997f;
+
+    public float sheetrotxhigh = -90f;
+    public float sheetrotxlow = -89.9997f;
 
     
 
@@ -33,6 +37,11 @@ public class PaperPlacement : MonoBehaviour
         if (sheet01)
         {
             placeSheet();
+        }
+
+        if (sheetRotation && !isRotated)
+        {
+            rotatingSheet();
         }
     }
 
@@ -52,7 +61,7 @@ public class PaperPlacement : MonoBehaviour
     {
         if (!isDone)
         {
-            currentSheet.GetComponent<ClickandDrag>().enabled = false;
+            currentSheet.GetComponent<ClckandDragSheet>().enabled = false;
             currentSheet.GetComponent<Collider>().enabled = false;
 
             // Calculate the journey length.
@@ -78,11 +87,26 @@ public class PaperPlacement : MonoBehaviour
         
     }
 
+    public void rotatingSheet()
+    {
+        currentSheet.transform.position = Vector3.Lerp(currentSheet.transform.position, new Vector3(currentSheet.transform.position.x, rotateyval, currentSheet.transform.position.z), Time.deltaTime * 1f);
+        currentSheet.transform.localScale = Vector3.Lerp(currentSheet.transform.localScale, new Vector3(0.35f, 0.35f, 0.35f), Time.deltaTime * 1f);
+        currentSheet.transform.eulerAngles = Vector3.Lerp(currentSheet.transform.eulerAngles,
+            new Vector3(currentSheet.transform.eulerAngles.x - 90f, currentSheet.transform.eulerAngles.y,
+                currentSheet.transform.eulerAngles.z), Time.deltaTime * .5f);
+
+        if(currentSheet.transform.eulerAngles.x <= sheetrotxhigh && currentSheet.transform.eulerAngles.x >= sheetrotxlow)
+        {
+            isRotated = true;
+            return;
+        }
+        //paperPlacementColl.enabled = false;
+        Debug.Log("should be rotating");
+    }
+
     public void turnOnCollider()
     {
-        currentSheet.GetComponent<Collider>().enabled = true;
-        
-        Debug.Log("Collideron");
+       
         StartCoroutine(turnonClick2());
 
     }
@@ -92,30 +116,29 @@ public class PaperPlacement : MonoBehaviour
         if(!isRotated)
         {
             StartCoroutine(Rotated());
+            Debug.Log("starting rotation");
         }
         
-            turnOnCollider();
+            //turnOnCollider();
  
     }
 
     public IEnumerator Rotated()
     {
         paperPlacementColl.enabled = false;
-        currentSheet.transform.position = Vector3.Lerp(currentSheet.transform.position, new Vector3(currentSheet.transform.position.x, rotateyval, currentSheet.transform.position.z), Time.deltaTime * 1f);
-            currentSheet.transform.localScale = Vector3.Lerp(currentSheet.transform.localScale,new Vector3(0.35f, 0.35f,0.35f), Time.deltaTime * 1f);
-            currentSheet.transform.eulerAngles = Vector3.Lerp(currentSheet.transform.eulerAngles,
-                new Vector3(currentSheet.transform.eulerAngles.x - 90f, currentSheet.transform.eulerAngles.y,
-                    currentSheet.transform.eulerAngles.z), Time.deltaTime * .5f);
-            //paperPlacementColl.enabled = false;
-            yield return new WaitForSeconds(2f);
-            isRotated = true;
+        sheetRotation = true;
+        yield return new WaitForSeconds(2.5f);
+        turnOnCollider();
+        Debug.Log("is rotated");
         StopCoroutine(Rotated());
     }
 
     public IEnumerator turnonClick2()
     {
-        yield return new WaitForSeconds(1.5f);
-        currentSheet.GetComponent<ClickandDrag02>().enabled = true;
+        yield return new WaitForSeconds(1f);
+        currentSheet.GetComponent<ClckandDragSheet>().enabled = true;
+        currentSheet.GetComponent<Collider>().enabled = true;
+        Debug.Log("Collideron");
         Debug.Log("CanClick");
     }
     

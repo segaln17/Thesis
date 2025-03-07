@@ -59,13 +59,18 @@ public class MemoryCardChoose : MonoBehaviour
     //scrapbook:
     public GameObject scrapbook;
     public ScrapbookSave scrapbookScript;
-    
+
+
+    public string tarotFragment01;
+    public string tarotFragment02;
+    /*
     //strings that are text for each card set:
     public string dreamerFragment01;
     public string dreamerFragment02;
 
     public string archaeFragment01;
     public string archaeFragment02;
+    */
 
     public MemoryActivation memoryActivationScript;
     
@@ -85,7 +90,9 @@ public class MemoryCardChoose : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        existingText01.text = tarotFragment01;
+        existingText02.text = tarotFragment02;
+        /*
         if (memoryActivationScript.gameObject.CompareTag("Archaeologist"))
         {
             existingText01.text = archaeFragment01;
@@ -97,6 +104,7 @@ public class MemoryCardChoose : MonoBehaviour
             existingText01.text = dreamerFragment01;
             existingText02.text = dreamerFragment02;
         }
+        */
         /*
         if (cardFlipper1.gameObject.CompareTag("card1") && cardFlipper1.isRead == true)
         {
@@ -163,16 +171,20 @@ public class MemoryCardChoose : MonoBehaviour
         swirlText.gameObject.SetActive(true);
         Debug.Log(memoryText.text);
         revealed = true;
+        //scrapbookScript.memory.text += "/n" + memoryText.text;
+        scrapbookScript.memory.text = swirlText.text;
+        memoryText.gameObject.SetActive(true);
+        /*
         if (scrapbookScript.MemoryList.Count <3)
         {
             scrapbookScript.MemoryList.Add(memoryText);
             //return;
-            /*
+            
             if (scrapbookScript.MemoryList.Count == 1)
             {
                 scrapbookScript.memory.text += "/n" + memoryText.text;
             }
-            */
+            
         }
         else if (scrapbookScript.MemoryList.Count >= 3)
         {
@@ -197,6 +209,7 @@ public class MemoryCardChoose : MonoBehaviour
             //memoryText.gameObject.SetActive(false);
             memoryText.gameObject.SetActive(true);
         }
+        */
         //else if count is 3:
         //add it to the second memorytext object
         StartCoroutine(StartScrapbook());
@@ -210,7 +223,12 @@ public class MemoryCardChoose : MonoBehaviour
         memoryText.gameObject.SetActive(false);
         swirlText.gameObject.SetActive(false);
         scrapbook.SetActive(true);
+        page1.SetBool("Replacing", true);
+        yield return new WaitForSeconds(4f);
+        memoryText.gameObject.SetActive(true);
+        page1.gameObject.SetActive(false);
         //yield return new WaitForSeconds(1f);
+        /*
         if (scrapbookScript.MemoryList.Count == 1)
         {
             page1.SetBool("Replacing", true);
@@ -226,6 +244,7 @@ public class MemoryCardChoose : MonoBehaviour
             memoryText2.gameObject.SetActive(true);
             page2.gameObject.SetActive(false);
         }
-        
+
+        */
     }
 }

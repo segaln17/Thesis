@@ -39,4 +39,14 @@ public class YarnIntroduction : MonoBehaviour
             
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == true)
+        {
+            FindObjectOfType<DialogueRunner>().Stop();
+            //FindObjectOfType<DialogueRunner>().startNode = nodeToCall;
+        }
+        inYarnTrigger = false;
+    }
 }

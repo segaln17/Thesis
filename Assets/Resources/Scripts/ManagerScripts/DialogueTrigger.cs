@@ -150,29 +150,29 @@ public class DialogueTrigger : MonoBehaviour
             //dialogueIndicator.gameObject.SetActive(false);
             textBox.gameObject.SetActive(true);
             RenderDialogue(text1);
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(3f);
             //textline.text = text2.writtenText;
             //IF THE SECOND TEXT LINE IS ALSO EMPTY:
             if (text2.writtenText == "null")
             {
                 textBox.gameObject.SetActive(false);
-                yield return new WaitForSeconds(4f);
+                yield return new WaitForSeconds(3f);
                 yield return null;
             }
             else
             {
                 textline.text = text2.writtenText;
-                yield return new WaitForSeconds(4f);
+                yield return new WaitForSeconds(3f);
                 if (text3.writtenText == "null")
                 {
                     textBox.gameObject.SetActive(false);
-                    yield return new WaitForSeconds(4f);
+                    yield return new WaitForSeconds(3f);
                     yield return null;
                 }
                 else
                 {
                     textline.text = text3.writtenText;
-                    yield return new WaitForSeconds(4f);
+                    yield return new WaitForSeconds(3f);
                     if (text4.writtenText == "null")
                     {
                         textBox.gameObject.SetActive(false);
@@ -181,7 +181,7 @@ public class DialogueTrigger : MonoBehaviour
                     else
                     {
                         textline.text = text4.writtenText;
-                        yield return new WaitForSeconds(4f);
+                        yield return new WaitForSeconds(3f);
                         textBox.gameObject.SetActive(false);
                         yield return null;
                     }

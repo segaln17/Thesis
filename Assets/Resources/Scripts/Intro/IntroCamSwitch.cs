@@ -12,7 +12,7 @@ public class IntroCamSwitch : MonoBehaviour
 
     public GameObject fogBlock;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         Debug.Log("collided");
         if (other.gameObject.tag == "Player")
@@ -26,7 +26,7 @@ public class IntroCamSwitch : MonoBehaviour
     
     IEnumerator fog()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(7f);
         fogBlock.SetActive(true);
         StopCoroutine(fog());
         yield break;

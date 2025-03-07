@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Cinemachine;
 public class CutsceneController : MonoBehaviour
 {
     [Header("Player")] 
@@ -10,14 +10,18 @@ public class CutsceneController : MonoBehaviour
     public float force = 5.0f;
     public float maxVelocity = 2f;
     private Vector3 movementDirection;
+
     public Animator playerAnim;
     public bool isWalking;
+
+  
   
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         isWalking = false;
+
     }
 
     // Update is called once per frame
@@ -75,4 +79,6 @@ public class CutsceneController : MonoBehaviour
         
         
     }
+
+
 }

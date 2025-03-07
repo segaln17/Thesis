@@ -35,7 +35,10 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public AudioSource swoop;
     public CinemachineVirtualCamera fighterPOV;
     public GameObject mainCam01;
-    
+
+    public GameObject audioManager;
+   
+
     [Header("Buttons")] 
     public Button fightFlytrapButton;
     public Button waitFlytrapButton;
@@ -63,6 +66,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         dialogueTriggerFight.SetActive(false);
         fightFlytrapButton.gameObject.SetActive(false);
         waitFlytrapButton.gameObject.SetActive(false);
+        audioManager.SetActive(false);
        
     }
 
@@ -98,6 +102,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         fighterPOV.Priority = 15;
         blinkingObj.SetActive(true);
         tessObj.SetActive(true);
+        audioManager.SetActive(true);
       
 
         if (flytrapAnim != null)
@@ -128,6 +133,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         fighterPOV.Priority = 15;
         blinkingObj.SetActive(true);
         tessObj.SetActive(true);
+        audioManager.SetActive(true);
 
         if (flytrapAnim != null)
         {
