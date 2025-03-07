@@ -35,6 +35,7 @@ position: -208,-211
 //Act 2
 <<declare $spokenToHeloiseDiviner = false as bool>>
 <<declare $spokenToHildegardDiviner = false as bool>>
+<<declare $spokenToLighthouseNPCDiviner = false as bool>>
 ===
 title: IntroWalk1
 ---
@@ -1819,11 +1820,11 @@ title: FenMemoryTransition
 
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
-Fen: Oh, dear gods...
-Fen: Altea, what have you done?
+//Fen: Oh, dear gods...
+//Fen: Altea, what have you done?
 //HEADACHE MOMENT
-<<wait  2>>
-<<playClip PlayerDiviner>>
+//<<wait  2>>
+//<<playClip PlayerDiviner>>
 Fen: It's happening.
 Fen: Oh gods, it's happening, isn't it?
 <<playClip PlayerDiviner>>
@@ -1874,6 +1875,109 @@ title: SparklePathIntro
 <<changeAvatar PlayerDiviner>>
 Fen: Well, now. That's curious.
 <<endif>>
+===
+title: LighthouseNPC
+---
+<<if $spokenToLighthouseNPCDiviner is false>>
+<<changeAvatar HildegardYarnCollider>>
+<<playClip Shrill>>
+NPC: I wanted to climb up and look down at everything like little ants.
+NPC: But I got up here and then I got tired.
+NPC: And I don't feel like going back down yet.
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: It is quite a climb.
+Fen: I have business up there, otherwise I would follow your lead.
+<<set $spokenToLighthouseNPCDiviner to true>>
+<<stop>>
+<<endif>>
+<<if $spokenToLighthouseNPCDiviner is true>>
+<<changeAvatar HildegardYarnCollider>>
+<<playClip Shrill>>
+NPC: Great view of the moon from up there, so I hear.
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: Oh, I know.
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+NPC: You said that with such an ominous tone.
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: Did I?
+<<changeAvatar HildegardYarnCollider>>
+NPC: ...
+<<playClip Shrill>>
+NPC: I'm just going to stay here for a bit longer I think.
+<<stop>>
+<<endif>>
+===
+title: FenGoesUp1
+---
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: This is more stairs than I anticipated.
+Fen: ...
+<<playClip PlayerDiviner>>
+Fen: Maybe I haven't quite thought this through.
+<<stop>>
+===
+title: FenGoesUp2
+---
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: This is probably not a good idea.
+Fen: But I'm already doing it, so I might as well continue.
+Fen: I'm probably out of shape anyway.
+Fen: ...
+<<playClip PlayerDiviner>>
+Fen: That's not a good joke at all.
+<<stop>>
+===
+title: FenGoesUp3
+---
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: I've never considered that there's no bugs here.
+Fen: No gnats or anything.
+<<playClip PlayerDiviner>>
+Fen: Or worms. Or beetles.
+Fen: Or cicadas.
+<<playClip PlayerDiviner>>
+Fen: This feels like a place cicadas would go.
+Fen: I feel like they'd enjoy this.
+<<playClip PlayerDiviner>>
+Fen: Except I guess perhaps not, because nothing can reproduce?
+Fen: And that's all cicadas want?
+Fen: ...
+<<playClip PlayerDiviner>>
+Fen: Perhaps that's unkind to cicadas.
+Fen: They could have dreams too.
+<<stop>>
+===
+title: LighthouseCreature
+---
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: A tharpy, up here?
+<<changeAvatar GardenTwoHeadedCreature>>
+<<playClip  GardenTwoHeadedCreature>>
+Tharpy: !flesym yb lla ereh pu ti edam i
+Tharpy: !nwod teg tonnac i won dna
+<<playClip  GardenTwoHeadedCreature>>
+Tharpy: ,em sllac noom eht tub
+Tharpy: ...ylteews os sgnis ti
+<<playClip  GardenTwoHeadedCreature>>
+Tharpy: .uoy fo diarfa ton si ti
+<<changeAvatar PlayerDiviner>>
+Fen: ...
+<<playClip PlayerDiviner>>
+Fen: Well I didn't get any of that.
+Fen: I'm just... going to keep climbing.
+<<changeAvatar GardenTwoHeadedCreature>>
+<<playClip GardenTwoHeadedCreature>>
+Tharpy: !daeha og 
+Tharpy: !uoy rof stiaw ti
+<<stop>>
 ===
 title: FenAtTheTop
 ---
