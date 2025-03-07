@@ -1564,8 +1564,10 @@ Fen: This cup's gone cold.
 title: BonfireConversation2
 ---
 <<wait  0.5>>
+<<changeAvatar PhoebeYarn>>
 <<turnOnCloud OverworldDialogueManager>>
 <i>It's hard not to pick up other conversations, as you sit and listen.</i>
+<<wait  0.5>>
 <<turnOnDialogue OverworldDialogueSystem>>
 A Snobbish Voice: So I told him that I had never read it, and then he said I wasn't truly an intellectual.
 A Shrill Voice: It stole my hat! It really did!
