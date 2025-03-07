@@ -170,7 +170,7 @@ position: -172,85
     <<changeAvatar WindyYarnCollider>>
     Windy: Hey, I've been wondering.
     Windy: Is it true what they're saying?
-    <<playClip FenYarnCollider>>
+    <<playClip PlayerDiviner>>
     Fen: What do you mean? That you're divorced?
     <<playClip WindyYarnCollider>>
     <<changeAvatar WindyYarnCollider>>
@@ -182,7 +182,7 @@ position: -172,85
     Windy: Forgetting things.
     <<changeAvatar WindyYarnCollider>>
     Fen: ...
-    <<playClip FenYarnCollider>>
+    <<playClip PlayerDiviner>>
     Fen: Where did you hear that? Altea?
     <<playClip WindyYarnCollider>>
     <<changeAvatar WindyYarnCollider>>
@@ -194,13 +194,13 @@ position: -172,85
     Windy: You know, because you're <i>immortal</i>, or whatever.
     Windy: Her words.
     Windy: People are wondering if it's true.
-    <<playClip FenYarnCollider>>
-    <<changeAvatar FenYarnCollider>>
+    <<playClip PlayerDiviner>>
+    <<changeAvatar PlayerDiviner>>
     Fen: Of course it's not true.
     Fen: I was there for the First Bastion Fire, and I recall the aftermath of the Second, and the rebuilding efforts for both.
     //Windy: I've never been to Bastion, if that's even a place.
     Fen: I remember the death of the Saint of Radiant Sorrow. I remember seeing Her forces gain influence across the continent.
-    <<playClip FenYarnCollider>>
+    <<playClip PlayerDiviner>>
     Fen: So what if I don't remember the name of the village I came from? I remember where it was.
     Fen: Or... that it was off of a marsh. That I remember.
     Fen: ...
@@ -208,7 +208,7 @@ position: -172,85
     <<changeAvatar WindyYarnCollider>>
     Windy: Hmm.
     Windy: Maybe take a rest, Fen.
-    <<playClip FenYarnCollider>>
+    <<playClip PlayerDiviner>>
     Fen: I should go. I have... things to do.
     <<set $spokenToWindyDiviner to true>>
     <<stop>>
@@ -274,37 +274,37 @@ position: 209,-41
     Byron: Go bother someone else with your chattering.
     Byron: It's like your teeth are loose in that skull of yours.
     Byron: Someone ought to fix that.
-    <<changeAvatar FenYarnCollider>>
-    <<playClip FenYarnCollider>>
+    <<changeAvatar PlayerDiviner>>
+    <<playClip PlayerDiviner>>
     Fen: Like Altea, you mean?
     <<changeAvatar ByronYarnCollider>>
     <<playClip ByronYarnCollider>>
     Byron: My Lady is as beautiful as she is merciless, it's true.
     Byron: I'd recommend her certainly as candidate.
-    <<changeAvatar FenYarnCollider>>
+    <<changeAvatar PlayerDiviner>>
     Fen: ...
-    <<playClip FenYarnCollider>>
+    <<playClip PlayerDiviner>>
     Fen: Thanks for the input, Byron. 
     Fen: By the way, those are bones. Not sticks.
     <<changeAvatar ByronYarnCollider>>
     <<playClip ByronYarnCollider>>
     Byron: You must be going mad then because these are the best pieces of kindling the Beneath has to offer.
-    <<changeAvatar FenYarnCollider>>
-    <<playClip FenYarnCollider>>
+    <<changeAvatar PlayerDiviner>>
+    <<playClip PlayerDiviner>>
     Fen: Sure they are.
     <<set $spokenToByronDiviner to true>>
     <<stop>>
 <<endif>>
 <<if $charPOV is "Diviner" and $spokenToByronDiviner is true>>
-    <<changeAvatar FenYarnCollider>>
-    <<playClip FenYarnCollider>>
+    <<changeAvatar PlayerDiviner>>
+    <<playClip PlayerDiviner>>
     Fen: By the way, you ought to comb your hair.
     Fen: You look like an ancient mariner.
     <<changeAvatar ByronYarnCollider>>
     <<playClip ByronYarnCollider>>
     Byron: Why thank you.
-    <<changeAvatar FenYarnCollider>>
-    <<playClip FenYarnCollider>>
+    <<changeAvatar PlayerDiviner>>
+    <<playClip PlayerDiviner>>
     Fen: Not a compliment.
     Fen: You look like you'd eat your compatriots if your ship was stuck on the ice for too long.
     <<changeAvatar ByronYarnCollider>>
@@ -328,8 +328,8 @@ Tree: <i>It doesn't appear that this tree has anything to say to you.</i>
 <<playClip TalkingTreeYarnCollider>>
 Tree: I sing through my roots deep within the earth to my sister the willow up on her hill,
 Tree: I her graceless sibling.
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Oh, don't say that. You're very graceful.
 <<changeAvatar TalkingTreeYarnCollider>>
 Tree: ...
@@ -355,14 +355,14 @@ Creature with a Trowel: !gniht siht elots i
 <<endif>>
 
 <<if $charPOV is "Diviner">>
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Hello, you.
 <<changeAvatar YarnColliderTrowelCreature>>
 <<playClip YarnColliderTrowelCreature>>
 Creature with a Trowel: !yadot tfeht dettimmoc i
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: What's that you have there?
 Fen: Can I have it?
 <<changeAvatar YarnColliderTrowelCreature>>
@@ -376,16 +376,16 @@ Creature with a Trowel: !ti gniyrrac fo derob ma i sey!
 <<wait  2>>
 //get rid of sprite in creature's mouth
 <<disappearCreature trowel>>
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 //Fen: Ew. It's covered in spit.
 Fen: ...Thank you, friend.
 Fen: I can tell you've been holding this in your mouth for a while.
 <<changeAvatar YarnColliderTrowelCreature>>
 <<playClip YarnColliderTrowelCreature>>
 Creature with a Trowel: !sgniht rehto laets ot gniog ma i
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: ...
 Fen: I have no idea what you just said but I hope you have fun.
 <<stop>>
@@ -419,15 +419,15 @@ Verity: I'm trying to turn into a rock and you're distracting me.
 <<endif>>
 
 <<if $charPOV is "Diviner">>
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Everything alright, Verity?
 <<changeAvatar VerityYarnCollider>>
 <<playClip VerityYarnCollider>>
 Verity: It didn't work over there, but maybe it'll work here.
 Verity: I've been practicing.
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Are you still trying for petrification?
 <<changeAvatar VerityYarnCollider>>
 Verity: ...
@@ -472,8 +472,8 @@ Zora: Nevermind. She'll never pay up. She never does.
 <<changeAvatar ZoraYarnCollider>>
 <<playClip ZoraYarnCollider>>
 Zora: What'll it be, Fen?
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Oh, nothing.
 <<changeAvatar ZoraYarnCollider>>
 <<playClip ZoraYarnCollider>>
@@ -578,29 +578,29 @@ Amos: On <i>purpose</i>!
 <<changeAvatar AmosYarnCollider>>
 <<playClip AmosYarnCollider>>
 Amos: You never told me how you got here, you know.
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Oh, well. It's a long story.
 Fen: I was looking for something.
 <<changeAvatar AmosYarnCollider>>
 <<playClip AmosYarnCollider>>
 Amos: Did you find it?
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: ...I'm not sure yet.
 <<changeAvatar AmosYarnCollider>>
 <<playClip AmosYarnCollider>>
 Amos: What kind of thing was it? 
 Amos: ...Wedding ring? Lover's tiara?
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Oh, darling. 
 Fen: Just a personal possession of mine, that's all.
 <<changeAvatar AmosYarnCollider>>
 <<playClip AmosYarnCollider>>
 Amos: I'm sorry for all the questions, I'm just a little starstruck.
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: It's quite alright, dear. Everyone is.
 <<set $spokenToAmosDiviner = true>>
 <<stop>>
@@ -610,8 +610,8 @@ Fen: It's quite alright, dear. Everyone is.
 <<playClip AmosYarnCollider>>
 Amos: Altea will come around. I'm sure of it.
 Amos: You've been trying so hard.
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: I've just been trying to make her see the value of community, you know?
 Fen: You understand, don't you?
 <<changeAvatar AmosYarnCollider>>
@@ -626,8 +626,8 @@ position: 259,9
 //<<if $charPOV is "Fighter">>
 <<if $spokenToFenFighterTavern is false>>
 <<changeCam FenTavernManager>>
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Strangely Congenial Person: I haven't seen you before, have I?
 Strangely Congenial Person: Isn't this a strange place in which we find ourselves? And to think, I meant to come here.
 //Strangely Congenial Person: It'd be silly, if things didn't just sit here in stasis and rot.
@@ -635,74 +635,74 @@ Fen: I'm Fen. What's your name?
 //The Fighter: <i>You are not comfortable sharing this yet.</i>
 <<changeAvatar PhoebeYarn>>
 The Fighter: ...
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Oh, you're a shy one! Wouldn't think so with your weaponry.
 Fen: But I'll bet you get that a lot.
 Fen: Don't worry, you don't have to speak if you don't want to.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: I'm getting off topic, you're probably very confused and disoriented.
 Fen: I haven't really had to do this much, so please forgive my rambling.
 Fen: Where to start...
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Have you met Altea?
 Fen: She's the other new one, aside from you. New-ish.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Well, I should say "us." I have not been here very long either.
 Fen: She's... prickly. But I think she's got a good heart, somewhere underneath all that armor.//But she's a cleric of the order of the Saint of Radiant Sorrow, so that's nice.
 //Fen: A nice violent sect. She caused a coup in her own hometown, so I heard!
 <<changeAvatar PhoebeYarn>>
 The Fighter: ...
 <<wait  0.5>>
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: This building is lovely, isn't it? So full of light.
 Fen: There's at least no shortage of light in this place.
 Fen: You must be wondering how long you'll be here.
 Fen: I wonder that sometimes myself.
 Fen: Because, well, the reality is that we're stuck here.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: They call it the Beneath, this space between realities.
 Fen: It's where lost things go. I'm afraid that includes you, now.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: But might as well make the most of it, mustn't we! No use moping like Altea.
 Fen: The Beneath certainly has its own marvels.
 Fen: In such a space where there should be no life, the flora and fauna are teeming!
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: I have a theory about it, but it's a bit morbid. I'll refrain from sharing it.
 <<changeAvatar PhoebeYarn>>
 The Fighter: ...
 <<wait  1>>
 //The Fighter: <i>It's clear that Fen cannot help herself.</i>
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Well, alright, I'll tell you.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: So with people-types like us, 
 Fen: the longer we remain here the more hollowed out we become.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: I believe that our life force is being drawn up and into the very atmosphere to fuel this place.
 Fen: Maybe even to fuel a celestial body, in this place that should be subterranean, 
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: but where the moon sits low and never sets...
 <<changeAvatar PhoebeYarn>>
 The Fighter: ...
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Oh, but I'm boring you. I get caught up in these things.
 Fen: I'm studying this place; I'm a diviner, you see.
 Fen: I'm trying to divine its secrets.
 //The Fighter: <i>You chuckle, but say nothing.</i>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Say, do you sing?
 Fen: I've noticed quite a few people who end up down here are musicians.
 Fen: I've wondered if this world gets louder when it turns them.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: By eating musicians, the Beneath takes their knack for music and makes it into its own sonic resonance,
 Fen: or something like that. It's a theory I've been nursing.
 Fen: You have no instrument, so I thought I'd see if you fit into the pattern.
 <<wait  1>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 //Fen: Some are too talkative to appreciate it, but others are more sensitive.
 Fen: In case you do sing, I found this the other day. It looks like sheet music, almost.
 Fen: Here, maybe you'll have a use for it.
@@ -716,14 +716,14 @@ Fen: Here, maybe you'll have a use for it.
 <<revealCreature FenTavernManager>>
 <<wait  2>>
 <<disappearCreature FenTavernManager>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Windy found it by the garden, but she's given up music.
 Fen: People think it's because she's divorced, but she denies it.
 Fen: Consider it a welcome gift!
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: The garden's up the hill, just outside, the way you came in. 
 Fen: I go up there sometimes to think.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Some of the plants up there respond to music, if you feel so inclined to try.
 Fen: Let me know if anything interesting happens!
 //Fen: Maybe something around here will respond to it!
@@ -734,11 +734,11 @@ Fen: Let me know if anything interesting happens!
 
 //<<if $spokenToFenFighterTavern is true>>
 <<if $charPOV is "Fighter" and $spokenToFenFighterTavern is true>>
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: You really ought to take a look at the garden, up that very tall hill.
 Fen: Even just to take in the view.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Trust me. I know these things.
 Fen: I'm a <i>diviner</i>.
 <<stop>>
@@ -802,8 +802,8 @@ Heloise: Feel free to add a log, if you want.
 <<playClip HeloiseYarnCollider>>
 <<changeAvatar HeloiseYarnCollider>>
 Heloise: Have you convinced Altea to join us tonight?
-<<playClip FenYarnCollider>>
-<<changeAvatar FenYarnCollider>>
+<<playClip PlayerDiviner>>
+<<changeAvatar PlayerDiviner>>
 Fen: ...No. Not yet.
 <<playClip HeloiseYarnCollider>>
 <<changeAvatar HeloiseYarnCollider>>
@@ -813,21 +813,21 @@ Heloise: Then Liesel owes me a tooth.
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToHeloiseDiviner is true>>
-<<playClip FenYarnCollider>>
-<<changeAvatar FenYarnCollider>>
+<<playClip PlayerDiviner>>
+<<changeAvatar PlayerDiviner>>
 Fen: Why do you need the teeth, Heloise? 
 <<playClip HeloiseYarnCollider>>
 <<changeAvatar HeloiseYarnCollider>>
 Heloise: Oh, I don't know. I just like them.
 Heloise: I like holding them in my hands and looking at them.
-<<playClip FenYarnCollider>>
-<<changeAvatar FenYarnCollider>>
+<<playClip PlayerDiviner>>
+<<changeAvatar PlayerDiviner>>
 Fen: This isn't the first tooth bet I've heard you make.
 <<playClip HeloiseYarnCollider>>
 <<changeAvatar HeloiseYarnCollider>>
 Heloise: They're wasted on Liesel.
-<<playClip FenYarnCollider>>
-<<changeAvatar FenYarnCollider>>
+<<playClip PlayerDiviner>>
+<<changeAvatar PlayerDiviner>>
 Fen: If you say so.
 <<playClip HeloiseYarnCollider>>
 <<changeAvatar HeloiseYarnCollider>>
@@ -872,8 +872,8 @@ Liesel: Except, they love to gossip.
 <<changeAvatar LieselYarnCollider>>
 <<playClip LieselYarnCollider>>
 Liesel: I think Baby's avoiding me.
-<<playClip FenYarnCollider>>
-<<changeAvatar FenYarnCollider>>
+<<playClip PlayerDiviner>>
+<<changeAvatar PlayerDiviner>>
 Fen: Why would he be doing such a thing?
 <<changeAvatar LieselYarnCollider>>
 <<playClip LieselYarnCollider>>
@@ -890,8 +890,8 @@ Liesel: He keeps having tantrums and I don't know what to do about them.
 <<playClip LieselYarnCollider>>
 Liesel: Do you think I can train the hedgehogs to jump through hoops?
 Liesel: I want to get them to jump over the fire.
-<<playClip FenYarnCollider>>
-<<changeAvatar FenYarnCollider>>
+<<playClip PlayerDiviner>>
+<<changeAvatar PlayerDiviner>>
 Fen: Creatures aren't allowed by the fire, dear.
 <<changeAvatar LieselYarnCollider>>
 <<playClip LieselYarnCollider>>
@@ -1002,8 +1002,8 @@ Grimbolde: Isn't it awful?
 Grimbolde: Oh, Fen, can something be done about these things?
 Grimbolde: I hate them.
 Grimbolde: Their voices scrape my mind like nails on slate.
-<<playClip FenYarnCollider>>
-<<changeAvatar FenYarnCollider>>
+<<playClip PlayerDiviner>>
+<<changeAvatar PlayerDiviner>>
 Fen: Hmm...
 Fen: Have you tried pushing them out of the way?
 <<changeAvatar GrimboldeYarnCollider>>
@@ -1021,8 +1021,8 @@ Grimbolde: I wouldn't think she was in there at all if not for the light.
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: She won't come out.
 Grimbolde: She never comes out.
-<<playClip FenYarnCollider>>
-<<changeAvatar FenYarnCollider>>
+<<playClip PlayerDiviner>>
+<<changeAvatar PlayerDiviner>>
 Fen: I'll do my best to convince her.
 <<changeAvatar GrimboldeYarnCollider>>
 <<playClip GrimboldeYarnCollider>>
@@ -1124,25 +1124,25 @@ Hildegard: Maybe I'll... maybe I'll go later.
 <<changeAvatar HildegardYarnCollider>>
 <<playClip HildegardYarnCollider>>
 Hildegard: Fen, I'm feeling so peculiar.
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: How so, dear?
 <<playClip HildegardYarnCollider>>
 <<changeAvatar HildegardYarnCollider>>
 Hildegard: My head... it feels far away. And my body...
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Have you mentioned this to Altea? Maybe she can help?
 <<playClip HildegardYarnCollider>>
 <<changeAvatar HildegardYarnCollider>>
 Hildegard: No... I feel foolish admitting this but I'm afraid of her.
 Hildegard: And she never comes up here.
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Well, if this strange feeling persists, tell me, okay?
 Fen: And I'll talk to her for you.
 Fen: She's just prickly, that's all.
-<<changeAvatar FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
 <<playClip HildegardYarnCollider>>
 <<changeAvatar HildegardYarnCollider>>
 Hildegard: ...Okay.
@@ -1160,8 +1160,8 @@ Hildegard: ...Okay.
 Hildegard: The moon...
 Hildegard: I can hear it...
 Hildegard: It's singing his favorite song.
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: ...are you alright, Hildegard?
 <<playClip HildegardYarnCollider>>
 <<changeAvatar HildegardYarnCollider>>
@@ -1348,15 +1348,15 @@ title: FenPostGardenTransition
 ---
 <<if $charPOV is "Diviner">>
 <<wait  2>>
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: I feel as though I've been sitting here for ages.
 Fen: I should stretch my legs.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Perhaps I'll check on Altea!
 Fen: She'll likely be in the stables, I'd imagine.
 <<wait  1>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Maybe I should stop talking to myself.
 <<endif>>
 ===
@@ -1375,13 +1375,13 @@ title: HighPriestess
 <<hideFen PlayerDiviner>>
 //knock on the door
 <<playKnock YarnStableCutsceneSetUpCollider>>
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Altea, dear, are you in there?
 <<wait  3>>
 <<playKnock YarnStableCutsceneSetUpCollider>>
 //knock again
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: I know you're likely busy, but it's time for dinner, and I was hoping you would join us tonight--
 //timeline run for door opening and revealing ALtea
 <<changeCam PlayerDiviner>>
@@ -1390,21 +1390,21 @@ Fen: I know you're likely busy, but it's time for dinner, and I was hoping you w
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
 Altea: What do you want?
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Well, seeing as we're all gathering at the Bonfire,
 Fen: I thought I'd extend the invitation.
 <<wait  1.5>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Again.
 <<wait  1.5>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Just in case you've changed your mind?
 <<playClip PlayerClericStandInStable>>
 <<changeAvatar PlayerClericStandInStable>>
 Altea: I'm busy.
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: I assumed you would say that, but, Altea...
 Fen: Oh, and there's a newcomer! You ought to meet her, she seems lovely.
 //Fen: She's a bright one, too!
@@ -1414,18 +1414,18 @@ Fen: Not one for talking, but quite a lovely singer!
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
 Altea: Someone new's here.
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Yes! Isn't it exciting?
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
 Altea: And they're not bawling like a baby?
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: No, she seems to be adjusting just fine!
 Fen: I'm hoping she does something interesting. She has the look of someone who will do something interesting.
 Fen: I have a sense about these things.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Do come and meet her, Altea. I think you'd find her as interesting as I do!
 <<wait  1>>
 <<changeAvatar PlayerClericStandInStable>>
@@ -1435,15 +1435,15 @@ Altea: Hm.
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
 Altea: No.
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: No?
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
 Altea: I'm busy, Fen.
 Altea: I have a lot of work to do.
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: But it's important to stay grounded--
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
@@ -1459,14 +1459,14 @@ Altea: But I'm not like you. I'm a realist.
 Altea: This place is a hellhole,
 Altea: and these husks aren't going to fix themselves.
 <<wait  1>>
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: But--
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
 Altea: Do you not want me to call upon my Lady to help these poor, helpless, wretched things?
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Well, yes, but--
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
@@ -1475,9 +1475,9 @@ Altea: Then let me work. I'm not coming to "Dinner."
 <<disappearCreature YarnStableCutsceneSetUpCollider>>
 <<changeBackCam PlayerDiviner>>
 <<wait  1>>
-<<changeAvatar FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
 //timeline for door close
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Well, alright then.
 <<revealFen PlayerDiviner>>
 <<wait  0.5>>
@@ -1496,28 +1496,28 @@ title: BonfireConversation1
 //camera change, objects change
 <<changeCam BonfireManager>>
 <<wait 0.5>> //change this to be shorter???
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: It's poetic, I think.
 Fen: When you've been around as long as I have,
 Fen: you start to see everything like one big pattern.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Things grow, things shrivel, things die.
 Fen: There's a poetry to it. To the cycle.
 //sip tea noise or animation
 <<wait  1>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Oh, you noticed the mug! 
 Fen: I take it with me everywhere. I did a favor for a potter, years ago,
 Fen: divined a cure for his children when they fell ill.
 //Fen: predicted the health of his fledgling children after they fell ill.
 Fen: Plague of the lungs, if I remember correctly.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: It was everywhere back then.
 Fen: I was in Bastion at the time, I think. Before the first fire.
 Fen: Their sewer system was a mess then.
 <<wait  0.5>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: ...Where was I?
 Fen: Ah.
 Fen: The potter let me mold my own tea mug, and paint it how I liked.
@@ -1525,19 +1525,19 @@ Fen: His youngest child liked chickens.
 Fen: She had a lovely smile.
 //campfire crackle is louder
 <<wait  1>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: I wonder how they all turned out.
 Fen: The potter's long gone, I'd imagine.
 Fen: Maybe his children are still around?
 <<wait  0.5>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: No need to look so sad, dear Fighter.
 Fen: This is just how it is, when you're as old as I am.
 Fen: You learn to grow around it.
 Fen: ...in a manner of speaking.
 //sip tea again
 <<wait  2>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Oh, dear.
 Fen: This cup's gone cold.
 //effects to make it look like time has passed
@@ -1554,8 +1554,8 @@ A Shrill Voice: It stole my hat! It really did!
 Windy: Byron's not coming, again. 
 Grimbolde: What's next, another husk for Hythe to gawk at?
 Amos: More tea, Fen?
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Yes, thank you.
 A Shrill Voice: If you see a hat with a really great feather in it...
 A Snobbish Voice: It's not like any of that even matters down here. 
@@ -1566,16 +1566,16 @@ Grimbolde: What?
 Heloise: The beasts.
 Liesel: They're not beasts.
 <<wait  0.5>>
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: This is a lively bunch, Fighter, wouldn't you say?
 <<changeAvatar PhoebeYarn>>
 The Fighter: ...
 <<wait  1>>
 //low voices in background, bonfire ambience
 //teakettle over flames in this node
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Say, have you seen that skeleton, over the bridge on that other island?
 Fen: It's just across the water from here.
 //The Fighter: <i>You shake your head.</i>
@@ -1584,21 +1584,21 @@ Fen: It's quite something.
 //checks water
 <<wait  0.5>>
 //Fen: Ah, drat.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: I forget sometimes how slow boiling water over an actual fire can be.
 Fen: But I can't just go using spellcraft around here all willy-nilly, can I?
 //The Fighter: <i>You shrug awkwardly. Fen seems amused by this.</i>
 <<changeAvatar PhoebeYarn>>
 The Fighter: ...
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Oh, dear, you look distressed. That was a rhetorical question.
 //checks water again
 //<<wait  0.5>>
 Fen: Heloise, is it hot enough yet?
 Heloise: Nope.
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Rats.
 <<wait  0.5>>
 A Snobbish Voice: ...so I said, if you could turn into any of the creatures around here what would you be,
@@ -1611,13 +1611,13 @@ A Snobbish Voice: and he said, a tharpy, and I said that's ridiculous...
 //The Fighter: <i>You say nothing.</i>
 //The Fighter: ...
 //The Fighter: <i>Fen seems to take this as agreement.</i>
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Oh, but yes, the skeleton!
 //Fen: That's something even stranger still.
 Fen: To think something could once die, down here.
 Fen: Could decompose, and leave remains.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Fascinating.
 Fen: You don't get that, with the husks.
 //Fen: As far as I am aware, the husks just... become absorbed into the terrain.
@@ -1626,21 +1626,21 @@ Fen: You don't get that, with the husks.
 //Fen: Would you like to hear the strangest part?
 //<<wait  0.2>>
 //The Fighter: <i>She leans in, almost conspiratorially.</i>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: And it's not even the whole thing.
 Fen: I've never seen the rest.
 //Fen: The rest must be either lost to the sun-lake or some similar fate,
 //Fen: or wherever it came from if it didn't die here.
 Fen: All that's here is <i>spine</i>.
 //Fen: Isn't that fascinating?
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: You should go see it, Fighter.
 //Fen: Wait a moment?
 //<<wait  1>>
 Fen: And if you see any signs of scavenging, or decomposition,
 //Fen: or if the sun does anything interesting under the water,
 Fen: would you let me know?
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: I have to wait for this damned kettle to boil,
 Fen: or I'll lose track of it altogether and it'll get cold again,
 Fen: and then I'll just be upset.
@@ -1730,25 +1730,25 @@ Creature that Looks Worried: See what she has done.
 ===
 title: BonfireTransition
 ---
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Ah, you're back! And... with creatures in tow!
 Fen: So many creatures. 
 Fen: Oh, Windy will not be happy.
 <<wait  1>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Are you alright? You look... queasy.
 Creature with Fingernails: She cannot understand us.
 Creature with Fingernails: You have the song to help her understand.
 //SONG OF BEASTS SONG
 <<wait  4>>
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: That was lovely, but--
 Creature with Wings: Old but young one!
 Creature with Fingernails: The burning one is sapping them!
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: You can speak?
 Fen: In the common tongue?
 Fen: Fascinating.
@@ -1771,29 +1771,29 @@ Both: The moon is hungry and hungry and hungry.
 //<i>Your home, long since fallen to madness and chaos and beasts,</i>
 //<i>is here. The spine of it, anyway.</i>
 //<i>You are haunted, and do not speak.</i>
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Oh, dear.
 <<wait  0.5>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: I don't quite know how to respond to all that.
 Fen: Fighter, here, wait, sit down.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Can I pour you a cup of tea?
 Fen: Smelling salts?
 Fen: Anything?
 <<wait  0.5>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Altea's hurting them? The husks?
 Fen: Why would she lie to me?
 Fen: I hoped maybe...
 <<wait  0.2>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Here, I'll go.
 Fen: I need to see this for myself.
 Fen: Fighter, please. Sit. Relax.
 Fen: Keep these creatures company. I don't know if they've seen fire this close before.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: I'll investigate. It's all under control.
 //POV SHIFT
 <<stop>>
@@ -1802,39 +1802,39 @@ title: FenMemoryTransition
 ---
 //at stable, looking at Altea's stuff
 
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Oh, dear gods...
 Fen: Altea, what have you done?
 //HEADACHE MOMENT
 <<wait  2>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: It's happening.
 Fen: Oh gods, it's happening, isn't it?
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: I have to stay grounded.
 Fen: I can't turn. I <i>can't</i>.
 Fen: I'll read my old scrapbook, that's what I'll do. That always fixes me.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Jog the old memory with my old writings. That'll do it.
 //SCRAPBOOK UI appear
 <<wait  1>>
 //Animation trigger: memories go away
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: No. No, no,
 Fen: no no no <i>NO--</i>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Why is it gone? What's wrong with me?
 Fen: Why can't I <i>remember</i>?
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: I have to remember. I have to stay me.
 Fen: Gods, this was so much easier when I needed to breathe.
 <<wait  0.5>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: I'll go to the roof of the Rookery. That's what I'll do.
 Fen: I need to think.
 Fen: I need to remember. I remember easier up there.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Yes. Yes, that's the way.
 <<stop>>
 
@@ -1853,7 +1853,7 @@ title: SparklePathIntro
 ---
 <<if $charPOV is "Diviner">>
 //timeline to play animation of sparkle
-<<changeAvatar FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
 Fen: Well, now. That's curious.
 <<endif>>
 ===
@@ -1861,19 +1861,19 @@ title: FenOnTheHill
 ---
 <<if $charPOV is "Diviner">>
 //timeline to change camera to look at the Moon
-<<changeAvatar FenYarnCollider>>
-<<playClip FenYarnCollider>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: I know you've got it, up there.
 Fen: I can feel it.
 Fen: Like a buzzing in the back of my mind.
 //play soundscape?
 <<wait  1>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: It's almost like you're nearly at the end of your digestion, isn't it?
 Fen: Or maybe it's gestation.
 Fen: Maybe you <i>are</i> hatching.
 <<wait  2>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: I know you've got my death up there.
 Fen: I know you're hoarding the stuff.
 //buzzing/pulsing Moon sound plays, maybe lighting change too, camera changes.
@@ -1882,21 +1882,21 @@ Fen: You've eaten enough.
 //Fen: This place has stagnated for too long.
 //hum gets louder
 <<wait  1>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: I have not lived countless centuries,
 Fen: traversed countless continents,
 Fen: to lose the scent down here.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: I know you have it.
 Fen: I can feel it like a missing shadow.
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: It's <i>mine</i>, not some nutrients to repurpose.
 <<wait  2>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 //Fen: I'm coming for it, you false moon. You hive.
 Fen: I'm tired, and I'm taking it back.
 <<wait  1>>
-<<playClip FenYarnCollider>>
+<<playClip PlayerDiviner>>
 Fen: Even if it means this place crumbles.
 //timeline play to black out? demo end screen?
 <<endif>>
