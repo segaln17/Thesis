@@ -1208,17 +1208,29 @@ title: PhoebeintheGarden
 ---
 //Triggered by song of Beasts
 <<changeCam GardenCutsceneManager>>
+<<changeAvatar GardenTwoHeadedCreature>>
 Creature with Many Heads: You understand it, don't you?
+<<changeAvatar GardenFingernailCreature>>
 Creature with Fingernails: The moon is almost ready to hatch!
+<<changeAvatar GardenWorriedCreature>>
 Creature that Looks Worried: We were like you once. Some of us were like you and we are afraid of dying.
+<<changeAvatar GardenWingedCreature>>
 Creature with Wings: If the moon does not hatch, it will not release any of its deaths, and there will be a dying of this world.
+<<changeAvatar GardenTwoHeadedCreature>>
 Creature with Many Heads: If it hoards its deaths, this world will fall to stagnation and rot and festering.
+<<changeAvatar GardenFingernailCreature>>
 Creature with Fingernails: We will not die, but this world will be dead.
+<<changeAvatar GardenWorriedCreature>>
 Creature that Looks Worried: You will not die, but this world will be dead.
+<<changeAvatar GardenWingedCreature>>
 Creature with Wings: There are things that want to eat this world when it is dead. If the moon does not hatch, they will succeed.
+<<changeAvatar GardenFingernailCreature>>
 Creature with Fingernails: A thing that eats the sun is powerful.
+<<changeAvatar GardenWorriedCreature>>
 Creature that Looks Worried: A thing that eats the moon eats the power of this world.
+<<changeAvatar GardenTwoHeadedCreature>>
 Creature with Many Heads: The moon must hatch.
+<<changeAvatar GardenWingedCreature>>
 Creature with Wings: Take this, and find its hatching song.
 //GIVE THE MUSIC BOX
 <<playKnock GardenCutsceneManager>>
@@ -1226,8 +1238,11 @@ Creature with Wings: Take this, and find its hatching song.
 <<getMusicBoxBase InventoryManager>>
 <<wait  2>>
 <<disappearCreature GardenCutsceneManager>>
+<<changeAvatar GardenWingedCreature>>
 Creature with Wings: The one who is ancient but also young will help you.
+<<changeAvatar GardenTwoHeadedCreature>>
 Creature with Many Heads: The one who is burned on the inside can help but may not.
+<<changeAvatar GardenWorriedCreature>>
 Creature that Looks Worried: She does not know how to ask nicely.
 //<<NotAutomatic YarnManager>>
 <<changeBackCam GardenCutsceneManager>>
