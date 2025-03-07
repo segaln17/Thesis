@@ -1745,6 +1745,7 @@ Altea: Now, run along.
 <<wait  1.5>>
 <<changeCam PlayerClericStandInSpine>>
 <<wait  2>>
+<<changeAvatar Hound>>
 Creature that Looks Worried: The moon must hatch.
 <<playKnock CommandHolderSpine>>
 <<revealCreature CommandHolderSpine>>
@@ -1876,13 +1877,17 @@ Fen: Yes. Yes, that's the way.
 title: FenMemoryIntro
 ---
 //OLD STUFF FOR USE IN THIS BUILD
-<<wait  5>>
+<<wait  2>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
 Fen: Things are dying down a bit...
 Fen: I should go take a walk. Look for things that make me remember.
 Fen: Gods know I need it.
+<<playClip PlayerDiviner>>
 Fen: If I forget where I should go, the compass in my hand should help guide me.
 Fen: If that enchantment I cast before I got here even still works...
 <<wait  0.5>>
+<<playClip PlayerDiviner>>
 Fen: That willow tree up on the roof of the rookery...
 Fen: Could I get up there again?
 <<stop>>
