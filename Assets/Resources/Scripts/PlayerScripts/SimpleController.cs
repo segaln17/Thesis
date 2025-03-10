@@ -112,7 +112,7 @@ public class SimpleController : MonoBehaviour
             rb.drag = groundDrag;
                 if (isPlayerWalking)
                 {
-                    footstepAudio.pitch = UnityEngine.Random.Range(0.85f, 1);
+                    //footstepAudio.pitch = UnityEngine.Random.Range(0.85f, 1);
                     footstepSounds.SetActive(true);
                 }
                 else {footstepSounds.SetActive(false); }

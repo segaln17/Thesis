@@ -35,7 +35,7 @@ public class RookeryActivate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Phoebe"))
         {
             cyanoonbutton.gameObject.SetActive(true); 
         }

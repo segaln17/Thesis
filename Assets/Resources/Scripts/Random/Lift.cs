@@ -14,7 +14,8 @@ public class Lift : MonoBehaviour
 
     //orientation phoebe, probably need to add fen and altea 2
     //public Vector3 movementDirection;
-    public Transform orientation;
+    public Transform phoebeorientation;
+    public Transform fenorientation;
 
 
     private void OnTriggerStay(Collider other)
@@ -39,10 +40,10 @@ public class Lift : MonoBehaviour
 
             if(gameManager.currentPOV == GameManager.CharacterPOV.Fighter)
             {
-                phoebeRigidbody.AddForce(orientation.forward * strength, ForceMode.Impulse);
+                phoebeRigidbody.AddForce(phoebeorientation.forward * strength, ForceMode.Impulse);
             }else if (gameManager.currentPOV == GameManager.CharacterPOV.Diviner)
             {
-                fenRigidbody.AddForce(orientation.forward * strength, ForceMode.Impulse);
+                fenRigidbody.AddForce(fenorientation.forward * strength, ForceMode.Impulse);
             }
             
         }

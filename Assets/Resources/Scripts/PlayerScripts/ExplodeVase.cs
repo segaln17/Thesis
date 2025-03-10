@@ -8,6 +8,10 @@ public class ExplodeVase : MonoBehaviour
     public GameObject vaseTogether;
     public GameObject vaseBroken;
 
+    public AudioSource potBreak;
+    public AudioClip potShot;
+    private bool hasplayed = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +29,13 @@ public class ExplodeVase : MonoBehaviour
                 {
                     vaseTogether.SetActive(false);
                     vaseBroken.SetActive(true);
+                    
+                    if (!potBreak.isPlaying && !hasplayed)
+                    {
+                        potBreak.pitch = UnityEngine.Random.Range(0.85f, 1);
+                        potBreak.PlayOneShot(potShot);
+                    }
+                    
                     Destroy(gameObject);
                 }
             }
