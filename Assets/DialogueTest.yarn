@@ -1311,25 +1311,25 @@ Creature that Looks Worried: She does not know how to ask nicely.
 title: CyanoNPCs
 ---
 <<turnOnDialogue OverworldDialogueSystem>>
-<<changeAvatar Snobbish>>
-<<playClip Snobbish>>
+<<changeAvatar SnobbishSprite>>
+<<playClip SnobbishSprite>>
 A Snobbish Voice: This clearly exemplifies Growlhaus's school of formalism.
 <<changeAvatar Shrill>>
 <<playClip Shrill>>
 A Shrill Voice: I can't believe you'd say that.
 A Shrill Voice: It's <i>clearly</i> reminiscient of classical romanticism.
-<<changeAvatar Snobbish>>
-<<playClip Snobbish>>
+<<changeAvatar SnobbishSprite>>
+<<playClip SnobbishSprite>>
 A Snobbish Voice: Could we say it's a surrealist representation of a formalist lens?
 <<changeAvatar Shrill>>
 <<playClip Shrill>>
 A Shrill Voice: Only if then we could say it showcases a melding of constructivism and socialist regionalism.
-<<changeAvatar Snobbish>>
+<<changeAvatar SnobbishSprite>>
 A Snobbish Voice: ...
 <<changeAvatar Shrill>>
 A Shrill Voice: ...
-<<changeAvatar Snobbish>>
-<<playClip Snobbish>>
+<<changeAvatar SnobbishSprite>>
+<<playClip SnobbishSprite>>
 A Snobbish Voice: But isn't this more maximalist?
 <<changeAvatar Shrill>>
 <<playClip Shrill>>
@@ -1632,33 +1632,46 @@ title: BonfireConversation2
 <<wait  0.5>>
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar SnobbishSprite>>
+<<playClip SnobbishSprite>>
 A Snobbish Voice: So I told him that I had never read it, and then he said I wasn't truly an intellectual.
 <<changeAvatar Shrill>>
+<<playClip Shrill>>
 A Shrill Voice: It stole my hat! It really did!
 <<changeAvatar WindyYarnCollider>>
+<<playClip WindyYarnCollider>>
 Windy: Byron's not coming, again. 
 <<changeAvatar GrimboldeYarnCollider>>
+<<playClip GrimboldeYarnCollider>>
 Grimbolde: What's next, another husk for Hythe to gawk at?
 <<changeAvatar AmosYarnCollider>>
+<<playClip AmosYarnCollider>>
 Amos: More tea, Fen?
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Yes, thank you.
 <<changeAvatar Shrill>>
+<<playClip Shrill>>
 A Shrill Voice: If you see a hat with a really great feather in it...
 <<changeAvatar SnobbishSprite>>
+<<playClip SnobbishSprite>>
 A Snobbish Voice: It's not like any of that even matters down here. 
 <<changeAvatar GrimboldeYarnCollider>>
+<<playClip GrimboldeYarnCollider>>
 Grimbolde: And I heard the most dreadful noise coming from the stables...
 <<changeAvatar HeloiseYarnCollider>>
+<<playClip HeloiseYarnCollider>>
 Heloise: Everyone shut up, I can't hear Liesel being wrong.
 <<changeAvatar LieselYarnCollider>>
+<<playClip LieselYarnCollider>>
 Liesel: You just don't see how pure of heart they are!
 <<changeAvatar GrimboldeYarnCollider>>
+<<playClip GrimboldeYarnCollider>>
 Grimbolde: What?
 <<changeAvatar HeloiseYarnCollider>>
+<<playClip HeloiseYarnCollider>>
 Heloise: The beasts.
 <<changeAvatar LieselYarnCollider>>
+<<playClip LieselYarnCollider>>
 Liesel: They're not beasts.
 <<wait  0.5>>
 <<changeAvatar PlayerDiviner>>
@@ -1692,12 +1705,14 @@ Fen: Oh, dear, you look distressed. That was a rhetorical question.
 //<<wait  0.5>>
 Fen: Heloise, is it hot enough yet?
 <<changeAvatar HeloiseYarnCollider>>
+<<playClip HeloiseYarnCollider>>
 Heloise: Nope.
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Rats.
 <<wait  0.5>>
 <<changeAvatar SnobbishSprite>>
+<<playClip SnobbishSprite>>
 A Snobbish Voice: ...so I said, if you could turn into any of the creatures around here what would you be,
 A Snobbish Voice: and he said, a tharpy, and I said that's ridiculous...
 <<wait 0.3>>
@@ -1809,6 +1824,7 @@ Altea: Now, run along.
 <<changeCam PlayerClericStandInSpine>>
 <<wait  2>>
 <<changeAvatar Hound>>
+<<playClip Hound>>
 Creature that Looks Worried: The moon must hatch.
 <<playKnock CommandHolderSpine>>
 <<revealCreature CommandHolderSpine>>
@@ -1816,6 +1832,7 @@ Creature that Looks Worried: The moon must hatch.
 <<disappearCreature CommandHolderSpine>>
 //GIVE FIGURINE
 <<getMusicBoxFigure InventoryManager>>
+<<playClip Hound>>
 Creature that Looks Worried: Go to the bathing place.
 Creature that Looks Worried: See what she has done.
 <<changeBackCam PlayerClericStandInSpine>>
