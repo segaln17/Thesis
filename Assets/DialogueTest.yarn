@@ -89,6 +89,7 @@ title: Opening
 position: -223,-93
 ---
 <<if $charPOV is "Fighter" and $hedgehogRun is true>>
+    <<turnOnDialogue OverworldDialogueSystem>>
         <<wait 4>>
         Windy: Oh. A newbie, sword and all.
         Windy: This place swallowed another one, huh?
@@ -109,6 +110,7 @@ position: -172,85
     //<<stop>>
 //<<if $charPOV is "Fighter">>
 <<if $charPOV is "Fighter" and $spokenToWindy is false>>
+    <<turnOnDialogue OverworldDialogueSystem>>
     <<playClip WindyYarnCollider>>
     <<changeAvatar WindyYarnCollider>>
     Windy: Another newly stolen, I see. 
@@ -159,6 +161,7 @@ position: -172,85
     <<stop>>
     <<endif>>
 <<if $charPOV is "Fighter" and $spokenToWindy is true>>
+    <<turnOnDialogue OverworldDialogueSystem>>
     <<changeAvatar WindyYarnCollider>>
     Windy: Fen's at the tavern.
     Windy: If you see Zora there, don't tell her I owe her, okay?
@@ -167,6 +170,7 @@ position: -172,85
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToWindyDiviner is false>>
+    <<turnOnDialogue OverworldDialogueSystem>>
     <<playClip WindyYarnCollider>>
     <<changeAvatar WindyYarnCollider>>
     Windy: Hey, I've been wondering.
@@ -216,6 +220,7 @@ position: -172,85
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToWindyDiviner is true>>
+    <<turnOnDialogue OverworldDialogueSystem>>
     <<playClip WindyYarnCollider>>
     <<changeAvatar WindyYarnCollider>>
     Windy: Look, I'm sorry if I sounded harsh.
@@ -231,8 +236,9 @@ title: VineTutorial
 title: Byron
 position: 209,-41
 ---
-//<<if $charPOV is "Fighter">>
+//<<if $charPOV is "Fighter">>  
 <<if $charPOV is "Fighter" and $spokenToByronFighter is false>>
+    <<turnOnDialogue OverworldDialogueSystem>>
     <<changeAvatar ByronYarnCollider>>
     <<playClip ByronYarnCollider>>
     Byron: Hey, you! You're breathing!
@@ -257,6 +263,7 @@ position: 209,-41
     <<stop>>
     <<endif>>
 <<if $charPOV is "Fighter" and $spokenToByronFighter is true>>
+    <<turnOnDialogue OverworldDialogueSystem>>
     //Byron: Fen's a fool if they think anyone's getting into that garden anytime soon.
     <<changeAvatar ByronYarnCollider>>
     <<playClip ByronYarnCollider>>
@@ -269,6 +276,7 @@ position: 209,-41
     <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToByronDiviner is false>>
+    <<turnOnDialogue OverworldDialogueSystem>>
     <<changeAvatar ByronYarnCollider>>
     <<playClip ByronYarnCollider>>
     Byron: Oh. It's you.
@@ -297,6 +305,7 @@ position: 209,-41
     <<stop>>
 <<endif>>
 <<if $charPOV is "Diviner" and $spokenToByronDiviner is true>>
+    <<turnOnDialogue OverworldDialogueSystem>>
     <<changeAvatar PlayerDiviner>>
     <<playClip PlayerDiviner>>
     Fen: By the way, you ought to comb your hair.
@@ -318,6 +327,7 @@ title: SilentTree
 position: 219,-31
 ---
 <<if $charPOV is "Fighter">>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar TalkingTreeYarnCollider>>
 <<playClip TalkingTreeYarnCollider>>
 Tree: <i>It doesn't appear that this tree has anything to say to you.</i>
@@ -325,6 +335,7 @@ Tree: <i>It doesn't appear that this tree has anything to say to you.</i>
 <<endif>>
 
 <<if $charPOV is "Diviner">>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar TalkingTreeYarnCollider>>
 <<playClip TalkingTreeYarnCollider>>
 Tree: I sing through my roots deep within the earth to my sister the willow up on her hill,
@@ -342,6 +353,7 @@ Tree: Without blood I blush to bedrock.
 title: TrowelGuy
 ---
 <<if $charPOV is "Fighter">>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar YarnColliderTrowelCreature>>
 <<playClip YarnColliderTrowelCreature>>
 Creature with a Trowel: .olleh
@@ -356,6 +368,7 @@ Creature with a Trowel: !gniht siht elots i
 <<endif>>
 
 <<if $charPOV is "Diviner">>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Hello, you.
@@ -396,6 +409,7 @@ title: Verity
 position: 229,-21
 ---
 <<if $charPOV is "Fighter" and $spokenToVerityFighter is false>> ///if the player is being Phoebe
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar VerityYarnCollider>>
 <<playClip VerityYarnCollider>>
 Verity: I'm not fighting it. I'm becoming a rock.
@@ -412,6 +426,7 @@ Verity: If I wait long enough maybe it'll work.
 <<endif>>
 
 <<if $charPOV is "Fighter" and $spokenToVerityFighter is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar VerityYarnCollider>>
 <<playClip VerityYarnCollider>>
 Verity: Leave me alone.
@@ -420,6 +435,7 @@ Verity: I'm trying to turn into a rock and you're distracting me.
 <<endif>>
 
 <<if $charPOV is "Diviner">>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Everything alright, Verity?
@@ -441,6 +457,7 @@ title: Zora
 position: 239,-11
 ---
 <<if $charPOV is "Fighter" and $spokenToZoraFighter is false>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar ZoraYarnCollider>>
 <<playClip ZoraYarnCollider>>
 //Zora: This is the tavern. If you want to eat or sleep, this is the place.
@@ -459,6 +476,7 @@ Zora: It's a lot easier to just accept that your body is on pause, forever.
 <<endif>>
 
 <<if $charPOV is "Fighter" and $spokenToZoraFighter is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar ZoraYarnCollider>>
 <<playClip ZoraYarnCollider>>
 Zora: While you were out, did you see Windy?
@@ -470,6 +488,7 @@ Zora: Nevermind. She'll never pay up. She never does.
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToZoraDiviner is false>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar ZoraYarnCollider>>
 <<playClip ZoraYarnCollider>>
 Zora: What'll it be, Fen?
@@ -530,6 +549,7 @@ Book: "and the world was once again saved."
 title: PointyActor
 ---
 <<if $charPOV is "Fighter">>
+<<turnOnDialogue OverworldDialogueSystem>>
 Pointy Actor: Have I not reason, think you, to look pale?
 Pointy Actor: These two have 'ticed me hither to this place:
 Pointy Actor: A barren detested vale you see it is;
@@ -549,11 +569,13 @@ Pointy Actor: Ugh, I have to start over!
 title: GrassActor
 ---
 <<if $spokenToGrassFighter is false>>
+<<turnOnDialogue OverworldDialogueSystem>>
 Grass: Sssssssshhhhshhhhshshhhhhhhh...
 <<set $spokenToGrassFighter to true>>
 <<stop>>
 <<endif>>
 <<if $spokenToGrassFighter is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
 Grass: I'm grass!
 <<stop>>
 <<endif>>
@@ -562,6 +584,7 @@ title: Amos
 position: 249,-1
 ---
 <<if $charPOV is "Fighter">>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar AmosYarnCollider>>
 <<playClip AmosYarnCollider>>
 Amos: You see her, over there? In the green and yellow?
@@ -576,6 +599,7 @@ Amos: On <i>purpose</i>!
 <<stop>>
 <<endif>>
 <<if $charPOV is "Diviner" and $spokenToAmosDiviner is false>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar AmosYarnCollider>>
 <<playClip AmosYarnCollider>>
 Amos: You never told me how you got here, you know.
@@ -607,6 +631,7 @@ Fen: It's quite alright, dear. Everyone is.
 <<stop>>
 <<endif>>
 <<if $charPOV is "Diviner" and $spokenToAmosDiviner is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar AmosYarnCollider>>
 <<playClip AmosYarnCollider>>
 Amos: Altea will come around. I'm sure of it.
@@ -626,6 +651,7 @@ position: 259,9
 ---
 //<<if $charPOV is "Fighter">>
 <<if $spokenToFenFighterTavern is false>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeCam FenTavernManager>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
@@ -735,6 +761,7 @@ Fen: Let me know if anything interesting happens!
 
 //<<if $spokenToFenFighterTavern is true>>
 <<if $charPOV is "Fighter" and $spokenToFenFighterTavern is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: You really ought to take a look at the garden, up that very tall hill.
@@ -748,12 +775,14 @@ Fen: I'm a <i>diviner</i>.
 title: Tree
 position: 269,19
 ---
+<<turnOnDialogue OverworldDialogueSystem>>
 Tree: The soil may have forgotten the sun,
 Tree: but it forgets not the feel of footsteps upon it.
 <<stop>>
 ===
 title: FishPond
 ---
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar FishYarnCollider>>
 <<playClip FishYarnCollider>>
 Fish: I'm tired of the hot tub.
@@ -763,6 +792,7 @@ title: Heloise
 position: 279,29
 ---
 <<if $charPOV is "Fighter" and $spokenToHeloiseFighter is false>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip HeloiseYarnCollider>>
 <<changeAvatar HeloiseYarnCollider>>
 Heloise: Welcome to our little slice of hell.
@@ -774,6 +804,7 @@ Heloise: Come back here when you're ready for "Dinner".
 <<endif>>
 
 <<if $charPOV is "Fighter" and $spokenToHeloiseFighter is true and $alteaSceneFenDone is false>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip HeloiseYarnCollider>>
 <<changeAvatar HeloiseYarnCollider>>
 Heloise: Oh, you're ready?
@@ -785,6 +816,7 @@ Heloise: Come back later.
 
 //<<if $alteaSceneFenDone is true>>
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip HeloiseYarnCollider>>
 <<changeAvatar HeloiseYarnCollider>>
 Heloise: You're back.
@@ -800,6 +832,7 @@ Heloise: Feel free to add a log, if you want.
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToHeloiseDiviner is false>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip HeloiseYarnCollider>>
 <<changeAvatar HeloiseYarnCollider>>
 Heloise: Have you convinced Altea to join us tonight?
@@ -814,6 +847,7 @@ Heloise: Then Liesel owes me a tooth.
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToHeloiseDiviner is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip PlayerDiviner>>
 <<changeAvatar PlayerDiviner>>
 Fen: Why do you need the teeth, Heloise? 
@@ -838,6 +872,7 @@ Heloise: She doesn't appreciate them like I do.
 ===
 title: TrickHedgehog
 ---
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip TrickHedgehogYarn>>
 <<changeAvatar TrickHedgehogYarn>>
 Hedgehog: .kcirt a od reven lliw i
@@ -848,6 +883,7 @@ Hedgehog: !reve reve reven
 title: Liesel
 ---
 <<if $charPOV is "Fighter" and $spokenToLieselFighter is false>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip LieselYarnCollider>>
 <<changeAvatar LieselYarnCollider>>
 Liesel: Oh, hello!
@@ -861,6 +897,7 @@ Liesel: ...Don't tell Heloise.
 <<stop>>
 <<endif>>
 <<if $charPOV is "Fighter" and $spokenToLieselFighter is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar LieselYarnCollider>>
 <<playClip LieselYarnCollider>>
 Liesel: I want to train the creatures to do tricks.
@@ -870,6 +907,7 @@ Liesel: Except, they love to gossip.
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToLieselDiviner is false>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar LieselYarnCollider>>
 <<playClip LieselYarnCollider>>
 Liesel: I think Baby's avoiding me.
@@ -887,6 +925,7 @@ Liesel: He keeps having tantrums and I don't know what to do about them.
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToLieselDiviner is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar LieselYarnCollider>>
 <<playClip LieselYarnCollider>>
 Liesel: Do you think I can train the hedgehogs to jump through hoops?
@@ -905,6 +944,7 @@ title: Hythe
 position: 289,39
 ---
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToHytheFighter is false>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip HytheYarnCollider>>
 <<changeAvatar HytheYarnCollider>>
 Hythe: You've seen them, then? The husks?
@@ -918,6 +958,7 @@ Hythe: Altea helps them, after they turn. Poor bastards.
 <<endif>>
 
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToHytheFighter is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip HytheYarnCollider>>
 <<changeAvatar HytheYarnCollider>>
 Hythe: I like sitting out here and watching the husks.
@@ -930,6 +971,7 @@ Hythe: Nature is beautiful, don't you think?
 <<endif>>
 
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar HytheYarnCollider>>
 <<playClip HytheYarnCollider>>
 Hythe: Oh, is it time for the Bonfire already?
@@ -947,6 +989,7 @@ Hythe: ...Do you think she'd allow an audience?
 ===
 title: JudgyBathhouseHound
 ---
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip JudgyHoundYarn>>
 <<changeAvatar JudgyHoundYarn>>
 Hound: ...stnap on sah yug taht
@@ -956,6 +999,7 @@ title: Grimbolde
 position: 299,49
 ---
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToGrimboldeFighter is false>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar GrimboldeYarnCollider>>
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: I hide out here by the road to the old bathhouse to get some goddamned peace and quiet.
@@ -971,6 +1015,7 @@ Grimbolde: It's horrible. You're going to hate it.
 <<endif>>
 
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToGrimboldeFighter is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar GrimboldeYarnCollider>>
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: If anyone tells you Windy and I are divorced, it's not true.
@@ -985,6 +1030,7 @@ Grimbolde: And I'm not interested in being set up. Got it?
 //<<if $gardenFoundFighter is true and $charPOV is "Fighter">>
 //<<if $alteaSceneFenDone is true>>
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is true and $spokenToGrimboldeFighter is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar GrimboldeYarnCollider>>
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: Thank goodness, it's time to gather at the Bonfire.
@@ -998,6 +1044,7 @@ Grimbolde: Isn't it awful?
 <<endif>>
 
 <<if $charPOV is "Diviner" and $alteaSceneFenDone is false and $spokenToGrimboldeDiviner is false>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar GrimboldeYarnCollider>>
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: Oh, Fen, can something be done about these things?
@@ -1018,6 +1065,7 @@ Grimbolde: I wouldn't think she was in there at all if not for the light.
 <<endif>>
 
 <<if $charPOV is "Diviner" and $alteaSceneFenDone is false and $spokenToGrimboldeDiviner is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar GrimboldeYarnCollider>>
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: She won't come out.
@@ -1034,10 +1082,11 @@ Grimbolde: It's not happening right now, but it'll happen again. It always does.
 ===
 title: BabyNPC
 ---
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar BabyYarnCollider>>
 <<playClip BabyYarnCollider>>
 Puppet: My name's Baby.
-Puppet: Don't laugh. I hate it.
+Puppet: Don't laugh. I hate it when people laugh.
 Puppet: Now go away.
 <<stop>>
 ===
@@ -1063,6 +1112,7 @@ Note: DON'T LOOK DOWN
 title: Steve
 ---
 <<if $charPOV is "Fighter">>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar SteveYarnCollider>>
 <<playClip SteveYarnCollider>>
 Fishing Man Without Pants: Are you a person?
@@ -1088,6 +1138,7 @@ title: OutsideGardenNPC
 position: 309,59
 ---
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToHildegardFighter is false>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip HildegardYarnCollider>>
 <<changeAvatar HildegardYarnCollider>>
 Hildegard: Did Fen tell you to find me?
@@ -1098,6 +1149,7 @@ Hildegard: I'm waiting for the trees to sing.
 <<endif>>
 
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is false and $spokenToHildegardFighter is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip HildegardYarnCollider>>
 <<changeAvatar HildegardYarnCollider>>
 Hildegard: Did you come here alone?
@@ -1110,6 +1162,7 @@ Hildegard: If I listen hard enough.
 <<endif>>
 
 <<if $charPOV is "Fighter" and $alteaSceneFenDone is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
 //<<if $spokenToHildegardFighter is true>>
 <<playClip HildegardYarnCollider>>
 <<changeAvatar HildegardYarnCollider>>
@@ -1122,6 +1175,7 @@ Hildegard: Maybe I'll... maybe I'll go later.
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToHildegardDiviner is false>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar HildegardYarnCollider>>
 <<playClip HildegardYarnCollider>>
 Hildegard: Fen, I'm feeling so peculiar.
@@ -1156,6 +1210,7 @@ Hildegard: ...Okay.
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToHildegardDiviner is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip HildegardYarnCollider>>
 <<changeAvatar HildegardYarnCollider>>
 Hildegard: The moon...
@@ -1175,6 +1230,7 @@ title: BathhouseCreature1
 position: 319,69
 ---
 <<if $charPOV is "Fighter">>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar CampfireHedgehogYarnCollider>>
 <<playClip CampfireHedgehogYarnCollider>>
 Creature: ?ylduol os sgnis noom ruo nehw nus eht rof ew evah deen tahw
@@ -1189,6 +1245,7 @@ title: LighthouseTree
 position: 329,79
 ---
 <<if $charPOV is "Fighter">>
+<<turnOnDialogue OverworldDialogueSystem>>
 Tree: Do you hear it?
 Tree: The song of our gestating moon?
 <<endif>>
@@ -1208,6 +1265,7 @@ title: SongofBeastsTree
 title: PhoebeintheGarden
 ---
 //Triggered by song of Beasts
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeCam GardenCutsceneManager>>
 <<changeAvatar GardenTwoHeadedCreature>>
 Creature with Many Heads: You understand it, don't you?
@@ -1252,6 +1310,7 @@ Creature that Looks Worried: She does not know how to ask nicely.
 ===
 title: CyanoNPCs
 ---
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar Snobbish>>
 <<playClip Snobbish>>
 A Snobbish Voice: This clearly exemplifies Growlhaus's school of formalism.
@@ -1364,6 +1423,7 @@ title: FenPostGardenTransition
 ---
 <<if $charPOV is "Diviner">>
 <<wait  2>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: I feel as though I've been sitting here for ages.
@@ -1388,6 +1448,7 @@ title: HighPriestessTimelineTrigger
 ===
 title: HighPriestess
 ---
+<<turnOnDialogue OverworldDialogueSystem>>
 <<hideFen PlayerDiviner>>
 //knock on the door
 <<playKnock YarnStableCutsceneSetUpCollider>>
@@ -1512,6 +1573,7 @@ title: BonfireConversation1
 //camera change, objects change
 <<changeCam BonfireManager>>
 <<wait 0.5>> //change this to be shorter???
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: It's poetic, I think.
@@ -1702,6 +1764,7 @@ title: AlteaAtTheSpine
 ---
 <<if $charPOV is "Fighter" and $alteaSpineDone is false>>
 <<changeAvatar PlayerClericStandInSpine>>
+<<turnOnDialogue OverworldDialogueSystem>>
 Altea: ...
 <<wait  2>>
 <<disappearCreature BonfireManager>>
@@ -1766,6 +1829,7 @@ Creature that Looks Worried: See what she has done.
 ===
 title: BonfireTransition
 ---
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Ah, you're back! And... with creatures in tow!
@@ -1837,7 +1901,7 @@ Fen: I'll investigate. It's all under control.
 title: FenMemoryTransition
 ---
 //at stable, looking at Altea's stuff
-
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 //Fen: Oh, dear gods...
@@ -1877,7 +1941,8 @@ Fen: Yes. Yes, that's the way.
 title: FenMemoryIntro
 ---
 //OLD STUFF FOR USE IN THIS BUILD
-<<wait  2>>
+<<turnOnDialogue OverworldDialogueSystem>>
+<<wait  0.5>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Things are dying down a bit...
@@ -1903,11 +1968,12 @@ Fen: Well, now. That's curious.
 title: LighthouseNPC
 ---
 <<if $spokenToLighthouseNPCDiviner is false>>
-<<changeAvatar HildegardYarnCollider>>
-<<playClip Shrill>>
-NPC: I wanted to climb up and look down at everything like little ants.
-NPC: But I got up here and then I got tired.
-NPC: And I don't feel like going back down yet.
+<<changeAvatar LighthouseNPC>>
+<<turnOnDialogue OverworldDialogueSystem>>
+<<playClip LighthouseNPC>>
+Someone Stuck: I wanted to climb up and look down at everything like little ants.
+Someone Stuck: But I got up here and then I got tired.
+Someone Stuck: And I don't feel like going back down yet.
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: It is quite a climb.
@@ -1916,27 +1982,28 @@ Fen: I have business up there, otherwise I would follow your lead.
 <<stop>>
 <<endif>>
 <<if $spokenToLighthouseNPCDiviner is true>>
-<<changeAvatar HildegardYarnCollider>>
-<<playClip Shrill>>
-NPC: Great view of the moon from up there, so I hear.
+<<changeAvatar LighthouseNPC>>
+<<playClip LighthouseNPC>>
+Someone Stuck: Great view of the moon from up there, so I hear.
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Oh, I know.
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
-NPC: You said that with such an ominous tone.
+Someone Stuck: You said that with such an ominous tone.
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Did I?
-<<changeAvatar HildegardYarnCollider>>
-NPC: ...
-<<playClip Shrill>>
-NPC: I'm just going to stay here for a bit longer I think.
+<<changeAvatar LighthouseNPC>>
+Someone Stuck: ...
+<<playClip LighthouseNPC>>
+Someone Stuck: I'm just going to stay here for a bit longer I think.
 <<stop>>
 <<endif>>
 ===
 title: FenGoesUp1
 ---
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: This is more stairs than I anticipated.
@@ -1947,6 +2014,7 @@ Fen: Maybe I haven't quite thought this through.
 ===
 title: FenGoesUp2
 ---
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: This is probably not a good idea.
@@ -1959,6 +2027,7 @@ Fen: That's not a good joke at all.
 ===
 title: FenGoesUp3
 ---
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: I've never considered that there's no bugs here.
@@ -1980,6 +2049,7 @@ Fen: They could have dreams too.
 ===
 title: LighthouseCreature
 ---
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: A tharpy, up here?
@@ -2006,6 +2076,7 @@ Tharpy: !uoy rof stiaw ti
 title: FenAtTheTop
 ---
 <<if $charPOV is "Diviner">>
+<<turnOnDialogue OverworldDialogueSystem>>
 //timeline to change camera to look at the Moon
 <<changeAvatar PlayerDiviner>>
 //<<changeCam FenYellsAtMoonCollider>>
