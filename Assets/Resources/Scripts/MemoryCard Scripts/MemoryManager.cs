@@ -84,7 +84,7 @@ public class MemoryManager : MonoBehaviour
     public void CloseScrapbook()
     {
         //adding this and seeing if it does anything
-        StopAllCoroutines();
+        //StopAllCoroutines();
         
         StartCoroutine(BookClose());
         
@@ -93,7 +93,7 @@ public class MemoryManager : MonoBehaviour
     public void CloseArchScrapbook()
     {
         //adding this and seeing if it does anything
-        StopAllCoroutines();
+        //StopAllCoroutines();
 
         StartCoroutine(ArchBookClose());
 

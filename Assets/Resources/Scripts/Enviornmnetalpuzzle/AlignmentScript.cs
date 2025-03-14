@@ -7,12 +7,13 @@ public class AlignmentScript : MonoBehaviour
     public GameObject surprise;
     public GameObject fragment01;
     public GameObject fragment02;
-    public GameObject memoryCard;
+    //public GameObject memoryCard;
     public GameObject memoryCardButton;
     //public int triggercount;
 
     public List<GameObject> alignmentPuzzleObjects = new List<GameObject>();
     public bool isChecking = false;
+    public bool hasplayed = false;
 
     public int targetCastLimit;
 
@@ -26,7 +27,7 @@ public class AlignmentScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(alignmentPuzzleObjects.Count >= targetCastLimit)
+        if(alignmentPuzzleObjects.Count >= targetCastLimit && !hasplayed)
         {
             surprise.SetActive(true);
             fragment01.SetActive(false);
@@ -47,16 +48,17 @@ public class AlignmentScript : MonoBehaviour
 
     IEnumerator memoryCardTrigger()
     {
-        yield return new WaitForSeconds(4f);
-        memoryCard.SetActive(true);
+        hasplayed = true;
+        Debug.Log("turnonmemory");
+        yield return new WaitForSeconds(2f);
         specificMemoryCard.SetActive(true);
-        
-        Debug.Log("playingcardtriggercoroutine");
+        yield return new WaitForSeconds(.5f);
+        surprise.SetActive(false);      
         yield return new WaitForSeconds(1f);
+        Debug.Log("buttons on");
         memoryCardButton.SetActive(true);
         yield return new WaitForSeconds(4f);
-        //triggercount++;
-        surprise.SetActive(false);
+        Debug.Log("triggeroff");
         gameObject.SetActive(false);
     }
 }

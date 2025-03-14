@@ -129,7 +129,7 @@ public class MemoryCardChoose : MonoBehaviour
         memoryText.text = card01Text.text;
         swirlText.text = memoryText.text;
         Debug.Log("memory1");
-        StopAllCoroutines();
+        //StopAllCoroutines();
         StartCoroutine("StartForget");
         RevealMemory();
     }
@@ -142,7 +142,7 @@ public class MemoryCardChoose : MonoBehaviour
         memoryText.text = card02Text.text;
         swirlText.text = memoryText.text;
         Debug.Log("memory2");
-        StopAllCoroutines();
+        //StopAllCoroutines();
         StartCoroutine("StartForget");
         
         RevealMemory();
