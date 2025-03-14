@@ -14,39 +14,78 @@ public class MemoryActivation : MonoBehaviour
 
     public GameManager gameManager;
 
+    private void Start()
+    {
+        
+    }
 
+    private void Update()
+    {
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (gameManager.currentPOV == GameManager.CharacterPOV.Diviner)
+        {
+            if(gameObject.CompareTag("Archaeologist") && other.gameObject.CompareTag("Player"))
+            {
+                memoryManager.inMemoryGame = true;
+                Debug.Log("inside memory game");
+                colliderArchaelogistInside = true;
+                Debug.Log("inside arch");
+                memoryAppear.SetActive(true);
+            }
+            else if (gameObject.CompareTag("Dreamer") && other.gameObject.CompareTag("Player"))
+            {
+                memoryManager.inMemoryGame = true;
+                Debug.Log("inside memory game");
+                colliderDreamerInside = true;
+                Debug.Log("inside dreamer");
+                memoryAppear.SetActive(true);
+
+            }
+
+
+        }
+        else
+        {
+            memoryManager.inMemoryGame = false;
+            memoryAppear.SetActive(false);
+        }
+
+    }
     private void OnTriggerStay(Collider other)
     {
         if (gameManager.currentPOV == GameManager.CharacterPOV.Diviner)
         {
-            if (other.gameObject.CompareTag("Player"))
+            if (gameObject.CompareTag("Archaeologist") && other.gameObject.CompareTag("Player"))
             {
                 memoryManager.inMemoryGame = true;
                 Debug.Log("inside memory game");
-                
-                
-                if (gameObject.CompareTag("Archaeologist"))
-                {
-                    colliderArchaelogistInside = true;
-         
-                }
-            
-                else if (gameObject.CompareTag("Dreamer"))
-                {
-                    colliderDreamerInside = true;
-                    Debug.Log("inside dreamer");
-
-                }
+                colliderArchaelogistInside = true;
+                Debug.Log("inside arch");
                 memoryAppear.SetActive(true);
             }
-            else
+            else if (gameObject.CompareTag("Dreamer") && other.gameObject.CompareTag("Player"))
             {
-                memoryManager.inMemoryGame = false;
-                memoryAppear.SetActive(false);
+                memoryManager.inMemoryGame = true;
+                Debug.Log("inside memory game");
+                colliderDreamerInside = true;
+                Debug.Log("inside dreamer");
+                memoryAppear.SetActive(true);
+
             }
 
+
+
         }
-        
+        else
+        {
+            memoryManager.inMemoryGame = false;
+            memoryAppear.SetActive(false);
+        }
+
     }
 
     private void OnTriggerExit(Collider other)

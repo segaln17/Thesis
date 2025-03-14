@@ -76,7 +76,11 @@ public class CutsceneCoroutineManager : MonoBehaviour
     public GameObject stableLight;
     //stable cutscene coroutine
     public GameObject stableYarnTrigger;
-    
+    //song of beast tree yarn collider
+    public GameObject beastTree;
+    //e interactor
+    public GameObject eInteract;
+
 
     /////////////////////////////////////////////////////
     // Start is called before the first frame update
@@ -107,6 +111,8 @@ public class CutsceneCoroutineManager : MonoBehaviour
     {
         Debug.Log("switching to Fen from Garden");
         //first person POV to third person POV
+        beastTree.SetActive(false);
+        eInteract.SetActive(false);
         isPulsing = true;
         transitionAudio.PlayOneShot(transitionClip);
         yield return new WaitForSeconds(1.5f);
@@ -333,6 +339,7 @@ public class CutsceneCoroutineManager : MonoBehaviour
         phoebeFullBodySprite.SetActive(false);
         audioManager.SetActive(true);
         phoebeTess.SetActive(true);
+        beastTree.SetActive(true);
 
         //Reposition Fen
         yield return new WaitForSeconds(1f);

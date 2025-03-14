@@ -7,13 +7,14 @@ public class AlignmentScript : MonoBehaviour
     public GameObject surprise;
     public GameObject fragment01;
     public GameObject fragment02;
-    //public GameObject memoryCard;
+    public GameObject memoryCanvas;
     public GameObject memoryCardButton;
     //public int triggercount;
 
     public List<GameObject> alignmentPuzzleObjects = new List<GameObject>();
     public bool isChecking = false;
-    public bool hasplayed = false;
+    public bool hasplayedArch = false;
+    public bool hasplayedDreamer = false;
 
     public int targetCastLimit;
 
@@ -27,18 +28,33 @@ public class AlignmentScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(alignmentPuzzleObjects.Count >= targetCastLimit && !hasplayed)
+        if (gameObject.CompareTag("Dreamer"))
         {
-            surprise.SetActive(true);
-            fragment01.SetActive(false);
-            fragment02.SetActive(false);
-            StartCoroutine(memoryCardTrigger());
+            if (alignmentPuzzleObjects.Count >= targetCastLimit && !hasplayedDreamer)
+            {
+                surprise.SetActive(true);
+                fragment01.SetActive(false);
+                fragment02.SetActive(false);
+                StartCoroutine(memoryCardTrigger());
+            }
         }
+
+        if (gameObject.CompareTag("Archaeologist"))
+        {
+            if (alignmentPuzzleObjects.Count >= targetCastLimit && !hasplayedArch)
+            {
+                surprise.SetActive(true);
+                fragment01.SetActive(false);
+                fragment02.SetActive(false);
+                StartCoroutine(memoryCardTrigger02());
+            }
+        }
+
     }
     private void OnTriggerEnter(Collider other)
     {
         isChecking = true;
-        Debug.Log("ischecking");
+        //Debug.Log("ischecking");
     }
 
     private void OnTriggerExit(Collider other)
@@ -46,19 +62,47 @@ public class AlignmentScript : MonoBehaviour
         isChecking = false;
     }
 
-    IEnumerator memoryCardTrigger()
+    private IEnumerator memoryCardTrigger()
     {
-        hasplayed = true;
+        hasplayedDreamer = true;
+        if (!memoryCanvas.activeInHierarchy)
+        {
+            memoryCanvas.SetActive(true);
+        }
         Debug.Log("turnonmemory");
         yield return new WaitForSeconds(2f);
         specificMemoryCard.SetActive(true);
+        Debug.Log("cardon");
         yield return new WaitForSeconds(.5f);
         surprise.SetActive(false);      
         yield return new WaitForSeconds(1f);
         Debug.Log("buttons on");
         memoryCardButton.SetActive(true);
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5f);
         Debug.Log("triggeroff");
+        StopCoroutine(memoryCardTrigger());
         gameObject.SetActive(false);
+    }
+
+    private IEnumerator memoryCardTrigger02()
+    {
+        hasplayedArch = true;
+        if (!memoryCanvas.activeInHierarchy)
+        {
+            memoryCanvas.SetActive(true);
+        }
+        Debug.Log("turnonmemory");
+        yield return new WaitForSeconds(2f);
+        specificMemoryCard.SetActive(true);
+        Debug.Log("cardon");
+        yield return new WaitForSeconds(.5f);
+        surprise.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        Debug.Log("buttons on");
+        memoryCardButton.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        Debug.Log("triggeroff");
+        StopCoroutine(memoryCardTrigger());
+        //gameObject.SetActive(false);
     }
 }

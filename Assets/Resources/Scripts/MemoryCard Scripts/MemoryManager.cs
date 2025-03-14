@@ -103,12 +103,13 @@ public class MemoryManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         //sprite change to book closed
-        scrapbook.sprite = bookSpriteClosed;
+        
         scrapbookTextpg1.SetActive(false);
         scrapbookTextpg2.SetActive(false);
         existingTextpg1.SetActive(false);
         existingTextpg2.SetActive(false);
         eInteract.SetActive(false);
+        scrapbook.sprite = bookSpriteClosed;
         yield return new WaitForSeconds(3f);
         memoryGame.SetActive(false);
         yield return new WaitForSeconds(3f);
