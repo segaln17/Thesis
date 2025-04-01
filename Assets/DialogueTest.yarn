@@ -22,6 +22,7 @@ position: -208,-211
 <<declare $alteaSpineDone = false as bool>>
 <<declare $spokenToZoraFighter = false as bool>>
 <<declare $spokenToLieselFighter = false as bool>>
+<<declare $spokenToAmosFighter = false as bool>>
 
 //Fen talk
 <<declare $alteaSceneFenDone = false as bool>>
@@ -134,24 +135,28 @@ position: -172,85
     Windy: The ruins by the well are no picnic, trust me. It's like a breeding ground for the axe-handed skinks.
     Windy: Although they don't breed. At least, I don't think they do.
     <<playClip WindyYarnCollider>>
-    Windy: Anyway. Do you know how you got here? 
+    Windy: Anyway. You look a little queasy.
+    Windy: Do you know how you got here? 
     Windy: Do you even know where here is?
     //The Fighter: <i>You say nothing.</i>
     <<changeAvatar PhoebeYarn>>
     The Fighter: ...
     <<changeAvatar WindyYarnCollider>>
     <<playClip WindyYarnCollider>>
-    Windy: Still nothing, huh?
-    Windy: Okay, well, you should talk to Fen. 
+    //Windy: Still nothing, huh?
+    Windy: Oh, we've all made that face, friend.
+    Windy: You should talk to Fen. 
     Windy: She's the only one who's ever ended up here on purpose.
     Windy: Unless... you did too?
     <<playClip WindyYarnCollider>>
     Windy: Nevermind, I doubt it. 
     Windy: You seem like someone who would fall down a ravine and end up here.
+    Windy: No offense.
+    <<playClip WindyYarnCollider>>
     Windy: Fen'll help you get sorted out. If you can stand her yammering. 
     Windy: She's at the tavern.
     <<playClip WindyYarnCollider>>
-    Windy: And get to the bonfire if you start feeling queasy. They all feel queasy at first.
+    Windy: And get to the bonfire if you start feeling <i>really</i> queasy. Everyone feels queasy at first.
     Windy: Well, not me, but other people usually get queasy.
     <<playClip WindyYarnCollider>>
     //Windy: Talk to me again if you get lost or confused or if a hedgehog steals your property.
@@ -242,7 +247,8 @@ position: 209,-41
     <<changeAvatar ByronYarnCollider>>
     <<playClip ByronYarnCollider>>
     Byron: Hey, you! You're breathing!
-    Byron: The Beneath caught a fresh one! No one breathes around here.
+    //Byron: The Beneath caught a fresh one! 
+    Byron: No one breathes around here anymore.
     Byron: Besides Altea, of course. But she's more new, too.
     <<playClip ByronYarnCollider>>
     //Been a while, not since Altea!
@@ -259,6 +265,7 @@ position: 209,-41
     <<playClip ByronYarnCollider>>
     Byron: Oh, what a punishment that would be for her, but what a pleasure for me!
     Byron: <i>He dissolves into manic laughter.</i>
+    Byron: Don't look so scandalized. It'll happen to you too!
     <<set $spokenToByronFighter to true>>
     <<stop>>
     <<endif>>
@@ -272,6 +279,9 @@ position: 209,-41
     Byron: Too bad Fen won't let anyone take a hatchet to it.
     <<playClip ByronYarnCollider>>
     Byron: A real shame, that.
+    Byron: Again with the scandalized expression. You're not a tree hugger, are you?
+    <<playClip ByronYarnCollider>>
+    Byron: That'd be awfully uninteresting.
     <<stop>>
     <<endif>>
 
@@ -464,8 +474,12 @@ position: 239,-11
 //Zora: Between you and me, I don't think any of us need to sleep, anymore.
 Zora: Hey, welcome to the tavern!
 Zora: Want anything? We've got... really old mead.
+<<wait  1>>
 <<playClip ZoraYarnCollider>>
-Zora: It won't get you drunk, though. Nothing will, anymore.
+Zora: Yeah, you look about as excited about that as I was.
+<<playClip ZoraYarnCollider>>
+Zora: Apart from just tasting like honey-flavored dust, it won't get you drunk. Nothing will, anymore.
+<<playClip ZoraYarnCollider>>
 Zora: And people don't need to sleep, either. Just so you don't panic later.
 Zora: But some people still pretend they can.
 <<playClip ZoraYarnCollider>>
@@ -583,7 +597,7 @@ Grass: I'm grass!
 title: Amos
 position: 249,-1
 ---
-<<if $charPOV is "Fighter">>
+<<if $charPOV is "Fighter" and $spokenToAmosFighter is false>>
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar AmosYarnCollider>>
 <<playClip AmosYarnCollider>>
@@ -596,8 +610,26 @@ Amos: Fen's a legend. She's been everywhere, they say.
 <<playClip AmosYarnCollider>>
 Amos: Word has it she convinced the Beneath to let her in. 
 Amos: On <i>purpose</i>!
+<<set $spokenToAmosFighter to true>>
 <<stop>>
 <<endif>>
+
+<<if $charPOV is "Fighter" and $spokenToAmosFighter is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar AmosYarnCollider>>
+<<playClip AmosYarnCollider>>
+Amos: I wonder if she needs anything. She's too polite to ask.
+<<changeAvatar PhoebeYarn>>
+The Fighter: ...
+<<wait  1>>
+<<changeAvatar AmosYarnCollider>>
+<<playClip AmosYarnCollider>>
+Amos: Why are you doing that with your face?
+Amos: Stop it.
+Amos: I'm very normal about Fen being here.
+<<stop>>
+<<endif>>
+
 <<if $charPOV is "Diviner" and $spokenToAmosDiviner is false>>
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar AmosYarnCollider>>
@@ -630,6 +662,7 @@ Fen: It's quite alright, dear. Everyone is.
 <<set $spokenToAmosDiviner = true>>
 <<stop>>
 <<endif>>
+
 <<if $charPOV is "Diviner" and $spokenToAmosDiviner is true>>
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar AmosYarnCollider>>
@@ -810,7 +843,7 @@ Heloise: Come back here when you're ready for "Dinner".
 Heloise: Oh, you're ready?
 Heloise: We're not.
 <<playClip HeloiseYarnCollider>>
-Heloise: Come back later.
+Heloise: Come back later. You'll hear the dinner bell.
 <<stop>>
 <<endif>>
 
@@ -820,7 +853,10 @@ Heloise: Come back later.
 <<playClip HeloiseYarnCollider>>
 <<changeAvatar HeloiseYarnCollider>>
 Heloise: You're back.
-Heloise: You found something to amuse yourself with, I take it.
+Heloise: What's with the face?
+<<playClip HeloiseYarnCollider>>
+Heloise: I take it you saw something weird? Were the bats grooming each other again?
+Heloise: Or maybe you just found something to amuse yourself with.
 <<playClip HeloiseYarnCollider>>
 Heloise: Good.
 Heloise: Everyone should, eventually.
@@ -888,10 +924,13 @@ title: Liesel
 <<changeAvatar LieselYarnCollider>>
 Liesel: Oh, hello!
 Liesel: Have you seen a puppet anywhere?
+Liesel: He's haunted, and about this big, and looks like he'd steal your ice skates?
+<<playClip LieselYarnCollider>>
 Liesel: His name's Baby. I can't find him.
 <<playClip LieselYarnCollider>>
 Liesel: Calling him Baby was my idea.
 Liesel: He's my best friend!
+<<playClip LieselYarnCollider>>
 Liesel: ...Don't tell Heloise.
 <<set $spokenToLieselFighter to true>>
 <<stop>>
@@ -902,6 +941,7 @@ Liesel: ...Don't tell Heloise.
 <<playClip LieselYarnCollider>>
 Liesel: I want to train the creatures to do tricks.
 Liesel: They're so sweet and kind, just look at their eyes!
+<<playClip LieselYarnCollider>>
 Liesel: Except, they love to gossip.
 <<stop>>
 <<endif>>
@@ -920,6 +960,14 @@ Liesel: He's been telling people I work for him.
 Liesel: I don't! I don't even know why he's haunted.
 <<playClip LieselYarnCollider>>
 Liesel: He keeps having tantrums and I don't know what to do about them.
+Liesel: He's in a rebellious phase.
+<<playClip PlayerDiviner>>
+<<changeAvatar PlayerDiviner>>
+Fen: I'm sure it'll pass, Liesel.
+<<changeAvatar LieselYarnCollider>>
+<<playClip LieselYarnCollider>>
+Liesel: I hope so. He won't play with me anymore.
+Liesel: He says I'm embarrassing him.
 <<set $spokenToLieselDiviner to true>>
 <<stop>>
 <<endif>>
@@ -951,7 +999,9 @@ Hythe: You've seen them, then? The husks?
 Hythe: These are old ones, I think. They're basically the wall now.
 Hythe: And this fellow next to me is in the middle of the process.
 <<playClip HytheYarnCollider>>
+Hythe: Oh, you don't have to bother with drawing your weapon.
 Hythe: Most of them are harmless. Used to be like us--lost souls.
+<<playClip HytheYarnCollider>>
 Hythe: Altea helps them, after they turn. Poor bastards.
 <<set $spokenToHytheFighter to true>>
 <<stop>>
@@ -984,6 +1034,10 @@ Hythe: What do you think Altea does for them?
 <<playClip HytheYarnCollider>>
 Hythe: Do you think it's painful?
 Hythe: ...Do you think she'd allow an audience?
+<<wait  1>>
+<<playClip HytheYarnCollider>>
+Hythe: Why are you making that face? 
+Hythe: Is it something I said?
 <<stop>>
 <<endif>>
 ===
@@ -1002,6 +1056,7 @@ position: 299,49
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar GrimboldeYarnCollider>>
 <<playClip GrimboldeYarnCollider>>
+Grimbolde: That face you have on? It won't last.
 Grimbolde: I hide out here by the road to the old bathhouse to get some goddamned peace and quiet.
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: Except I can't get that, because the creatures use it for whatever vile frolicking they do in their spare time.
@@ -1039,7 +1094,12 @@ Grimbolde: That's all I want. Blissful, blissful silence.
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: Except that at "Dinner," Fen's always talking.
 Grimbolde: It's hell, everywhere, all the time.
+<<playClip GrimboldeYarnCollider>>
 Grimbolde: Isn't it awful?
+Grimbolde: Are you laughing at me?
+<<playClip GrimboldeYarnCollider>>
+Grimbolde: Stop it. This isn't funny, this is a nightmare.
+Grimbolde: Treat it as such.
 <<stop>>
 <<endif>>
 
@@ -1087,6 +1147,8 @@ title: BabyNPC
 <<playClip BabyYarnCollider>>
 Puppet: My name's Baby.
 Puppet: Don't laugh. I hate it when people laugh.
+<<playClip BabyYarnCollider>>
+Puppet: Stop smiling. It's not funny.
 Puppet: Now go away.
 <<stop>>
 ===
@@ -1158,6 +1220,13 @@ Hildegard: ...
 <<playClip HildegardYarnCollider>>
 Hildegard: I can almost hear his favorite song in the chorus of the cliffs.
 Hildegard: If I listen hard enough.
+<<wait  1>>
+<<playClip HildegardYarnCollider>>
+Hildegard: Oh, your face...
+Hildegard: You lost someone too.
+Hildegard: I can tell from the lines around your eyes.
+<<playClip HildegardYarnCollider>>
+Hildegard: If you let them, the flowers are very understanding.
 <<stop>>
 <<endif>>
 
