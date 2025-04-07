@@ -11,6 +11,7 @@ public class SimpleController : MonoBehaviour
     [Header("Player")]
     Rigidbody rb;
     public float force = 5.0f;
+    public float fallingforce = 2.0f;
     private Vector3 movementDirection;
     public bool isPlayerWalking;
     public GameObject footstepSounds;
@@ -165,9 +166,15 @@ public class SimpleController : MonoBehaviour
             
             
             //Debug.Log("im on da ground");
+        }else if (!grounded)
+        {
+            movementDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+            rb.AddForce(movementDirection.normalized * fallingforce * Time.deltaTime, ForceMode.Force);
         }
         if (rb.velocity.y > 0) {
             rb.AddForce(Vector3.down * slopeGravity * Time.deltaTime, ForceMode.Force);
+        
         }
         //turn gravity off while on slope
         //rb.useGravity = !OnSlope();

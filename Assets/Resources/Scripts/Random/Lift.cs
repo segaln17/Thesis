@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Lift : MonoBehaviour
 {
-    public float strength;
+    public float liftstrength;
+    public float shootstrength;
     public Vector3 direction;
     public Rigidbody phoebeRigidbody;
     public Rigidbody fenRigidbody;
@@ -24,11 +25,11 @@ public class Lift : MonoBehaviour
 
             if(gameManager.currentPOV == GameManager.CharacterPOV.Fighter) 
         {
-            phoebeRigidbody.AddForce(direction * strength);
+            phoebeRigidbody.AddForce(direction * liftstrength);
         }
             else if (gameManager.currentPOV == GameManager.CharacterPOV.Diviner)
             {
-                fenRigidbody.AddForce(direction * strength);
+                fenRigidbody.AddForce(direction * liftstrength);
             }
     }
 
@@ -40,10 +41,10 @@ public class Lift : MonoBehaviour
 
             if(gameManager.currentPOV == GameManager.CharacterPOV.Fighter)
             {
-                phoebeRigidbody.AddForce(phoebeorientation.forward * strength, ForceMode.Impulse);
+                phoebeRigidbody.AddForce(phoebeorientation.forward * shootstrength, ForceMode.Impulse);
             }else if (gameManager.currentPOV == GameManager.CharacterPOV.Diviner)
             {
-                fenRigidbody.AddForce(fenorientation.forward * strength, ForceMode.Impulse);
+                fenRigidbody.AddForce(fenorientation.forward * shootstrength, ForceMode.Impulse);
             }
             
         }
