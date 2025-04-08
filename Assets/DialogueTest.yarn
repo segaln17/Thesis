@@ -120,8 +120,10 @@ position: -172,85
     Windy: I suppose that means I lose the bet.
     Windy: How'd you get here?
     //The Fighter: <i>You say nothing.</i>
+    <<turnOnPhoebe OverworldDialogueSystem>>
     <<changeAvatar PhoebeYarn>>
     The Fighter: ...
+    <<turnOnDialogue OverworldDialogueSystem>>
     <<playClip WindyYarnCollider>>
     <<changeAvatar WindyYarnCollider>>
     Windy: Oh, not the talkative type? That's fine.
@@ -129,7 +131,9 @@ position: -172,85
     Windy: Did you see where that little pest went? It took my trowel.
     //The Fighter: <i>You shake your head.</i>
     <<changeAvatar PhoebeYarn>>
+    <<turnOnPhoebe OverworldDialogueSystem>>
     The Fighter: ...
+    <<turnOnDialogue OverworldDialogueSystem>>
     <<playClip WindyYarnCollider>>
     <<changeAvatar WindyYarnCollider>>
     Windy: Drat. And I only just found that trowel.
@@ -140,8 +144,10 @@ position: -172,85
     Windy: Do you know how you got here? 
     Windy: Do you even know where here is?
     //The Fighter: <i>You say nothing.</i>
+    <<turnOnPhoebe OverworldDialogueSystem>>
     <<changeAvatar PhoebeYarn>>
     The Fighter: ...
+    <<turnOnDialogue OverworldDialogueSystem>>
     <<changeAvatar WindyYarnCollider>>
     <<playClip WindyYarnCollider>>
     //Windy: Still nothing, huh?
@@ -181,8 +187,11 @@ position: -172,85
     <<changeAvatar WindyYarnCollider>>
     Windy: Hey, I've been wondering.
     Windy: Is it true what they're saying?
+    <<turnOnFen OverWorldDialogueSystem>>
+    <<changeAvatar PlayerDiviner>>
     <<playClip PlayerDiviner>>
     Fen: What do you mean? That you're divorced?
+    <<turnOnDialogue OverworldDialogueSystem>>
     <<playClip WindyYarnCollider>>
     <<changeAvatar WindyYarnCollider>>
     Windy: That's blatantly untrue and I don't know who started that rumor.
@@ -191,10 +200,12 @@ position: -172,85
     <<playClip WindyYarnCollider>>
     Windy: People are saying you're...
     Windy: Forgetting things.
-    <<changeAvatar WindyYarnCollider>>
+    <<turnOnFen OverWorldDialogueSystem>>
+    <<changeAvatar PlayerDiviner>>
     Fen: ...
     <<playClip PlayerDiviner>>
     Fen: Where did you hear that? Altea?
+    <<turnOnDialogue OverworldDialogueSystem>>
     <<playClip WindyYarnCollider>>
     <<changeAvatar WindyYarnCollider>>
     Windy: I shan't say.
@@ -205,6 +216,7 @@ position: -172,85
     Windy: You know, because you're <i>immortal</i>, or whatever.
     Windy: Her words.
     Windy: People are wondering if it's true.
+    <<turnOnFen OverWorldDialogueSystem>>
     <<playClip PlayerDiviner>>
     <<changeAvatar PlayerDiviner>>
     Fen: Of course it's not true.
@@ -215,10 +227,13 @@ position: -172,85
     Fen: So what if I don't remember the name of the village I came from? I remember where it was.
     Fen: Or... that it was off of a marsh. That I remember.
     Fen: ...
+    <<turnOnDialogue OverworldDialogueSystem>>
     <<playClip WindyYarnCollider>>
     <<changeAvatar WindyYarnCollider>>
     Windy: Hmm.
     Windy: Maybe take a rest, Fen.
+    <<turnOnFen OverWorldDialogueSystem>>
+    <<changeAvatar PlayerDiviner>>
     <<playClip PlayerDiviner>>
     Fen: I should go. I have... things to do.
     <<set $spokenToWindyDiviner to true>>
@@ -899,7 +914,7 @@ position: 259,9
 ---
 //<<if $charPOV is "Fighter">>
 <<if $spokenToFenFighterTavern is false>>
-<<turnOnDialogue OverworldDialogueSystem>>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeCam FenTavernManager>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
@@ -908,8 +923,10 @@ Strangely Congenial Person: Isn't this a strange place in which we find ourselve
 //Strangely Congenial Person: It'd be silly, if things didn't just sit here in stasis and rot.
 Fen: I'm Fen. What's your name?
 //The Fighter: <i>You are not comfortable sharing this yet.</i>
+<<turnOnPhoebe OverworldDialogueSystem>>
 <<changeAvatar PhoebeYarn>>
 The Fighter: ...
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Oh, you're a shy one! Wouldn't think so with your weaponry.
@@ -926,9 +943,11 @@ Fen: She's the other new one, aside from you. New-ish.
 Fen: Well, I should say "us." I have not been here very long either.
 Fen: She's... prickly. But I think she's got a good heart, somewhere underneath all that armor.//But she's a cleric of the order of the Saint of Radiant Sorrow, so that's nice.
 //Fen: A nice violent sect. She caused a coup in her own hometown, so I heard!
+<<turnOnPhoebe OverworldDialogueSystem>>
 <<changeAvatar PhoebeYarn>>
 The Fighter: ...
 <<wait  0.5>>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: This building is lovely, isn't it? So full of light.
@@ -945,10 +964,12 @@ Fen: The Beneath certainly has its own marvels.
 Fen: In such a space where there should be no life, the flora and fauna are teeming!
 <<playClip PlayerDiviner>>
 Fen: I have a theory about it, but it's a bit morbid. I'll refrain from sharing it.
+<<turnOnPhoebe OverworldDialogueSystem>>
 <<changeAvatar PhoebeYarn>>
 The Fighter: ...
 <<wait  1>>
 //The Fighter: <i>It's clear that Fen cannot help herself.</i>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Well, alright, I'll tell you.
@@ -960,8 +981,10 @@ Fen: I believe that our life force is being drawn up and into the very atmospher
 Fen: Maybe even to fuel a celestial body, in this place that should be subterranean, 
 <<playClip PlayerDiviner>>
 Fen: but where the moon sits low and never sets...
+<<turnOnPhoebe OverworldDialogueSystem>>
 <<changeAvatar PhoebeYarn>>
 The Fighter: ...
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Oh, but I'm boring you. I get caught up in these things.
@@ -1009,7 +1032,7 @@ Fen: Let me know if anything interesting happens!
 
 //<<if $spokenToFenFighterTavern is true>>
 <<if $charPOV is "Fighter" and $spokenToFenFighterTavern is true>>
-<<turnOnDialogue OverworldDialogueSystem>>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: You really ought to take a look at the garden, up that very tall hill.
@@ -1087,6 +1110,7 @@ Heloise: Feel free to add a log, if you want.
 <<playClip HeloiseYarnCollider>>
 <<changeAvatar HeloiseYarnCollider>>
 Heloise: Have you convinced Altea to join us tonight?
+<<turnOnFen OverworldDialogueSystem>>
 <<playClip PlayerDiviner>>
 <<changeAvatar PlayerDiviner>>
 Fen: ...No. Not yet.
@@ -1098,23 +1122,28 @@ Heloise: Then Liesel owes me a tooth.
 <<endif>>
 
 <<if $charPOV is "Diviner" and $spokenToHeloiseDiviner is true>>
-<<turnOnDialogue OverworldDialogueSystem>>
+<<turnOnFen OverworldDialogueSystem>>
 <<playClip PlayerDiviner>>
 <<changeAvatar PlayerDiviner>>
 Fen: Why do you need the teeth, Heloise? 
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip HeloiseYarnCollider>>
 <<changeAvatar HeloiseYarnCollider>>
 Heloise: Oh, I don't know. I just like them.
 Heloise: I like holding them in my hands and looking at them.
+<<turnOnFen OverworldDialogueSystem>>
 <<playClip PlayerDiviner>>
 <<changeAvatar PlayerDiviner>>
 Fen: This isn't the first tooth bet I've heard you make.
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip HeloiseYarnCollider>>
 <<changeAvatar HeloiseYarnCollider>>
 Heloise: They're wasted on Liesel.
+<<turnOnFen OverworldDialogueSystem>>
 <<playClip PlayerDiviner>>
 <<changeAvatar PlayerDiviner>>
 Fen: If you say so.
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip HeloiseYarnCollider>>
 <<changeAvatar HeloiseYarnCollider>>
 Heloise: She doesn't appreciate them like I do.
