@@ -23,6 +23,7 @@ position: -208,-211
 <<declare $spokenToZoraFighter = false as bool>>
 <<declare $spokenToLieselFighter = false as bool>>
 <<declare $spokenToAmosFighter = false as bool>>
+<<declare $spokenToActorsFighter = false as bool>>
 
 //Fen talk
 <<declare $alteaSceneFenDone = false as bool>>
@@ -562,8 +563,198 @@ Book: "and the world was once again saved."
 ===
 title: PointyActor
 ---
+<<if $spokenToActorsFighter is false>>
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar PointyYarnCollider>>
+<<playClip PointyYarnCollider>>
+Lavinia: The moon taunts me, gleaming with condensed longing.
+Lavinia: My love is up there, maybe, or out in the blue,
+<<playClip PointyYarnCollider>>
+Lavinia: but it has been so long I can't remember the cadence of their voice,
+Lavinia: while I waste here, time and away.
+<<playClip PointyYarnCollider>>
+Lavinia: The sea stretches beneath my window, behind the garden.
+<<playClip PointyYarnCollider>>
+Lavinia: I think about it, sometimes,
+Lavinia: how I could fall into it and maybe
+<<playClip PointyYarnCollider>>
+Lavinia: find some kind of salvation 
+Lavinia: or comfort, or convalescence
+<<playClip PointyYarnCollider>>
+Lavinia: among the squids that sing at the strange hours past midnight
+Lavinia: while I am trying to sleep.
+<<playClip PointyYarnCollider>>
+Lavinia: Though they are underwater I can hear them.
+Lavinia: Their wails sound like laughter.
+<<wait  0.8>>
+<<changeAvatar GrassYarnCollider>>
+<<playClip GrassYarnCollider>>
+Grass: Sshhhhshhhhh...
+<<changeAvatar PointyYarnCollider>>
+<<playClip PointyYarnCollider>>
+Lavinia: You're being grass too loud again.
+Lavinia: I have to start over.
+<<playClip PointyYarnCollider>>
+Lavinia: The moon taunts me, gleaming with--
+<<changeAvatar GrassYarnCollider>>
+<<playClip GrassYarnCollider>>
+Grass: Sssshhhshhhh...
+<<changeAvatar PointyYarnCollider>>
+<<playClip PointyYarnCollider>>
+Lavinia: If you're going to be this loud maybe you should just have no lines.
+<<set $spokenToActorsFighter to true>>
+<<stop>>
+<<endif>>
+
+<<if $spokenToActorsFighter is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar PointyYarnCollider>>
+<<playClip PointyYarnCollider>>
+Lavinia: Let's run the scene again.
+<<changeAvatar Hollis>>
+<<playClip Hollis>>
+Hollis: From the top?
+<<changeAvatar PointyYarnCollider>>
+<<playClip PointyYarnCollider>>
+Lavinia: From the bug part.
+<<changeAvatar JoannaYarnCollider>>
+<<playClip JoannaYarnCollider>>
+Joanna: Places for bug part!
+<<changeAvatar Theodora>>
+<<playClip Theodora>>
+Theodora: We're already in places.
+<<changeAvatar JoannaYarnCollider>>
+<<playClip JoannaYarnCollider>>
+Joanna: Wherefore, good lady?
+<<changeAvatar Hollis>>
+<<playClip Hollis>>
+Hollis: Woudst you show us your gracious visage this night?
+<<changeAvatar PointyYarnCollider>>
+<<playClip PointyYarnCollider>>
+Lavinia: The cicadas are talking to me again.
+<<changeAvatar GrassYarnCollider>>
+<<playClip GrassYarnCollider>>
+Grass: Sshhshh...
+<<changeAvatar Hollis>>
+<<playClip Hollis>>
+Hollis: We desire not our own company, but yours, good lady.
+<<changeAvatar JoannaYarnCollider>>
+<<playClip JoannaYarnCollider>>
+Joanna: Our shells have molted and are ready for your eyes.
+<<changeAvatar Theodora>>
+<<playClip Theodora>>
+Theodora: These creatures are devilish and bawdy.
+<<changeAvatar PointyYarnCollider>>
+<<playClip PointyYarnCollider>>
+Lavinia: But they speak so sweetly, and my love is still gone...
+<<changeAvatar JoannaYarnCollider>>
+<<playClip JoannaYarnCollider>>
+Joanna: We can be your love, lady.
+<<changeAvatar Hollis>>
+<<playClip Hollis>>
+Hollis: We can be yours as you can be ours.
+<<changeAvatar JoannaYarnCollider>>
+<<playClip JoannaYarnCollider>>
+Joanna: Our kingdom below waits for you.
+<<changeAvatar Hollis>>
+<<playClip Hollis>>
+Hollis: There is nothing for you here.
+<<changeAvatar Theodora>>
+<<playClip Theodora>>
+Theodora: Listen not to them. They sing sweet lies,
+Theodora: and seek only to drown you in concrete,
+<<playClip Theodora>>
+Theodora: bury you alive,
+<<playClip Theodora>>
+Theodora: lead you blindly to the end of the earth.
+<<changeAvatar Hollis>>
+<<playClip Hollis>>
+Hollis: There is nothing for you here.
+<<changeAvatar JoannaYarnCollider>>
+<<playClip JoannaYarnCollider>>
+Joanna: Your lover is dead.
+<<changeAvatar Hollis>>
+<<playClip Hollis>>
+Hollis: A home for barnacles.
+<<changeAvatar JoannaYarnCollider>>
+<<playClip JoannaYarnCollider>>
+Joanna: If not dead then drowning.
+<<changeAvatar Hollis>>
+<<playClip Hollis>>
+Hollis: Driftwood made of bone.
+<<changeAvatar PointyYarnCollider>>
+<<playClip PointyYarnCollider>>
+Lavinia: Stop! I am weeping at your cruel words!
+<<changeAvatar JoannaYarnCollider>>
+<<playClip JoannaYarnCollider>>
+Joanna: Do not cry, fair lady.
+<<changeAvatar Hollis>>
+<<playClip Hollis>>
+Hollis: You are waning on this earth.
+<<changeAvatar JoannaYarnCollider>>
+<<playClip JoannaYarnCollider>>
+Joanna: Wane with us. We shall all die, soon.
+<<changeAvatar Hollis>>
+<<playClip Hollis>>
+Hollis: Join in our shrieking pageant, mistress.
+<<changeAvatar JoannaYarnCollider>>
+<<playClip JoannaYarnCollider>>
+Joanna: Shine your shell under our moonlight.
+<<changeAvatar PointyYarnCollider>>
+<<playClip PointyYarnCollider>>
+Lavinia: I have no shell. I'm frightened of you,
+Lavinia: of your saccharine words. But you are disciples of the ground beneath.
+<<changeAvatar JoannaYarnCollider>>
+<<playClip JoannaYarnCollider>>
+Joanna: It is only your resting place, lady.
+<<changeAvatar Theodora>>
+<<playClip Theodora>>
+Theodora: Crush them under the heel of your hand.
+<<changeAvatar PointyYarnCollider>>
+<<playClip PointyYarnCollider>>
+Lavinia: What if they bleed?
+<<changeAvatar Theodora>>
+<<playClip Theodora>>
+Theodora: Then they bleed.
+<<changeAvatar Hollis>>
+<<playClip Hollis>>
+Hollis: She crushes the cicadas under her hands, her shoes.
+<<changeAvatar JoannaYarnCollider>>
+<<playClip JoannaYarnCollider>>
+Joanna: The balcony she stands upon is stained under the moon.
+<<changeAvatar PointyYarnCollider>>
+<<playClip PointyYarnCollider>>
+Lavinia: Oh god.
+<<changeAvatar Theodora>>
+<<playClip Theodora>>
+Theodora: It is only paint.
+Theodora: Resume your high watch.
+Theodora: Your lover will return.
+<<playClip Theodora>>
+Theodora: It will just take time.
+<<wait  0.8>>
+<<changeAvatar GrassYarnCollider>>
+<<playClip GrassYarnCollider>>
+Grass: SSshshhhhhhshhshHshHHSHHHH!
+<<wait  0.75>>
+<<changeAvatar PointyYarnCollider>>
+<<playClip PointyYarnCollider>>
+Lavinia: What are you doing.
+<<changeAvatar GrassYarnCollider>>
+<<playClip GrassYarnCollider>>
+Grass: I thought it would be a good time for grass.
+<<changeAvatar JoannaYarnCollider>>
+<<playClip JoannaYarnCollider>>
+Joanna: We have to start over.
+<<stop>>
+<<endif>>
+===
+title: PointyActorOLDSHAKESPEARE
+---
 <<if $charPOV is "Fighter">>
 <<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar PointyYarnCollider>>
+<<playClip PointyYarnCollider>>
 Pointy Actor: Have I not reason, think you, to look pale?
 Pointy Actor: These two have 'ticed me hither to this place:
 Pointy Actor: A barren detested vale you see it is;
@@ -606,11 +797,14 @@ title: JoannaActor
 <<playClip JoannaYarnCollider>>
 //Theodora's is just Theodora, Hollis's will just be Hollis
 Joanna: It isn't perfect.
+<<playClip JoannaYarnCollider>>
 Joanna: We've been rehearsing for, I don't know,
 Joanna: decades? I don't remember.
 <<wait  1>>
+<<playClip JoannaYarnCollider>>
 Joanna: Why do you look so horrified? This is our craft.
 Joanna: I can't think of a better pastime for spending eternity in hell.
+<<playClip JoannaYarnCollider>>
 Joanna: Or purgatory. Or whatever this hungry place is.
 <<stop>>
 <<endif>>
