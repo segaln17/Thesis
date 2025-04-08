@@ -584,13 +584,28 @@ title: GrassActor
 ---
 <<if $spokenToGrassFighter is false>>
 <<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar GrassYarnCollider>>
+<<playClip GrassYarnCollider>>
 Grass: Sssssssshhhhshhhhshshhhhhhhh...
 <<set $spokenToGrassFighter to true>>
 <<stop>>
 <<endif>>
 <<if $spokenToGrassFighter is true>>
 <<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar GrassYarnCollider>>
+<<playClip GrassYarnCollider>>
 Grass: I'm grass!
+<<stop>>
+<<endif>>
+===
+title: JoannaActor
+---
+<<if $charPOV is "Fighter">>
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar JoannaYarnCollider>>
+<<playClip JoannaYarnCollider>>
+//Theodora's is just Theodora, Hollis's will just be Hollis
+Joanna:
 <<stop>>
 <<endif>>
 ===
