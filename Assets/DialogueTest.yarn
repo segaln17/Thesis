@@ -309,21 +309,26 @@ position: 209,-41
     Byron: Go bother someone else with your chattering.
     Byron: It's like your teeth are loose in that skull of yours.
     Byron: Someone ought to fix that.
+    <<turnOnFen OverworldDialogueSystem>>
     <<changeAvatar PlayerDiviner>>
     <<playClip PlayerDiviner>>
     Fen: Like Altea, you mean?
+    <<turnOnDialogue OverworldDialogueSystem>>
     <<changeAvatar ByronYarnCollider>>
     <<playClip ByronYarnCollider>>
     Byron: My Lady is as beautiful as she is merciless, it's true.
     Byron: I'd recommend her certainly as candidate.
+    <<turnOnFen OverworldDialogueSystem>>
     <<changeAvatar PlayerDiviner>>
     Fen: ...
     <<playClip PlayerDiviner>>
     Fen: Thanks for the input, Byron. 
     Fen: By the way, those are bones. Not sticks.
+    <<turnOnDialogue OverworldDialogueSystem>>
     <<changeAvatar ByronYarnCollider>>
     <<playClip ByronYarnCollider>>
     Byron: You must be going mad then because these are the best pieces of kindling the Beneath has to offer.
+    <<turnOnFen OverworldDialogueSystem>>
     <<changeAvatar PlayerDiviner>>
     <<playClip PlayerDiviner>>
     Fen: Sure they are.
@@ -331,18 +336,21 @@ position: 209,-41
     <<stop>>
 <<endif>>
 <<if $charPOV is "Diviner" and $spokenToByronDiviner is true>>
-    <<turnOnDialogue OverworldDialogueSystem>>
+    <<turnOnFen OverworldDialogueSystem>>
     <<changeAvatar PlayerDiviner>>
     <<playClip PlayerDiviner>>
     Fen: By the way, you ought to comb your hair.
     Fen: You look like an ancient mariner.
+    <<turnOnDialogue OverworldDialogueSystem>>
     <<changeAvatar ByronYarnCollider>>
     <<playClip ByronYarnCollider>>
     Byron: Why thank you.
+    <<turnOnFen OverworldDialogueSystem>>
     <<changeAvatar PlayerDiviner>>
     <<playClip PlayerDiviner>>
     Fen: Not a compliment.
     Fen: You look like you'd eat your compatriots if your ship was stuck on the ice for too long.
+    <<turnOnDialogue OverworldDialogueSystem>>
     <<changeAvatar ByronYarnCollider>>
     <<playClip ByronYarnCollider>>
     Byron: Who's to say I haven't?
@@ -366,6 +374,7 @@ Tree: <i>It doesn't appear that this tree has anything to say to you.</i>
 <<playClip TalkingTreeYarnCollider>>
 Tree: I sing through my roots deep within the earth to my sister the willow up on her hill,
 Tree: I her graceless sibling.
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Oh, don't say that. You're very graceful.
@@ -394,17 +403,20 @@ Creature with a Trowel: !gniht siht elots i
 <<endif>>
 
 <<if $charPOV is "Diviner">>
-<<turnOnDialogue OverworldDialogueSystem>>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Hello, you.
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar YarnColliderTrowelCreature>>
 <<playClip YarnColliderTrowelCreature>>
 Creature with a Trowel: !yadot tfeht dettimmoc i
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: What's that you have there?
 Fen: Can I have it?
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar YarnColliderTrowelCreature>>
 <<playClip YarnColliderTrowelCreature>>
 Creature with a Trowel: !ti gniyrrac fo derob ma i sey!
@@ -416,14 +428,17 @@ Creature with a Trowel: !ti gniyrrac fo derob ma i sey!
 <<wait  2>>
 //get rid of sprite in creature's mouth
 <<disappearCreature trowel>>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 //Fen: Ew. It's covered in spit.
 Fen: ...Thank you, friend.
 Fen: I can tell you've been holding this in your mouth for a while.
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar YarnColliderTrowelCreature>>
 <<playClip YarnColliderTrowelCreature>>
 Creature with a Trowel: !sgniht rehto laets ot gniog ma i
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: ...
@@ -461,17 +476,20 @@ Verity: I'm trying to turn into a rock and you're distracting me.
 <<endif>>
 
 <<if $charPOV is "Diviner">>
-<<turnOnDialogue OverworldDialogueSystem>>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Everything alright, Verity?
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar VerityYarnCollider>>
 <<playClip VerityYarnCollider>>
 Verity: It didn't work over there, but maybe it'll work here.
 Verity: I've been practicing.
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Are you still trying for petrification?
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar VerityYarnCollider>>
 Verity: ...
 <<playClip VerityYarnCollider>>
@@ -522,9 +540,11 @@ Zora: Nevermind. She'll never pay up. She never does.
 <<changeAvatar ZoraYarnCollider>>
 <<playClip ZoraYarnCollider>>
 Zora: What'll it be, Fen?
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Oh, nothing.
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar ZoraYarnCollider>>
 <<playClip ZoraYarnCollider>>
 Zora: Fine by me. Nothing is what we have.
@@ -849,9 +869,11 @@ Amos: On <i>purpose</i>!
 <<changeAvatar AmosYarnCollider>>
 <<playClip AmosYarnCollider>>
 Amos: I wonder if she needs anything. She's too polite to ask.
+<<turnOnPhoebe OverworldDialogueSystem>>
 <<changeAvatar PhoebeYarn>>
 The Fighter: ...
 <<wait  1>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar AmosYarnCollider>>
 <<playClip AmosYarnCollider>>
 Amos: Why are you doing that with your face?
@@ -865,27 +887,34 @@ Amos: I'm very normal about Fen being here.
 <<changeAvatar AmosYarnCollider>>
 <<playClip AmosYarnCollider>>
 Amos: You never told me how you got here, you know.
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Oh, well. It's a long story.
 Fen: I was looking for something.
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar AmosYarnCollider>>
 <<playClip AmosYarnCollider>>
 Amos: Did you find it?
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: ...I'm not sure yet.
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar AmosYarnCollider>>
 <<playClip AmosYarnCollider>>
 Amos: What kind of thing was it? 
 Amos: ...Wedding ring? Lover's tiara?
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Oh, darling. 
 Fen: Just a personal possession of mine, that's all.
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar AmosYarnCollider>>
 <<playClip AmosYarnCollider>>
 Amos: I'm sorry for all the questions, I'm just a little starstruck.
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: It's quite alright, dear. Everyone is.
@@ -899,10 +928,12 @@ Fen: It's quite alright, dear. Everyone is.
 <<playClip AmosYarnCollider>>
 Amos: Altea will come around. I'm sure of it.
 Amos: You've been trying so hard.
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: I've just been trying to make her see the value of community, you know?
 Fen: You understand, don't you?
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar AmosYarnCollider>>
 <<playClip AmosYarnCollider>>
 Amos: Absolutely I do.
@@ -1114,6 +1145,7 @@ Heloise: Have you convinced Altea to join us tonight?
 <<playClip PlayerDiviner>>
 <<changeAvatar PlayerDiviner>>
 Fen: ...No. Not yet.
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip HeloiseYarnCollider>>
 <<changeAvatar HeloiseYarnCollider>>
 Heloise: Then Liesel owes me a tooth.
@@ -1195,9 +1227,11 @@ Liesel: Except, they love to gossip.
 <<changeAvatar LieselYarnCollider>>
 <<playClip LieselYarnCollider>>
 Liesel: I think Baby's avoiding me.
+<<turnOnFen OverworldDialogueSystem>>
 <<playClip PlayerDiviner>>
 <<changeAvatar PlayerDiviner>>
 Fen: Why would he be doing such a thing?
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar LieselYarnCollider>>
 <<playClip LieselYarnCollider>>
 Liesel: He's been telling people I work for him.
@@ -1205,9 +1239,11 @@ Liesel: He's been telling people I work for him.
 //<<playClip LieselYarnCollider>>
 //Liesel: He keeps having tantrums and I don't know what to do about them.
 Liesel: He's in a rebellious phase.
+<<turnOnFen OverworldDialogueSystem>>
 <<playClip PlayerDiviner>>
 <<changeAvatar PlayerDiviner>>
 Fen: I'm sure it'll pass, Liesel.
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar LieselYarnCollider>>
 <<playClip LieselYarnCollider>>
 Liesel: I hope so. He won't play with me anymore.
@@ -1222,9 +1258,11 @@ Liesel: He says I'm embarrassing him.
 <<playClip LieselYarnCollider>>
 Liesel: Do you think I can train the hedgehogs to jump through hoops?
 Liesel: I want to get them to jump over the fire.
+<<turnOnFen OverworldDialogueSystem>>
 <<playClip PlayerDiviner>>
 <<changeAvatar PlayerDiviner>>
 Fen: Creatures aren't allowed by the fire, dear.
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar LieselYarnCollider>>
 <<playClip LieselYarnCollider>>
 Liesel: Oh.
@@ -1354,10 +1392,12 @@ Grimbolde: Treat it as such.
 Grimbolde: Oh, Fen, can something be done about these things?
 Grimbolde: I hate them.
 Grimbolde: Their voices scrape my mind like nails on slate.
+<<turnOnFen OverworldDialogueSystem>>
 <<playClip PlayerDiviner>>
 <<changeAvatar PlayerDiviner>>
 Fen: Hmm...
 Fen: Have you tried pushing them out of the way?
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar GrimboldeYarnCollider>>
 Grimbolde: ...
 <<playClip GrimboldeYarnCollider>>
@@ -1374,9 +1414,11 @@ Grimbolde: I wouldn't think she was in there at all if not for the light.
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: She won't come out.
 Grimbolde: She never comes out.
+<<turnOnFen OverworldDialogueSystem>>
 <<playClip PlayerDiviner>>
 <<changeAvatar PlayerDiviner>>
 Fen: I'll do my best to convince her.
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar GrimboldeYarnCollider>>
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: But can you get her to stop that racket?
@@ -1492,25 +1534,30 @@ Hildegard: Maybe I'll... maybe I'll go later.
 <<changeAvatar HildegardYarnCollider>>
 <<playClip HildegardYarnCollider>>
 Hildegard: Fen, I'm feeling so peculiar.
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: How so, dear?
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip HildegardYarnCollider>>
 <<changeAvatar HildegardYarnCollider>>
 Hildegard: My head... it feels far away. And my body...
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Have you mentioned this to Altea? Maybe she can help?
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip HildegardYarnCollider>>
 <<changeAvatar HildegardYarnCollider>>
 Hildegard: No... I feel foolish admitting this but I'm afraid of her.
 Hildegard: And she never comes up here.
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Well, if this strange feeling persists, tell me, okay?
 Fen: And I'll talk to her for you.
 Fen: She's just prickly, that's all.
-<<changeAvatar PlayerDiviner>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip HildegardYarnCollider>>
 <<changeAvatar HildegardYarnCollider>>
 Hildegard: ...Okay.
@@ -1529,9 +1576,11 @@ Hildegard: ...Okay.
 Hildegard: The moon...
 Hildegard: I can hear it...
 Hildegard: It's singing his favorite song.
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: ...are you alright, Hildegard?
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip HildegardYarnCollider>>
 <<changeAvatar HildegardYarnCollider>>
 Hildegard: Oh, Fen... I didn't see you.
@@ -1549,6 +1598,7 @@ position: 319,69
 Creature: ?ylduol os sgnis noom ruo nehw nus eht rof ew evah deen tahw
 <<endif>>
 <<if $charPOV is "Diviner">>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar CampfireHedgehogYarnCollider>>
 <<playClip CampfireHedgehogYarnCollider>>
 Creature: <i>Hissssssss...</i>
@@ -1736,7 +1786,7 @@ title: FenPostGardenTransition
 ---
 <<if $charPOV is "Diviner">>
 <<wait  2>>
-<<turnOnDialogue OverworldDialogueSystem>>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: I feel as though I've been sitting here for ages.
@@ -1761,7 +1811,7 @@ title: HighPriestessTimelineTrigger
 ===
 title: HighPriestess
 ---
-<<turnOnDialogue OverworldDialogueSystem>>
+<<turnOnFen OverworldDialogueSystem>>
 <<hideFen PlayerDiviner>>
 //knock on the door
 <<playKnock YarnStableCutsceneSetUpCollider>>
@@ -1777,9 +1827,11 @@ Fen: I know you're likely busy, but it's time for dinner, and I was hoping you w
 <<changeCam PlayerDiviner>>
 <<openDoor YarnStableCutsceneSetUpCollider>>
 <<revealCreature YarnStableCutsceneSetUpCollider>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
 Altea: What do you want?
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Well, seeing as we're all gathering at the Bonfire,
@@ -1790,9 +1842,11 @@ Fen: Again.
 <<wait  1.5>>
 <<playClip PlayerDiviner>>
 Fen: Just in case you've changed your mind?
+<<turnOnDialogue OverworldDialogueSystem>>
 <<playClip PlayerClericStandInStable>>
 <<changeAvatar PlayerClericStandInStable>>
 Altea: I'm busy.
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: I assumed you would say that, but, Altea...
@@ -1801,15 +1855,19 @@ Fen: Oh, and there's a newcomer! You ought to meet her, she seems lovely.
 //Fen: Made her way into the garden, clever thing!
 //Altea: What?
 Fen: Not one for talking, but quite a lovely singer!
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
 Altea: Someone new's here.
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Yes! Isn't it exciting?
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
 Altea: And they're not bawling like a baby?
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: No, she seems to be adjusting just fine!
@@ -1818,23 +1876,27 @@ Fen: I have a sense about these things.
 <<playClip PlayerDiviner>>
 Fen: Do come and meet her, Altea. I think you'd find her as interesting as I do!
 <<wait  1>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
 Altea: Hm.
 <<wait  2>>
-<<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
 Altea: No.
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: No?
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
 Altea: I'm busy, Fen.
 Altea: I have a lot of work to do.
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: But it's important to stay grounded--
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
 Altea: It's insanity.
@@ -1849,15 +1911,19 @@ Altea: But I'm not like you. I'm a realist.
 Altea: This place is a hellhole,
 Altea: and these husks aren't going to fix themselves.
 <<wait  1>>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: But--
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
 Altea: Do you not want me to call upon my Lady to help these poor, helpless, wretched things?
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Well, yes, but--
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
 Altea: Then let me work. I'm not coming to "Dinner."
@@ -1865,6 +1931,7 @@ Altea: Then let me work. I'm not coming to "Dinner."
 <<disappearCreature YarnStableCutsceneSetUpCollider>>
 <<changeBackCam PlayerDiviner>>
 <<wait  1>>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 //timeline for door close
 <<playClip PlayerDiviner>>
@@ -1886,7 +1953,7 @@ title: BonfireConversation1
 //camera change, objects change
 <<changeCam BonfireManager>>
 <<wait 0.5>> //change this to be shorter???
-<<turnOnDialogue OverworldDialogueSystem>>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: It's poetic, I think.
@@ -1959,9 +2026,11 @@ Grimbolde: What's next, another husk for Hythe to gawk at?
 <<changeAvatar AmosYarnCollider>>
 <<playClip AmosYarnCollider>>
 Amos: More tea, Fen?
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Yes, thank you.
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar Shrill>>
 <<playClip Shrill>>
 A Shrill Voice: If you see a hat with a really great feather in it...
@@ -1987,14 +2056,17 @@ Heloise: The beasts.
 <<playClip LieselYarnCollider>>
 Liesel: They're not beasts.
 <<wait  0.5>>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: This is a lively bunch, Fighter, wouldn't you say?
+<<turnOnPhoebe OverworldDialogueSystem>>
 <<changeAvatar PhoebeYarn>>
 The Fighter: ...
 <<wait  1>>
 //low voices in background, bonfire ambience
 //teakettle over flames in this node
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Say, have you seen that skeleton, over the bridge on that other island?
@@ -2009,21 +2081,26 @@ Fen: It's quite something.
 Fen: I forget sometimes how slow boiling water over an actual fire can be.
 Fen: But I can't just go using spellcraft around here all willy-nilly, can I?
 //The Fighter: <i>You shrug awkwardly. Fen seems amused by this.</i>
+<<turnOnPhoebe OverworldDialogueSystem>>
 <<changeAvatar PhoebeYarn>>
 The Fighter: ...
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Oh, dear, you look distressed. That was a rhetorical question.
 //checks water again
 //<<wait  0.5>>
 Fen: Heloise, is it hot enough yet?
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar HeloiseYarnCollider>>
 <<playClip HeloiseYarnCollider>>
 Heloise: Nope.
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Rats.
 <<wait  0.5>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar SnobbishSprite>>
 <<playClip SnobbishSprite>>
 A Snobbish Voice: ...so I said, if you could turn into any of the creatures around here what would you be,
@@ -2036,6 +2113,7 @@ A Snobbish Voice: and he said, a tharpy, and I said that's ridiculous...
 //The Fighter: <i>You say nothing.</i>
 //The Fighter: ...
 //The Fighter: <i>Fen seems to take this as agreement.</i>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Oh, but yes, the skeleton!
@@ -2099,8 +2177,10 @@ Altea: ...
 <<playClip PlayerClericStandInSpine>>
 Altea: What are you doing out here.
 //<i>It's not a question, but an accusation.</i>
+<<turnOnPhoebe OverworldDialogueSystem>>
 <<changeAvatar PhoebeYarn>>
 The Fighter: ...
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerClericStandInSpine>>
 <<playClip PlayerClericStandInSpine>>
 Altea: This is important. I can't be interrupted.
@@ -2159,7 +2239,7 @@ Creature that Looks Worried: See what she has done.
 ===
 title: BonfireTransition
 ---
-<<turnOnDialogue OverworldDialogueSystem>>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Ah, you're back! And... with creatures in tow!
@@ -2168,20 +2248,25 @@ Fen: Oh, Windy will not be happy.
 <<wait  1>>
 <<playClip PlayerDiviner>>
 Fen: Are you alright? You look... queasy.
+<<turnOnDialogue OverworldDialogueSystem>>
 Creature with Fingernails: She cannot understand us.
 Creature with Fingernails: You have the song to help her understand.
 //SONG OF BEASTS SONG
 <<wait  4>>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: That was lovely, but--
+<<turnOnDialogue OverworldDialogueSystem>>
 Creature with Wings: Old but young one!
 Creature with Fingernails: The burning one is sapping them!
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: You can speak?
 Fen: In the common tongue?
 Fen: Fascinating.
+<<turnOnDialogue OverworldDialogueSystem>>
 Creature with Fingernails: The singing one is our friend, she understands us! 
 Creature with Fingernails: But the burning one does not!
 Creature with Wings: The burning one is hungry and afraid.
@@ -2201,6 +2286,7 @@ Both: The moon is hungry and hungry and hungry.
 //<i>Your home, long since fallen to madness and chaos and beasts,</i>
 //<i>is here. The spine of it, anyway.</i>
 //<i>You are haunted, and do not speak.</i>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Oh, dear.
@@ -2231,7 +2317,7 @@ Fen: I'll investigate. It's all under control.
 title: FenMemoryTransition
 ---
 //at stable, looking at Altea's stuff
-<<turnOnDialogue OverworldDialogueSystem>>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 //Fen: Oh, dear gods...
@@ -2271,7 +2357,7 @@ Fen: Yes. Yes, that's the way.
 title: FenMemoryIntro
 ---
 //OLD STUFF FOR USE IN THIS BUILD
-<<turnOnDialogue OverworldDialogueSystem>>
+<<turnOnFen OverworldDialogueSystem>>
 <<wait  0.5>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
@@ -2304,6 +2390,7 @@ title: LighthouseNPC
 Someone Stuck: I wanted to climb up and look down at everything like little ants.
 Someone Stuck: But I got up here and then I got tired.
 Someone Stuck: And I don't feel like going back down yet.
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: It is quite a climb.
@@ -2312,18 +2399,23 @@ Fen: I have business up there, otherwise I would follow your lead.
 <<stop>>
 <<endif>>
 <<if $spokenToLighthouseNPCDiviner is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar LighthouseNPC>>
 <<playClip LighthouseNPC>>
 Someone Stuck: Great view of the moon from up there, so I hear.
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Oh, I know.
-<<changeAvatar PlayerDiviner>>
-<<playClip PlayerDiviner>>
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar LighthouseNPC>>
+<<playClip LighthouseNPC>>
 Someone Stuck: You said that with such an ominous tone.
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Did I?
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar LighthouseNPC>>
 Someone Stuck: ...
 <<playClip LighthouseNPC>>
@@ -2333,7 +2425,7 @@ Someone Stuck: I'm just going to stay here for a bit longer I think.
 ===
 title: FenGoesUp1
 ---
-<<turnOnDialogue OverworldDialogueSystem>>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: This is more stairs than I anticipated.
@@ -2344,7 +2436,7 @@ Fen: Maybe I haven't quite thought this through.
 ===
 title: FenGoesUp2
 ---
-<<turnOnDialogue OverworldDialogueSystem>>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: This is probably not a good idea.
@@ -2357,7 +2449,7 @@ Fen: That's not a good joke at all.
 ===
 title: FenGoesUp3
 ---
-<<turnOnDialogue OverworldDialogueSystem>>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: I've never considered that there's no bugs here.
@@ -2379,10 +2471,11 @@ Fen: They could have dreams too.
 ===
 title: LighthouseCreature
 ---
-<<turnOnDialogue OverworldDialogueSystem>>
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: A tharpy, up here?
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar LighthouseTharpy>>
 <<playClip  LighthouseTharpy>>
 Tharpy: !flesym yb lla ereh pu ti edam i
@@ -2392,11 +2485,13 @@ Tharpy: ,em sllac noom eht tub
 Tharpy: ...ylteews os sgnis ti
 <<playClip  LighthouseTharpy>>
 Tharpy: .uoy fo diarfa ton si ti
+<<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 Fen: ...
 <<playClip PlayerDiviner>>
 Fen: Well I didn't get any of that.
 Fen: I'm just... going to keep climbing.
+<<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar LighthouseTharpy>>
 <<playClip LighthouseTharpy>>
 Tharpy: !daeha og 
@@ -2406,7 +2501,7 @@ Tharpy: !uoy rof stiaw ti
 title: FenAtTheTop
 ---
 <<if $charPOV is "Diviner">>
-<<turnOnDialogue OverworldDialogueSystem>>
+<<turnOnFen OverworldDialogueSystem>>
 //timeline to change camera to look at the Moon
 <<changeAvatar PlayerDiviner>>
 //<<changeCam FenYellsAtMoonCollider>>
