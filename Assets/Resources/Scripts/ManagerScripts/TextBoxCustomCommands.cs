@@ -20,6 +20,7 @@ public class TextBoxCustomCommands : MonoBehaviour
 
     public TextMeshProUGUI charText;
     public TextMeshProUGUI instructionText;
+    public TextMeshProUGUI bodyText;
 
     private void Start()
     {
@@ -44,7 +45,9 @@ public class TextBoxCustomCommands : MonoBehaviour
         cloudBG.SetActive(true);
         fenBG.SetActive(false);
         phoebeBG.SetActive(false);
-        //charText.color = new Color(255f, 230f, 0f, 1);
+        //charText.color = new Color(255, 208, 0, 1);
+        instructionText.color = new Color(255, 208, 0, 1);
+        bodyText.color = new Color(255, 208, 0, 1);
     }
 
     [YarnCommand("turnOnBook")]
@@ -56,7 +59,9 @@ public class TextBoxCustomCommands : MonoBehaviour
 
         cloudBG.SetActive(false);
         bookBG.SetActive(true);
-        //charText.color = new Color(69f, 71f, 53f, 1);
+        charText.color = new Color(25f, 29f, 36f, 1);
+        instructionText.color = new Color(25f, 29f, 36f, 1);
+        bodyText.color = new Color(25f, 29f, 36f, 1);
     }
 
     [YarnCommand("turnOnDialogue")]
@@ -72,6 +77,7 @@ public class TextBoxCustomCommands : MonoBehaviour
         characterName.SetActive(true);
         charText.color = new Color(255f, 255f, 255f, 1);
         instructionText.color = new Color(255f, 255f, 255f, 1);
+        bodyText.color = new Color(255f, 255f, 255f, 1);
     }
 
     [YarnCommand("turnOnPhoebe")]
@@ -87,6 +93,7 @@ public class TextBoxCustomCommands : MonoBehaviour
         avatar.SetActive(true);
         charText.color = new Color(255f, 0f, 123f, 1);
         instructionText.color = new Color(255f, 0f, 123f, 1);
+        bodyText.color = new Color(255f, 0f, 123f, 1);
 
     }
     
@@ -101,8 +108,10 @@ public class TextBoxCustomCommands : MonoBehaviour
         fenBG.SetActive(true);
         characterName.SetActive(true);
         avatar.SetActive(true);
-        charText.color = new Color(235f, 255f, 148f, 1);
-        instructionText.color = new Color(235f, 255f, 148f, 1);
+        charText.color = new Color(229, 255, 0, 1);
+        instructionText.color = new Color(229, 255, 0, 1);
+        bodyText.color = new Color(229, 255, 0, 1);
+
     }
     
 }
