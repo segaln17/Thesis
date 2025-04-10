@@ -188,7 +188,7 @@ position: -172,85
     <<changeAvatar WindyYarnCollider>>
     Windy: Hey, I've been wondering.
     Windy: Is it true what they're saying?
-    <<turnOnFen OverWorldDialogueSystem>>
+    <<turnOnFen OverworldDialogueSystem>>
     <<changeAvatar PlayerDiviner>>
     <<playClip PlayerDiviner>>
     Fen: What do you mean? That you're divorced?
@@ -201,7 +201,7 @@ position: -172,85
     <<playClip WindyYarnCollider>>
     Windy: People are saying you're...
     Windy: Forgetting things.
-    <<turnOnFen OverWorldDialogueSystem>>
+    <<turnOnFen OverworldDialogueSystem>>
     <<changeAvatar PlayerDiviner>>
     Fen: ...
     <<playClip PlayerDiviner>>
@@ -217,7 +217,7 @@ position: -172,85
     Windy: You know, because you're <i>immortal</i>, or whatever.
     Windy: Her words.
     Windy: People are wondering if it's true.
-    <<turnOnFen OverWorldDialogueSystem>>
+    <<turnOnFen OverworldDialogueSystem>>
     <<playClip PlayerDiviner>>
     <<changeAvatar PlayerDiviner>>
     Fen: Of course it's not true.
@@ -233,7 +233,7 @@ position: -172,85
     <<changeAvatar WindyYarnCollider>>
     Windy: Hmm.
     Windy: Maybe take a rest, Fen.
-    <<turnOnFen OverWorldDialogueSystem>>
+    <<turnOnFen OverworldDialogueSystem>>
     <<changeAvatar PlayerDiviner>>
     <<playClip PlayerDiviner>>
     Fen: I should go. I have... things to do.
@@ -536,7 +536,7 @@ Zora: Nevermind. She'll never pay up. She never does.
 <<stop>>
 <<endif>>
 
-<<if $charPOV is "Diviner" and $spokenToZoraDiviner is false>>
+<<if $charPOV is "Diviner">>
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar ZoraYarnCollider>>
 <<playClip ZoraYarnCollider>>
@@ -549,7 +549,7 @@ Fen: Oh, nothing.
 <<changeAvatar ZoraYarnCollider>>
 <<playClip ZoraYarnCollider>>
 Zora: Fine by me. Nothing is what we have.
-<<set $spokenToZoraDiviner to true>>
+//<<set $spokenToZoraDiviner to true>>
 <<stop>>
 <<endif>>
 ===
@@ -787,8 +787,14 @@ Joanna: We have to start over.
 <<endif>>
 
 <<if $spokenToActorsFighter is true and $spokenToActorsFighter2 is true>>
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar Theodora>>
+<<playClip Theodora>>
 Theodora: I would rather run another scene.
+<<changeAvatar Hollis>>
+<<playClip Hollis>>
 Hollis: We've never finished the bug scene, though.
+<<changeAvatar>>
 Joanna: Because the grass is always too loud.
 Grass: ...
 Theodora: What if we ran the kiss scene?
@@ -860,6 +866,14 @@ Joanna: Why do you look so horrified? This is our craft.
 Joanna: I can't think of a better pastime for spending eternity in hell.
 <<playClip JoannaYarnCollider>>
 Joanna: Or purgatory. Or whatever this hungry place is.
+<<stop>>
+<<endif>>
+
+<<if $charPOV is "Diviner">>
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar JoannaYarnCollider>>
+<<playClip JoannaYarnCollider>>
+Joanna: We still haven't got the bug scene down.
 <<stop>>
 <<endif>>
 ===
@@ -1343,6 +1357,50 @@ Hythe: Why are you making that face?
 Hythe: Is it something I said?
 <<stop>>
 <<endif>>
+
+<<if $charPOV is "Diviner">>
+<<turnOnFen OverworldDialogueSystem>>
+<<playClip PlayerDiviner>>
+<<changeAvatar PlayerDiviner>>
+Fen: Hythe, how long has it been since you've been near the bonfire?
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar HytheYarnCollider>>
+<<playClip HytheYarnCollider>>
+Hythe: Who can keep track, anymore?
+<<turnOnFen OverworldDialogueSystem>>
+<<playClip PlayerDiviner>>
+<<changeAvatar PlayerDiviner>>
+Fen: That doesn't answer my question. You never leave this spot.
+Fen: People are... a bit concerned.
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar HytheYarnCollider>>
+<<playClip HytheYarnCollider>>
+Hythe: Who? Not these fellows, surely?
+Hythe: They can't say anything about my sitting here watching them all day.
+<<turnOnFen OverworldDialogueSystem>>
+<<changeAvatar PlayerDiviner>>
+Fen: ...
+<<playClip PlayerDiviner>>
+Fen: Maybe take a walk to the bonfire tonight.
+Fen: Or now, even.
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar HytheYarnCollider>>
+<<playClip HytheYarnCollider>>
+Hythe: Hmm...
+Hythe: I don't think I shall.
+Hythe: I'm perfectly happy here.
+<<playClip HytheYarnCollider>>
+Hythe: In fact, you all should try it!
+Hythe: Try screaming at a husk. It's very cathartic!
+<<playClip HytheYarnCollider>>
+Hythe: They can't do anything!
+<<turnOnFen OverworldDialogueSystem>>
+<<changeAvatar PlayerDiviner>>
+Fen: ...
+<<playClip PlayerDiviner>>
+Fen: Goodbye.
+<<stop>>
+<<endif>>
 ===
 title: JudgyBathhouseHound
 ---
@@ -1505,6 +1563,85 @@ Steve: Excuse me, new person, I have to get back to it.
 Steve: The Big One's not going to catch itself.
 <<stop>>
 <<endif>>
+
+<<if $charPOV is "Diviner">>
+<<turnOnFen OverworldDialogueSystem>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: Oh, hello! I didn't know anyone was down here.
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar SteveYarnCollider>>
+<<playClip SteveYarnCollider>>
+Fishing Man Without Pants: Hello! I'm Steve.
+<<turnOnFen OverworldDialogueSystem>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: Is that you, whistling at night?
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar SteveYarnCollider>>
+<<playClip SteveYarnCollider>>
+Steve: What's night?
+<<turnOnFen OverworldDialogueSystem>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: What are you doing down here?
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar SteveYarnCollider>>
+<<playClip SteveYarnCollider>>
+Steve: Jacqueline and I are fishing.
+Steve: I'm trying to catch the Big One.
+<<turnOnFen OverworldDialogueSystem>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: The Big One?
+Fen: Do you mean the Worldeater fish?
+Fen: I read about that once.
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar SteveYarnCollider>>
+Steve: ...
+Steve: ...
+<<turnOnFen OverworldDialogueSystem>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: Are you alright?
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar SteveYarnCollider>>
+Steve: ...
+<<playClip SteveYarnCollider>>
+Steve: The fiend. He almost bested me.
+<<playClip SteveYarnCollider>>
+Steve: For countless days and nights I toiled, battling the roiling sea,
+Steve: treading water for what felt like an eternity.
+<<playClip SteveYarnCollider>>
+Steve: I suffocated him on the shore.
+<<playClip SteveYarnCollider>>
+Steve: But yet he still taunts me. I can feel it.
+Steve: He is here. But how?
+<<playClip SteveYarnCollider>>
+Steve: <i>I killed him, didn't I?</i>
+<<turnOnFen OverworldDialogueSystem>>
+<<changeAvatar PlayerDiviner>>
+Fen: ...
+<<playClip PlayerDiviner>>
+Fen: I'll leave you to it.
+<<stop>>
+<<endif>>
+===
+title: Jacqueline
+---
+<<turnOnDialogue OverworldDialogueSystem>>
+Jacqueline: The dictionary defines 'wasting' as 'to use badly, to use up.'
+Jacqueline: It can also be used as a slang word for 'to kill.'
+Jacqueline: This use is mostly colloquial.
+Jacqueline: However, when we examine the etymology of the word,
+Jacqueline: we see it originates from the old Terrariestri word for 'cicada,'
+Jacqueline: a creature known for its desperate sexual call.
+Jacqueline: Scholars have noted that the Terrariestri reviled the cicada,
+Jacqueline: for its call would constantly interrupt their Forever Music,
+Jacqueline: which they would play every Sunday for twenty-seven hours consecutively.
+Jacqueline: None of these things seem at all relevant to the current modern definition of 'to waste,'
+Jacqueline: aside from the pure hatred of these people to this small, shelled individual.
+<<stop>>
 ===
 title: OutsideGardenNPC
 position: 309,59
