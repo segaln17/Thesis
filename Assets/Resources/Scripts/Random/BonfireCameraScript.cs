@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class BonfireCameraScript : MonoBehaviour
 {
-    public GameObject outsideCutsceneObjs;
+    //public GameObject outsideCutsceneObjs;
     public GameObject InsideCutsceneObjs;
 
     public CinemachineVirtualCamera bonfireCam;
@@ -32,7 +32,7 @@ public class BonfireCameraScript : MonoBehaviour
 
         if (inBonfireCutscene)
         {
-            outsideCutsceneObjs.SetActive(false);
+            //outsideCutsceneObjs.SetActive(false);
             InsideCutsceneObjs.SetActive(true);
             bonfireCam.Priority = 10;
         }

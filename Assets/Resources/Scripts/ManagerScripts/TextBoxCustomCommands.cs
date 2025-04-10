@@ -42,6 +42,8 @@ public class TextBoxCustomCommands : MonoBehaviour
 
         bookBG.SetActive(false);
         cloudBG.SetActive(true);
+        fenBG.SetActive(false);
+        phoebeBG.SetActive(false);
         //charText.color = new Color(255f, 230f, 0f, 1);
     }
 
