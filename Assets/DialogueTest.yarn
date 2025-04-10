@@ -24,6 +24,7 @@ position: -208,-211
 <<declare $spokenToLieselFighter = false as bool>>
 <<declare $spokenToAmosFighter = false as bool>>
 <<declare $spokenToActorsFighter = false as bool>>
+<<declare $spokenToActorsFighter2 = false as bool>>
 
 //Fen talk
 <<declare $alteaSceneFenDone = false as bool>>
@@ -420,7 +421,7 @@ Fen: Can I have it?
 <<changeAvatar YarnColliderTrowelCreature>>
 <<playClip YarnColliderTrowelCreature>>
 Creature with a Trowel: !ti gniyrrac fo derob ma i sey!
-<<getTrowel InventoryManager>>
+<<getTrowel FenInventoryManager>>
 <<revealCreature trowel>>
 //revealsprite of trowel
 //splat noise
@@ -598,7 +599,7 @@ Book: "and the world was once again saved."
 ===
 title: PointyActor
 ---
-<<if $spokenToActorsFighter is false>>
+<<if $spokenToActorsFighter is false and $spokenToActorsFighter2 is false>>
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PointyYarnCollider>>
 <<playClip PointyYarnCollider>>
@@ -641,7 +642,7 @@ Lavinia: If you're going to be this loud maybe you should just have no lines.
 <<stop>>
 <<endif>>
 
-<<if $spokenToActorsFighter is true>>
+<<if $spokenToActorsFighter is true and $spokenToActorsFighter2 is false>>
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PointyYarnCollider>>
 <<playClip PointyYarnCollider>>
@@ -781,6 +782,24 @@ Grass: I thought it would be a good time for grass.
 <<changeAvatar JoannaYarnCollider>>
 <<playClip JoannaYarnCollider>>
 Joanna: We have to start over.
+<<set $spokenToActorsFighter2 to true>>
+<<stop>>
+<<endif>>
+
+<<if $spokenToActorsFighter is true and $spokenToActorsFighter2 is true>>
+Theodora: I would rather run another scene.
+Hollis: We've never finished the bug scene, though.
+Joanna: Because the grass is always too loud.
+Grass: ...
+Theodora: What if we ran the kiss scene?
+Lavinia: Ugh.
+Theodora: You don't like the kiss scene?
+Hollis: Lavinia hates kissing.
+Joanna: How would you know?
+Hollis: ...
+Lavinia: Let's run the drowning scene again.
+Grass: But there's no grass in the drowning scene.
+Lavinia: Exactly.
 <<stop>>
 <<endif>>
 ===
@@ -1078,6 +1097,8 @@ title: Tree
 position: 269,19
 ---
 <<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar GardenTreeYarn>>
+<<playClip GardenTreeYarn>>
 Tree: The soil may have forgotten the sun,
 Tree: but it forgets not the feel of footsteps upon it.
 <<stop>>
@@ -1366,7 +1387,7 @@ Grimbolde: And I'm not interested in being set up. Got it?
 //AFTER ALTEA AND FEN SCENE
 //<<if $gardenFoundFighter is true and $charPOV is "Fighter">>
 //<<if $alteaSceneFenDone is true>>
-<<if $charPOV is "Fighter" and $alteaSceneFenDone is true and $spokenToGrimboldeFighter is true>>
+<<if $charPOV is "Fighter" and $alteaSceneFenDone is true>>
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar GrimboldeYarnCollider>>
 <<playClip GrimboldeYarnCollider>>
@@ -1465,11 +1486,13 @@ title: Steve
 <<playClip SteveYarnCollider>>
 Fishing Man Without Pants: Are you a person?
 Fishing Man Without Pants: I didn't know there were other people here!
+<<playClip SteveYarnCollider>>
 Fishing Man Without Pants: I thought it was just me.
 Fishing Man Without Pants: And Jacqueline.
 <<playClip SteveYarnCollider>>
 Steve: I don't really remember my name but you can call me Steve.
 Steve: This is Jacqueline.
+<<playClip SteveYarnCollider>>
 Steve: We're fishing.
 Steve: I'm looking for the Big One.
 <<playClip SteveYarnCollider>>
@@ -1477,6 +1500,7 @@ Steve: Oh, got another one!
 <i>There is nothing on the hook.</i>
 <<playClip SteveYarnCollider>>
 Steve: I agree, Jacqueline, this one's small fry.
+<<playClip SteveYarnCollider>>
 Steve: Excuse me, new person, I have to get back to it.
 Steve: The Big One's not going to catch itself.
 <<stop>>
@@ -1609,6 +1633,8 @@ position: 329,79
 ---
 <<if $charPOV is "Fighter">>
 <<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar LighthouseTreeYarn>>
+<<playClip LighthouseTreeYarn>>
 Tree: Do you hear it?
 Tree: The song of our gestating moon?
 <<endif>>
@@ -1657,7 +1683,7 @@ Creature with Wings: Take this, and find its hatching song.
 //GIVE THE MUSIC BOX
 <<playKnock GardenCutsceneManager>>
 <<revealCreature GardenCutsceneManager>>
-<<getMusicBoxBase InventoryManager>>
+<<getMusicBoxBase PhoebeInventoryManager>>
 <<wait  2>>
 <<disappearCreature GardenCutsceneManager>>
 <<changeAvatar GardenWingedCreature>>
@@ -2006,7 +2032,7 @@ Fen: This cup's gone cold.
 title: BonfireConversation2
 ---
 <<wait  0.5>>
-<<changeAvatar PhoebeYarn>>
+//<<changeAvatar PhoebeYarn>>
 <<turnOnCloud OverworldDialogueManager>>
 <i>It's hard not to pick up other conversations, as you sit and listen.</i>
 <<wait  0.5>>
@@ -2224,7 +2250,7 @@ Creature that Looks Worried: The moon must hatch.
 <<wait  2>>
 <<disappearCreature CommandHolderSpine>>
 //GIVE FIGURINE
-<<getMusicBoxFigure InventoryManager>>
+<<getMusicBoxFigure PhoebeInventoryManager>>
 <<playClip Hound>>
 Creature that Looks Worried: Go to the bathing place.
 Creature that Looks Worried: See what she has done.
