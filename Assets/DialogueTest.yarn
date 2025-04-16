@@ -40,12 +40,21 @@ position: -208,-211
 <<declare $spokenToHildegardDiviner = false as bool>>
 <<declare $spokenToLighthouseNPCDiviner = false as bool>>
 ===
+title: KnifeSongIntro
+---
+<i>As children, you and your sister cherished music in secret.</i>
+<i>You've forgotten the sound of her voice. But she left you a fragment of it.</i>
+<i>Burnt in steel, sharp and cutting. A song to open.</i>
+<<stop>>
+===
 title: IntroWalk1
 ---
 //title screen clears, Phoebe stands as the fog clears
 //first screen camera transition
 <i>This was a ravine, a moment ago.</i>
 <i>But it's not anymore.</i>
+<<wait  7>>
+<i>This place smells like a room that hasn't been opened in years.</i>
 //<<turnOffCollider IntroDialogue1>>
 <<stop>>
 ===
