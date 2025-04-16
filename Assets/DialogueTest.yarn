@@ -1832,6 +1832,7 @@ Creature that Looks Worried: She does not know how to ask nicely.
 //<<NotAutomatic YarnManager>>
 <<changeBackCam GardenCutsceneManager>>
 <<set $gardenFoundFighter to true>>
+<<openDoors RookeryDoors>>
 <<stop>>
 ===
 title: CyanoNPCs
@@ -1988,8 +1989,9 @@ Fen: Altea, dear, are you in there?
 Fen: I know you're likely busy, but it's time for dinner, and I was hoping you would join us tonight--
 //timeline run for door opening and revealing ALtea
 <<changeCam PlayerDiviner>>
-<<openDoor YarnStableCutsceneSetUpCollider>>
+<<wait  0.2>>
 <<revealCreature YarnStableCutsceneSetUpCollider>>
+<<openDoor YarnStableCutsceneSetUpCollider>>
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
@@ -2114,7 +2116,9 @@ Fen: Well, alright then.
 title: BonfireConversation1
 ---
 //camera change, objects change
+<<revealCreature BonfireYarnCollider>>
 <<changeCam BonfireManager>>
+<<setEaseBrain BonfireManager>>
 <<wait 0.5>> //change this to be shorter???
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
@@ -2170,54 +2174,68 @@ title: BonfireConversation2
 ---
 <<wait  0.5>>
 //<<changeAvatar PhoebeYarn>>
-<<turnOnCloud OverworldDialogueManager>>
+<<turnOnCloud OverworldDialogueSystem>>
 <i>It's hard not to pick up other conversations, as you sit and listen.</i>
 <<wait  0.5>>
 <<turnOnDialogue OverworldDialogueSystem>>
+<<switchSnobbishCam BonfireManager>>
 <<changeAvatar SnobbishSprite>>
 <<playClip SnobbishSprite>>
 A Snobbish Voice: So I told him that I had never read it, and then he said I wasn't truly an intellectual.
+<<switchShrillCam BonfireManager>>
 <<changeAvatar Shrill>>
 <<playClip Shrill>>
 A Shrill Voice: It stole my hat! It really did!
+<<switchWindyCam BonfireManager>>
 <<changeAvatar WindyYarnCollider>>
 <<playClip WindyYarnCollider>>
 Windy: Byron's not coming, again. 
 <<changeAvatar GrimboldeYarnCollider>>
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: What's next, another husk for Hythe to gawk at?
+<<switchAmosCam BonfireManager>>
 <<changeAvatar AmosYarnCollider>>
 <<playClip AmosYarnCollider>>
 Amos: More tea, Fen?
+<<switchFenBonCam BonfireManager>>
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Yes, thank you.
+<<switchShrillCam BonfireManager>>
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar Shrill>>
 <<playClip Shrill>>
 A Shrill Voice: If you see a hat with a really great feather in it...
+<<switchSnobbishCam BonfireManager>>
 <<changeAvatar SnobbishSprite>>
 <<playClip SnobbishSprite>>
 A Snobbish Voice: It's not like any of that even matters down here. 
+<<switchWindyCam BonfireManager>>
 <<changeAvatar GrimboldeYarnCollider>>
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: And I heard the most dreadful noise coming from the stables...
+<<switchHeloiseCam BonfireManager>>
 <<changeAvatar HeloiseYarnCollider>>
 <<playClip HeloiseYarnCollider>>
 Heloise: Everyone shut up, I can't hear Liesel being wrong.
+<<switchLieselCam BonfireManager>>
 <<changeAvatar LieselYarnCollider>>
 <<playClip LieselYarnCollider>>
 Liesel: You just don't see how pure of heart they are!
+<<switchWindyCam BonfireManager>>
 <<changeAvatar GrimboldeYarnCollider>>
 <<playClip GrimboldeYarnCollider>>
-Grimbolde: What?
+Grimbolde: Wrong about what?
+<<switchHeloiseCam BonfireManager>>
 <<changeAvatar HeloiseYarnCollider>>
 <<playClip HeloiseYarnCollider>>
 Heloise: The beasts.
+<<switchLieselCam BonfireManager>>
 <<changeAvatar LieselYarnCollider>>
 <<playClip LieselYarnCollider>>
 Liesel: They're not beasts.
+<<switchFenBonCam BonfireManager>>
 <<wait  0.5>>
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
@@ -2254,20 +2272,25 @@ Fen: Oh, dear, you look distressed. That was a rhetorical question.
 //checks water again
 //<<wait  0.5>>
 Fen: Heloise, is it hot enough yet?
+<<switchHeloiseCam BonfireManager>>
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar HeloiseYarnCollider>>
 <<playClip HeloiseYarnCollider>>
+<<wait  1.5>>
 Heloise: Nope.
+<<switchFenBonCam BonfireManager>>
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Rats.
-<<wait  0.5>>
+<<wait  0.2>>
+<<switchSnobbishCam BonfireManager>>
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar SnobbishSprite>>
 <<playClip SnobbishSprite>>
 A Snobbish Voice: ...so I said, if you could turn into any of the creatures around here what would you be,
 A Snobbish Voice: and he said, a tharpy, and I said that's ridiculous...
+<<switchFenBonCam BonfireManager>>
 <<wait 0.3>>
 //Fen: It's strange, being so old but so... miniscule compared to this place.
 //Fen: It's been ages since I've felt dwarfed in age by something.
@@ -2316,6 +2339,7 @@ Fen: and then I'll just be upset.
 <<revealCreature SpineObjectsManager>>
 <<revealCreature spinePathManager>>
 <<disappearCreature BonfireManager>>
+<<resetBonCam BonfireManager>>
 //<<restart BonfireManager>>
 <<stop>>
 ===

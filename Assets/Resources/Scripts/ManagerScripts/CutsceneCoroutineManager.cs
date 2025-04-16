@@ -58,6 +58,7 @@ public class CutsceneCoroutineManager : MonoBehaviour
     public GameObject fenFullBodySpriteSitting;
     public GameObject fenFullBodySpriteStanding;
     public GameObject fenTess;
+    public Sprite fenMug;
 
     [Header("Effects")]
     public AudioSource transitionAudio;
@@ -246,6 +247,7 @@ public class CutsceneCoroutineManager : MonoBehaviour
         //first person POV to third person POV
         Debug.Log("switching to Phoebe");
         stableYarnTrigger.SetActive(false);
+        Debug.Log("turning off stable yarn");
         pulsingCamera = fenfirstPerson;
         isPulsing = true;
         transitionAudio.PlayOneShot(transitionClip);
@@ -346,6 +348,7 @@ public class CutsceneCoroutineManager : MonoBehaviour
         PlayerFen.transform.position = fenBonfirePosition.transform.position;
         Heloise.transform.position = HeloiseCampfireCutscenePosition.transform.position;
         fenFullBodySpriteSitting.SetActive(true);
+        fenFullBodySpriteSitting.GetComponent<SpriteRenderer>().sprite = fenMug;
         
 
         //Reset

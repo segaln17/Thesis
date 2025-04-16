@@ -27,7 +27,8 @@ public class ClickandDragOutside : MonoBehaviour
     {
         if(isInside && !iscarrying)
         {
-            if (Input.GetKeyUp(KeyCode.E))
+            //if (Input.GetKeyUp(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 OnEntry();
             }
@@ -36,7 +37,8 @@ public class ClickandDragOutside : MonoBehaviour
         {
             isDragging();
             
-            if (Input.GetKeyDown(KeyCode.E) && !justClicked)
+            //if (Input.GetKeyDown(KeyCode.E) && !justClicked)
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !justClicked)
             {
                 objAud.pitch = UnityEngine.Random.Range(.7f, 1);
                 objAud.PlayOneShot(clickSoundDrop);

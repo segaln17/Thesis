@@ -32,7 +32,7 @@ public class ClickDragRock : MonoBehaviour
     {
         if (isInside && !iscarrying)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.Mouse0))//(Input.GetKeyDown(KeyCode.E))
             {
                 OnEntry();
                 Debug.Log("pickup");
@@ -43,7 +43,8 @@ public class ClickDragRock : MonoBehaviour
         {
             isDragging();
 
-            if (Input.GetKeyDown(KeyCode.E) && !justClicked)
+            //if (Input.GetKeyDown(KeyCode.E) && !justClicked)
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !justClicked)
             {
                 objAud.pitch = UnityEngine.Random.Range(.7f, 1);
                 objAud.PlayOneShot(clickSoundDrop);

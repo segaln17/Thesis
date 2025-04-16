@@ -5,6 +5,7 @@ using UnityEngine;
 using Yarn.Unity;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class YarnDialogueTrigger : MonoBehaviour
 {
@@ -52,7 +53,8 @@ public class YarnDialogueTrigger : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            //if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 if (inYarnTrigger)
                 {
