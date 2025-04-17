@@ -41,7 +41,10 @@ public class IntroCutsceneAnimScript : MonoBehaviour
 
     [Header("Buttons")] 
     public Button fightFlytrapButton;
+
+    public Button fightFlytrapFinalButton;
     public Button waitFlytrapButton;
+    public Button waitFlytrapFinalButton;
     
     
     [Header("Audio")] 
@@ -85,12 +88,15 @@ public class IntroCutsceneAnimScript : MonoBehaviour
 
     public void FlyTrapFight()
     {
+        
         slashObject.SetActive(true);
         fightSounds.PlayOneShot(slash);
         fightSounds.PlayOneShot(shriek);
         dialogueTriggerFight.SetActive(true);
         fightFlytrapButton.gameObject.SetActive(false);
+        fightFlytrapFinalButton.gameObject.SetActive(false);
         waitFlytrapButton.gameObject.SetActive(false);
+        waitFlytrapFinalButton.gameObject.SetActive(false);
         fighter.GetComponent<SimpleController>().enabled = true;
        
         shatter02.SetActive(true);
@@ -123,6 +129,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         dialogueTriggerWait.SetActive(true);
         fightFlytrapButton.gameObject.SetActive(false);
         waitFlytrapButton.gameObject.SetActive(false);
+        waitFlytrapFinalButton.gameObject.SetActive(false);
         fighter.GetComponent<SimpleController>().enabled = true;
         shatter02.SetActive(true);
         phoebefeet.SetActive(true);

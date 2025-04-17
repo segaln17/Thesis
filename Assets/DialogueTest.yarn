@@ -65,6 +65,24 @@ title: IntroWalk2
 //<<turnOffCollider IntroDialogue2>>
 <<stop>>
 ===
+title: FlytrapWait1
+---
+<<wait  1.5>>
+It looms.
+<<stop>>
+===
+title: FlytrapWait2
+---
+<<wait  1.5>>
+It menaces.
+<<jump FlytrapWait3>>
+<<stop>>
+===
+title: FlytrapWait3
+---
+...Is it weeping?
+<<stop>>
+===
 title: FlytrapFight
 ---
 <i>A slash like blinking,</i>
