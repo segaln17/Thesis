@@ -25,9 +25,6 @@ public class YarnIntroduction : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            
-               
-
             if (!inYarnTrigger)
             {
                 inYarnTrigger = true;
@@ -40,13 +37,17 @@ public class YarnIntroduction : MonoBehaviour
         }
     }
 
+    /*
     private void OnTriggerExit(Collider other)
     {
+        
         if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == true)
         {
             FindObjectOfType<DialogueRunner>().Stop();
             //FindObjectOfType<DialogueRunner>().startNode = nodeToCall;
         }
+        
         inYarnTrigger = false;
     }
+*/
 }

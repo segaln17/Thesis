@@ -53,7 +53,7 @@ title: IntroWalk1
 //first screen camera transition
 <i>This was a ravine, a moment ago.</i>
 <i>But it's not anymore.</i>
-<<wait  7>>
+<<wait  6>>
 <i>This place smells like a room that hasn't been opened in years.</i>
 //<<turnOffCollider IntroDialogue1>>
 <<stop>>
@@ -1323,6 +1323,7 @@ position: 289,39
 <<changeAvatar HytheYarnCollider>>
 Hythe: You've seen them, then? The husks?
 Hythe: These are old ones, I think. They're basically the wall now.
+<<playClip HytheYarnCollider>>
 Hythe: And this fellow next to me is in the middle of the process.
 <<playClip HytheYarnCollider>>
 Hythe: Oh, you don't have to bother with drawing your weapon.
@@ -1341,6 +1342,7 @@ Hythe: I like sitting out here and watching the husks.
 Hythe: They don't do much, but that's okay.
 <<playClip HytheYarnCollider>>
 Hythe: I like talking to them. I can say whatever I want to them and they never react.
+<<playClip HytheYarnCollider>>
 Hythe: I can even scream at them if I want to, and they have to just sit there.
 Hythe: Nature is beautiful, don't you think?
 <<stop>>
@@ -2285,14 +2287,14 @@ Fen: Heloise, is it hot enough yet?
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar HeloiseYarnCollider>>
 <<playClip HeloiseYarnCollider>>
-<<wait  1.5>>
+<<wait  3>>
 Heloise: Nope.
 <<switchFenBonCam BonfireManager>>
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: Rats.
-<<wait  0.2>>
+<<wait  1>>
 <<switchSnobbishCam BonfireManager>>
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar SnobbishSprite>>
@@ -2300,7 +2302,7 @@ Fen: Rats.
 A Snobbish Voice: ...so I said, if you could turn into any of the creatures around here what would you be,
 A Snobbish Voice: and he said, a tharpy, and I said that's ridiculous...
 <<switchFenBonCam BonfireManager>>
-<<wait 0.3>>
+<<wait 0.5>>
 //Fen: It's strange, being so old but so... miniscule compared to this place.
 //Fen: It's been ages since I've felt dwarfed in age by something.
 //Fen: and a plane like this... well.
@@ -2344,6 +2346,7 @@ Fen: or I'll lose track of it altogether and it'll get cold again,
 Fen: and then I'll just be upset.
 //Fen: ...Or night?
 //Fen: Or... whatever time this is.
+<<disappearCreature PhoebeBonfire>>
 <<changeBackCam BonfireManager>>
 <<revealCreature SpineObjectsManager>>
 <<revealCreature spinePathManager>>
