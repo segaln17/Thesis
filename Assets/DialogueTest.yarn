@@ -42,9 +42,10 @@ position: -208,-211
 ===
 title: KnifeSongIntro
 ---
-<i>As children, you and your sister cherished music in secret.</i>
-<i>You've forgotten the sound of her voice. But she left you a fragment of it.</i>
-<i>Burnt in steel, sharp and cutting. A song to open.</i>
+As children, you and your sister cherished music in secret.
+You've forgotten the sound of her voice. 
+But she left you a fragment of it.
+Burnt in steel, sharp and cutting. A song to open.
 <<stop>>
 ===
 title: IntroWalk1
@@ -172,6 +173,9 @@ position: -172,85
     <<playClip WindyYarnCollider>>
     Windy: Fen'll help you get sorted out. If you can stand her yammering. 
     Windy: She's at the tavern.
+    <<cutToCamera TavernCam>>
+    <<wait  3>>
+    <<cutBackCamera TavernCam>>
     <<playClip WindyYarnCollider>>
     Windy: And get to the bonfire if you start feeling <i>really</i> queasy. Everyone feels queasy at first.
     Windy: Well, not me, but other people usually get queasy.
@@ -1969,7 +1973,9 @@ Fen: I should stretch my legs.
 <<playClip PlayerDiviner>>
 Fen: Perhaps I'll check on Altea!
 Fen: She'll likely be in the stables, I'd imagine.
-<<wait  1>>
+<<cutToCamera StableCam>>
+<<wait  4>>
+<<cutBackCamera StableCam>>
 <<playClip PlayerDiviner>>
 Fen: Maybe I should stop talking to myself.
 <<endif>>
@@ -2263,11 +2269,15 @@ The Fighter: ...
 <<playClip PlayerDiviner>>
 Fen: Say, have you seen that skeleton, over the bridge on that other island?
 Fen: It's just across the water from here.
+<<cutToCamera SpineIslandCam>>
+<<wait  4>>
 //The Fighter: <i>You shake your head.</i>
 Fen: It's quite something.
+<<wait  2>>
+<<cutBackCamera SpineIslandCam>>
 //Fen: A natural marvel of this place.
 //checks water
-<<wait  0.5>>
+<<wait  2>>
 //Fen: Ah, drat.
 <<playClip PlayerDiviner>>
 Fen: I forget sometimes how slow boiling water over an actual fire can be.
@@ -2326,12 +2336,16 @@ Fen: You don't get that, with the husks.
 //Fen: Would you like to hear the strangest part?
 //<<wait  0.2>>
 //The Fighter: <i>She leans in, almost conspiratorially.</i>
+<<cutToCamera SpineCam>>
+<<wait  3>>
 <<playClip PlayerDiviner>>
 Fen: And it's not even the whole thing.
 Fen: I've never seen the rest.
 //Fen: The rest must be either lost to the sun-lake or some similar fate,
 //Fen: or wherever it came from if it didn't die here.
 Fen: All that's here is <i>spine</i>.
+<<cutBackCamera SpineCam>>
+<<wait  3>>
 //Fen: Isn't that fascinating?
 <<playClip PlayerDiviner>>
 Fen: You should go see it, Fighter.
