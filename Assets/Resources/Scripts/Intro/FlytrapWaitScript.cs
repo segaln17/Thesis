@@ -61,6 +61,7 @@ public class FlytrapWaitScript : MonoBehaviour
     IEnumerator Waiting()
     {
         buttonCanvas.gameObject.SetActive(false);
+        //effects go here
         if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
         {
             FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
