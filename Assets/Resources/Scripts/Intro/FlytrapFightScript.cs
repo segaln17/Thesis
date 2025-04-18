@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
+using Yarn.Unity;
 
 public class FlytrapFightScript : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class FlytrapFightScript : MonoBehaviour
 
     public Animator flytrapSlashAnimator;
 
+    private string nodeToCall;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,7 @@ public class FlytrapFightScript : MonoBehaviour
     public void FirstHit()
     {
         fightButton1.gameObject.SetActive(false);
+        nodeToCall = "FlytrapFight1";
         StartCoroutine("fightResponse");
         fightCam01.Priority = 0;
         fightCam02.Priority = 12;
@@ -53,6 +56,7 @@ public class FlytrapFightScript : MonoBehaviour
     {
         StopCoroutine("fightResponse");
         fightButton2.gameObject.SetActive(false);
+        nodeToCall = "FlytrapFight2";
         //buttonCanvas.SetActive(false);
         StartCoroutine("fightResponse");
         fightCam02.Priority = 0;
@@ -69,6 +73,11 @@ public class FlytrapFightScript : MonoBehaviour
         introCutsceneScript.fightSounds.PlayOneShot(introCutsceneScript.slash);
         introCutsceneScript.fightSounds.PlayOneShot(introCutsceneScript.shriek);
         introCutsceneScript.slashObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
+        {
+            FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
+        }
         yield return new WaitForSeconds(2f);
         buttonCanvas.SetActive(true);
         yield return new WaitForSeconds(1f);

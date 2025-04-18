@@ -54,7 +54,7 @@ title: IntroWalk1
 //first screen camera transition
 <i>This was a ravine, a moment ago.</i>
 <i>But it's not anymore.</i>
-<<wait  6>>
+<<wait  5>>
 <i>This place smells like a room that hasn't been opened in years.</i>
 //<<turnOffCollider IntroDialogue1>>
 <<stop>>
@@ -81,6 +81,16 @@ It menaces.
 title: FlytrapWait3
 ---
 ...Is it weeping?
+<<stop>>
+===
+title: FlytrapFight1
+---
+It shrieks.
+<<stop>>
+===
+title: FlytrapFight2
+---
+It shrieks. Nothing happens.
 <<stop>>
 ===
 title: FlytrapFight

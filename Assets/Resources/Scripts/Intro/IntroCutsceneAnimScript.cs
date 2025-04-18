@@ -25,6 +25,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public GameObject blinkingObj;
     public GameObject tessObj;
     public GameObject healthCanvas;
+    public GameObject buttonCanvas;
 
     
     public GameObject flyTrap;
@@ -45,6 +46,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public Button fightFlytrapFinalButton;
     public Button waitFlytrapButton;
     public Button waitFlytrapFinalButton;
+    public Button fleeButton;
     
     
     [Header("Audio")] 
@@ -69,6 +71,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         dialogueTriggerFight.SetActive(false);
         fightFlytrapButton.gameObject.SetActive(false);
         waitFlytrapButton.gameObject.SetActive(false);
+        fleeButton.gameObject.SetActive(false);
         audioManager.SetActive(false);
        
     }
@@ -83,6 +86,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         paused = true;
         fightFlytrapButton.gameObject.SetActive(true);
         waitFlytrapButton.gameObject.SetActive(true);
+        fleeButton.gameObject.SetActive(true);
         Debug.Log("collided");
     }
 
@@ -97,6 +101,8 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         fightFlytrapFinalButton.gameObject.SetActive(false);
         waitFlytrapButton.gameObject.SetActive(false);
         waitFlytrapFinalButton.gameObject.SetActive(false);
+        fleeButton.gameObject.SetActive(false);
+        buttonCanvas.SetActive(false);
         fighter.GetComponent<SimpleController>().enabled = true;
        
         shatter02.SetActive(true);
@@ -130,6 +136,8 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         fightFlytrapButton.gameObject.SetActive(false);
         waitFlytrapButton.gameObject.SetActive(false);
         waitFlytrapFinalButton.gameObject.SetActive(false);
+        fleeButton.gameObject.SetActive(false);
+        buttonCanvas.SetActive(false);
         fighter.GetComponent<SimpleController>().enabled = true;
         shatter02.SetActive(true);
         phoebefeet.SetActive(true);
