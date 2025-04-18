@@ -11,6 +11,7 @@ public class IntroEnemyTrigger : MonoBehaviour
     public GameObject enemyManager;
     public Collider thisCollider;
     public GameObject shatter;
+    public GameObject phoebebattlesprite;
     public CinemachineVirtualCamera firstperson;
     public GameObject sprite;
     public AudioSource battleSound;
@@ -32,10 +33,12 @@ public class IntroEnemyTrigger : MonoBehaviour
                 shatter.SetActive(true);
                 sprite.SetActive(false);
                 firstperson.Priority = 12;
+                phoebebattlesprite.SetActive(true);
                 player.GetComponent<CutsceneController>().enabled = false;
                 battleSound.Play();
                 //player.GetComponent<SimpleController>().enabled = true;
                 enemyManager.GetComponent<IntroCutsceneAnimScript>().FlyTrapTrigger();
+                
             }
            
         }

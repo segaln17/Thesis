@@ -20,6 +20,8 @@ public class FlytrapFightScript : MonoBehaviour
     public CinemachineVirtualCamera fightCam03;
 
     public Animator flytrapSlashAnimator;
+    public Animator playerAnim;
+    public Animator playerAnimShadow;
 
     private string nodeToCall;
     // Start is called before the first frame update
@@ -69,16 +71,22 @@ public class FlytrapFightScript : MonoBehaviour
     {
         buttonCanvas.SetActive(false);
         Debug.Log("playing slash");
+        playerAnim.SetBool("fight", true);
+        playerAnimShadow.SetBool("fight", true);
+        yield return new WaitForSeconds(1f);
         introCutsceneScript.slashObject.SetActive(true);
         introCutsceneScript.fightSounds.PlayOneShot(introCutsceneScript.slash);
         introCutsceneScript.fightSounds.PlayOneShot(introCutsceneScript.shriek);
         introCutsceneScript.slashObject.SetActive(false);
         yield return new WaitForSeconds(1f);
+        playerAnim.SetBool("fight", false);
+        playerAnimShadow.SetBool("fight", false);
+        yield return new WaitForSeconds(1f);
         if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
         {
             FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
         }
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3.5f);
         buttonCanvas.SetActive(true);
         yield return new WaitForSeconds(1f);
     }

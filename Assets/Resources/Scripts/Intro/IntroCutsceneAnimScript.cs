@@ -36,6 +36,10 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public AudioSource swoop;
     public CinemachineVirtualCamera fighterPOV;
     public GameObject mainCam01;
+    public CinemachineVirtualCamera firstpersonpovtransition;
+    public GameObject playerv1;
+    public GameObject playerv2;
+    public GameObject bigPhoebesprite;
 
     public GameObject audioManager;
    
@@ -93,7 +97,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public void FlyTrapFight()
     {
         
-        slashObject.SetActive(true);
+        //slashObject.SetActive(true);
         fightSounds.PlayOneShot(slash);
         fightSounds.PlayOneShot(shriek);
         dialogueTriggerFight.SetActive(true);
@@ -103,18 +107,16 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         waitFlytrapFinalButton.gameObject.SetActive(false);
         fleeButton.gameObject.SetActive(false);
         buttonCanvas.SetActive(false);
-        fighter.GetComponent<SimpleController>().enabled = true;
-       
+        //fighter.GetComponent<SimpleController>().enabled = true;
+        playerv1.SetActive(false);
+        firstpersonpovtransition.Priority = 30;
         shatter02.SetActive(true);
         phoebefeet.SetActive(true);
         fighterShadow.SetActive(true);
         swoop.Play();
-        mainCam01.SetActive(false);
         healthCanvas.SetActive(false);
-        fighterPOV.Priority = 15;
-        blinkingObj.SetActive(true);
-        tessObj.SetActive(true);
-        audioManager.SetActive(true);
+        //fighterPOV.Priority = 15;
+        
       
 
         if (flytrapAnim != null)
@@ -170,6 +172,17 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         Destroy(flyTrap);
         Destroy(flytrapShadowSprite);
         Destroy(flytrapShadowDecal);
+        yield return new WaitForSeconds(5f);
+        mainCam01.SetActive(false);
+        fighterPOV.Priority = 20;
+        yield return new WaitForSeconds(1f);
+        bigPhoebesprite.SetActive(false);
+        playerv2.SetActive(true);
+        playerv2.GetComponent<SimpleController>().enabled = true;
+        blinkingObj.SetActive(true);
+        tessObj.SetActive(true);
+        audioManager.SetActive(true);
+        
     }
     
 
