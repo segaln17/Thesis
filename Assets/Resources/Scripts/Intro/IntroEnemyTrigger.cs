@@ -15,7 +15,9 @@ public class IntroEnemyTrigger : MonoBehaviour
     public CinemachineVirtualCamera firstperson;
     public GameObject sprite;
     public AudioSource battleSound;
-    
+    public AudioSource introMain;
+    public AudioSource battleOverride;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -38,9 +40,34 @@ public class IntroEnemyTrigger : MonoBehaviour
                 battleSound.Play();
                 //player.GetComponent<SimpleController>().enabled = true;
                 enemyManager.GetComponent<IntroCutsceneAnimScript>().FlyTrapTrigger();
-                
+
+                StartCoroutine(FadeOutIntro(introMain, 1f));
+                battleOverride.Play();
             }
            
         }
+    }
+
+    public IEnumerator FadeOutIntro(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+        //float hubStartVolume = 1f;
+
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+
+        /*while (battleOverride.volume < 1)
+        {
+            battleOverride.volume += 1 * Time.deltaTime / FadeTime;
+            yield return null;
+        }*/
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
     }
 }

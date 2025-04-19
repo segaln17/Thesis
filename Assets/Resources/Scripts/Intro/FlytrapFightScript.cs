@@ -12,6 +12,8 @@ public class FlytrapFightScript : MonoBehaviour
     public Button fightButtonFinal;
 
     public GameObject buttonCanvas;
+    public GameObject slashObj;
+    public GameObject sparkleSlash;
 
     public IntroCutsceneAnimScript introCutsceneScript;
 
@@ -74,7 +76,9 @@ public class FlytrapFightScript : MonoBehaviour
         playerAnim.SetBool("fight", true);
         playerAnimShadow.SetBool("fight", true);
         yield return new WaitForSeconds(1f);
-        introCutsceneScript.slashObject.SetActive(true);
+        slashObj.SetActive(true);
+        yield return new WaitForSeconds(.1f);
+        sparkleSlash.SetActive(true);
         introCutsceneScript.fightSounds.PlayOneShot(introCutsceneScript.slash);
         introCutsceneScript.fightSounds.PlayOneShot(introCutsceneScript.shriek);
         introCutsceneScript.slashObject.SetActive(false);

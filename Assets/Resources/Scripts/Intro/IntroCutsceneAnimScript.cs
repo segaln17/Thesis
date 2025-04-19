@@ -11,6 +11,9 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public Animator fighterAnim;
     public Animator flytrapAnim;
     public Animator flytrapShadowAnim;
+    public Animator blinker;
+    public Animator largePhoebe;
+    public Animator fighterShadowAnim;
     
 
     [Header("GameObjects")] 
@@ -60,6 +63,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public AudioSource fightSongs;
     public AudioClip beatLoop;
     public AudioClip sighLoop;
+    public AudioSource beatLoopBattle;
 
     [Header("Conditions")] 
     private bool paused = false;
@@ -96,30 +100,14 @@ public class IntroCutsceneAnimScript : MonoBehaviour
 
     public void FlyTrapFight()
     {
-        
-        //slashObject.SetActive(true);
-        fightSounds.PlayOneShot(slash);
-        fightSounds.PlayOneShot(shriek);
-        dialogueTriggerFight.SetActive(true);
         fightFlytrapButton.gameObject.SetActive(false);
         fightFlytrapFinalButton.gameObject.SetActive(false);
         waitFlytrapButton.gameObject.SetActive(false);
         waitFlytrapFinalButton.gameObject.SetActive(false);
         fleeButton.gameObject.SetActive(false);
         buttonCanvas.SetActive(false);
-        //fighter.GetComponent<SimpleController>().enabled = true;
-        playerv1.SetActive(false);
-        firstpersonpovtransition.Priority = 30;
-        shatter02.SetActive(true);
-        phoebefeet.SetActive(true);
-        fighterShadow.SetActive(true);
-        swoop.Play();
-        healthCanvas.SetActive(false);
-        //fighterPOV.Priority = 15;
         
-      
-
-        if (flytrapAnim != null)
+        /*if (flytrapAnim != null)
         {
             flytrapAnim.Play(animFlytrapName);
             
@@ -127,30 +115,22 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         if (flytrapShadowAnim != null)
         {
             flytrapShadowAnim.Play(animFlytrapName);
-        }
+        }*/
         StartCoroutine(flytrapDie());
     }
 
     public void FlytrapWait()
     {
-        sparkleObject.SetActive(true);
+        //sparkleObject.SetActive(true);
         dialogueTriggerWait.SetActive(true);
         fightFlytrapButton.gameObject.SetActive(false);
         waitFlytrapButton.gameObject.SetActive(false);
         waitFlytrapFinalButton.gameObject.SetActive(false);
         fleeButton.gameObject.SetActive(false);
         buttonCanvas.SetActive(false);
-        fighter.GetComponent<SimpleController>().enabled = true;
-        shatter02.SetActive(true);
-        phoebefeet.SetActive(true);
-        fighterShadow.SetActive(true);
-        swoop.Play();
-        mainCam01.SetActive(false);
-        healthCanvas.SetActive(false);
-        fighterPOV.Priority = 15;
-        blinkingObj.SetActive(true);
-        tessObj.SetActive(true);
-        audioManager.SetActive(true);
+
+    
+        
 
         if (flytrapAnim != null)
         {
@@ -162,27 +142,88 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         {
             flytrapShadowAnim.Play(animFlytrapWaitName);
         }
-
+        StartCoroutine(flytrapWaited());
 
     }
 
     IEnumerator flytrapDie()
     {
+        largePhoebe.SetBool("fight", true);
+        fighterShadowAnim.SetBool("fight", true);
+        yield return new WaitForSeconds(1f);
+        fightSounds.PlayOneShot(slash);
         yield return new WaitForSeconds(.5f);
+        fightSounds.PlayOneShot(shriek);
+        slashObject.SetActive(true);
+        sparkleObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        flytrapAnim.Play(animFlytrapName);
+        flytrapShadowAnim.Play(animFlytrapName);
+        yield return new WaitForSeconds(1f);
         Destroy(flyTrap);
         Destroy(flytrapShadowSprite);
         Destroy(flytrapShadowDecal);
-        yield return new WaitForSeconds(5f);
-        mainCam01.SetActive(false);
+        yield return new WaitForSeconds(2f);
+        largePhoebe.SetBool("fight", false);
+        fighterShadowAnim.SetBool("fight", false);
+        dialogueTriggerFight.SetActive(true);
+        playerv1.SetActive(false);
+        firstpersonpovtransition.Priority = 30;
+        shatter02.SetActive(true);
+        phoebefeet.SetActive(true);
+        fighterShadow.SetActive(true);
+        swoop.Play();
+        healthCanvas.SetActive(false);
+        yield return new WaitForSeconds(2f);
+        blinkingObj.SetActive(true);
+        blinker.SetBool("blinking", true);
+        yield return new WaitForSeconds(.1f);
         fighterPOV.Priority = 20;
+        mainCam01.SetActive(false);
+        yield return new WaitForSeconds(.4f);
+        blinker.SetBool("blinkinghold", true);
         yield return new WaitForSeconds(1f);
         bigPhoebesprite.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        blinker.SetBool("blinkinghold", false);
+        blinker.SetBool("blinking", false);
         playerv2.SetActive(true);
-        playerv2.GetComponent<SimpleController>().enabled = true;
-        blinkingObj.SetActive(true);
         tessObj.SetActive(true);
         audioManager.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        playerv2.GetComponent<SimpleController>().enabled = true;
+        fighterPOV.GetComponent<PlayerCam>().enabled = true;
+        beatLoopBattle.pitch = 0.85f;
         
+    
+    }
+
+    IEnumerator flytrapWaited()
+    {
+        yield return new WaitForSeconds(5f);
+        playerv1.SetActive(false);
+        firstpersonpovtransition.Priority = 30;
+        shatter02.SetActive(true);
+        phoebefeet.SetActive(true);
+        fighterShadow.SetActive(true);
+        swoop.Play();
+        healthCanvas.SetActive(false);
+        yield return new WaitForSeconds(5.5f);
+        blinkingObj.SetActive(true);
+        blinker.SetBool("blinking", true);
+        yield return new WaitForSeconds(.1f);
+        fighterPOV.Priority = 20;
+        mainCam01.SetActive(false);
+        blinker.SetBool("blinkinghold", true);
+        yield return new WaitForSeconds(1f);
+        bigPhoebesprite.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        blinker.SetBool("blinkinghold", false);
+        blinker.SetBool("blinking", false);
+        playerv2.SetActive(true);
+        playerv2.GetComponent<SimpleController>().enabled = true;
+        tessObj.SetActive(true);
+        audioManager.SetActive(true);
     }
     
 

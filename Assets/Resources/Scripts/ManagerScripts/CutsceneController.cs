@@ -14,8 +14,10 @@ public class CutsceneController : MonoBehaviour
     public Animator playerAnim;
     public bool isWalking;
 
-  
-  
+    public GameObject footstepSounds;
+    public AudioSource footstepAudio;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,10 +66,13 @@ public class CutsceneController : MonoBehaviour
         if (isWalking)
         {
             playerAnim.SetBool("isWalking", true);
+            footstepSounds.SetActive(true);
         }
+
         else
         {
             playerAnim.SetBool("isWalking", false);
+            footstepSounds.SetActive(false);
         }
         
         if( rb.velocity.sqrMagnitude > maxVelocity )
