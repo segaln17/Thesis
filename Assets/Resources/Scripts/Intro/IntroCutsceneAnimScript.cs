@@ -19,6 +19,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     [Header("GameObjects")] 
     public GameObject fighter;
 
+
     public GameObject dialogueTriggerWait;
     public GameObject dialogueTriggerFight;
     public GameObject fighterShadow;
@@ -129,19 +130,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         fleeButton.gameObject.SetActive(false);
         buttonCanvas.SetActive(false);
 
-    
-        
-
-        if (flytrapAnim != null)
-        {
-            flytrapAnim.Play(animFlytrapWaitName);
-            
-        }
-
-        if (flytrapShadowAnim != null)
-        {
-            flytrapShadowAnim.Play(animFlytrapWaitName);
-        }
+   
         StartCoroutine(flytrapWaited());
 
     }
@@ -200,6 +189,8 @@ public class IntroCutsceneAnimScript : MonoBehaviour
 
     IEnumerator flytrapWaited()
     {
+        flytrapAnim.Play(animFlytrapWaitName);
+        flytrapShadowAnim.Play(animFlytrapWaitName);
         yield return new WaitForSeconds(5f);
         playerv1.SetActive(false);
         firstpersonpovtransition.Priority = 30;
@@ -208,12 +199,13 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         fighterShadow.SetActive(true);
         swoop.Play();
         healthCanvas.SetActive(false);
-        yield return new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(2f);
         blinkingObj.SetActive(true);
         blinker.SetBool("blinking", true);
         yield return new WaitForSeconds(.1f);
         fighterPOV.Priority = 20;
         mainCam01.SetActive(false);
+        yield return new WaitForSeconds(.4f);
         blinker.SetBool("blinkinghold", true);
         yield return new WaitForSeconds(1f);
         bigPhoebesprite.SetActive(false);
@@ -221,9 +213,12 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         blinker.SetBool("blinkinghold", false);
         blinker.SetBool("blinking", false);
         playerv2.SetActive(true);
-        playerv2.GetComponent<SimpleController>().enabled = true;
         tessObj.SetActive(true);
         audioManager.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        playerv2.GetComponent<SimpleController>().enabled = true;
+        fighterPOV.GetComponent<PlayerCam>().enabled = true;
+        beatLoopBattle.pitch = 0.85f;
     }
     
 

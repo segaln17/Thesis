@@ -12,6 +12,8 @@ public class FlytrapWaitScript : MonoBehaviour
     public Button waitButtonFinal;
 
     public GameObject buttonCanvas;
+    public Animator flytrapAnim;
+    public Animator flytrapShadowAnim;
     
     public IntroCutsceneAnimScript introCutsceneScript;
     
@@ -62,11 +64,15 @@ public class FlytrapWaitScript : MonoBehaviour
     {
         buttonCanvas.gameObject.SetActive(false);
         //effects go here
+        flytrapAnim.SetBool("wait", true);
+        flytrapShadowAnim.SetBool("wait", true);
         if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
         {
             FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
         }
         yield return new WaitForSeconds(5f);
+        flytrapAnim.SetBool("wait", false);
+        flytrapShadowAnim.SetBool("wait", false);
         buttonCanvas.SetActive(true);
         yield return new WaitForSeconds(1f);
     }
