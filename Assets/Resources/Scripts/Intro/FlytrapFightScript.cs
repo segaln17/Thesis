@@ -14,6 +14,7 @@ public class FlytrapFightScript : MonoBehaviour
     public GameObject buttonCanvas;
     public GameObject slashObj;
     public GameObject sparkleSlash;
+    public GameObject damage;
 
     public IntroCutsceneAnimScript introCutsceneScript;
 
@@ -85,6 +86,7 @@ public class FlytrapFightScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         flytrapAnim.SetBool("hit", true);
         flytrapShadowAnim.SetBool("hit", true);
+        damage.SetActive(true);
         introCutsceneScript.fightSounds.PlayOneShot(introCutsceneScript.shriek);
         introCutsceneScript.slashObject.SetActive(false);
         yield return new WaitForSeconds(1.5f);

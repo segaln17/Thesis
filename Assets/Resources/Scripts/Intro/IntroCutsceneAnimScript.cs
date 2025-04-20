@@ -30,6 +30,8 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public GameObject tessObj;
     public GameObject healthCanvas;
     public GameObject buttonCanvas;
+    public GameObject buttonBorder;
+    public GameObject damage;
 
     
     public GameObject flyTrap;
@@ -82,6 +84,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         waitFlytrapButton.gameObject.SetActive(false);
         fleeButton.gameObject.SetActive(false);
         audioManager.SetActive(false);
+        buttonBorder.SetActive(false);
        
     }
 
@@ -96,6 +99,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         fightFlytrapButton.gameObject.SetActive(true);
         waitFlytrapButton.gameObject.SetActive(true);
         fleeButton.gameObject.SetActive(true);
+        buttonBorder.SetActive(true);
         Debug.Log("collided");
     }
 
@@ -141,11 +145,12 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         fighterShadowAnim.SetBool("fight", true);
         yield return new WaitForSeconds(1f);
         fightSounds.PlayOneShot(slash);
-        yield return new WaitForSeconds(.5f);
-        fightSounds.PlayOneShot(shriek);
+        yield return new WaitForSeconds(.5f);   
         slashObject.SetActive(true);
         sparkleObject.SetActive(true);
+        damage.SetActive(true);
         yield return new WaitForSeconds(1f);
+        fightSounds.PlayOneShot(shriek);
         flytrapAnim.Play(animFlytrapName);
         flytrapShadowAnim.Play(animFlytrapName);
         yield return new WaitForSeconds(1f);
