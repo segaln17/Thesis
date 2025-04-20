@@ -28,7 +28,7 @@ public class CustomCommands : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (creature.CompareTag("Player"))
+        if (creature.CompareTag("Player") || creature.CompareTag("Moon"))
         {
             return;
         }

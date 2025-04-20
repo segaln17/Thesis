@@ -1914,8 +1914,10 @@ Creature with Wings: Take this, and find its hatching song.
 <<getMusicBoxBase PhoebeInventoryManager>>
 <<wait  2>>
 <<disappearCreature GardenCutsceneManager>>
+<<changeAvatar GardenFingernailCreature>>
+Creature with Fingernails: We found that in the well. It will help you.
 <<changeAvatar GardenWingedCreature>>
-Creature with Wings: The one who is ancient but also young will help you.
+Creature with Wings: The one who is ancient but also young will help you too.
 <<changeAvatar GardenTwoHeadedCreature>>
 Creature with Many Heads: The one who is burned on the inside can help but may not.
 <<changeAvatar GardenWorriedCreature>>
@@ -2460,6 +2462,7 @@ title: AlteaAtTheSpine
 <<if $charPOV is "Fighter" and $alteaSpineDone is false>>
 <<changeAvatar PlayerClericStandInSpine>>
 <<turnOnDialogue OverworldDialogueSystem>>
+<<changeCam PlayerClericStandInSpine>>
 Altea: ...
 <<wait  2>>
 <<disappearCreature BonfireManager>>
@@ -2503,7 +2506,7 @@ Altea: Now, run along.
 //CREATURE APPEARS
 <<revealCreature PlayerClericStandInSpine>>
 <<wait  1.5>>
-<<changeCam PlayerClericStandInSpine>>
+<<changeCam CommandHolderSpine>>
 <<wait  2>>
 <<changeAvatar Hound>>
 <<playClip Hound>>
@@ -2646,6 +2649,7 @@ Fen: Yes. Yes, that's the way.
 title: FenMemoryIntro
 ---
 //OLD STUFF FOR USE IN THIS BUILD
+<<wait  4>> //ADDED THIS TO SEE IF IT HELPS THE TRANSITION BUT IF IT DOESNT WORK THEN CUT IT
 <<turnOnFen OverworldDialogueSystem>>
 <<wait  0.5>>
 <<changeAvatar PlayerDiviner>>
