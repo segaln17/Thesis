@@ -17,6 +17,7 @@ public class IntroEnemyTrigger : MonoBehaviour
     public AudioSource battleSound;
     public AudioSource introMain;
     public AudioSource battleOverride;
+    public GameObject phoebeShadowsprite;
 
     // Start is called before the first frame update
     private void Start()
@@ -34,6 +35,7 @@ public class IntroEnemyTrigger : MonoBehaviour
             {
                 shatter.SetActive(true);
                 sprite.SetActive(false);
+                phoebeShadowsprite.SetActive(false);
                 firstperson.Priority = 12;
                 phoebebattlesprite.SetActive(true);
                 player.GetComponent<CutsceneController>().enabled = false;

@@ -12,6 +12,7 @@ public class CutsceneController : MonoBehaviour
     private Vector3 movementDirection;
 
     public Animator playerAnim;
+    public Animator playerAnimShadow;
     public bool isWalking;
 
     public GameObject footstepSounds;
@@ -66,12 +67,14 @@ public class CutsceneController : MonoBehaviour
         if (isWalking)
         {
             playerAnim.SetBool("isWalking", true);
+            playerAnimShadow.SetBool("isWalking", true);
             footstepSounds.SetActive(true);
         }
 
         else
         {
             playerAnim.SetBool("isWalking", false);
+            playerAnimShadow.SetBool("isWalking", false);
             footstepSounds.SetActive(false);
         }
         
