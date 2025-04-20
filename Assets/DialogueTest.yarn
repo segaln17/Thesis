@@ -1600,6 +1600,7 @@ Grimbolde: It's not happening right now, but it'll happen again. It always does.
 ===
 title: BabyNPC
 ---
+<<if $charPOV is "Fighter">>
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar BabyYarnCollider>>
 <<playClip BabyYarnCollider>>
@@ -1609,6 +1610,35 @@ Puppet: Don't laugh. I hate it when people laugh.
 Puppet: Stop smiling. It's not funny.
 Puppet: Now go away.
 <<stop>>
+<<endif>>
+
+<<if $charPOV is "Diviner">>
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar BabyYarnCollider>>
+<<playClip BabyYarnCollider>>
+Baby: I'm on strike.
+Baby: Until I get a better name.
+<<turnOnFen OverworldDialogueSystem>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: I think if you told Liesel you want a different name, she'd help you pick one out.
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar BabyYarnCollider>>
+<<playClip BabyYarnCollider>>
+Baby: I used to be a poltergeist, you know?
+Baby: People used to tremble before me!
+<<turnOnFen OverworldDialogueSystem>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: Sure, you've told me this before.
+Fen: I definitely believe you.
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar BabyYarnCollider>>
+Baby: ...
+<<playClip BabyYarnCollider>>
+Baby: Stop laughing at me.
+<<stop>>
+<<endif>>
 ===
 title: BabyDiary
 ---
@@ -1978,7 +2008,7 @@ Tabloid: "Some say that at various points of Moonglow,"
 Tabloid: "A strange whistling can be heard from somewhere near the water..."
 Tabloid: "Could it be a ghost?"
 <i>Another page.</i>
-Tabloid: "Rumor has it that Liesel will not give up her quest domesticate the creatures of the Beneath."
+Tabloid: "Rumor has it that Liesel will not give up her quest to domesticate the creatures of the Beneath."
 Tabloid: "Apparently, she lets the agaric hounds and hedgehogs sleep in bed with her."
 Tabloid: "Lucky that no new illness can be contracted in the Beneath..."
 Tabloid: "Otherwise, she'd surely have rabies."
@@ -2042,6 +2072,13 @@ title: Leaving
 <i>You never got to do this when you were younger.</i>
 <i>It's... nice.</i>
 <<turnOnDialogue OverworldDialogueSystem>>
+<<moveNPC BabyAct2Spot>>
+<<moveNPC LieselAct2Spot>>
+<<moveNPC ZoraTeleportPos01>>
+<<moveNPC AmosAct2Spot>>
+<<moveNPC VerityAct2Spot>>
+<<moveNPC IntroCreatureAct2Spot>>
+<<moveNPC WindyAct2Spot>>
 //<<leave CyanotypeManager>>
 ===
 title: FenPostGardenTransition
@@ -2061,6 +2098,7 @@ Fen: She'll likely be in the stables, I'd imagine.
 <<cutBackCamera StableCam>>
 <<playClip PlayerDiviner>>
 Fen: Maybe I should stop talking to myself.
+<<moveNPC HildegardAct2Spot>>
 <<endif>>
 ===
 title: HighPriestessTimelineTrigger
@@ -2211,8 +2249,10 @@ Fen: Well, alright then.
 //switch to Phoebe
 <<colliderActive FenToPhoebeManager>>
 //<<disappearCreature FenGameObjectManagerBonfire>>
-<<disappearCreature YarnStableCutsceneCollider>> //new addition
+<<disappearCreature YarnStableCutsceneCollider>>
+<<disappearCreature StableCutsceneColliderManager>> //new addition --> does not seem to work so double check this
 //<<colliderActive SwitchToPhoebeCollider>>
+<<moveNPC GrimboldeAct2Spot>>
 <<stop>>
 ===
 title: BonfireConversation1
