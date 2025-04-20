@@ -1069,6 +1069,7 @@ position: 259,9
 <<if $spokenToFenFighterTavern is false>>
 <<turnOnFen OverworldDialogueSystem>>
 <<changeCam FenTavernManager>>
+<<letterboxIn LetterBox>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Strangely Congenial Person: I haven't seen you before, have I?
@@ -1179,6 +1180,7 @@ Fen: Some of the plants up there respond to music, if you feel so inclined to tr
 Fen: Let me know if anything interesting happens!
 //Fen: Maybe something around here will respond to it!
 <<changeBackCam FenTavernManager>>
+<<letterboxOut LetterBox>>
 <<set $spokenToFenFighterTavern to true>>
 <<stop>>
 <<endif>>
@@ -1871,10 +1873,10 @@ title: SongofBeastsTree
 ---
 //SONG OF BEASTS TRIGGER
 <<turnOnCloud OverworldDialogueSystem>>
-<i>This tree looks stranger than the others. Not quite right.</i>
-<i>Mere words do not feel sufficient to communicate with it.</i>
-<i>Maybe song will be.</i>
-<i>When singing, press the up and down arrow keys to cycle through your song knives.</i>
+This tree looks stranger than the others. Not quite right.
+Mere words do not feel sufficient to communicate with it.
+Maybe song will be.
+When singing, press the up and down arrow keys to cycle through your song knives.
 <<turnOnDialogue OverworldDialogueSystem>>
 //RUN THE SONG, THEN START TIMELINE THAT JUMPS TO THIS NODE:
 //<<jump PhoebeintheGarden>>
@@ -1883,6 +1885,7 @@ title: PhoebeintheGarden
 ---
 //Triggered by song of Beasts
 <<turnOnDialogue OverworldDialogueSystem>>
+<<letterboxIn LetterBox>>
 <<changeCam GardenCutsceneManager>>
 <<changeAvatar GardenTwoHeadedCreature>>
 Creature with Many Heads: You understand it, don't you?
@@ -1924,6 +1927,8 @@ Creature with Many Heads: The one who is burned on the inside can help but may n
 Creature that Looks Worried: She does not know how to ask nicely.
 //<<NotAutomatic YarnManager>>
 <<changeBackCam GardenCutsceneManager>>
+<<disappearCreature GardenCutsceneTree>>
+<<letterboxOut LetterBox>>
 <<set $gardenFoundFighter to true>>
 <<openDoors RookeryDoors>>
 <<stop>>
@@ -2071,6 +2076,7 @@ title: HighPriestessTimelineTrigger
 title: HighPriestess
 ---
 <<turnOnFen OverworldDialogueSystem>>
+<<letterboxIn LetterBox>>
 <<hideFen PlayerDiviner>>
 //knock on the door
 <<playKnock YarnStableCutsceneSetUpCollider>>
@@ -2196,6 +2202,7 @@ Altea: Then let me work. I'm not coming to "Dinner."
 //timeline for door close
 <<playClip PlayerDiviner>>
 Fen: Well, alright then.
+<<letterboxOut LetterBox>>
 <<revealFen PlayerDiviner>>
 <<wait  0.5>>
 <<set $alteaSceneFenDone to true>>
@@ -2212,6 +2219,7 @@ title: BonfireConversation1
 ---
 //camera change, objects change
 <<revealCreature BonfireYarnCollider>>
+<<letterboxIn LetterBox>>
 <<changeCam BonfireManager>>
 <<setEaseBrain BonfireManager>>
 <<wait 0.5>> //change this to be shorter???
@@ -2270,7 +2278,7 @@ title: BonfireConversation2
 <<wait  0.5>>
 //<<changeAvatar PhoebeYarn>>
 <<turnOnCloud OverworldDialogueSystem>>
-<i>It's hard not to pick up other conversations, as you sit and listen.</i>
+It's hard not to pick up other conversations, as you sit and listen.
 <<wait  0.5>>
 <<turnOnDialogue OverworldDialogueSystem>>
 <<switchSnobbishCam BonfireManager>>
@@ -2438,6 +2446,7 @@ Fen: or I'll lose track of it altogether and it'll get cold again,
 Fen: and then I'll just be upset.
 //Fen: ...Or night?
 //Fen: Or... whatever time this is.
+<<letterboxOut LetterBox>>
 <<disappearCreature PhoebeBonfire>>
 <<changeBackCam BonfireManager>>
 <<revealCreature SpineObjectsManager>>
@@ -2460,6 +2469,7 @@ title: PhoebeSpine2nd
 title: AlteaAtTheSpine
 ---
 <<if $charPOV is "Fighter" and $alteaSpineDone is false>>
+<<letterboxIn LetterBox>>
 <<changeAvatar PlayerClericStandInSpine>>
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeCam PlayerClericStandInSpine>>
@@ -2522,6 +2532,7 @@ Creature that Looks Worried: Go to the bathing place.
 Creature that Looks Worried: See what she has done.
 <<changeBackCam PlayerClericStandInSpine>>
 <<colliderActive PhoebetoFenSpineManager>>
+<<letterboxOut LetterBox>>
 //switch into Fen
 <<set $alteaSpineDone to true>>
 <<disappearCreature Hound>>
@@ -2795,6 +2806,7 @@ title: FenAtTheTop
 ---
 <<if $charPOV is "Diviner">>
 <<turnOnFen OverworldDialogueSystem>>
+<<letterboxIn LetterBox>> //if we want letterboxing here???
 //timeline to change camera to look at the Moon
 <<changeAvatar PlayerDiviner>>
 //<<changeCam FenYellsAtMoonCollider>>
@@ -2833,6 +2845,7 @@ Fen: I'm tired, and I'm taking it back.
 <<wait  1>>
 <<playClip PlayerDiviner>>
 Fen: Even if it means this place crumbles.
+<<letterboxOut LetterBox>>
 //<<changeBackCam FenYellsAtMoonCollider>>
 //timeline play to black out? demo end screen?
 <<endif>>
