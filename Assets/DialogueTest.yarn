@@ -52,10 +52,10 @@ title: IntroWalk1
 ---
 //title screen clears, Phoebe stands as the fog clears
 //first screen camera transition
-<i>This was a ravine, a moment ago.</i>
-<i>But it's not anymore.</i>
+This was a ravine, a moment ago.
+But it's not anymore.
 <<wait  5>>
-<i>This place smells like a room that hasn't been opened in years.</i>
+This place smells like a room that hasn't been opened in years.
 //<<turnOffCollider IntroDialogue1>>
 <<stop>>
 ===
@@ -98,6 +98,54 @@ title: FlytrapFight
 <i>A slash like blinking,</i>
 <i>and it's gone.</i>
 <i>The smell of wet leaves and stale incense remains.</i>
+<<stop>>
+===
+title: Falling
+---
+<<wait  2>>
+<<showTavernImage ImageFlashManager>>
+//tavern
+<<wait  2.5>>
+<<hideImage ImageFlashManager>>
+//tavern away
+<<wait  2>>
+<<showActorsImage ImageFlashManager>>
+//actors
+<<wait  2.5>>
+<<hideImage ImageFlashManager>>
+//actors away
+<<wait  2>>
+<<showFenImage ImageFlashManager>>
+//fen
+<<wait  2.5>>
+<<hideImage ImageFlashManager>>
+//fen away
+<<wait  2>>
+//garden
+<<showGardenImage ImageFlashManager>>
+<<wait  2.5>>
+<<hideImage ImageFlashManager>>
+<<wait  2>>
+//fish
+<<showFishImage ImageFlashManager>>
+<<wait  2.5>>
+<<hideImage ImageFlashManager>>
+//stable
+<<wait  2>>
+<<showStableImage ImageFlashManager>>
+<<wait  2.5>>
+<<hideImage ImageFlashManager>>
+//spine
+<<wait  2>>
+<<showSpineImage ImageFlashManager>>
+<<wait  2.5>>
+<<hideImage ImageFlashManager>>
+<<wait  2>>
+//willow tree
+<<showWillowImage ImageFlashManager>>
+<<wait  2.5>>
+<<hideImage ImageFlashManager>>
+<<wait  2>>
 <<stop>>
 ===
 title: FlytrapWait
