@@ -107,8 +107,8 @@ public class FallingImageCustomCommands : MonoBehaviour
         flashSound.PlayOneShot(dinnerBell);
     }
 
-    [YarnCommand ("hideImage")]
-    public void HideImage()
+    [YarnCommand ("hideFlashImage")]
+    public void HideFlashImage()
     {
         flashImage.SetActive(false);
     }
