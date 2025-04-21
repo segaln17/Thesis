@@ -20,6 +20,7 @@ public class SimpleController : MonoBehaviour
     public AudioClip Slap;
     public float impactMag = 1f;
     bool canPlayJumpLandingSound = false;
+    private float  normalForce;
 
     //THE THINGS BELOW ARE AN ATTEMPT AT PARENTING CONTROLS TO WHERE THE CAMERA IS FACING
     //mouse sensitivity
@@ -77,6 +78,7 @@ public class SimpleController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         isPlayerWalking = false;
         footstepSounds.SetActive(false);
+        normalForce = force;
         //Cursor.visible = false;
 
         /*
@@ -239,6 +241,18 @@ public class SimpleController : MonoBehaviour
             }
         }
 
+    }
+
+    [YarnCommand ("freezePlayer")]
+    public void FreezePlayer()
+    {
+        force = 0;
+    }
+
+    [YarnCommand ("unfreezePlayer")]
+    public void UnfreezePlayer()
+    {
+        force = normalForce;
     }
 
 }

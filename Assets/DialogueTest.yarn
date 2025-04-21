@@ -1068,6 +1068,7 @@ position: 259,9
 //<<if $charPOV is "Fighter">>
 <<if $spokenToFenFighterTavern is false>>
 <<turnOnFen OverworldDialogueSystem>>
+<<freezePlayer PlayerPhoebe>>
 <<changeCam FenTavernManager>>
 <<letterboxIn LetterBox>>
 <<changeAvatar PlayerDiviner>>
@@ -1181,6 +1182,7 @@ Fen: Let me know if anything interesting happens!
 //Fen: Maybe something around here will respond to it!
 <<changeBackCam FenTavernManager>>
 <<letterboxOut LetterBox>>
+<<unfreezePlayer PlayerPhoebe>>
 <<set $spokenToFenFighterTavern to true>>
 <<stop>>
 <<endif>>
@@ -1916,6 +1918,7 @@ title: PhoebeintheGarden
 //Triggered by song of Beasts
 <<turnOnDialogue OverworldDialogueSystem>>
 <<letterboxIn LetterBox>>
+<<freezePlayer PlayerPhoebe>>
 <<changeCam GardenCutsceneManager>>
 <<changeAvatar GardenTwoHeadedCreature>>
 Creature with Many Heads: You understand it, don't you?
@@ -1959,6 +1962,7 @@ Creature that Looks Worried: She does not know how to ask nicely.
 <<changeBackCam GardenCutsceneManager>>
 <<letterboxOut LetterBox>>
 <<disappearCreature GardenCutsceneTree>>
+<<unfreezePlayer PlayerPhoebe>>
 <<set $gardenFoundFighter to true>>
 <<openDoors RookeryDoors>>
 <<stop>>
@@ -2115,6 +2119,7 @@ title: HighPriestessTimelineTrigger
 title: HighPriestess
 ---
 <<turnOnFen OverworldDialogueSystem>>
+<<freezePlayer PlayerDiviner>>
 <<letterboxIn LetterBox>>
 <<hideFen PlayerDiviner>>
 //knock on the door
@@ -2253,6 +2258,7 @@ Fen: Well, alright then.
 <<revealCreature BonfireManager>>
 //switch to Phoebe
 <<colliderActive FenToPhoebeManager>>
+<<unfreezePlayer PlayerDiviner>>
 //<<disappearCreature FenGameObjectManagerBonfire>>
 
 //<<disappearCreature StableCutsceneColliderManager>> //new addition --> does not seem to work so double check this
@@ -2265,6 +2271,7 @@ title: BonfireConversation1
 //camera change, objects change
 <<revealCreature BonfireYarnCollider>> //COMMENT THIS OUT??
 <<letterboxIn LetterBox>>
+<<freezePlayer PlayerPhoebe>>
 <<changeCam BonfireManager>>
 <<setEaseBrain BonfireManager>>
 <<wait 0.5>> //change this to be shorter???
@@ -2493,12 +2500,14 @@ Fen: and then I'll just be upset.
 //Fen: ...Or night?
 //Fen: Or... whatever time this is.
 <<letterboxOut LetterBox>>
+<<moveNPC LieselBonfireSpot>>
 <<disappearCreature PhoebeBonfire>>
 <<changeBackCam BonfireManager>>
 <<revealCreature SpineObjectsManager>>
 <<revealCreature spinePathManager>>
 <<disappearCreature BonfireManager>>
 <<resetBonCam BonfireManager>>
+<<unfreezePlayer PlayerPhoebe>>
 //<<restart BonfireManager>>
 <<stop>>
 ===
@@ -2515,6 +2524,7 @@ title: PhoebeSpine2nd
 title: AlteaAtTheSpine
 ---
 <<if $charPOV is "Fighter" and $alteaSpineDone is false>>
+<<freezePlayer PlayerPhoebe>>
 <<letterboxIn LetterBox>>
 <<changeAvatar PlayerClericStandInSpine>>
 <<turnOnDialogue OverworldDialogueSystem>>
@@ -2583,6 +2593,7 @@ Creature that Looks Worried: See what she has done.
 <<set $alteaSpineDone to true>>
 <<disappearCreature Hound>>
 <<revealCreature FenPostBonfireMemory>>
+<<unfreezePlayer PlayerPhoebe>>
 <<stop>>
 <<endif>>
 ===

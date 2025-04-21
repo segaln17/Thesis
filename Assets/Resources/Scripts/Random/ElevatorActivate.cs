@@ -21,16 +21,7 @@ public class ElevatorActivate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player")&& other.gameObject.name == "PlayerPhoebe")
-        {
-            playerControllerPhoebe.force = waterForce;
-            Debug.Log("entered collider");
-        }
-        else if (other.gameObject.CompareTag("Player")&& other.gameObject.name == "PlayerDiviner")
-        {
-            playerControllerFen.force = waterForce;
-            Debug.Log("entered collider");
-        }
+        
     }
 
     private void OnTriggerStay(Collider other)
@@ -38,6 +29,18 @@ public class ElevatorActivate : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             elevatorArea.SetActive(true);
+        }
+        
+        //this was in enter
+        if (other.gameObject.CompareTag("Player")&& other.gameObject.name == "PlayerPhoebe")
+        {
+            playerControllerPhoebe.force = waterForce;
+            //Debug.Log("entered collider");
+        }
+        else if (other.gameObject.CompareTag("Player")&& other.gameObject.name == "PlayerDiviner")
+        {
+            playerControllerFen.force = waterForce;
+            //Debug.Log("entered collider");
         }
     }
 

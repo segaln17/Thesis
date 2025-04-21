@@ -24,13 +24,15 @@ public class YarnDialogueTrigger : MonoBehaviour
 
     public TextMeshProUGUI dialogueIndicator;
     
+    
 
     // Start is called before the first frame update
     void Start()
     {
         dialogueIndicator.gameObject.SetActive(false);
         inYarnTrigger = false;
-       // gameSetCharacterPOV(GameManager.CharacterPOV.Fighter);
+        
+        // gameSetCharacterPOV(GameManager.CharacterPOV.Fighter);
 
         //cutsceneRun = false;
     }
@@ -50,6 +52,7 @@ public class YarnDialogueTrigger : MonoBehaviour
                 cutsceneRun = true;
             }
             
+            
         }
         else
         {
@@ -63,6 +66,7 @@ public class YarnDialogueTrigger : MonoBehaviour
                     if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
                     {
                         FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
+                        
                     }
                 
                 }
