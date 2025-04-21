@@ -12,6 +12,13 @@ public class introanimations : MonoBehaviour
     public GameObject songManager;
     public GameObject introLine;
 
+    public AudioSource audioEffects;
+    public AudioSource audioEffects02;
+    public AudioClip burnSound;
+    public AudioClip sparkleSound;
+
+    public AudioClip walkingSound;
+
     public void flamesOn()
     {
         flames.SetActive(true);
@@ -34,5 +41,16 @@ public class introanimations : MonoBehaviour
     {
         lizardHand.Play("lizardfade");
         leftHand.Play("lefthandfade");
+    }
+
+    public void walkingSoundStart()
+    {
+        audioEffects.PlayOneShot(walkingSound);
+    }
+
+    public void burnsoundStart()
+    {
+        audioEffects.PlayOneShot(burnSound);
+        audioEffects02.PlayOneShot(sparkleSound);
     }
 }

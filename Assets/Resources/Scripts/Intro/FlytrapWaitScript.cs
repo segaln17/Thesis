@@ -14,6 +14,8 @@ public class FlytrapWaitScript : MonoBehaviour
     public GameObject buttonCanvas;
     public Animator flytrapAnim;
     public Animator flytrapShadowAnim;
+    public AudioSource shriek;
+    public AudioClip hss;
     
     public IntroCutsceneAnimScript introCutsceneScript;
     
@@ -66,6 +68,7 @@ public class FlytrapWaitScript : MonoBehaviour
         //effects go here
         flytrapAnim.SetBool("wait", true);
         flytrapShadowAnim.SetBool("wait", true);
+        shriek.PlayOneShot(hss);
         if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
         {
             FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
@@ -73,6 +76,7 @@ public class FlytrapWaitScript : MonoBehaviour
         yield return new WaitForSeconds(5f);
         flytrapAnim.SetBool("wait", false);
         flytrapShadowAnim.SetBool("wait", false);
+        yield return new WaitForSeconds(1f);
         buttonCanvas.SetActive(true);
         yield return new WaitForSeconds(1f);
     }

@@ -18,6 +18,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
 
     [Header("GameObjects")] 
     public GameObject fighter;
+    public GameObject shatterflat;
 
 
     public GameObject dialogueTriggerWait;
@@ -32,6 +33,8 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public GameObject buttonCanvas;
     public GameObject buttonBorder;
     public GameObject damage;
+    public GameObject slash02;
+    public Animator flytrapWaitedAnim;
 
     
     public GameObject flyTrap;
@@ -66,7 +69,11 @@ public class IntroCutsceneAnimScript : MonoBehaviour
     public AudioSource fightSongs;
     public AudioClip beatLoop;
     public AudioClip sighLoop;
+    public AudioClip hss;
     public AudioSource beatLoopBattle;
+    public AudioSource fightSongs02;
+    public AudioClip slashhit2;
+    public AudioClip shriekhit2;
 
     [Header("Conditions")] 
     private bool paused = false;
@@ -145,12 +152,15 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         fighterShadowAnim.SetBool("fight", true);
         yield return new WaitForSeconds(1f);
         fightSounds.PlayOneShot(slash);
+        fightSongs02.PlayOneShot(slashhit2);
         yield return new WaitForSeconds(.5f);   
         slashObject.SetActive(true);
+        slash02.SetActive(true);
         sparkleObject.SetActive(true);
         damage.SetActive(true);
         yield return new WaitForSeconds(1f);
         fightSounds.PlayOneShot(shriek);
+        fightSongs02.PlayOneShot(shriekhit2);
         flytrapAnim.Play(animFlytrapName);
         flytrapShadowAnim.Play(animFlytrapName);
         yield return new WaitForSeconds(1f);
@@ -164,6 +174,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         playerv1.SetActive(false);
         firstpersonpovtransition.Priority = 30;
         shatter02.SetActive(true);
+        shatterflat.SetActive(true);
         phoebefeet.SetActive(true);
         fighterShadow.SetActive(true);
         swoop.Play();
@@ -187,6 +198,9 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         playerv2.GetComponent<SimpleController>().enabled = true;
         fighterPOV.GetComponent<PlayerCam>().enabled = true;
+        fightSongs02.pitch = 0.85f;
+        fightSongs02.PlayOneShot(slashhit2);
+        fightSounds.PlayOneShot(shriek);
         beatLoopBattle.pitch = 0.85f;
         
     
@@ -194,12 +208,18 @@ public class IntroCutsceneAnimScript : MonoBehaviour
 
     IEnumerator flytrapWaited()
     {
+        fightSongs02.PlayOneShot(hss);
+        fightSounds.PlayOneShot(shriekhit2);
         flytrapAnim.Play(animFlytrapWaitName);
         flytrapShadowAnim.Play(animFlytrapWaitName);
         yield return new WaitForSeconds(5f);
+        fightSounds.PlayOneShot(shriek);
+        fightSongs02.PlayOneShot(shriekhit2);
+        flytrapWaitedAnim.SetBool("waited", true);
         playerv1.SetActive(false);
         firstpersonpovtransition.Priority = 30;
         shatter02.SetActive(true);
+        shatterflat.SetActive(true);
         phoebefeet.SetActive(true);
         fighterShadow.SetActive(true);
         swoop.Play();
@@ -223,7 +243,10 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         playerv2.GetComponent<SimpleController>().enabled = true;
         fighterPOV.GetComponent<PlayerCam>().enabled = true;
-        beatLoopBattle.pitch = 0.85f;
+        fightSongs02.pitch = 0.75f;
+        fightSongs02.PlayOneShot(slashhit2);
+        fightSounds.PlayOneShot(shriek);
+        beatLoopBattle.pitch = 0.75f;
     }
     
 
