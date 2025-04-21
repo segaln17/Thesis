@@ -11,6 +11,7 @@ public class IntroEnemyTrigger : MonoBehaviour
     public GameObject enemyManager;
     public Collider thisCollider;
     public GameObject shatter;
+    public GameObject shatterflat;
     public GameObject phoebebattlesprite;
     public CinemachineVirtualCamera firstperson;
     public GameObject sprite;
@@ -34,6 +35,7 @@ public class IntroEnemyTrigger : MonoBehaviour
             if (thisGameObject.tag == "flytrap")
             {
                 shatter.SetActive(true);
+                shatterflat.SetActive(true);
                 sprite.SetActive(false);
                 phoebeShadowsprite.SetActive(false);
                 firstperson.Priority = 12;

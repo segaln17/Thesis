@@ -22,6 +22,8 @@ public class StartScene : MonoBehaviour
     public GameObject tunnelAppear;
     public GameObject instructions;
     public Animator rightHand;
+    public AudioSource caveSong;
+    public bool subtract = false;
 
     
     // Start is called before the first frame update
@@ -104,6 +106,11 @@ public class StartScene : MonoBehaviour
 
         CheckNotes();
 
+        if (subtract)
+        {
+            caveSong.volume -= 0.5f * Time.deltaTime;
+        }
+
    
     }
 
@@ -115,6 +122,7 @@ public class StartScene : MonoBehaviour
             Debug.Log("startnextscene");
             //plane is active
             StartCoroutine("WaitActivateStart");
+            subtract = true;
         }
     }
 

@@ -26,6 +26,7 @@ public class TitleTriggerIntro : MonoBehaviour
         {
             introAudio.SetActive(true);
             borderUI.SetActive(true);
+            this.gameObject.GetComponent<Collider>().enabled = false;
         }
         
     }

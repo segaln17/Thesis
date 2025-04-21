@@ -14,7 +14,9 @@ public class FlytrapFightScript : MonoBehaviour
     public GameObject buttonCanvas;
     public GameObject slashObj;
     public GameObject sparkleSlash;
+    public GameObject slashOObj2;
     public GameObject damage;
+    public GameObject screech;
 
     public IntroCutsceneAnimScript introCutsceneScript;
 
@@ -27,6 +29,7 @@ public class FlytrapFightScript : MonoBehaviour
     public Animator playerAnimShadow;
     public Animator flytrapAnim;
     public Animator flytrapShadowAnim;
+    
 
     private string nodeToCall;
     // Start is called before the first frame update
@@ -81,13 +84,15 @@ public class FlytrapFightScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         slashObj.SetActive(true);
         yield return new WaitForSeconds(.1f);
+        slashOObj2.SetActive(true);
+        yield return new WaitForSeconds(.1f);
         sparkleSlash.SetActive(true);
         introCutsceneScript.fightSounds.PlayOneShot(introCutsceneScript.slash);
+        introCutsceneScript.fightSongs02.PlayOneShot(introCutsceneScript.slashhit2);
         yield return new WaitForSeconds(1f);
         flytrapAnim.SetBool("hit", true);
         flytrapShadowAnim.SetBool("hit", true);
         damage.SetActive(true);
-        introCutsceneScript.fightSounds.PlayOneShot(introCutsceneScript.shriek);
         introCutsceneScript.slashObject.SetActive(false);
         yield return new WaitForSeconds(1.5f);
         playerAnim.SetBool("fight", false);
@@ -102,6 +107,9 @@ public class FlytrapFightScript : MonoBehaviour
         {
             FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
         }
+        screech.SetActive(true);
+        introCutsceneScript.fightSounds.PlayOneShot(introCutsceneScript.shriek);
+        introCutsceneScript.fightSongs02.PlayOneShot(introCutsceneScript.shriekhit2);
         yield return new WaitForSeconds(3.5f);
         flytrapAnim.SetBool("wait", false);
         flytrapShadowAnim.SetBool("wait", false);
