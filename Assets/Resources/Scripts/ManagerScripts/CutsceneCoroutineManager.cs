@@ -359,6 +359,10 @@ public class CutsceneCoroutineManager : MonoBehaviour
         phoebecamthirdPerson.m_Lens.FieldOfView = 60f;
         phoebecamfirstPerson.m_Lens.FieldOfView = 60f;
         GardenAerialCam.m_Lens.FieldOfView = 60f;
+        
+        //attempt to fix beasttree issues:
+        beastTree.GetComponent<YarnDialogueTrigger>().inYarnTrigger = false;
+        beastTree.GetComponent<YarnDialogueTrigger>().enabled = false;
 
         Debug.Log("switched to Phoebe");
         StopCoroutine(FtoPpostStable());

@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject fighter;
     public GameObject diviner;
+    public GameObject divinerSprite;
 
     [Header("Inventory")]
     public bool paused;
@@ -125,6 +126,7 @@ public class GameManager : MonoBehaviour
                 displayTextPanel.SetActive(false);
                 inventoryText.SetActive(false);
                 SetCharacterPOV(CharacterPOV.Fighter);
+                divinerSprite.GetComponent<SpriteRenderer>().sortingOrder = 1;
 
             }
             else if (currentPOV == CharacterPOV.Diviner)
@@ -135,6 +137,7 @@ public class GameManager : MonoBehaviour
                 displayTextPanel.SetActive(false);
                 inventoryText.SetActive(false);
                 SetCharacterPOV(CharacterPOV.Diviner);
+                divinerSprite.GetComponent<SpriteRenderer>().sortingOrder = 2;
             }
             
             //inventory.SetActive(false);

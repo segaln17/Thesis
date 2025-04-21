@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using Yarn.Unity;
 
 public class RoomAppear : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class RoomAppear : MonoBehaviour
     void FixedUpdate()
     {
         Debug.Log(phoebeOrientation.transform.localEulerAngles.y);
+        /*
         if (Input.GetKeyDown(KeyCode.T))
         {
             turnonRoom();
@@ -39,6 +41,7 @@ public class RoomAppear : MonoBehaviour
         {
             turnoffRoom();
         }
+        */
 
         if (phoebeOrientation.transform.localEulerAngles.y <= -150 && phoebeOrientation.transform.localEulerAngles.y >= -200 && roomOn || phoebeOrientation.transform.localEulerAngles.y >= 150 && phoebeOrientation.transform.localEulerAngles.y <= 200 && roomOn)
         {
@@ -58,6 +61,7 @@ public class RoomAppear : MonoBehaviour
 
     }
 
+    [YarnCommand ("turnOnChorusRoom")]
     public void turnonRoom()
     {
         Room.SetActive(true);
@@ -66,6 +70,7 @@ public class RoomAppear : MonoBehaviour
         
     }
 
+    [YarnCommand ("turnOffChorusRoom")]
     public void turnoffRoom()
     {
         Room.SetActive(false);

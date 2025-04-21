@@ -24,7 +24,7 @@ public class BonfireCameraScript : MonoBehaviour
     {
         if (inBonfireTrigger)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 inBonfireCutscene = true;
             }

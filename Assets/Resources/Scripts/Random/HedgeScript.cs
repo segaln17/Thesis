@@ -42,6 +42,9 @@ public class HedgeScript : MonoBehaviour
     public float hitWindowCap = 0.5f;
     
 
+    //yarn things
+    public string nodeToCall;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -244,6 +247,10 @@ public class HedgeScript : MonoBehaviour
                 {
                     StartCoroutine("TreeSing");
                     StartCoroutine("WaitAnimate");
+                    if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
+                    {
+                        FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
+                    }
                 }
                 
             }
