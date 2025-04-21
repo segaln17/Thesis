@@ -1957,8 +1957,8 @@ Creature with Many Heads: The one who is burned on the inside can help but may n
 Creature that Looks Worried: She does not know how to ask nicely.
 //<<NotAutomatic YarnManager>>
 <<changeBackCam GardenCutsceneManager>>
-<<disappearCreature GardenCutsceneTree>>
 <<letterboxOut LetterBox>>
+<<disappearCreature GardenCutsceneTree>>
 <<set $gardenFoundFighter to true>>
 <<openDoors RookeryDoors>>
 <<stop>>
@@ -2094,8 +2094,9 @@ Fen: I should stretch my legs.
 Fen: Perhaps I'll check on Altea!
 Fen: She'll likely be in the stables, I'd imagine.
 <<cutToCamera StableCam>>
-<<wait  4>>
+<<wait  3>>
 <<cutBackCamera StableCam>>
+<<wait  1>>
 <<playClip PlayerDiviner>>
 Fen: Maybe I should stop talking to myself.
 <<moveNPC HildegardAct2Spot>>
@@ -2244,13 +2245,17 @@ Fen: Well, alright then.
 <<revealFen PlayerDiviner>>
 <<wait  0.5>>
 <<set $alteaSceneFenDone to true>>
+<<disappearCreature StableCutsceneColliderManager01>>
+<<disappearCreature StableCutsceneColliderManager02>>
+<<disappearCreature YarnStableCutsceneCollider>>
+<<disappearCreature GardenCutsceneTree>>
 //BONFIRE TRIGGER ACTIVE
 <<revealCreature BonfireManager>>
 //switch to Phoebe
 <<colliderActive FenToPhoebeManager>>
 //<<disappearCreature FenGameObjectManagerBonfire>>
-<<disappearCreature YarnStableCutsceneCollider>>
-<<disappearCreature StableCutsceneColliderManager>> //new addition --> does not seem to work so double check this
+
+//<<disappearCreature StableCutsceneColliderManager>> //new addition --> does not seem to work so double check this
 //<<colliderActive SwitchToPhoebeCollider>>
 <<moveNPC GrimboldeAct2Spot>>
 <<stop>>
@@ -2258,7 +2263,7 @@ Fen: Well, alright then.
 title: BonfireConversation1
 ---
 //camera change, objects change
-<<revealCreature BonfireYarnCollider>>
+<<revealCreature BonfireYarnCollider>> //COMMENT THIS OUT??
 <<letterboxIn LetterBox>>
 <<changeCam BonfireManager>>
 <<setEaseBrain BonfireManager>>
@@ -2266,6 +2271,7 @@ title: BonfireConversation1
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
+<<revealCreature BonfirePhoebeManager>>
 Fen: It's poetic, I think.
 Fen: When you've been around as long as I have,
 Fen: you start to see everything like one big pattern.
@@ -2889,4 +2895,71 @@ Fen: Even if it means this place crumbles.
 //<<changeBackCam FenYellsAtMoonCollider>>
 //timeline play to black out? demo end screen?
 <<endif>>
+
+===
+title: ChorusGarden
+---
+<<turnOnChorusRoom PlayerPhoebe>>
+//play noise
+<<wait  4>>
+<<playClip ChorusSoundManager>>
+<<wait  3>>
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar ChorusSoundManager>>
+Chorus: There are no pools of water in the garden.
+Chorus: This is because the plants don't like looking at themselves.
+Chorus: But they like looking at each other.
+Chorus: They like knowing how much their neighbors have grown.
+Chorus: They find it funny,
+Chorus: that you humans and things don't grow,
+Chorus: but they can.
+Chorus: They laugh and laugh and laugh.
+<<wait  1>>
+Chorus: The husks are stuck but don't have roots.
+Chorus: The garden will not let you in, then.
+Chorus: It only accepts things that want to be alive.
+Chorus: Even if their form of living is facsimile.
+Chorus: Shadow-existing is still existing.
+<<wait  1>>
+Chorus: There were birds and now there are not birds.
+Chorus: There was sky and now there is not sky.
+Chorus: There was a monastery and now there is not a monastery.
+Chorus: There is a garden.
+Chorus: It is still a garden.
+<<wait  0.5>>
+Chorus: That's unusual.
+<<turnOffChorusRoom PlayerPhoebe>>
+<<stop>>
+===
+title: ChorusSpine
+---
+<<turnOnChorusRoom PlayerPhoebe>>
+//play noise
+<<playClip SpineChorus>>
+//wait?
+<<wait  3>>
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar SpineChorus>>
+Chorus: Have you heard the tragedy of Loran's Spine?
+Chorus: There was once a city so grand and strong.
+Chorus: They fashioned weapons out of chips of the leviathan's bones
+Chorus: upon which their great city sat.
+Chorus: A fortress in the desert,
+Chorus: pointy and alone in the sand.
+Chorus: Humans are hungry for blood, always,
+Chorus: and the kingdoms nearby sounded hungry,
+Chorus: and so they went beneath the spine,
+Chorus: and dug, and dug, and dug.
+Chorus: And what pieces of its long-shriveled body they found,
+Chorus: they brought back.
+Chorus: Their sorcerers were not smart enough to know
+Chorus: that you should never disturb a great creature's tomb.
+<<wait  1>>
+Chorus: Its rage haunts the ruins of the city.
+Chorus: It haunts you, too.
+Chorus: Your mother and sisters rest somewhere among the bones,
+Chorus: among the sand.
+Chorus: You will never find them.
+<<turnOffChorusRoom PlayerPhoebe>>
+<<stop>>
 ===
