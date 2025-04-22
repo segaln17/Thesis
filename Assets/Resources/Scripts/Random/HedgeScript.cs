@@ -41,7 +41,11 @@ public class HedgeScript : MonoBehaviour
     public bool timerActive = false;
     public float hitWindowTime = 0.0f;
     public float hitWindowCap = 0.5f;
-    
+
+    public bool singtimerActive = false;
+    public float singhitWindowTime = 0.0f;
+    public float singhitWindowCap = 10f;
+
     //yarn things
     public string nodeToCall;
     
@@ -62,6 +66,17 @@ public class HedgeScript : MonoBehaviour
             if (hitWindowTime <= 0)
             {
                 StopWindowTimer();
+            }
+        }
+
+        if (singtimerActive)
+        {
+            singhitWindowTime -= Time.deltaTime;
+
+            //stopping the timer to limit the input
+            if (singhitWindowTime <= 0)
+            {
+                StopSingTimer();
             }
         }
 
@@ -220,12 +235,25 @@ public class HedgeScript : MonoBehaviour
             if (other.gameObject.CompareTag("Player"))
             {
                 isinHedge = true;
-                //timer
-                treeSing.PlayOneShot(singAlert);
+             
             }
         }
 
-        public void CheckNotes()
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (!treeSing.isPlaying && !singtimerActive)
+            {
+               treeSing.PlayOneShot(singAlert);
+                Debug.Log("Singback");
+                StartSingTimer();
+            }
+
+        }
+    }
+
+    public void CheckNotes()
         {
             //ListtoString(noteQueue);
            if (ListtoString(noteQueue) == goalPhrase)
@@ -249,6 +277,7 @@ public class HedgeScript : MonoBehaviour
                 {
                     StartCoroutine("TreeSing");
                     StartCoroutine("WaitAnimate");
+                    
                     /*
                     if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
                     {
@@ -281,6 +310,8 @@ public class HedgeScript : MonoBehaviour
             //gardenEnter.SetActive(true);
             //hedge2animator.Play("hedge2test");
             noteQueue.Clear();
+            yield return new WaitForSeconds(2f);
+            this.gameObject.SetActive(false);
         }
         //load in goal phrase
         //if keys are pressed, load in the letters
@@ -341,4 +372,16 @@ public class HedgeScript : MonoBehaviour
             treeSing.PlayOneShot(treehum01);
            
         }
+
+    public void StartSingTimer()
+    {
+        singhitWindowTime = singhitWindowCap;
+        singtimerActive = true;
+    }
+
+    public void StopSingTimer()
+    {
+        singhitWindowTime = 0;
+        singtimerActive = false;
+    }
 }

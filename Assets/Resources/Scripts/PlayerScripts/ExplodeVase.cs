@@ -13,6 +13,10 @@ public class ExplodeVase : MonoBehaviour
     public AudioClip potShot;
     private bool hasplayed = false;
 
+    public bool singtimerActive = false;
+    public float singhitWindowTime = 0.0f;
+    public float singhitWindowCap = 10f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +24,37 @@ public class ExplodeVase : MonoBehaviour
         vaseBroken.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (singtimerActive)
+        {
+            singhitWindowTime -= Time.deltaTime;
+
+            //stopping the timer to limit the input
+            if (singhitWindowTime <= 0)
+            {
+                StopSingTimer();
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (!potBreak.isPlaying && !singtimerActive)
+            {
+                potBreak.PlayOneShot(potAlert);
+                Debug.Log("Singback");
+                StartSingTimer();
+            }
+
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
-        potBreak.PlayOneShot(potAlert);
+       
         //put timer here
         if (other.gameObject.CompareTag("Player"))
         {
@@ -44,5 +76,17 @@ public class ExplodeVase : MonoBehaviour
             }
         }
       
+    }
+
+    public void StartSingTimer()
+    {
+        singhitWindowTime = singhitWindowCap;
+        singtimerActive = true;
+    }
+
+    public void StopSingTimer()
+    {
+        singhitWindowTime = 0;
+        singtimerActive = false;
     }
 }

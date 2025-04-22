@@ -21,7 +21,11 @@ public class HuskDoorOpen : MonoBehaviour
     public bool timerActive = false;
     public float hitWindowTime = 0.0f;
     public float hitWindowCap = 0.5f;
-    
+
+    public bool singtimerActive = false;
+    public float singhitWindowTime = 0.0f;
+    public float singhitWindowCap = 10f;
+
     //sound for song script collider:
     public AudioSource doorSound;
 
@@ -43,6 +47,17 @@ public class HuskDoorOpen : MonoBehaviour
             if (hitWindowTime <= 0)
             {
                 StopWindowTimer();
+            }
+        }
+
+        if (singtimerActive)
+        {
+            singhitWindowTime -= Time.deltaTime;
+
+            //stopping the timer to limit the input
+            if (singhitWindowTime <= 0)
+            {
+                StopSingTimer();
             }
         }
 
@@ -156,8 +171,21 @@ public class HuskDoorOpen : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isinCollider = true;
-            //timer here
-            doorSound.PlayOneShot(singAlert);
+        
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (!doorSound.isPlaying && !singtimerActive)
+            {
+                doorSound.PlayOneShot(singAlert);
+                Debug.Log("Singback");
+                StartSingTimer();
+            }
+            
         }
     }
 
@@ -199,6 +227,8 @@ public class HuskDoorOpen : MonoBehaviour
         isSinging = false;
         yield return new WaitForSeconds(1f);
         noteQueue.Clear();
+        yield return new WaitForSeconds(2f);
+        this.gameObject.SetActive(false);
 
     }
 
@@ -213,4 +243,18 @@ public class HuskDoorOpen : MonoBehaviour
         hitWindowTime = 0;
         timerActive = false;
     }
+
+    public void StartSingTimer()
+    {
+        singhitWindowTime = singhitWindowCap;
+        singtimerActive = true;
+    }
+
+    public void StopSingTimer()
+    {
+        singhitWindowTime = 0;
+        singtimerActive = false;
+    }
 }
+
+
