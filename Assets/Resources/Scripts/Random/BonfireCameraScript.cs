@@ -10,6 +10,7 @@ public class BonfireCameraScript : MonoBehaviour
     public GameObject InsideCutsceneObjs;
 
     public CinemachineVirtualCamera bonfireCam;
+    
 
     public bool inBonfireTrigger = false;
     public bool inBonfireCutscene = false;

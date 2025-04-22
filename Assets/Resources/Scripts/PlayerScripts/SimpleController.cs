@@ -242,6 +242,7 @@ public class SimpleController : MonoBehaviour
         }
 
     }
+    
 
     [YarnCommand ("freezePlayer")]
     public void FreezePlayer()

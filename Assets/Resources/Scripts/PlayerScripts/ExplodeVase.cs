@@ -8,6 +8,7 @@ public class ExplodeVase : MonoBehaviour
     public GameObject vaseTogether;
     public GameObject vaseBroken;
 
+    public AudioClip potAlert;
     public AudioSource potBreak;
     public AudioClip potShot;
     private bool hasplayed = false;
@@ -21,6 +22,8 @@ public class ExplodeVase : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        potBreak.PlayOneShot(potAlert);
+        //put timer here
         if (other.gameObject.CompareTag("Player"))
         {
             if (audioManager.GetComponent<SongScript>().sheetActive == true)

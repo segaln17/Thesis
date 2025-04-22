@@ -28,6 +28,7 @@ public class HedgeScript : MonoBehaviour
     [Header("Trees Sing")] 
     public AudioSource treeSing;
     public AudioClip treehum01;
+    public AudioClip singAlert;
     
 
     public Animator hedge1animator;
@@ -41,7 +42,6 @@ public class HedgeScript : MonoBehaviour
     public float hitWindowTime = 0.0f;
     public float hitWindowCap = 0.5f;
     
-
     //yarn things
     public string nodeToCall;
     
@@ -220,6 +220,8 @@ public class HedgeScript : MonoBehaviour
             if (other.gameObject.CompareTag("Player"))
             {
                 isinHedge = true;
+                //timer
+                treeSing.PlayOneShot(singAlert);
             }
         }
 

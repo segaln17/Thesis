@@ -2500,12 +2500,21 @@ Fen: and then I'll just be upset.
 //Fen: ...Or night?
 //Fen: Or... whatever time this is.
 <<letterboxOut LetterBox>>
-<<moveNPC LieselBonfireSpot>>
 <<disappearCreature PhoebeBonfire>>
+<<moveNPC LieselBonfireSpot>>
+<<moveNPC AmosBonfireSpot>>
+<<moveNPC HeloiseBonfireSpot>>
+<<moveNPC GrimboldeBonfireSpot>>
+<<moveNPC WindyBonfireSpot>>
+<<moveNPC CyanoSnobbishBonfire>>
+<<moveNPC CyanoShrillBonfire>>
+//reveals the cauldron:
+<<revealCreature HeloiseBonfireSpot>>
 <<changeBackCam BonfireManager>>
 <<revealCreature SpineObjectsManager>>
 <<revealCreature spinePathManager>>
 <<disappearCreature BonfireManager>>
+<<disappearCreature BonfireYarnCollider>>
 <<resetBonCam BonfireManager>>
 <<unfreezePlayer PlayerPhoebe>>
 //<<restart BonfireManager>>
@@ -2586,6 +2595,12 @@ Creature that Looks Worried: The moon must hatch.
 <<playClip Hound>>
 Creature that Looks Worried: Go to the bathing place.
 Creature that Looks Worried: See what she has done.
+<<moveNPC GrimboldeAct2Spot>>
+<<moveNPC WindyAct2Spot>>
+<<moveNPC AmosAct2Spot>>
+<<moveNPC LieselAct2Spot>>
+<<moveNPC SnobbishCharacter>>
+<<moveNPC ShrillCharacter>>
 <<changeBackCam PlayerClericStandInSpine>>
 <<colliderActive PhoebetoFenSpineManager>>
 <<letterboxOut LetterBox>>

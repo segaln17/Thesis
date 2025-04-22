@@ -21,6 +21,11 @@ public class HuskDoorOpen : MonoBehaviour
     public bool timerActive = false;
     public float hitWindowTime = 0.0f;
     public float hitWindowCap = 0.5f;
+    
+    //sound for song script collider:
+    public AudioSource doorSound;
+
+    public AudioClip singAlert;
     // Start is called before the first frame update
     void Start()
     {
@@ -151,6 +156,8 @@ public class HuskDoorOpen : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isinCollider = true;
+            //timer here
+            doorSound.PlayOneShot(singAlert);
         }
     }
 

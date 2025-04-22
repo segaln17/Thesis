@@ -17,7 +17,7 @@ public class CutsceneCoroutineManager : MonoBehaviour
     public GameObject PlayerFen;
     //public GameObject PlayerAltea;
 
-    [Header("Maini Character Postions")]
+    [Header("Main Character Postions")]
     public GameObject fenBonfirePosition;
 
     [Header("NPC Characters")]
@@ -349,6 +349,7 @@ public class CutsceneCoroutineManager : MonoBehaviour
         Heloise.transform.position = HeloiseCampfireCutscenePosition.transform.position;
         fenFullBodySpriteSitting.SetActive(true);
         fenFullBodySpriteSitting.GetComponent<SpriteRenderer>().sprite = fenMug;
+        fenFullBodySpriteSitting.GetComponent<SpriteRenderer>().sortingOrder = 1;
         
 
         //Reset
