@@ -1927,28 +1927,40 @@ title: PhoebeintheGarden
 <<freezePlayer PlayerPhoebe>>
 <<changeCam GardenCutsceneManager>>
 <<changeAvatar GardenTwoHeadedCreature>>
+<<playClip GardenTwoHeadedCreature>>
 Creature with Many Heads: You understand it, don't you?
 <<changeAvatar GardenFingernailCreature>>
+<<playClip GardenFingernailCreature>>
 Creature with Fingernails: The moon is almost ready to hatch!
 <<changeAvatar GardenWorriedCreature>>
+<<playClip GardenWorriedCreature>>
 Creature that Looks Worried: We were like you once. Some of us were like you and we are afraid of dying.
 <<changeAvatar GardenWingedCreature>>
+<<playClip GardenWingedCreature>>
 Creature with Wings: If the moon does not hatch, it will not release any of its deaths, and there will be a dying of this world.
 <<changeAvatar GardenTwoHeadedCreature>>
+<<playClip GardenTwoHeadedCreature>>
 Creature with Many Heads: If it hoards its deaths, this world will fall to stagnation and rot and festering.
 <<changeAvatar GardenFingernailCreature>>
+<<playClip GardenFingernailCreature>>
 Creature with Fingernails: We will not die, but this world will be dead.
 <<changeAvatar GardenWorriedCreature>>
+<<playClip GardenWorriedCreature>>
 Creature that Looks Worried: You will not die, but this world will be dead.
 <<changeAvatar GardenWingedCreature>>
+<<playClip GardenWingedCreature>>
 Creature with Wings: There are things that want to eat this world when it is dead. If the moon does not hatch, they will succeed.
 <<changeAvatar GardenFingernailCreature>>
+<<playClip GardenFingernailCreature>>
 Creature with Fingernails: A thing that eats the sun is powerful.
 <<changeAvatar GardenWorriedCreature>>
+<<playClip GardenWorriedCreature>>
 Creature that Looks Worried: A thing that eats the moon eats the power of this world.
 <<changeAvatar GardenTwoHeadedCreature>>
+<<playClip GardenTwoHeadedCreature>>
 Creature with Many Heads: The moon must hatch.
 <<changeAvatar GardenWingedCreature>>
+<<playClip GardenWingedCreature>>
 Creature with Wings: Take this, and find its hatching song.
 //GIVE THE MUSIC BOX
 <<playKnock GardenCutsceneManager>>
@@ -1957,12 +1969,16 @@ Creature with Wings: Take this, and find its hatching song.
 <<wait  2>>
 <<disappearCreature GardenCutsceneManager>>
 <<changeAvatar GardenFingernailCreature>>
+<<playClip GardenFingernailCreature>>
 Creature with Fingernails: We found that in the well. It will help you.
 <<changeAvatar GardenWingedCreature>>
+<<playClip GardenWingedCreature>>
 Creature with Wings: The one who is ancient but also young will help you too.
 <<changeAvatar GardenTwoHeadedCreature>>
+<<playClip GardenTwoHeadedCreature>>
 Creature with Many Heads: The one who is burned on the inside can help but may not.
 <<changeAvatar GardenWorriedCreature>>
+<<playClip GardenWorriedCreature>>
 Creature that Looks Worried: She does not know how to ask nicely.
 //<<NotAutomatic YarnManager>>
 <<changeBackCam GardenCutsceneManager>>
@@ -1977,7 +1993,19 @@ Creature that Looks Worried: She does not know how to ask nicely.
 title: CreaturesTalk
 ---
 <<if $charPOV is "Fighter">>
-Creature with Fingernails: I am placeholder 
+<<changeAvatar GardenTwoHeadedCreature>>
+<<playClip GardenTwoHeadedCreature>>
+Creature with Many Heads: The husks cannot speak.
+<<changeAvatar GardenWorriedCreature>>
+<<playClip GardenWorriedCreature>>
+Creature that Looks Worried: But they scream, inside.
+<<changeAvatar GardenWingedCreature>>
+<<playClip GardenWingedCreature>>
+Creature with Wings: What would you do, if you fossilized?
+<<changeAvatar GardenFingernailCreature>>
+<<playClip GardenFingernailCreature>>
+Creature with Fingernails: My fingernails would grow and grow and I would be very happy!
+Creature with Fingernails: I love my fingernails!
 <<stop>>
 <<endif>>
 ===
