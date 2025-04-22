@@ -551,6 +551,7 @@ Verity: I'm melting into the field before it can get me.
 <<wait 0.5>>
 <<playClip VerityYarnCollider>>
 Verity: If I wait long enough maybe it'll work.
+<<dinnerTime FogHolder>>
 //Verity: Might as well just melt into the Fields of Sorrow before this place can turn me itself.
 <<set $spokenToVerityFighter to true>>
 <<stop>>
@@ -2258,6 +2259,10 @@ Fen: Well, alright then.
 <<revealCreature BonfireManager>>
 //switch to Phoebe
 <<colliderActive FenToPhoebeManager>>
+<<wait 2>>
+<<dinnerTime FogHolder>>
+//bell toll
+//fog color change
 <<unfreezePlayer PlayerDiviner>>
 //<<disappearCreature FenGameObjectManagerBonfire>>
 
