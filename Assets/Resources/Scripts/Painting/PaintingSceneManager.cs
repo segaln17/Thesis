@@ -47,7 +47,7 @@ public class PaintingSceneManager : MonoBehaviour
 
     [Header("Bools")] 
     public bool paintbrushActive = false;
-
+    
     public bool paintHelpPlayed = false;
     public bool placeHelpPlayed = false;
     public bool printHelpPlayed = false;
@@ -133,6 +133,7 @@ public class PaintingSceneManager : MonoBehaviour
                 {
                     //printButton.gameObject.SetActive(true);
                     mousePainter.SetActive(false);
+                    //cyanobrushCollider.GetComponent<CyanobrushCollider>().enabled = false;
                     state = paintingState.placing;
                     //placingButton.gameObject.SetActive(true);
              

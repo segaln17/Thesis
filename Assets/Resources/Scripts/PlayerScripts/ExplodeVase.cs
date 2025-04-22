@@ -10,6 +10,7 @@ public class ExplodeVase : MonoBehaviour
 
     public AudioClip potAlert;
     public AudioSource potBreak;
+    public AudioSource potSound;
     public AudioClip potShot;
     private bool hasplayed = false;
 
@@ -42,9 +43,9 @@ public class ExplodeVase : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (!potBreak.isPlaying && !singtimerActive)
+            if (!potSound.isPlaying && !singtimerActive)
             {
-                potBreak.PlayOneShot(potAlert);
+                potSound.PlayOneShot(potAlert);
                 Debug.Log("Singback");
                 StartSingTimer();
             }

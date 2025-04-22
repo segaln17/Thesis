@@ -20,14 +20,20 @@ public class PaperPlacement : MonoBehaviour
     public bool isRotated = false;
     public bool sheetRotation = false;
 
+    public bool readyToPaint = false;
+    public bool allPainted = false;
+
     public float sheetscalexhigh = 1;
     public float sheetscalexlow = .9997f;
 
     public float timeElapsed = 0f;
     public float lerpDuration =3f;
 
-    
 
+    private float oldCursoryMin;
+    private float oldCursoryMax;
+    private float oldCursoryMinPlus;
+    private float oldCursoryMaxPlus;
 
 
     private void Start()
@@ -67,6 +73,7 @@ public class PaperPlacement : MonoBehaviour
         {
             currentSheet.GetComponent<ClckandDragSheet>().enabled = false;
             currentSheet.GetComponent<Collider>().enabled = false;
+            //PaintingSceneMan.GetComponent<CyanobrushCollider>().enabled = false;
 
             // Calculate the journey length.
             //journeyLength = Vector3.Distance(currentSheet.transform.position, transform.position);
@@ -87,6 +94,14 @@ public class PaperPlacement : MonoBehaviour
                 isDone = true;
                 return;
             }
+
+            /*
+            if (isDone)
+            {
+                PaintingSceneMan.GetComponent<CyanobrushCollider>().enabled = true;
+            }
+            */
+            
         }
         
     }
@@ -152,6 +167,12 @@ public class PaperPlacement : MonoBehaviour
     public IEnumerator turnonClick2()
     {
         yield return new WaitForSeconds(1f);
+        oldCursoryMin = currentSheet.GetComponent<ClckandDragSheet>().cursorymin;
+        oldCursoryMax = currentSheet.GetComponent<ClckandDragSheet>().cursorymax;
+        oldCursoryMinPlus = currentSheet.GetComponent<ClckandDragSheet>().cursoryminplus;
+        oldCursoryMaxPlus = currentSheet.GetComponent<ClckandDragSheet>().cursorymaxplus;
+        //currentSheet.GetComponent<ClckandDragSheet>().cursorymin = -50;
+        //currentSheet.GetComponent<ClckandDragSheet>().cursorymax = -50;
         currentSheet.GetComponent<ClckandDragSheet>().enabled = true;
         //currentSheet.GetComponent<Collider>().enabled = true;
         yield return new WaitForSeconds(8f);

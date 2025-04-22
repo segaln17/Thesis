@@ -20,6 +20,8 @@ public class CutsceneCoroutineManager : MonoBehaviour
     [Header("Main Character Postions")]
     public GameObject fenBonfirePosition;
 
+    private Vector3 fenSpritePos;
+
     [Header("NPC Characters")]
     public GameObject Windy;
     public GameObject Heloise;
@@ -89,7 +91,7 @@ public class CutsceneCoroutineManager : MonoBehaviour
     {
         stableLight.SetActive(false);
         pulsingCamera = phoebecamfirstPerson;
-
+        fenSpritePos = fenFullBodySpriteSitting.transform.position;
     }
 
     /////////////////////////////////////////////////////
@@ -350,6 +352,8 @@ public class CutsceneCoroutineManager : MonoBehaviour
         fenFullBodySpriteSitting.SetActive(true);
         fenFullBodySpriteSitting.GetComponent<SpriteRenderer>().sprite = fenMug;
         fenFullBodySpriteSitting.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        //attempt to fix Fen sprite position
+        fenFullBodySpriteSitting.transform.position = fenBonfirePosition.transform.position;
         
 
         //Reset

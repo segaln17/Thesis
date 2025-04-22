@@ -5,8 +5,11 @@ using UnityEngine;
 public class PlayerTeleport : MonoBehaviour
 {
     public GameObject debugPlayer;
+    public GameObject debugPlayerDiviner;
 
     public GameObject lighthousePos;
+
+    public GameObject lighthouseBottomPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,11 @@ public class PlayerTeleport : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha8))
         {
             debugPlayer.transform.position = lighthousePos.transform.position;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            debugPlayer.transform.position = lighthouseBottomPos.transform.position;
         }
     }
 }

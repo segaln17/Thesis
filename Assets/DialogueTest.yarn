@@ -1229,6 +1229,11 @@ position: 279,29
 Heloise: Welcome to our little slice of hell.
 Heloise: We gather here to pretend it's night, and that food still appetizes us.
 <<playClip HeloiseYarnCollider>>
+Heloise: If you get bored, which you will,
+Heloise: you can play music really high at some of the vases and they'll explode.
+<<playClip HeloiseYarnCollider>>
+Heloise: It's entertaining.
+<<playClip HeloiseYarnCollider>>
 Heloise: Come back here when you're ready for "Dinner".
 <<set $spokenToHeloiseFighter to true>>
 <<stop>>
@@ -1963,10 +1968,18 @@ Creature that Looks Worried: She does not know how to ask nicely.
 <<changeBackCam GardenCutsceneManager>>
 <<letterboxOut LetterBox>>
 <<disappearCreature GardenCutsceneTree>>
+<<revealCreature creatureGardenAudio>>
 <<unfreezePlayer PlayerPhoebe>>
 <<set $gardenFoundFighter to true>>
 <<openDoors RookeryDoors>>
 <<stop>>
+===
+title: CreaturesTalk
+---
+<<if $charPOV is "Fighter">>
+Creature with Fingernails: I am placeholder 
+<<stop>>
+<<endif>>
 ===
 title: CyanoNPCs
 ---
@@ -2030,8 +2043,7 @@ title: SheetTaking
 <<turnOnCloud OverworldDialogueSystem>>
 It's been a while since you've made one of these.
 First, you must take a sheet of paper.
-<<wait  3>>
-Then take up the brush.
+Then once the paper is placed, take up the brush.
 <<turnOnDialogue OverworldDialogueSystem>>
 <<stop>>
 ===

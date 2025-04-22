@@ -24,6 +24,8 @@ public class SongScript : MonoBehaviour
     public AudioClip hum03;
     public AudioClip hum04;
 
+    public GameObject singingInstructions;
+
 
 
 
@@ -81,6 +83,7 @@ public class SongScript : MonoBehaviour
 
             if (inventoryManager.HasItem("Song of Beasts"))
             {
+                singingInstructions.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
                     songSwitch.SetBool("beastsong", true);
@@ -136,6 +139,7 @@ public class SongScript : MonoBehaviour
         {
             songAnim.SetBool("Sheathe", true);
             songAnim.SetBool("Idle", false);
+            singingInstructions.SetActive(false);
             //fighter.GetComponent<SimpleController>().enabled = true;
             // fighter.GetComponent<Rigidbody>().isKinematic = false;
             //playerSprite.SetActive(true);

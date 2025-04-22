@@ -269,7 +269,7 @@ public class RookeryActivate : MonoBehaviour
         GotoCyanotype();
         //node to call: SheetTaking
         //do we want this line? If it happens we can't restart the cyanotypes
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
 
     }
 

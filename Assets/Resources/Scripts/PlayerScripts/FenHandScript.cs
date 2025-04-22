@@ -18,7 +18,7 @@ public class FenHandScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.currentPOV == GameManager.CharacterPOV.Diviner && Input.GetKeyDown(KeyCode.Space))
+        if (gameManager.currentPOV == GameManager.CharacterPOV.Diviner && Input.GetKeyDown(KeyCode.Q))
         {
             isHandOut = !isHandOut;
         }
