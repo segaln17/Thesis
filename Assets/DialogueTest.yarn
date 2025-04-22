@@ -2028,10 +2028,8 @@ Tabloid: "Perhaps if he fully committed to the cutoffs..."
 title: SheetTaking
 ---
 <<turnOnCloud OverworldDialogueSystem>>
-<i>It's been a while since you've made one of these.</i>
-<i>The steps are hazy in your mind,</i>
-<i>but you remember that first,</i>
-<i>you must take a sheet of paper.</i>
+It's been a while since you've made one of these.
+First, you must take a sheet of paper.
 <<turnOnDialogue OverworldDialogueSystem>>
 <<stop>>
 ===
@@ -2736,6 +2734,49 @@ Fen: Yes. Yes, that's the way.
 <<stop>>
 ===
 title: FenMemoryIntro
+---
+<<wait  4>> //ADDED THIS TO SEE IF IT HELPS THE TRANSITION BUT IF IT DOESNT WORK THEN CUT IT
+<<turnOnFen OverworldDialogueSystem>>
+<<wait  0.5>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: Things are dying down a bit...
+<<wait  0.5>>
+Fen: Something feels...
+<<wait  1>>
+//headache moment
+Fen: ...it's happening again.
+<<wait  1>>
+<<playClip PlayerDiviner>>
+Fen: I... I can't remember where I got my mug.
+<<playClip PlayerDiviner>>
+Fen: This keeps happening, why does it keep happening--
+Fen: Why can't I just <i>remember</i>?
+<<wait  0.5>>
+<<playClip PlayerDiviner>>
+Fen: It was so much easier to calm myself down when I needed to <i>breathe</i>.
+<<wait  0.75>>
+<<playClip PlayerDiviner>>
+Fen: I should go take a walk. Look for things that make me remember.
+Fen: The willow tree on the roof of the building with the cages, maybe.
+<<playClip PlayerDiviner>>
+Fen: Or that corner by the weapon pile.
+Fen: And once I have gathered enough of myself, I'll go to the lighthouse.
+<<playClip PlayerDiviner>>
+Fen: It's quiet there.
+Fen: I need to think.
+//Fen: Gods know I need it.
+<<wait  0.5>>
+<<playClip PlayerDiviner>>
+Fen: My compass should help if I forget where the path is.
+Fen: Which I wouldn't put past myself right now.
+<<playClip PlayerDiviner>>
+Fen: If that enchantment I cast before I got here even still works...
+//Fen: That willow tree up on the roof of the Rookery...
+//Fen: Could I get up there again?
+<<stop>>
+===
+title: FenMemoryIntroOld
 ---
 //OLD STUFF FOR USE IN THIS BUILD
 <<wait  4>> //ADDED THIS TO SEE IF IT HELPS THE TRANSITION BUT IF IT DOESNT WORK THEN CUT IT
