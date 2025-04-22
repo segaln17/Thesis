@@ -551,7 +551,7 @@ Verity: I'm melting into the field before it can get me.
 <<wait 0.5>>
 <<playClip VerityYarnCollider>>
 Verity: If I wait long enough maybe it'll work.
-<<dinnerTime FogHolder>>
+//<<dinnerTime FogHolder>>
 //Verity: Might as well just melt into the Fields of Sorrow before this place can turn me itself.
 <<set $spokenToVerityFighter to true>>
 <<stop>>
@@ -2606,6 +2606,7 @@ Creature that Looks Worried: See what she has done.
 <<moveNPC LieselAct2Spot>>
 <<moveNPC SnobbishCharacter>>
 <<moveNPC ShrillCharacter>>
+<<resetFog FogHolder>>
 <<changeBackCam PlayerClericStandInSpine>>
 <<colliderActive PhoebetoFenSpineManager>>
 <<letterboxOut LetterBox>>
