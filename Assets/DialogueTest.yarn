@@ -1992,7 +1992,7 @@ Creature that Looks Worried: She does not know how to ask nicely.
 ===
 title: CreaturesTalk
 ---
-<<if $charPOV is "Fighter">>
+<<if $charPOV is "Fighter" and $gardenFoundFighter is true>>
 <<changeAvatar GardenTwoHeadedCreature>>
 <<playClip GardenTwoHeadedCreature>>
 Creature with Many Heads: The husks cannot speak.
@@ -2005,6 +2005,7 @@ Creature with Wings: What would you do, if you fossilized?
 <<changeAvatar GardenFingernailCreature>>
 <<playClip GardenFingernailCreature>>
 Creature with Fingernails: My fingernails would grow and grow and I would be very happy!
+<<playClip GardenFingernailCreature>>
 Creature with Fingernails: I love my fingernails!
 <<stop>>
 <<endif>>
@@ -2201,7 +2202,7 @@ Altea: I'm busy.
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: I assumed you would say that, but, Altea...
-Fen: Oh, and there's a newcomer! You ought to meet her, she seems lovely.
+Fen: And there's a newcomer! You ought to meet her, she seems lovely.
 //Fen: She's a bright one, too!
 //Fen: Made her way into the garden, clever thing!
 //Altea: What?
@@ -2653,6 +2654,7 @@ Creature that Looks Worried: See what she has done.
 //switch into Fen
 <<set $alteaSpineDone to true>>
 <<disappearCreature Hound>>
+<<disappearCreat BonfireYarnCollider>>
 <<revealCreature FenPostBonfireMemory>>
 <<unfreezePlayer PlayerPhoebe>>
 <<stop>>
@@ -2854,15 +2856,25 @@ title: LighthouseNPC
 <<playClip LighthouseNPC>>
 Someone Stuck: I wanted to climb up and look down at everything like little ants.
 Someone Stuck: But I got up here and then I got tired.
+<<playClip LighthouseNPC>>
 Someone Stuck: And I don't feel like going back down yet.
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: It is quite a climb.
 Fen: I have business up there, otherwise I would follow your lead.
+<<changeAvatar LighthouseNPC>>
+<<turnOnDialogue OverworldDialogueSystem>>
+<<playClip LighthouseNPC>>
+Someone Stuck: It's really far.
+<<turnOnFen OverworldDialogueSystem>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: I know. But something I've been looking for might be up there.
 <<set $spokenToLighthouseNPCDiviner to true>>
 <<stop>>
 <<endif>>
+
 <<if $spokenToLighthouseNPCDiviner is true>>
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar LighthouseNPC>>
@@ -2906,6 +2918,8 @@ title: FenGoesUp2
 <<playClip PlayerDiviner>>
 Fen: This is probably not a good idea.
 Fen: But I'm already doing it, so I might as well continue.
+<<playClip PlayerDiviner>>
+Fen: It's only been two hundred years since I last took a hike like this.
 Fen: I'm probably out of shape anyway.
 Fen: ...
 <<playClip PlayerDiviner>>
@@ -2917,7 +2931,7 @@ title: FenGoesUp3
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
-Fen: I've never considered that there's no bugs here.
+Fen: I've never considered that there's no bugs down there on the ground.
 Fen: No gnats or anything.
 <<playClip PlayerDiviner>>
 Fen: Or worms. Or beetles.
@@ -2932,6 +2946,9 @@ Fen: ...
 <<playClip PlayerDiviner>>
 Fen: Perhaps that's unkind to cicadas.
 Fen: They could have dreams too.
+<<playClip PlayerDiviner>>
+Fen: Their deaths are right in front of them.
+Fen: ...
 <<stop>>
 ===
 title: LighthouseCreature
@@ -2956,11 +2973,83 @@ Fen: ...
 <<playClip PlayerDiviner>>
 Fen: Well I didn't get any of that.
 Fen: I'm just... going to keep climbing.
+<<playClip PlayerDiviner>>
+Fen: Good luck getting down, tharpy.
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar LighthouseTharpy>>
 <<playClip LighthouseTharpy>>
 Tharpy: !daeha og 
 Tharpy: !uoy rof stiaw ti
+<<stop>>
+===
+title: LighthouseClimbing
+---
+<<turnOnFen OverworldDialogueSystem>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: Strangely it doesn't hurt to climb this high.
+Fen: But I haven't felt tired in so long.
+<<playClip PlayerDiviner>>
+Fen: So I suppose I can't be surprised.
+<<wait  2>>
+<<playClip PlayerDiviner>>
+Fen: I could tell myself a story.
+Fen: ...
+<<playClip PlayerDiviner>>
+Fen: There's the one with the wizard who carved out his own heart 
+Fen: and put it into a tree 
+<<playClip PlayerDiviner>>
+Fen: but then as the years went on he forgot which tree 
+<<playClip PlayerDiviner>>
+Fen: and then he could never find it again,
+Fen: even when he wanted it.
+<<wait  2>>
+<<playClip PlayerDiviner>>
+Fen: Nevermind.
+<<stop>>
+===
+title: LighthouseClimbingDraft1
+---
+//for draft 2: telling herself a story??
+<<turnOnCloud OverworldDialogueSystem>>
+There was once a town on a marsh.
+<<wait  4>>
+Your name came from that town.
+<<wait  4>>
+//image trigger
+<<wait  4>>
+In that town, people died young.
+You did not want to be one of them.
+<<wait  4>>
+Everyone always said you were impulsive.
+An irony, considering your profession.
+But that came later.
+<<wait  4>>
+Everyone who knew that facet of you is gone.
+<<wait  4>>
+//image
+<<wait  3>>
+Everyone who really knew you is gone.
+<<wait  4>>
+Your heart cannot take much more of this loss.
+<<wait  4>>
+Over and over and over again.
+<<wait  4>>
+//image
+<<wait  4>>
+When will you learn, Fen of Boneset?
+<<wait  4>>
+//image
+<<wait  3>>
+The sun will burn out before you do.
+<<wait  4>>
+The world will drown.
+<<wait  4>>
+And you will see it.
+<<wait  4>>
+I am not afraid of you.
+<<wait  4>>
+Come. Try to claim what is yours.
 <<stop>>
 ===
 title: FenAtTheTop
@@ -2989,6 +3078,7 @@ Fen: I know you've got my death up there.
 Fen: I know you're hoarding the stuff.
 //buzzing/pulsing Moon sound plays, maybe lighting change too, camera changes.
 //Fen: Your arrogance does not deter me.
+<<playClip PlayerDiviner>>
 Fen: You've eaten enough.
 //Fen: This place has stagnated for too long.
 //hum gets louder
@@ -2999,7 +3089,7 @@ Fen: traversed countless continents,
 Fen: to lose the scent down here.
 <<playClip PlayerDiviner>>
 Fen: It's <i>mine</i>, not some nutrients to repurpose.
-<<wait  2>>
+<<wait  1>>
 <<playClip PlayerDiviner>>
 //Fen: I'm coming for it, you false moon. You hive.
 Fen: I'm tired, and I'm taking it back.
@@ -3048,7 +3138,8 @@ Chorus: That's unusual.
 ===
 title: ChorusSpine
 ---
-<<turnOnChorusRoom PlayerPhoebe>>
+//turning this off for right now because it doesn't work:
+//<<turnOnChorusRoom PlayerPhoebe>>
 //play noise
 <<playClip SpineChorus>>
 //wait?
