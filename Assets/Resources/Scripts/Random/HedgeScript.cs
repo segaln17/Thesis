@@ -267,7 +267,7 @@ public class HedgeScript : MonoBehaviour
 
                 if (isGarden)
                 {
-                audioManager.GetComponent<SongScript>().sheetActive = false;
+                    audioManager.GetComponent<SongScript>().sheetActive = false;
                     isSinging = false;
                     doorsAnimator.SetBool("doorsopengarden", true);
                     StartCoroutine("WaitTimeline");
