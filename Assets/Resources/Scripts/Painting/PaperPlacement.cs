@@ -15,6 +15,7 @@ public class PaperPlacement : MonoBehaviour
     public GameObject PaintingSceneMan;
 
     public GameObject wallPos;
+    public GameObject paintbrushBox;
 
     public bool isDone = false;
     public bool isRotated = false;
@@ -30,10 +31,8 @@ public class PaperPlacement : MonoBehaviour
     public float lerpDuration =3f;
 
 
-    private float oldCursoryMin;
-    private float oldCursoryMax;
-    private float oldCursoryMinPlus;
-    private float oldCursoryMaxPlus;
+    public float newCursoroffset=12f;
+ 
 
 
     private void Start()
@@ -92,6 +91,7 @@ public class PaperPlacement : MonoBehaviour
             if (currentSheet.transform.localScale.x <= sheetscalexhigh && currentSheet.transform.localScale.x >= sheetscalexlow)
             {
                 isDone = true;
+                paintbrushBox.GetComponent<CyanobrushCollider>().enabled = true;
                 return;
             }
 
@@ -167,14 +167,8 @@ public class PaperPlacement : MonoBehaviour
     public IEnumerator turnonClick2()
     {
         yield return new WaitForSeconds(1f);
-        oldCursoryMin = currentSheet.GetComponent<ClckandDragSheet>().cursorymin;
-        oldCursoryMax = currentSheet.GetComponent<ClckandDragSheet>().cursorymax;
-        oldCursoryMinPlus = currentSheet.GetComponent<ClckandDragSheet>().cursoryminplus;
-        oldCursoryMaxPlus = currentSheet.GetComponent<ClckandDragSheet>().cursorymaxplus;
-        //currentSheet.GetComponent<ClckandDragSheet>().cursorymin = -50;
-        //currentSheet.GetComponent<ClckandDragSheet>().cursorymax = -50;
+        currentSheet.GetComponent<ClckandDragSheet>().cursoroffset = newCursoroffset;
         currentSheet.GetComponent<ClckandDragSheet>().enabled = true;
-        //currentSheet.GetComponent<Collider>().enabled = true;
         yield return new WaitForSeconds(8f);
         currentSheet = null;
         timeElapsed = 0;

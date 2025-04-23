@@ -19,6 +19,7 @@ public class PaintingSceneManager : MonoBehaviour
     public CyanobrushCollider cyanobrushCollider;
     [Header("Manager Objects")]
     public GameObject mousePainter;
+    public GameObject paintbrushbox;
 
     public SpriteMask paperMask;
     
@@ -308,6 +309,7 @@ public class PaintingSceneManager : MonoBehaviour
     hangHelpPlayed = false;
         
         state = paintingState.newsheet;
+        paintbrushbox.GetComponent<CyanobrushCollider>().enabled = false;
     }
 
     [YarnCommand ("leave")]
@@ -347,6 +349,7 @@ public class PaintingSceneManager : MonoBehaviour
         printHelpPlayed = false;
         leaveHelpPlayed = false;
         hangHelpPlayed = false;
+        paintbrushbox.GetComponent<CyanobrushCollider>().enabled = false;
 
     }
 

@@ -15,6 +15,8 @@ public class ClckandDragSheet : MonoBehaviour
     public float cursoryminplus = 5f;
     public float cursorymaxplus = 5f;
 
+    public float cursoroffset = 8f;
+
     public bool iscarrying;
     public bool justClicked;
 
@@ -76,7 +78,7 @@ public class ClckandDragSheet : MonoBehaviour
     private void isDragging()
     {
        
-        Vector3 cursorPoint = new Vector3(Input.mousePosition.x+5, Input.mousePosition.y+5f, screenPoint.z+5f);
+        Vector3 cursorPoint = new Vector3(Input.mousePosition.x+cursoroffset, Input.mousePosition.y+5f, screenPoint.z+cursoroffset);
         Vector3 cursorPos = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
         cursorPos.y = Mathf.Clamp(transform.position.y, cursorymin, cursorymax);
         transform.position = cursorPos;
