@@ -189,6 +189,21 @@ position: -223,-93
     <<stop>>
 <<endif>>
 ===
+title: Instructions
+---
+<<turnOnBook OverworldDialogueSystem>>
+The remains of a ship's log, wrecked across rocks.
+Only a few intact pages remain.
+Logbook: "Press ESC to open your Inventory and pause the game."
+Logbook: "Press E to take out your knife to sing."
+Logbook: "Press Q to check your left hand."
+Logbook: "Click to interact with interactable people and objects."
+Logbook: "The spacebar does nothing."
+Logbook: "I suppose you could use it to pretend to breathe."
+Logbook: "You won't need to do that anymore."
+<<turnOnDialogue OverworldDialogueSystem>>
+<<stop>>
+===
 title: Windy
 position: -172,85
 ---
@@ -204,6 +219,7 @@ position: -172,85
     <<changeAvatar WindyYarnCollider>>
     Windy: Another newly stolen, I see. 
     //And here I thought Altea was the last for a while.
+    <<playClip WindyYarnCollider>>
     Windy: I suppose that means I lose the bet.
     Windy: How'd you get here?
     //The Fighter: <i>You say nothing.</i>
@@ -214,8 +230,11 @@ position: -172,85
     <<playClip WindyYarnCollider>>
     <<changeAvatar WindyYarnCollider>>
     Windy: Oh, not the talkative type? That's fine.
+    <<playClip WindyYarnCollider>>
     Windy: Ugh, the Moon's going to be brighter soon, and I'm too far out.
-    Windy: Did you see where that little pest went? It took my trowel.
+    Windy: Did you see where that little pest went? 
+    <<playClip WindyYarnCollider>>
+    Windy: It took my trowel.
     //The Fighter: <i>You shake your head.</i>
     <<changeAvatar PhoebeYarn>>
     <<turnOnPhoebe OverworldDialogueSystem>>
@@ -224,10 +243,14 @@ position: -172,85
     <<playClip WindyYarnCollider>>
     <<changeAvatar WindyYarnCollider>>
     Windy: Drat. And I only just found that trowel.
-    Windy: The ruins by the well are no picnic, trust me. It's like a breeding ground for the axe-handed skinks.
+    <<playClip WindyYarnCollider>>
+    Windy: The ruins by the well are no picnic, trust me. 
+    Windy: It's like a breeding ground for the axe-handed skinks.
+    <<playClip WindyYarnCollider>>
     Windy: Although they don't breed. At least, I don't think they do.
     <<playClip WindyYarnCollider>>
     Windy: Anyway. You look a little queasy.
+    <<playClip WindyYarnCollider>>
     Windy: Do you know how you got here? 
     Windy: Do you even know where here is?
     //The Fighter: <i>You say nothing.</i>
@@ -239,25 +262,33 @@ position: -172,85
     <<playClip WindyYarnCollider>>
     //Windy: Still nothing, huh?
     Windy: Oh, we've all made that face, friend.
+    <<playClip WindyYarnCollider>>
     Windy: You should talk to Fen. 
     Windy: She's the only one who's ever ended up here on purpose.
+    <<playClip WindyYarnCollider>>
     Windy: Unless... you did too?
     <<playClip WindyYarnCollider>>
     Windy: Nevermind, I doubt it. 
+    <<playClip WindyYarnCollider>>
     Windy: You seem like someone who would fall down a ravine and end up here.
     Windy: No offense.
     <<playClip WindyYarnCollider>>
-    Windy: Fen'll help you get sorted out. If you can stand her yammering. 
+    Windy: Fen'll help you get sorted out. 
+    Windy: If you can stand her yammering. 
+    <<playClip WindyYarnCollider>>
     Windy: She's at the tavern.
     <<cutToCamera TavernCam>>
-    <<wait  3>>
+    <<wait  4.5>>
     <<cutBackCamera TavernCam>>
     <<playClip WindyYarnCollider>>
-    Windy: And get to the bonfire if you start feeling <i>really</i> queasy. Everyone feels queasy at first.
+    Windy: And get to the bonfire if you start feeling <i>really</i> queasy. 
+    <<playClip WindyYarnCollider>>
+    Windy: Everyone feels queasy at first.
     Windy: Well, not me, but other people usually get queasy.
     <<playClip WindyYarnCollider>>
     //Windy: Talk to me again if you get lost or confused or if a hedgehog steals your property.
     Windy: Oh, and don't look down. There's nothing down there but the sun, deep, deep down.
+    <<playClip WindyYarnCollider>>
     Windy: All the way under the water.
     <<set $spokenToWindy to true>>
     <<stop>>
@@ -267,6 +298,7 @@ position: -172,85
     <<changeAvatar WindyYarnCollider>>
     Windy: Fen's at the tavern.
     Windy: If you see Zora there, don't tell her I owe her, okay?
+    <<playClip WindyYarnCollider>>
     Windy: Now, where did that little varmint go?
     <<stop>>
 <<endif>>
@@ -300,22 +332,34 @@ position: -172,85
     <<changeAvatar WindyYarnCollider>>
     Windy: I shan't say.
     Windy: But she did kind of start it.
+    <<playClip WindyYarnCollider>>
     Windy: She called you out-of-touch.
     Windy: Mired in the past that's slipping away from you.
     <<playClip WindyYarnCollider>>
     Windy: You know, because you're <i>immortal</i>, or whatever.
     Windy: Her words.
+    <<playClip WindyYarnCollider>>
     Windy: People are wondering if it's true.
     <<turnOnFen OverworldDialogueSystem>>
     <<playClip PlayerDiviner>>
     <<changeAvatar PlayerDiviner>>
     Fen: Of course it's not true.
-    Fen: I was there for the First Bastion Fire, and I recall the aftermath of the Second, and the rebuilding efforts for both.
-    //Windy: I've never been to Bastion, if that's even a place.
-    Fen: I remember the death of the Saint of Radiant Sorrow. I remember seeing Her forces gain influence across the continent.
+    Fen: I was there for the First Bastion Fire, 
     <<playClip PlayerDiviner>>
-    Fen: So what if I don't remember the name of the village I came from? I remember where it was.
-    Fen: Or... that it was off of a marsh. That I remember.
+    Fen: and the aftermath of the Second, 
+    <<playClip PlayerDiviner>>
+    Fen: and the rebuilding efforts for both.
+    //Windy: I've never been to Bastion, if that's even a place.
+    <<playClip PlayerDiviner>>
+    Fen: I remember the death of the Saint of Radiant Sorrow. 
+    <<playClip PlayerDiviner>>
+    Fen: I remember seeing Her forces gain influence across the continent.
+    <<playClip PlayerDiviner>>
+    Fen: So what if I don't remember the name of the village I came from? 
+    <<playClip PlayerDiviner>>
+    Fen: I remember where it was.
+    <<playClip PlayerDiviner>>
+    Fen: Or... that it was off of a marsh.
     Fen: ...
     <<turnOnDialogue OverworldDialogueSystem>>
     <<playClip WindyYarnCollider>>
@@ -336,6 +380,7 @@ position: -172,85
     <<changeAvatar WindyYarnCollider>>
     Windy: Look, I'm sorry if I sounded harsh.
     Windy: You're just the only grounded one here.
+    <<playClip WindyYarnCollider>>
     Windy: No one wants to see you turn.
     <<stop>>
 <<endif>>
@@ -355,22 +400,33 @@ position: 209,-41
     Byron: Hey, you! You're breathing!
     //Byron: The Beneath caught a fresh one! 
     Byron: No one breathes around here anymore.
-    Byron: Besides Altea, of course. But she's more new, too.
+    <<playClip ByronYarnCollider>>
+    Byron: Besides Altea, of course. 
+    Byron: But she's more new, too.
     <<playClip ByronYarnCollider>>
     //Been a while, not since Altea!
     //Byron: Breathing, the both of you—not been here long enough not to, eh?
     Byron: Have you noticed you don't have to blink anymore?
+    <<playClip ByronYarnCollider>>
     Byron: Or relieve yourself? Nothing created nor destroyed, as they say...
     <<playClip ByronYarnCollider>>
-    Byron: I'm too far from the Bonfire now, but they need kindling for the fire. Or the moon will hatch, and consume us all...
-    Byron: And we wouldn't want that.
-    Byron: Who knows what would happen if that ever-present moon fell out of the sky.
+    Byron: I'm too far from the Bonfire now, but they need kindling for the fire. 
     <<playClip ByronYarnCollider>>
-    Byron: I'd like to see it hatch, but I'll be a husk long before then, won't I?
+    Byron: Or the moon will hatch, and consume us all...
+    Byron: And we wouldn't want that.
+    <<playClip ByronYarnCollider>>
+    Byron: Who knows what would happen 
+    Byron: if that ever-present moon fell out of the sky.
+    <<playClip ByronYarnCollider>>
+    Byron: I'd like to see it hatch, 
+    Byron: but I'll be a husk long before then, won't I?
+    <<playClip ByronYarnCollider>>
     Byron: And then Lady Altea will have to take care of me!
     <<playClip ByronYarnCollider>>
     Byron: Oh, what a punishment that would be for her, but what a pleasure for me!
+    <<playClip ByronYarnCollider>>
     Byron: <i>He dissolves into manic laughter.</i>
+    <<playClip ByronYarnCollider>>
     Byron: Don't look so scandalized. It'll happen to you too!
     <<set $spokenToByronFighter to true>>
     <<stop>>
@@ -381,10 +437,12 @@ position: 209,-41
     <<changeAvatar ByronYarnCollider>>
     <<playClip ByronYarnCollider>>
     Byron: There's a garden on the other side of the campfire, near the tavern...
+    <<playClip ByronYarnCollider>>
     Byron: It would make good kindling.
     Byron: Too bad Fen won't let anyone take a hatchet to it.
     <<playClip ByronYarnCollider>>
     Byron: A real shame, that.
+    <<playClip ByronYarnCollider>>
     Byron: Again with the scandalized expression. You're not a tree hugger, are you?
     <<playClip ByronYarnCollider>>
     Byron: That'd be awfully uninteresting.
@@ -396,8 +454,10 @@ position: 209,-41
     <<changeAvatar ByronYarnCollider>>
     <<playClip ByronYarnCollider>>
     Byron: Oh. It's you.
+    <<playClip ByronYarnCollider>>
     Byron: Go bother someone else with your chattering.
     Byron: It's like your teeth are loose in that skull of yours.
+    <<playClip ByronYarnCollider>>
     Byron: Someone ought to fix that.
     <<turnOnFen OverworldDialogueSystem>>
     <<changeAvatar PlayerDiviner>>
@@ -407,6 +467,7 @@ position: 209,-41
     <<changeAvatar ByronYarnCollider>>
     <<playClip ByronYarnCollider>>
     Byron: My Lady is as beautiful as she is merciless, it's true.
+    <<playClip ByronYarnCollider>>
     Byron: I'd recommend her certainly as candidate.
     <<turnOnFen OverworldDialogueSystem>>
     <<changeAvatar PlayerDiviner>>
@@ -417,7 +478,8 @@ position: 209,-41
     <<turnOnDialogue OverworldDialogueSystem>>
     <<changeAvatar ByronYarnCollider>>
     <<playClip ByronYarnCollider>>
-    Byron: You must be going mad then because these are the best pieces of kindling the Beneath has to offer.
+    Byron: You must be going mad then because these 
+    Byron: are the best pieces of kindling the Beneath has to offer.
     <<turnOnFen OverworldDialogueSystem>>
     <<changeAvatar PlayerDiviner>>
     <<playClip PlayerDiviner>>
@@ -467,7 +529,9 @@ Tree: I her graceless sibling.
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
-Fen: Oh, don't say that. You're very graceful.
+Fen: Oh, don't say that. 
+<<playClip PlayerDiviner>>
+Fen: You're very graceful.
 <<changeAvatar TalkingTreeYarnCollider>>
 Tree: ...
 <<playClip TalkingTreeYarnCollider>>
@@ -482,12 +546,15 @@ title: TrowelGuy
 <<changeAvatar YarnColliderTrowelCreature>>
 <<playClip YarnColliderTrowelCreature>>
 Creature with a Trowel: .olleh
+<<playClip YarnColliderTrowelCreature>>
 //Creature with a Trowel: if you sing at the garden hedge, something nice will happen!
 Creature with a Trowel: .llih a pu nedrag a si ereht rehtag seno llat eht erehw raen 
 //near where the tall ones gather there is a garden up a hill
+<<playClip YarnColliderTrowelCreature>>
 Creature with a Trowel: !neppah lliw ecin gnihtemos egdeh nedrag eht ta gnis uoy fi
 <<playClip YarnColliderTrowelCreature>>
 Creature with a Trowel: !em tsurt 
+<<playClip YarnColliderTrowelCreature>>
 Creature with a Trowel: !gniht siht elots i
 <<stop>>
 <<endif>>
@@ -544,6 +611,7 @@ position: 229,-21
 <<changeAvatar VerityYarnCollider>>
 <<playClip VerityYarnCollider>>
 Verity: I'm not fighting it. I'm becoming a rock.
+<<playClip VerityYarnCollider>>
 Verity: I'm melting into the field before it can get me.
 //Verity: There's no point in fighting it. Any of it.
 //Verity: Even the monsters. Killing them does nothing.
@@ -562,6 +630,7 @@ Verity: If I wait long enough maybe it'll work.
 <<changeAvatar VerityYarnCollider>>
 <<playClip VerityYarnCollider>>
 Verity: Leave me alone.
+<<playClip VerityYarnCollider>>
 Verity: I'm trying to turn into a rock and you're distracting me.
 <<stop>>
 <<endif>>
@@ -575,6 +644,7 @@ Fen: Everything alright, Verity?
 <<changeAvatar VerityYarnCollider>>
 <<playClip VerityYarnCollider>>
 Verity: It didn't work over there, but maybe it'll work here.
+<<playClip VerityYarnCollider>>
 Verity: I've been practicing.
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
@@ -598,17 +668,23 @@ position: 239,-11
 //Zora: This is the tavern. If you want to eat or sleep, this is the place.
 //Zora: Between you and me, I don't think any of us need to sleep, anymore.
 Zora: Hey, welcome to the tavern!
+<<playClip ZoraYarnCollider>>
 Zora: Want anything? We've got... really old mead.
 <<wait  1>>
 <<playClip ZoraYarnCollider>>
 Zora: Yeah, you look about as excited about that as I was.
 <<playClip ZoraYarnCollider>>
-Zora: Apart from just tasting like honey-flavored dust, it won't get you drunk. Nothing will, anymore.
+Zora: Apart from just tasting like honey-flavored dust, it won't get you drunk. 
 <<playClip ZoraYarnCollider>>
-Zora: And people don't need to sleep, either. Just so you don't panic later.
+Zora: Nothing will, anymore.
+<<playClip ZoraYarnCollider>>
+Zora: And people don't need to sleep, either. 
+Zora: Just so you don't panic later.
+<<playClip ZoraYarnCollider>>
 Zora: But some people still pretend they can.
 <<playClip ZoraYarnCollider>>
 Zora: All the beds are gone, though.
+<<playClip ZoraYarnCollider>>
 Zora: It's a lot easier to just accept that your body is on pause, forever.
 <<set $spokenToZoraFighter = true>>
 <<stop>>
@@ -620,6 +696,7 @@ Zora: It's a lot easier to just accept that your body is on pause, forever.
 <<playClip ZoraYarnCollider>>
 Zora: While you were out, did you see Windy?
 Zora: Gray hair, kind of rude?
+<<playClip ZoraYarnCollider>>
 Zora: Did she say anything about a bet we had?
 <<playClip ZoraYarnCollider>>
 Zora: Nevermind. She'll never pay up. She never does.
@@ -647,8 +724,8 @@ title: FenJournal
 ---
 <<turnOnBook OverworldDialogueSystem>>
 <<if $readFenJournal is false>>
-<i>A meticulously kept journal, that of a scholar.</i>
-<i>Diagrams and arcane runes litter its pages.</i>
+A meticulously kept journal, that of a scholar.
+Diagrams and arcane runes litter its pages.
 Journal: "I have discovered that any use of spellwork down here backfires and fizzles out."
 Journal: "It's like the Beneath is allergic to it."
 Journal: "Or, perhaps, absorbs any spell that is cast back into itself?"
@@ -660,7 +737,7 @@ Journal: "Though unfortunately, this means I will have to boil water for tea man
 <<endif>>
 <<if $readFenJournal is true>>
 <<turnOnBook OverworldDialogueSystem>>
-<i>The journal continues.</i>
+The journal continues.
 Journal: "It's interesting that the new arrival, the cleric, is of the order of the Saint of Radiant Sorrow."
 Journal: "Quite a violent sect. Staged a coup in White Stair."
 Journal: "Maybe her faith has the same effect as the music thing? Does the Beneath feed on it?"
@@ -675,8 +752,8 @@ Journal: "Much to think about. Nothing to do but think."
 title: SylvanBook
 ---
 <<turnOnBook OverworldDialogueSystem>>
-<i>A tattered tome, preserving legends in its pages.</i>
-<i>It sits open to a page entitled 'Sylvan the Overcomer.'
+A tattered tome, preserving legends in its pages.
+It sits open to a page entitled 'Sylvan the Overcomer.'
 Book: "And, his patience rewarded, Sylvan the Overcomer, with his legendary strength,"
 Book: "wrestled the Worldeater Fish, covered its gills with his hands,"
 Book: "so it gasped, and shuddered, and surfaced,"
@@ -829,7 +906,9 @@ Joanna: Shine your shell under our moonlight.
 <<changeAvatar PointyYarnCollider>>
 <<playClip PointyYarnCollider>>
 Lavinia: I have no shell. I'm frightened of you,
-Lavinia: of your saccharine words. But you are disciples of the ground beneath.
+Lavinia: of your saccharine words. 
+<<playClip PointyYarnCollider>>
+Lavinia: But you are disciples of the ground beneath.
 <<changeAvatar JoannaYarnCollider>>
 <<playClip JoannaYarnCollider>>
 Joanna: It is only your resting place, lady.
@@ -884,17 +963,36 @@ Theodora: I would rather run another scene.
 <<changeAvatar Hollis>>
 <<playClip Hollis>>
 Hollis: We've never finished the bug scene, though.
-<<changeAvatar>>
+<<changeAvatar JoannaYarnCollider>>
+<<playClip JoannaYarnCollider>>
 Joanna: Because the grass is always too loud.
+<<changeAvatar GrassYarnCollider>>
 Grass: ...
+<<changeAvatar Theodora>>
+<<playClip Theodora>>
 Theodora: What if we ran the kiss scene?
+<<changeAvatar PointyYarnCollider>>
+<<playClip PointyYarnCollider>>
 Lavinia: Ugh.
+<<changeAvatar Theodora>>
+<<playClip Theodora>>
 Theodora: You don't like the kiss scene?
+<<changeAvatar Hollis>>
+<<playClip Hollis>>
 Hollis: Lavinia hates kissing.
+<<changeAvatar JoannaYarnCollider>>
+<<playClip JoannaYarnCollider>>
 Joanna: How would you know?
+<<changeAvatar Hollis>>
 Hollis: ...
+<<changeAvatar PointyYarnCollider>>
+<<playClip PointyYarnCollider>>
 Lavinia: Let's run the drowning scene again.
+<<changeAvatar GrassYarnCollider>>
+<<playClip GrassYarnCollider>>
 Grass: But there's no grass in the drowning scene.
+<<changeAvatar PointyYarnCollider>>
+<<playClip PointyYarnCollider>>
 Lavinia: Exactly.
 <<stop>>
 <<endif>>
@@ -964,6 +1062,33 @@ Joanna: Or purgatory. Or whatever this hungry place is.
 <<changeAvatar JoannaYarnCollider>>
 <<playClip JoannaYarnCollider>>
 Joanna: We still haven't got the bug scene down.
+<<turnOnFen OverworldDialogueSystem>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: Still?
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar JoannaYarnCollider>>
+<<playClip JoannaYarnCollider>>
+Joanna: Grass keeps ruining it.
+<<turnOnFen OverworldDialogueSystem>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: I must confess, I'm not a huge fan of the bug scene.
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar JoannaYarnCollider>>
+Joanna: ...
+<<turnOnFen OverworldDialogueSystem>>
+<<changeAvatar PlayerDiviner>>
+<<playClip PlayerDiviner>>
+Fen: It's just a bit... dark, isn't it?
+<<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar JoannaYarnCollider>>
+<<playClip JoannaYarnCollider>>
+Joanna: Don't let Lavinia hear you say that.
+Joanna: She loves the part where she has to cry.
+<<playClip JoannaYarnCollider>>
+Joanna: She's the only one of us who can still pretend
+Joanna: convincingly enough.
 <<stop>>
 <<endif>>
 ===
@@ -1085,19 +1210,27 @@ The Fighter: ...
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
-Fen: Oh, you're a shy one! Wouldn't think so with your weaponry.
+Fen: Oh, you're a shy one!
+Fen: Wouldn't think so with your weaponry.
+<<playClip PlayerDiviner>>
 Fen: But I'll bet you get that a lot.
 Fen: Don't worry, you don't have to speak if you don't want to.
 <<playClip PlayerDiviner>>
-Fen: I'm getting off topic, you're probably very confused and disoriented.
+Fen: I'm getting off topic. 
+Fen: You're probably very confused and disoriented.
+<<playClip PlayerDiviner>>
 Fen: I haven't really had to do this much, so please forgive my rambling.
 Fen: Where to start...
 <<playClip PlayerDiviner>>
 Fen: Have you met Altea?
-Fen: She's the other new one, aside from you. New-ish.
+Fen: She's the other new one, aside from you. 
+Fen: New-ish.
 <<playClip PlayerDiviner>>
-Fen: Well, I should say "us." I have not been here very long either.
-Fen: She's... prickly. But I think she's got a good heart, somewhere underneath all that armor.//But she's a cleric of the order of the Saint of Radiant Sorrow, so that's nice.
+Fen: Well, I should say "us." 
+Fen: I have not been here very long either.
+<<playClip PlayerDiviner>>
+Fen: She's... prickly. 
+Fen: But I think she's got a good heart, somewhere underneath all that armor.//But she's a cleric of the order of the Saint of Radiant Sorrow, so that's nice.
 //Fen: A nice violent sect. She caused a coup in her own hometown, so I heard!
 <<turnOnPhoebe OverworldDialogueSystem>>
 <<changeAvatar PhoebeYarn>>
@@ -1106,20 +1239,29 @@ The Fighter: ...
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
-Fen: This building is lovely, isn't it? So full of light.
+Fen: This building is lovely, isn't it?
+Fen: So full of light.
+<<playClip PlayerDiviner>>
 Fen: There's at least no shortage of light in this place.
 Fen: You must be wondering how long you'll be here.
+<<playClip PlayerDiviner>>
 Fen: I wonder that sometimes myself.
 Fen: Because, well, the reality is that we're stuck here.
 <<playClip PlayerDiviner>>
 Fen: They call it the Beneath, this space between realities.
-Fen: It's where lost things go. I'm afraid that includes you, now.
+Fen: It's where lost things go. 
 <<playClip PlayerDiviner>>
-Fen: But might as well make the most of it, mustn't we! No use moping like Altea.
+Fen: I'm afraid that includes you, now.
+<<playClip PlayerDiviner>>
+Fen: But might as well make the most of it, mustn't we!
+Fen: No use moping like Altea.
+<<playClip PlayerDiviner>>
 Fen: The Beneath certainly has its own marvels.
-Fen: In such a space where there should be no life, the flora and fauna are teeming!
+Fen: In such a space where there should be no life, 
+Fen: the flora and fauna are teeming!
 <<playClip PlayerDiviner>>
-Fen: I have a theory about it, but it's a bit morbid. I'll refrain from sharing it.
+Fen: I have a theory about it, but it's a bit morbid. 
+Fen: I'll refrain from sharing it.
 <<turnOnPhoebe OverworldDialogueSystem>>
 <<changeAvatar PhoebeYarn>>
 The Fighter: ...
@@ -1133,8 +1275,11 @@ Fen: Well, alright, I'll tell you.
 Fen: So with people-types like us, 
 Fen: the longer we remain here the more hollowed out we become.
 <<playClip PlayerDiviner>>
-Fen: I believe that our life force is being drawn up and into the very atmosphere to fuel this place.
-Fen: Maybe even to fuel a celestial body, in this place that should be subterranean, 
+Fen: I believe that our life force is being drawn up
+Fen: and into the very atmosphere to fuel this place.
+<<playClip PlayerDiviner>>
+Fen: Maybe even to fuel a celestial body, 
+Fen: in this place that should be subterranean, 
 <<playClip PlayerDiviner>>
 Fen: but where the moon sits low and never sets...
 <<turnOnPhoebe OverworldDialogueSystem>>
@@ -1143,22 +1288,33 @@ The Fighter: ...
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
-Fen: Oh, but I'm boring you. I get caught up in these things.
-Fen: I'm studying this place; I'm a diviner, you see.
+Fen: Oh, but I'm boring you. 
+Fen: I get caught up in these things.
+<<playClip PlayerDiviner>>
+Fen: I'm studying this place,
+Fen: I'm a diviner, you see.
+<<playClip PlayerDiviner>>
 Fen: I'm trying to divine its secrets.
 //The Fighter: <i>You chuckle, but say nothing.</i>
 <<playClip PlayerDiviner>>
 Fen: Say, do you sing?
 Fen: I've noticed quite a few people who end up down here are musicians.
+<<playClip PlayerDiviner>>
 Fen: I've wondered if this world gets louder when it turns them.
 <<playClip PlayerDiviner>>
-Fen: By eating musicians, the Beneath takes their knack for music and makes it into its own sonic resonance,
-Fen: or something like that. It's a theory I've been nursing.
+Fen: By eating musicians, the Beneath takes their knack for music,
+Fen: and makes it into its own sonic resonance,
+<<playClip PlayerDiviner>>
+Fen: or something like that. 
+Fen: It's a theory I've been nursing.
+<<playClip PlayerDiviner>>
 Fen: You have no instrument, so I thought I'd see if you fit into the pattern.
 <<wait  1>>
 <<playClip PlayerDiviner>>
 //Fen: Some are too talkative to appreciate it, but others are more sensitive.
-Fen: In case you do sing, I found this the other day. It looks like sheet music, almost.
+Fen: In case you do sing, I found this the other day. 
+Fen: It looks like sheet music, almost.
+<<playClip PlayerDiviner>>
 Fen: Here, maybe you'll have a use for it.
 <<playKnock GardenCutsceneManager>>
 //do we need this text?
@@ -1168,17 +1324,20 @@ Fen: Here, maybe you'll have a use for it.
 //the clink from the gardenscene:
 <<getSongofBeasts PhoebeInventoryManager>>
 <<revealCreature FenTavernManager>>
-<<wait  2>>
+<<wait  3>>
 <<disappearCreature FenTavernManager>>
 <<playClip PlayerDiviner>>
 Fen: Windy found it by the garden, but she's given up music.
+<<playClip PlayerDiviner>>
 Fen: People think it's because she's divorced, but she denies it.
 Fen: Consider it a welcome gift!
 <<playClip PlayerDiviner>>
 Fen: The garden's up the hill, just outside, the way you came in. 
 Fen: I go up there sometimes to think.
 <<playClip PlayerDiviner>>
-Fen: Some of the plants up there respond to music, if you feel so inclined to try.
+Fen: Some of the plants up there respond to music,
+Fen: if you feel so inclined to try.
+<<playClip PlayerDiviner>>
 Fen: Let me know if anything interesting happens!
 //Fen: Maybe something around here will respond to it!
 <<changeBackCam FenTavernManager>>
@@ -1193,7 +1352,8 @@ Fen: Let me know if anything interesting happens!
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
-Fen: You really ought to take a look at the garden, up that very tall hill.
+Fen: You really ought to take a look at the garden, 
+Fen: up that very tall hill.
 Fen: Even just to take in the view.
 <<playClip PlayerDiviner>>
 Fen: Trust me. I know these things.
@@ -1209,6 +1369,18 @@ position: 269,19
 <<playClip GardenTreeYarn>>
 Tree: The soil may have forgotten the sun,
 Tree: but it forgets not the feel of footsteps upon it.
+<<stop>>
+===
+title: PondGuy
+---
+<<turnOnDialogue OverworldDialogueSystem>>
+Creature: ...eci eht redun gnihtemos si ereht
+Creature: ...em ot sllac ti
+<<wait  1>>
+Creature: ?doG
+<<wait  0.5>>
+Creature: !skcor eseht htiw eci eht kaerb dluoc i taht ho
+Creature: .sdnah on evah i tub
 <<stop>>
 ===
 title: FishPond
@@ -1246,7 +1418,8 @@ Heloise: Come back here when you're ready for "Dinner".
 Heloise: Oh, you're ready?
 Heloise: We're not.
 <<playClip HeloiseYarnCollider>>
-Heloise: Come back later. You'll hear the dinner bell.
+Heloise: Come back later. 
+Heloise: You'll hear the dinner bell.
 <<stop>>
 <<endif>>
 
@@ -1258,14 +1431,18 @@ Heloise: Come back later. You'll hear the dinner bell.
 Heloise: You're back.
 Heloise: What's with the face?
 <<playClip HeloiseYarnCollider>>
-Heloise: I take it you saw something weird? Were the bats grooming each other again?
+Heloise: I take it you saw something weird?
+<<playClip HeloiseYarnCollider>>
+Heloise: Were the bats grooming each other again?
 Heloise: Or maybe you just found something to amuse yourself with.
 <<playClip HeloiseYarnCollider>>
 Heloise: Good.
 Heloise: Everyone should, eventually.
 //Heloise: Or you end up like Verity, whining alone in a field.
 <<playClip HeloiseYarnCollider>>
-Heloise: If you're ready, look into the fire. It's the only real ritual we have.
+Heloise: If you're ready, look into the fire. 
+<<playClip HeloiseYarnCollider>>
+Heloise: It's the only real ritual we have.
 Heloise: Feel free to add a log, if you want.
 <<stop>>
 <<endif>>
@@ -1334,7 +1511,9 @@ title: Liesel
 <<changeAvatar LieselYarnCollider>>
 Liesel: Oh, hello!
 Liesel: Have you seen a puppet anywhere?
-Liesel: He's haunted, and about this big, and looks like he'd steal your ice skates?
+<<playClip LieselYarnCollider>>
+Liesel: He's haunted, and about this big, 
+Liesel: and looks like he'd steal your ice skates?
 <<playClip LieselYarnCollider>>
 Liesel: His name's Baby. I can't find him.
 <<playClip LieselYarnCollider>>
@@ -1350,6 +1529,7 @@ Liesel: ...Don't tell Heloise.
 <<changeAvatar LieselYarnCollider>>
 <<playClip LieselYarnCollider>>
 Liesel: I want to train the creatures to do tricks.
+<<playClip LieselYarnCollider>>
 Liesel: They're so sweet and kind, just look at their eyes!
 <<playClip LieselYarnCollider>>
 Liesel: Except, they love to gossip.
@@ -1369,6 +1549,7 @@ Fen: Why would he be doing such a thing?
 <<changeAvatar LieselYarnCollider>>
 <<playClip LieselYarnCollider>>
 Liesel: He's been telling people I work for him.
+<<playClip LieselYarnCollider>>
 //Liesel: I don't! I don't even know why he's haunted.
 //<<playClip LieselYarnCollider>>
 //Liesel: He keeps having tantrums and I don't know what to do about them.
@@ -1381,6 +1562,7 @@ Fen: I'm sure it'll pass, Liesel.
 <<changeAvatar LieselYarnCollider>>
 <<playClip LieselYarnCollider>>
 Liesel: I hope so. He won't play with me anymore.
+<<playClip LieselYarnCollider>>
 Liesel: He says I'm embarrassing him.
 <<set $spokenToLieselDiviner to true>>
 <<stop>>
@@ -1412,14 +1594,20 @@ position: 289,39
 <<playClip HytheYarnCollider>>
 <<changeAvatar HytheYarnCollider>>
 Hythe: You've seen them, then? The husks?
-Hythe: These are old ones, I think. They're basically the wall now.
+Hythe: These are old ones, I think. 
+<<playClip HytheYarnCollider>>
+Hythe: They're basically the wall now.
 <<playClip HytheYarnCollider>>
 Hythe: And this fellow next to me is in the middle of the process.
 <<playClip HytheYarnCollider>>
 Hythe: Oh, you don't have to bother with drawing your weapon.
-Hythe: Most of them are harmless. Used to be like us--lost souls.
+Hythe: Most of them are harmless. 
 <<playClip HytheYarnCollider>>
-Hythe: Altea helps them, after they turn. Poor bastards.
+Hythe: Used to be like us--lost souls.
+<<playClip HytheYarnCollider>>
+Hythe: Altea helps them, after they turn. 
+<<playClip HytheYarnCollider>>
+Hythe: Poor bastards.
 <<set $spokenToHytheFighter to true>>
 <<stop>>
 <<endif>>
@@ -1431,9 +1619,11 @@ Hythe: Altea helps them, after they turn. Poor bastards.
 Hythe: I like sitting out here and watching the husks.
 Hythe: They don't do much, but that's okay.
 <<playClip HytheYarnCollider>>
-Hythe: I like talking to them. I can say whatever I want to them and they never react.
+Hythe: I like talking to them. 
+Hythe: I can say whatever I want to them and they never react.
 <<playClip HytheYarnCollider>>
 Hythe: I can even scream at them if I want to, and they have to just sit there.
+<<playClip HytheYarnCollider>>
 Hythe: Nature is beautiful, don't you think?
 <<stop>>
 <<endif>>
@@ -1443,6 +1633,7 @@ Hythe: Nature is beautiful, don't you think?
 <<changeAvatar HytheYarnCollider>>
 <<playClip HytheYarnCollider>>
 Hythe: Oh, is it time for the Bonfire already?
+<<playClip HytheYarnCollider>>
 Hythe: I think I'd much rather observe this fellow, to tell you the truth.
 //Hythe: I've been observing this fellow. It hasn't moved.
 Hythe: Fen says they fuse with the earth...
@@ -1452,7 +1643,7 @@ Hythe: What do you think Altea does for them?
 <<playClip HytheYarnCollider>>
 Hythe: Do you think it's painful?
 Hythe: ...Do you think she'd allow an audience?
-<<wait  1>>
+<<wait  1.5>>
 <<playClip HytheYarnCollider>>
 Hythe: Why are you making that face? 
 Hythe: Is it something I said?
@@ -1471,13 +1662,17 @@ Hythe: Who can keep track, anymore?
 <<turnOnFen OverworldDialogueSystem>>
 <<playClip PlayerDiviner>>
 <<changeAvatar PlayerDiviner>>
-Fen: That doesn't answer my question. You never leave this spot.
+Fen: That doesn't answer my question. 
+Fen: You never leave this spot.
+<<playClip PlayerDiviner>>
 Fen: People are... a bit concerned.
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar HytheYarnCollider>>
 <<playClip HytheYarnCollider>>
 Hythe: Who? Not these fellows, surely?
-Hythe: They can't say anything about my sitting here watching them all day.
+<<playClip PlayerDiviner>>
+Hythe: They can't say anything about my sitting here,
+Hythe: watching them all day.
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 Fen: ...
@@ -1492,8 +1687,9 @@ Hythe: I don't think I shall.
 Hythe: I'm perfectly happy here.
 <<playClip HytheYarnCollider>>
 Hythe: In fact, you all should try it!
-Hythe: Try screaming at a husk. It's very cathartic!
-<<playClip HytheYarnCollider>>
+Hythe: Try screaming at a husk. 
+<<playClip PlayerDiviner>>
+Hythe: It's very cathartic!
 Hythe: They can't do anything!
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
@@ -1519,14 +1715,22 @@ position: 299,49
 <<changeAvatar GrimboldeYarnCollider>>
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: That face you have on? It won't last.
-Grimbolde: I hide out here by the road to the old bathhouse to get some goddamned peace and quiet.
 <<playClip GrimboldeYarnCollider>>
-Grimbolde: Except I can't get that, because the creatures use it for whatever vile frolicking they do in their spare time.
+Grimbolde: I hide out here by the road to the old bathhouse
+Grimbolde: to get some goddamned peace and quiet.
+<<playClip GrimboldeYarnCollider>>
+Grimbolde: Except I can't get that, because the creatures use it
+Grimbolde: for whatever vile frolicking they do in their spare time.
 Grimbolde: When they're not skittering around and shrieking.
-Grimbolde: And over in that building there, in the stables, there's all these horrible crashes at random intervals.
 <<playClip GrimboldeYarnCollider>>
-Grimbolde: But I can't go anywhere else because the very bones of this place make noise.
-Grimbolde: It's horrible. You're going to hate it.
+Grimbolde: And over in that building there, in the stables, 
+Grimbolde: there's all these horrible crashes at random intervals.
+<<playClip GrimboldeYarnCollider>>
+Grimbolde: But I can't go anywhere else,
+Grimbolde: because the very bones of this place make noise.
+<<playClip GrimboldeYarnCollider>>
+Grimbolde: It's horrible.
+Grimbolde: You're going to hate it.
 <<set $spokenToGrimboldeFighter to true>>
 <<stop>>
 <<endif>>
@@ -1539,7 +1743,9 @@ Grimbolde: If anyone tells you Windy and I are divorced, it's not true.
 Grimbolde: I've never been married.
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: I'm a bachelor for life.
-Grimbolde: And I'm not interested in being set up. Got it?
+<<playClip GrimboldeYarnCollider>>
+Grimbolde: And I'm not interested in being set up. 
+Grimbolde: Got it?
 <<stop>>
 <<endif>>
 
@@ -1552,7 +1758,9 @@ Grimbolde: And I'm not interested in being set up. Got it?
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: Thank goodness, it's time to gather at the Bonfire.
 Grimbolde: No creatures allowed down there.
-Grimbolde: That's all I want. Blissful, blissful silence.
+<<playClip GrimboldeYarnCollider>>
+Grimbolde: That's all I want. 
+Grimbolde: Blissful, blissful silence.
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: Except that at "Dinner," Fen's always talking.
 Grimbolde: It's hell, everywhere, all the time.
@@ -1560,7 +1768,9 @@ Grimbolde: It's hell, everywhere, all the time.
 Grimbolde: Isn't it awful?
 Grimbolde: Are you laughing at me?
 <<playClip GrimboldeYarnCollider>>
-Grimbolde: Stop it. This isn't funny, this is a nightmare.
+Grimbolde: Stop it. 
+Grimbolde: This isn't funny, this is a nightmare.
+<<playClip GrimboldeYarnCollider>>
 Grimbolde: Treat it as such.
 <<stop>>
 <<endif>>
@@ -1571,6 +1781,7 @@ Grimbolde: Treat it as such.
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: Oh, Fen, can something be done about these things?
 Grimbolde: I hate them.
+<<playClip GrimboldeYarnCollider>>
 Grimbolde: Their voices scrape my mind like nails on slate.
 <<turnOnFen OverworldDialogueSystem>>
 <<playClip PlayerDiviner>>
@@ -1583,6 +1794,7 @@ Grimbolde: ...
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: Altea's in the stables.
 Grimbolde: She locked the doors hours ago. 
+<<playClip GrimboldeYarnCollider>>
 Grimbolde: I wouldn't think she was in there at all if not for the light.
 <<set $spokenToGrimboldeDiviner = true>>
 <<stop>>
@@ -1602,7 +1814,9 @@ Fen: I'll do my best to convince her.
 <<changeAvatar GrimboldeYarnCollider>>
 <<playClip GrimboldeYarnCollider>>
 Grimbolde: But can you get her to stop that racket?
-Grimbolde: It's not happening right now, but it'll happen again. It always does.
+Grimbolde: It's not happening right now, but it'll happen again. 
+<<playClip GrimboldeYarnCollider>>
+Grimbolde: It always does.
 <<stop>>
 <<endif>>
 ===
@@ -1613,7 +1827,8 @@ title: BabyNPC
 <<changeAvatar BabyYarnCollider>>
 <<playClip BabyYarnCollider>>
 Puppet: My name's Baby.
-Puppet: Don't laugh. I hate it when people laugh.
+Puppet: Don't laugh. 
+Puppet: I hate it when people laugh.
 <<playClip BabyYarnCollider>>
 Puppet: Stop smiling. It's not funny.
 Puppet: Now go away.
@@ -1629,7 +1844,8 @@ Baby: Until I get a better name.
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
-Fen: I think if you told Liesel you want a different name, she'd help you pick one out.
+Fen: I think if you told Liesel you want a different name, 
+Fen: she'd help you pick one out.
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar BabyYarnCollider>>
 <<playClip BabyYarnCollider>>
@@ -1662,7 +1878,7 @@ Diary: "How undignified."
 title: SheepIslandBook
 ---
 <<turnOnBook OverworldDialogueSystem>>
-<i>Whoever wrote this has terrible handwriting.</i>
+Whoever wrote this has terrible handwriting.
 Note: DON'T LOOK DOWN 
 <<turnOnDialogue OverworldDialogueSystem>>
 <<stop>>
@@ -1699,7 +1915,8 @@ Steve: The Big One's not going to catch itself.
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
-Fen: Oh, hello! I didn't know anyone was down here.
+Fen: Oh, hello! 
+Fen: I didn't know anyone was down here.
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar SteveYarnCollider>>
 <<playClip SteveYarnCollider>>
@@ -1739,15 +1956,19 @@ Fen: Are you alright?
 <<changeAvatar SteveYarnCollider>>
 Steve: ...
 <<playClip SteveYarnCollider>>
-Steve: The fiend. He almost bested me.
+Steve: The fiend. 
+Steve: He almost bested me.
 <<playClip SteveYarnCollider>>
 Steve: For countless days and nights I toiled, battling the roiling sea,
+<<playClip SteveYarnCollider>>
 Steve: treading water for what felt like an eternity.
 <<playClip SteveYarnCollider>>
 Steve: I suffocated him on the shore.
 <<playClip SteveYarnCollider>>
 Steve: But yet he still taunts me. I can feel it.
-Steve: He is here. But how?
+Steve: He is here. 
+<<playClip SteveYarnCollider>>
+Steve: But how?
 <<playClip SteveYarnCollider>>
 Steve: <i>I killed him, didn't I?</i>
 <<turnOnFen OverworldDialogueSystem>>
@@ -1767,11 +1988,15 @@ Jacqueline: This use is mostly colloquial.
 Jacqueline: However, when we examine the etymology of the word,
 Jacqueline: we see it originates from the old Terrariestri word for 'cicada,'
 Jacqueline: a creature known for its desperate sexual call.
-Jacqueline: Scholars have noted that the Terrariestri reviled the cicada,
+Jacqueline: Scholars have noted that 
+Jacqueline: the Terrariestri reviled the cicada,
 Jacqueline: for its call would constantly interrupt their Forever Music,
-Jacqueline: which they would play every Sunday for twenty-seven hours consecutively.
-Jacqueline: None of these things seem at all relevant to the current modern definition of 'to waste,'
-Jacqueline: aside from the pure hatred of these people to this small, shelled individual.
+Jacqueline: which they would play every Sunday 
+Jacqueline: for twenty-seven hours consecutively.
+Jacqueline: None of these things seem at all relevant 
+Jacqueline: to the current modern definition of 'to waste,'
+Jacqueline: aside from the pure hatred of these people 
+Jacqueline: to this small, shelled individual.
 <<stop>>
 ===
 title: OutsideGardenNPC
@@ -1782,7 +2007,10 @@ position: 309,59
 <<playClip HildegardYarnCollider>>
 <<changeAvatar HildegardYarnCollider>>
 Hildegard: Did Fen tell you to find me?
-Hildegard: I'm okay. I'm just listening.
+Hildegard: I'm okay. 
+<<playClip HildegardYarnCollider>>
+Hildegard: I'm just listening.
+<<playClip HildegardYarnCollider>>
 Hildegard: I'm waiting for the trees to sing.
 <<set $spokenToHildegardFighter to true>>
 <<stop>>
@@ -1793,6 +2021,7 @@ Hildegard: I'm waiting for the trees to sing.
 <<playClip HildegardYarnCollider>>
 <<changeAvatar HildegardYarnCollider>>
 Hildegard: Did you come here alone?
+<<playClip HildegardYarnCollider>>
 Hildegard: I came with my brother. He... he loved music.
 Hildegard: ...
 <<playClip HildegardYarnCollider>>
@@ -1802,6 +2031,7 @@ Hildegard: If I listen hard enough.
 <<playClip HildegardYarnCollider>>
 Hildegard: Oh, your face...
 Hildegard: You lost someone too.
+<<playClip HildegardYarnCollider>>
 Hildegard: I can tell from the lines around your eyes.
 <<playClip HildegardYarnCollider>>
 Hildegard: If you let them, the flowers are very understanding.
@@ -1817,6 +2047,7 @@ Hildegard: Oh, the Bonfire...
 Hildegard: I wish I could see its light from here.
 <<playClip HildegardYarnCollider>>
 Hildegard: I haven't been since my brother turned.
+<<playClip HildegardYarnCollider>>
 Hildegard: Maybe I'll... maybe I'll go later.
 <<stop>>
 <<endif>>
@@ -1837,11 +2068,13 @@ Hildegard: My head... it feels far away. And my body...
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
-Fen: Have you mentioned this to Altea? Maybe she can help?
+Fen: Have you mentioned this to Altea? 
+Fen: Maybe she can help?
 <<turnOnDialogue OverworldDialogueSystem>>
 <<playClip HildegardYarnCollider>>
 <<changeAvatar HildegardYarnCollider>>
-Hildegard: No... I feel foolish admitting this but I'm afraid of her.
+Hildegard: No... 
+Hildegard: I feel foolish admitting this but I'm afraid of her.
 Hildegard: And she never comes up here.
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
@@ -1911,9 +2144,10 @@ title: SongofBeastsTree
 ---
 //SONG OF BEASTS TRIGGER
 <<turnOnCloud OverworldDialogueSystem>>
-This tree looks stranger than the others. Not quite right.
+This tree looks stranger than the others. //Not quite right.
 Mere words do not feel sufficient to communicate with it.
 Maybe song will be.
+<<wait  0.5>>
 When singing, press the up and down arrow keys to cycle through your song knives.
 <<turnOnDialogue OverworldDialogueSystem>>
 //RUN THE SONG, THEN START TIMELINE THAT JUMPS TO THIS NODE:
@@ -1934,13 +2168,18 @@ Creature with Many Heads: You understand it, don't you?
 Creature with Fingernails: The moon is almost ready to hatch!
 <<changeAvatar GardenWorriedCreature>>
 <<playClip GardenWorriedCreature>>
-Creature that Looks Worried: We were like you once. Some of us were like you and we are afraid of dying.
+Creature that Looks Worried: We were like you once. 
+Creature that Looks Worried: Some of us were like you and we are afraid of dying.
 <<changeAvatar GardenWingedCreature>>
 <<playClip GardenWingedCreature>>
-Creature with Wings: If the moon does not hatch, it will not release any of its deaths, and there will be a dying of this world.
+Creature with Wings: If the moon does not hatch, 
+Creature with Wings: it will not release any of its deaths, 
+<<playClip GardenWingedCreature>>
+Creature with Wings: and there will be a dying of this world.
 <<changeAvatar GardenTwoHeadedCreature>>
 <<playClip GardenTwoHeadedCreature>>
-Creature with Many Heads: If it hoards its deaths, this world will fall to stagnation and rot and festering.
+Creature with Many Heads: If it hoards its deaths, 
+Creature with Many Heads: this world will fall to stagnation and rot and festering.
 <<changeAvatar GardenFingernailCreature>>
 <<playClip GardenFingernailCreature>>
 Creature with Fingernails: We will not die, but this world will be dead.
@@ -1949,7 +2188,9 @@ Creature with Fingernails: We will not die, but this world will be dead.
 Creature that Looks Worried: You will not die, but this world will be dead.
 <<changeAvatar GardenWingedCreature>>
 <<playClip GardenWingedCreature>>
-Creature with Wings: There are things that want to eat this world when it is dead. If the moon does not hatch, they will succeed.
+Creature with Wings: There are things that want to eat this world when it is dead. 
+<<playClip GardenWingedCreature>>
+Creature with Wings: If the moon does not hatch, they will succeed.
 <<changeAvatar GardenFingernailCreature>>
 <<playClip GardenFingernailCreature>>
 Creature with Fingernails: A thing that eats the sun is powerful.
@@ -1970,7 +2211,9 @@ Creature with Wings: Take this, and find its hatching song.
 <<disappearCreature GardenCutsceneManager>>
 <<changeAvatar GardenFingernailCreature>>
 <<playClip GardenFingernailCreature>>
-Creature with Fingernails: We found that in the well. It will help you.
+Creature with Fingernails: We found that in the well. 
+<<playClip GardenFingernailCreature>>
+Creature with Fingernals: It will help you.
 <<changeAvatar GardenWingedCreature>>
 <<playClip GardenWingedCreature>>
 Creature with Wings: The one who is ancient but also young will help you too.
@@ -2025,7 +2268,8 @@ A Shrill Voice: It's <i>clearly</i> reminiscient of classical romanticism.
 A Snobbish Voice: Could we say it's a surrealist representation of a formalist lens?
 <<changeAvatar Shrill>>
 <<playClip Shrill>>
-A Shrill Voice: Only if then we could say it showcases a melding of constructivism and socialist regionalism.
+A Shrill Voice: Only if then we could say it showcases a melding 
+A Shrill Voice: of constructivism and socialist regionalism.
 <<changeAvatar SnobbishSprite>>
 A Snobbish Voice: ...
 <<changeAvatar Shrill>>
@@ -2043,25 +2287,29 @@ title: GossipZine
 <<turnOnBook OverworldDialogueSystem>>
 <i>A handmade tabloid with bite marks in the corners of the pages.</i>
 Tabloid: "Dearest gentle reader,"
-Tabloid: "In our eternal purgatory, I've gathered the latest gossip and secrets for your enjoyment and persual."
+Tabloid: "In our eternal purgatory,"
+Tabloid: "I've gathered the latest gossip and secrets for your enjoyment and persual."
 Tabloid: "A secret surprising no one, it appears our dear Amos has a crush..."
 Tabloid: "on a certain green-clad scholar..."
-<i>Another page.</i>
-Tabloid: "Our resident haunted puppet claims he is possessed by the soul of a demon,"
+Another page.
+Tabloid: "Our resident haunted puppet claims"
+Tabloid: "he is possessed by the soul of a demon,"
 Tabloid: "the very one that brought down the Monastery in which we find ourselves."
 Tabloid: "Baby is, however, a pathological liar."
-<i>Another page.</i>
+Another page.
 Tabloid: "Some say that at various points of Moonglow,"
 Tabloid: "A strange whistling can be heard from somewhere near the water..."
 Tabloid: "Could it be a ghost?"
-<i>Another page.</i>
-Tabloid: "Rumor has it that Liesel will not give up her quest to domesticate the creatures of the Beneath."
-Tabloid: "Apparently, she lets the agaric hounds and hedgehogs sleep in bed with her."
+Another page.
+Tabloid: "Rumor has it that Liesel will not give up her quest"
+Tabloid: "to domesticate the creatures of the Beneath."
+Tabloid: "Apparently, she lets the agaric hounds and hedgehogs"
+Tabloid: "sleep in bed with her."
 Tabloid: "Lucky that no new illness can be contracted in the Beneath..."
 Tabloid: "Otherwise, she'd surely have rabies."
-<i>Another page.</i>
+Another page.
 Tabloid: "Our fiery cleric seems to be an object of some amorous attention,"
-Tabloid: "By a certain man sporting near-cutoffs..."
+Tabloid: "by a certain man sporting near-cutoffs..."
 Tabloid: "Too bad she won't give him the time of day."
 Tabloid: "Perhaps if he fully committed to the cutoffs..."
 <<turnOnDialogue OverworldDialogueSystem>>
@@ -2079,15 +2327,15 @@ Then once the paper is placed, take up the brush.
 title: Painting
 ---
 <<turnOnCloud OverworldDialogueSystem>>
-<i>Next, paint with the blue iron solution.</i>
+Next, paint with the blue iron solution.
 <<turnOnDialogue OverworldDialogueSystem>>
 <<stop>>
 ===
 title: Placing
 ---
 <<turnOnCloud OverworldDialogueSystem>>
-<i>The contours of these objects could look nice in silhouette.</i>
-<i>Place them on the page as you wish.</i>
+The contours of these objects could look nice in silhouette.
+Place them on the page as you wish.
 <<turnOnDialogue OverworldDialogueSystem>>
 <<placing CyanotypeManager>>
 <<wait  3>>
@@ -2097,7 +2345,7 @@ title: Placing
 title: Printing
 ---
 <<turnOnCloud OverworldDialogueSystem>>
-<i>Without the sun, the light in here will do.</i>
+Without the sun, the light in here will do.
 <<turnOnDialogue OverworldDialogueSystem>>
 <<printReady CyanotypeManager>>
 //<<printing CyanotypeManager>>
@@ -2106,8 +2354,8 @@ title: Printing
 title: HangingUp
 ---
 <<turnOnCloud OverworldDialogueSystem>>
-<i>Finished. Place it on the wall.</i>
-<i>Leave your mark on this place.</i>
+Finished. Place it on the wall.
+Leave your mark on this place.
 <<turnOnDialogue OverworldDialogueSystem>>
 <<wallPlacing CyanotypeManager>>
 <<stop>>
@@ -2115,8 +2363,8 @@ title: HangingUp
 title: Leaving
 ---
 <<turnOnCloud OverworldDialogueSystem>>
-<i>You never got to do this when you were younger.</i>
-<i>It's... nice.</i>
+You never got to do this when you were younger.
+It's... nice.
 <<turnOnDialogue OverworldDialogueSystem>>
 <<moveNPC BabyAct2Spot>>
 <<moveNPC LieselAct2Spot>>
@@ -2173,7 +2421,8 @@ Fen: Altea, dear, are you in there?
 <<playKnock YarnStableCutsceneSetUpCollider>>
 //knock again
 <<playClip PlayerDiviner>>
-Fen: I know you're likely busy, but it's time for dinner, and I was hoping you would join us tonight--
+Fen: I know you're likely busy, but it's time for dinner, 
+Fen: and I was hoping you would join us tonight--
 //timeline run for door opening and revealing ALtea
 <<changeCam PlayerDiviner>>
 <<wait  0.2>>
@@ -2202,7 +2451,9 @@ Altea: I'm busy.
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: I assumed you would say that, but, Altea...
-Fen: And there's a newcomer! You ought to meet her, she seems lovely.
+Fen: And there's a newcomer! 
+<<playClip PlayerDiviner>>
+Fen: You ought to meet her, she seems lovely.
 //Fen: She's a bright one, too!
 //Fen: Made her way into the garden, clever thing!
 //Altea: What?
@@ -2223,10 +2474,14 @@ Altea: And they're not bawling like a baby?
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: No, she seems to be adjusting just fine!
-Fen: I'm hoping she does something interesting. She has the look of someone who will do something interesting.
+Fen: I'm hoping she does something interesting. 
+<<playClip PlayerDiviner>>
+Fen: She has the look of someone who will do something interesting.
 Fen: I have a sense about these things.
 <<playClip PlayerDiviner>>
-Fen: Do come and meet her, Altea. I think you'd find her as interesting as I do!
+Fen: Do come and meet her, Altea. 
+<<playClip PlayerDiviner>>
+Fen: I think you'd find her as interesting as I do!
 <<wait  1>>
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerClericStandInStable>>
@@ -2252,14 +2507,19 @@ Fen: But it's important to stay grounded--
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
 Altea: It's insanity.
+<<playClip PlayerClericStandInStable>>
 Altea: It's like you think pretending this is a real town,
+<<playClip PlayerClericStandInStable>>
 Altea: and not a derelict ruin in what might as well be the bowels of hell,
 <<playClip PlayerClericStandInStable>>
 Altea: is going to get us all out of here.
 Altea: Keep us normal.
+<<playClip PlayerClericStandInStable>>
 Altea: Make this place allergic to us, somehow.
 <<playClip PlayerClericStandInStable>>
-Altea: But I'm not like you. I'm a realist.
+Altea: But I'm not like you. 
+Altea: I'm a realist.
+<<playClip PlayerClericStandInStable>>
 Altea: This place is a hellhole,
 Altea: and these husks aren't going to fix themselves.
 <<wait  1>>
@@ -2270,7 +2530,8 @@ Fen: But--
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
-Altea: Do you not want me to call upon my Lady to help these poor, helpless, wretched things?
+Altea: Do you not want me to call upon my Lady 
+Altea: to help these poor, helpless, wretched things?
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
@@ -2278,7 +2539,9 @@ Fen: Well, yes, but--
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar PlayerClericStandInStable>>
 <<playClip PlayerClericStandInStable>>
-Altea: Then let me work. I'm not coming to "Dinner."
+Altea: Then let me work. 
+<<playClip PlayerClericStandInStable>>
+Altea: I'm not coming to "Dinner."
 <<closeDoor YarnStableCutsceneSetUpCollider>>
 <<disappearCreature YarnStableCutsceneSetUpCollider>>
 <<changeBackCam PlayerDiviner>>
@@ -2326,10 +2589,12 @@ title: BonfireConversation1
 <<playClip PlayerDiviner>>
 <<revealCreature BonfirePhoebeManager>>
 Fen: It's poetic, I think.
+<<playClip PlayerDiviner>>
 Fen: When you've been around as long as I have,
 Fen: you start to see everything like one big pattern.
 <<playClip PlayerDiviner>>
 Fen: Things grow, things shrivel, things die.
+<<playClip PlayerDiviner>>
 Fen: There's a poetry to it. To the cycle.
 //sip tea noise or animation
 <<wait  1>>
@@ -2337,31 +2602,42 @@ Fen: There's a poetry to it. To the cycle.
 //mug currently does not appear: need to manually change her sprite for this scene
 //Fen: Oh, you noticed the mug! 
 Fen: I have this great mug shaped like a chicken.
-Fen: I take it with me everywhere. I did a favor for a potter, years ago,
+<<playClip PlayerDiviner>>
+Fen: I take it with me everywhere. 
+Fen: I did a favor for a potter, years ago,
 Fen: divined a cure for his children when they fell ill.
 //Fen: predicted the health of his fledgling children after they fell ill.
 Fen: Plague of the lungs, if I remember correctly.
 <<playClip PlayerDiviner>>
 Fen: It was everywhere back then.
-Fen: I was in Bastion at the time, I think. Before the first fire.
+<<playClip PlayerDiviner>>
+Fen: I was in Bastion at the time, I think. 
+Fen: Before the first fire.
+<<playClip PlayerDiviner>>
 Fen: Their sewer system was a mess then.
 <<wait  0.5>>
 <<playClip PlayerDiviner>>
 Fen: ...Where was I?
 Fen: Ah.
+<<playClip PlayerDiviner>>
 Fen: The potter let me mold my own tea mug, and paint it how I liked.
+<<playClip PlayerDiviner>>
 Fen: His youngest child liked chickens.
 Fen: She had a lovely smile.
 //campfire crackle is louder
 <<wait  1>>
 <<playClip PlayerDiviner>>
 Fen: I wonder how they all turned out.
+<<playClip PlayerDiviner>>
 Fen: The potter's long gone, I'd imagine.
+<<playClip PlayerDiviner>>
 Fen: Maybe his children are still around?
 <<wait  0.5>>
 <<playClip PlayerDiviner>>
 Fen: No need to look so sad, dear Fighter.
+<<playClip PlayerDiviner>>
 Fen: This is just how it is, when you're as old as I am.
+<<playClip PlayerDiviner>>
 Fen: You learn to grow around it.
 Fen: ...in a manner of speaking.
 //sip tea again
@@ -2383,11 +2659,13 @@ It's hard not to pick up other conversations, as you sit and listen.
 <<switchSnobbishCam BonfireManager>>
 <<changeAvatar SnobbishSprite>>
 <<playClip SnobbishSprite>>
-A Snobbish Voice: So I told him that I had never read it, and then he said I wasn't truly an intellectual.
+A Snobbish Voice: So I told him that I had never read it, 
+A Snobbish Voice: and then he said I wasn't truly an intellectual.
 <<switchShrillCam BonfireManager>>
 <<changeAvatar Shrill>>
 <<playClip Shrill>>
-A Shrill Voice: It stole my hat! It really did!
+A Shrill Voice: It stole my hat! 
+A Shrill Voice: It really did!
 <<switchWindyCam BonfireManager>>
 <<changeAvatar WindyYarnCollider>>
 <<playClip WindyYarnCollider>>
@@ -2452,7 +2730,9 @@ The Fighter: ...
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
-Fen: Say, have you seen that skeleton, over the bridge on that other island?
+Fen: Say, have you seen that skeleton, 
+Fen: over the bridge on that other island?
+<<playClip PlayerDiviner>>
 Fen: It's just across the water from here.
 <<cutToCamera SpineIslandCam>>
 <<wait  4>>
@@ -2466,6 +2746,7 @@ Fen: It's quite something.
 //Fen: Ah, drat.
 <<playClip PlayerDiviner>>
 Fen: I forget sometimes how slow boiling water over an actual fire can be.
+<<playClip PlayerDiviner>>
 Fen: But I can't just go using spellcraft around here all willy-nilly, can I?
 //The Fighter: <i>You shrug awkwardly. Fen seems amused by this.</i>
 <<turnOnPhoebe OverworldDialogueSystem>>
@@ -2474,7 +2755,9 @@ The Fighter: ...
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
-Fen: Oh, dear, you look distressed. That was a rhetorical question.
+Fen: Oh, dear, you look distressed. 
+<<playClip PlayerDiviner>>
+Fen: That was a rhetorical question.
 //checks water again
 //<<wait  0.5>>
 Fen: Heloise, is it hot enough yet?
@@ -2494,8 +2777,11 @@ Fen: Rats.
 <<turnOnDialogue OverworldDialogueSystem>>
 <<changeAvatar SnobbishSprite>>
 <<playClip SnobbishSprite>>
-A Snobbish Voice: ...so I said, if you could turn into any of the creatures around here what would you be,
-A Snobbish Voice: and he said, a tharpy, and I said that's ridiculous...
+A Snobbish Voice: ...so I said, 
+A Snobbish Voice: if you could turn into any of the creatures around here what would you be,
+<<playClip SnobbishSprite>>
+A Snobbish Voice: and he said, a tharpy, 
+A Snobbish Voice: and I said, that's ridiculous...
 <<switchFenBonCam BonfireManager>>
 <<wait 0.5>>
 //Fen: It's strange, being so old but so... miniscule compared to this place.
@@ -2510,6 +2796,7 @@ A Snobbish Voice: and he said, a tharpy, and I said that's ridiculous...
 <<playClip PlayerDiviner>>
 Fen: Oh, but yes, the skeleton!
 //Fen: That's something even stranger still.
+<<playClip PlayerDiviner>>
 Fen: To think something could once die, down here.
 Fen: Could decompose, and leave remains.
 <<playClip PlayerDiviner>>
@@ -2541,6 +2828,7 @@ Fen: And if you see any signs of scavenging, or decomposition,
 Fen: would you let me know?
 <<playClip PlayerDiviner>>
 Fen: I have to wait for this damned kettle to boil,
+<<playClip PlayerDiviner>>
 Fen: or I'll lose track of it altogether and it'll get cold again,
 Fen: and then I'll just be upset.
 //Fen: ...Or night?
@@ -2606,6 +2894,7 @@ Altea: Are you deaf? Leave me alone.
 Altea: Fen sent you here, didn't she?
 Altea: She can't help meddling when it comes to the husks.
 <<cutToHuskCamera CommandHolderSpine>>
+<<playClip PlayerClericStandInSpine>>
 Altea: I told her I'd get results, and I'll <i>get</i> those results.
 <<playClip PlayerClericStandInSpine>>
 Altea: One way or another.
@@ -2620,6 +2909,7 @@ Altea: I'm doing it a favor.
 <<cutBackFromHuskCamera CommandHolderSpine>>
 <<playClip PlayerClericStandInSpine>>
 Altea: Don't worry about this one.
+<<playClip PlayerClericStandInSpine>>
 Altea: It's for the greater good, I promise you.
 <<playClip PlayerClericStandInSpine>>
 Altea: Now, run along.
@@ -2642,6 +2932,7 @@ Creature that Looks Worried: The moon must hatch.
 <<getMusicBoxFigure PhoebeInventoryManager>>
 <<playClip Hound>>
 Creature that Looks Worried: Go to the bathing place.
+<<playClip Hound>>
 Creature that Looks Worried: See what she has done.
 <<moveNPC GrimboldeAct2Spot>>
 <<moveNPC WindyAct2Spot>>
@@ -2872,7 +3163,8 @@ Someone Stuck: It's really far.
 <<turnOnFen OverworldDialogueSystem>>
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
-Fen: I know. But something I've been looking for might be up there.
+Fen: I know. 
+Fen: But something I've been looking for might be up there.
 <<set $spokenToLighthouseNPCDiviner to true>>
 <<stop>>
 <<endif>>
@@ -2919,9 +3211,11 @@ title: FenGoesUp2
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: This is probably not a good idea.
+<<playClip PlayerDiviner>>
 Fen: But I'm already doing it, so I might as well continue.
 <<playClip PlayerDiviner>>
 Fen: It's only been two hundred years since I last took a hike like this.
+<<playClip PlayerDiviner>>
 Fen: I'm probably out of shape anyway.
 Fen: ...
 <<playClip PlayerDiviner>>
@@ -2934,12 +3228,14 @@ title: FenGoesUp3
 <<changeAvatar PlayerDiviner>>
 <<playClip PlayerDiviner>>
 Fen: I've never considered that there's no bugs down there on the ground.
+<<playClip PlayerDiviner>>
 Fen: No gnats or anything.
 <<playClip PlayerDiviner>>
 Fen: Or worms. Or beetles.
 Fen: Or cicadas.
 <<playClip PlayerDiviner>>
 Fen: This feels like a place cicadas would go.
+<<playClip PlayerDiviner>>
 Fen: I feel like they'd enjoy this.
 <<playClip PlayerDiviner>>
 Fen: Except I guess perhaps not, because nothing can reproduce?
@@ -2963,9 +3259,11 @@ Fen: A tharpy, up here?
 <<changeAvatar LighthouseTharpy>>
 <<playClip  LighthouseTharpy>>
 Tharpy: !flesym yb lla ereh pu ti edam i
+<<playClip  LighthouseTharpy>>
 Tharpy: !nwod teg tonnac i won dna
 <<playClip  LighthouseTharpy>>
 Tharpy: ,em sllac noom eht tub
+<<playClip  LighthouseTharpy>>
 Tharpy: ...ylteews os sgnis ti
 <<playClip  LighthouseTharpy>>
 Tharpy: .uoy fo diarfa ton si ti
@@ -2981,6 +3279,7 @@ Fen: Good luck getting down, tharpy.
 <<changeAvatar LighthouseTharpy>>
 <<playClip LighthouseTharpy>>
 Tharpy: !daeha og 
+<<playClip  LighthouseTharpy>>
 Tharpy: !uoy rof stiaw ti
 <<stop>>
 ===
@@ -3065,6 +3364,7 @@ title: FenAtTheTop
 <<playClip PlayerDiviner>>
 Fen: I know you've got it, up there.
 Fen: I can feel it.
+<<playClip PlayerDiviner>>
 Fen: Like a buzzing in the back of my mind.
 <<playClip PlayerDiviner>>
 Fen: Like a missing shadow.
@@ -3072,11 +3372,13 @@ Fen: Like a missing shadow.
 <<wait  1>>
 <<playClip PlayerDiviner>>
 Fen: It's almost like you're nearly at the end of your digestion, isn't it?
+<<playClip PlayerDiviner>>
 Fen: Or maybe it's gestation.
 Fen: Maybe you <i>are</i> hatching.
 <<wait  2>>
 <<playClip PlayerDiviner>>
 Fen: I know you've got my death up there.
+<<playClip PlayerDiviner>>
 Fen: I know you're hoarding the stuff.
 //buzzing/pulsing Moon sound plays, maybe lighting change too, camera changes.
 //Fen: Your arrogance does not deter me.
@@ -3088,6 +3390,7 @@ Fen: You've eaten enough.
 <<playClip PlayerDiviner>>
 Fen: I have not lived countless centuries,
 Fen: traversed countless continents,
+<<playClip PlayerDiviner>>
 Fen: to lose the scent down here.
 <<playClip PlayerDiviner>>
 Fen: It's <i>mine</i>, not some nutrients to repurpose.
