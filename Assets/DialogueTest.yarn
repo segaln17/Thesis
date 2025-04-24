@@ -424,7 +424,7 @@ position: 209,-41
     Byron: And then Lady Altea will have to take care of me!
     <<playClip ByronYarnCollider>>
     Byron: Oh, what a punishment that would be for her, but what a pleasure for me!
-    <<playClip ByronYarnCollider>>
+    <<playClip YarnColliderTrowelCreature>>
     Byron: <i>He dissolves into manic laughter.</i>
     <<playClip ByronYarnCollider>>
     Byron: Don't look so scandalized. It'll happen to you too!
@@ -1374,12 +1374,18 @@ Tree: but it forgets not the feel of footsteps upon it.
 title: PondGuy
 ---
 <<turnOnDialogue OverworldDialogueSystem>>
+<<changeAvatar PondGuyYarnCollider>>
+<<playClip PondGuyYarnCollider>>
 Creature: ...eci eht redun gnihtemos si ereht
+<<playClip PondGuyYarnCollider>>
 Creature: ...em ot sllac ti
 <<wait  1>>
+<<playClip PondGuyYarnCollider>>
 Creature: ?doG
 <<wait  0.5>>
+<<playClip PondGuyYarnCollider>>
 Creature: !skcor eseht htiw eci eht kaerb dluoc i taht ho
+<<playClip PondGuyYarnCollider>>
 Creature: .sdnah on evah i tub
 <<stop>>
 ===
@@ -2842,14 +2848,14 @@ Fen: and then I'll just be upset.
 <<moveNPC WindyBonfireSpot>>
 <<moveNPC CyanoSnobbishBonfire>>
 <<moveNPC CyanoShrillBonfire>>
+<<disappearCreature BonfireYarnCollider>>
 //reveals the cauldron:
 <<revealCreature HeloiseBonfireSpot>>
 <<changeBackCam BonfireManager>>
 <<revealCreature SpineObjectsManager>>
 <<revealCreature spinePathManager>>
-<<disappearCreature BonfireManager>>
-<<disappearCreature BonfireYarnCollider>>
 <<resetBonCam BonfireManager>>
+<<disappearCreature BonfireManager>>
 <<unfreezePlayer PlayerPhoebe>>
 //<<restart BonfireManager>>
 <<stop>>
