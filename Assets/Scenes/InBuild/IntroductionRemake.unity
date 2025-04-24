@@ -18793,7 +18793,7 @@ PrefabInstance:
     - target: {fileID: 4123830966792614499, guid: db136ea6efc8e4dbb8a009d2e0d5eec8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.2
+      value: 0.54
       objectReference: {fileID: 0}
     - target: {fileID: 4123830966792614499, guid: db136ea6efc8e4dbb8a009d2e0d5eec8,
         type: 3}
@@ -18808,22 +18808,22 @@ PrefabInstance:
     - target: {fileID: 4123830966792614499, guid: db136ea6efc8e4dbb8a009d2e0d5eec8,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99778473
+      value: 0.99547946
       objectReference: {fileID: 0}
     - target: {fileID: 4123830966792614499, guid: db136ea6efc8e4dbb8a009d2e0d5eec8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4123830966792614499, guid: db136ea6efc8e4dbb8a009d2e0d5eec8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.06652638
+      value: 0.09497711
       objectReference: {fileID: 0}
     - target: {fileID: 4123830966792614499, guid: db136ea6efc8e4dbb8a009d2e0d5eec8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4123830966792614499, guid: db136ea6efc8e4dbb8a009d2e0d5eec8,
         type: 3}
@@ -18833,7 +18833,7 @@ PrefabInstance:
     - target: {fileID: 4123830966792614499, guid: db136ea6efc8e4dbb8a009d2e0d5eec8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 7.629
+      value: 10.9
       objectReference: {fileID: 0}
     - target: {fileID: 4123830966792614499, guid: db136ea6efc8e4dbb8a009d2e0d5eec8,
         type: 3}
@@ -58711,8 +58711,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d24a4ebc2cbc44c208f6a17d1db4eff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensX: 200
-  sensY: 200
+  sensX: 175
+  sensY: 175
   orientation: {fileID: 376925341}
   xRotation: 0
   yRotation: 0
@@ -94549,7 +94549,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 7
   m_TargetDisplay: 0
 --- !u!222 &2694674354522546511
 CanvasRenderer:
@@ -96626,7 +96626,7 @@ Animator:
   m_GameObject: {fileID: 8747236426127554328}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fd34a6269b6cd4ab7a505421008e35b0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 44609f955cf1242e9aa9844db804509b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -97946,6 +97946,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSizeMin
       value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093310975997592669, guid: 73d96829d30eabd4fa055a424adf7676,
+        type: 3}
+      propertyPath: m_overflowMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093310975997592669, guid: 73d96829d30eabd4fa055a424adf7676,
+        type: 3}
+      propertyPath: m_verticalMapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093310975997592669, guid: 73d96829d30eabd4fa055a424adf7676,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093310975997592669, guid: 73d96829d30eabd4fa055a424adf7676,
+        type: 3}
+      propertyPath: m_horizontalMapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093310975997592669, guid: 73d96829d30eabd4fa055a424adf7676,
+        type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093310975997592669, guid: 73d96829d30eabd4fa055a424adf7676,
+        type: 3}
+      propertyPath: m_wordWrappingRatios
+      value: 0.034
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093310975997592669, guid: 73d96829d30eabd4fa055a424adf7676,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8288702923236679075, guid: 73d96829d30eabd4fa055a424adf7676,
         type: 3}

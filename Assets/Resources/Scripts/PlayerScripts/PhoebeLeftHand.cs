@@ -9,6 +9,9 @@ public class PhoebeLeftHand : MonoBehaviour
     public GameObject leftHand;
 
     public bool leftHandActive;
+
+    //public Animator leftHandAnim;
+    
     // Start is called before the first frame update
     void Start()
     {

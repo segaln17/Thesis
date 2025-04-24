@@ -24,6 +24,8 @@ public class StartScene : MonoBehaviour
     public Animator rightHand;
     public AudioSource caveSong;
     public bool subtract = false;
+    public AudioSource soundFX;
+    public AudioClip heartbeat;
 
     
     // Start is called before the first frame update
@@ -155,7 +157,8 @@ public class StartScene : MonoBehaviour
         tunnelAppear.SetActive(true);
         yield return new WaitForSeconds(1f);
         noteQueue.Clear();
-        yield return new WaitForSeconds(5f);
+        soundFX.Play();
+        yield return new WaitForSeconds(4f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
 

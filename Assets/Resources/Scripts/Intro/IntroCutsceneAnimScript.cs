@@ -181,6 +181,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         healthCanvas.SetActive(false);
         yield return new WaitForSeconds(2f);
         blinkingObj.SetActive(true);
+        yield return new WaitForSeconds(.1f);
         blinker.SetBool("blinking", true);
         yield return new WaitForSeconds(.1f);
         fighterPOV.Priority = 20;
@@ -226,6 +227,7 @@ public class IntroCutsceneAnimScript : MonoBehaviour
         healthCanvas.SetActive(false);
         yield return new WaitForSeconds(2f);
         blinkingObj.SetActive(true);
+        yield return new WaitForSeconds(.1f);
         blinker.SetBool("blinking", true);
         yield return new WaitForSeconds(.1f);
         fighterPOV.Priority = 20;

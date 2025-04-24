@@ -55,6 +55,7 @@ public class TextBoxCustomCommands : MonoBehaviour
     {
         avatar.SetActive(false);
         NPCBG.SetActive(false);
+        fenBG.SetActive(false);
         characterName.SetActive(false);
 
         cloudBG.SetActive(false);
