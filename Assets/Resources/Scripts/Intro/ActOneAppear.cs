@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public class ActOneAppear : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class ActOneAppear : MonoBehaviour
         
     }
 
+    [YarnCommand("playHarp")]
+    public void playHarp()
+    {
+        soundEffects.PlayOneShot(introSound);
+    }
     public IEnumerator actOneAppear()
     {
         yield return new WaitForSeconds(35f);
