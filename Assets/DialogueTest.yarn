@@ -3098,7 +3098,10 @@ Fen: Yes. Yes, that's the way.
 ===
 title: FenMemoryIntro
 ---
-<<wait  10>> //ADDED THIS TO SEE IF IT HELPS THE TRANSITION BUT IF IT DOESNT WORK THEN CUT IT
+<<wait  4>> //ADDED THIS TO SEE IF IT HELPS THE TRANSITION BUT IF IT DOESNT WORK THEN CUT IT
+<<playHarp ActsAppear>>
+<<revealThing Act2Commands>>
+<<wait  5>>
 <<turnOnFen OverworldDialogueSystem>>
 <<wait  0.5>>
 <<changeAvatar PlayerDiviner>>
@@ -3107,8 +3110,12 @@ Fen: Things are dying down a bit...
 <<wait  0.5>>
 Fen: Something feels...
 <<wait  1>>
+<<playKnock GardenCutsceneManager>>
 //headache moment
-Fen: ...it's happening again.
+Fen: It's that kind of headache again,
+Fen: isn't it?
+<<playClip PlayerDiviner>>
+Fen: It's happening again.
 <<wait  1>>
 <<playClip PlayerDiviner>>
 Fen: I... I can't remember where I got my mug.
@@ -3386,6 +3393,7 @@ title: FenAtTheTop
 <<if $charPOV is "Diviner">>
 <<turnOnFen OverworldDialogueSystem>>
 <<letterboxIn LetterBox>> //if we want letterboxing here???
+<<helloMoon mooncommands>>
 //timeline to change camera to look at the Moon
 <<changeAvatar PlayerDiviner>>
 //<<changeCam FenYellsAtMoonCollider>>
@@ -3442,6 +3450,7 @@ title: EndAct2
 <<wait  3>>
 //camera change to bonfire overhead
 //scream sound --> Nichole has one (Steampunk sound)
+<<doorClose FenYellsAtMoonCollider>>
 <<wait  4>>
 <<cutToCamera BottomofLighthouseCollider>>
 //cut to wayyyy overhead cam
