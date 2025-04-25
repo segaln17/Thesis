@@ -44,10 +44,12 @@ public class ScrapbookSave : MonoBehaviour
         }
         */
         
-        if (scrapbook.activeInHierarchy && Input.GetKeyDown(KeyCode.Space))
+        /*
+        if (scrapbook.activeInHierarchy && Input.GetKeyDown(KeyCode.E))
         {
             CloseScrapbook();
         }
+        */
     }
 
     public void CloseScrapbook()

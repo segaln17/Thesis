@@ -18,6 +18,13 @@ public class belltoll : MonoBehaviour
         RenderSettings.fogColor = dinnerFog;
     }
 
+    [YarnCommand("demonTime")]
+    public void demonFogChange()
+    {
+        ambientSFX.PlayOneShot(bellToll);
+        RenderSettings.fogColor = demonFog;
+    }
+
     [YarnCommand("resetFog")]
     public void resetFog()
     {

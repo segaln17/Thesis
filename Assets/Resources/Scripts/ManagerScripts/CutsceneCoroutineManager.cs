@@ -59,6 +59,7 @@ public class CutsceneCoroutineManager : MonoBehaviour
     public GameObject fenfeetSprite;
     public GameObject fenFullBodySpriteSitting;
     public GameObject fenFullBodySpriteStanding;
+    public GameObject fenShadow;
     public GameObject fenTess;
     public Sprite fenMug;
 
@@ -351,7 +352,8 @@ public class CutsceneCoroutineManager : MonoBehaviour
         Heloise.transform.position = HeloiseCampfireCutscenePosition.transform.position;
         fenFullBodySpriteSitting.SetActive(true);
         fenFullBodySpriteSitting.GetComponent<SpriteRenderer>().sprite = fenMug;
-        fenFullBodySpriteSitting.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        fenFullBodySpriteSitting.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        fenShadow.GetComponent<SpriteRenderer>().sortingOrder = 0;
         //attempt to fix Fen sprite position
         fenFullBodySpriteSitting.transform.position = fenBonfirePosition.transform.position;
         

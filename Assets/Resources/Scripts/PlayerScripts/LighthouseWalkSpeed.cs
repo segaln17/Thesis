@@ -20,7 +20,7 @@ public class LighthouseWalkSpeed : MonoBehaviour
         
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         playerController.force = lighthouseForceFen;
     }

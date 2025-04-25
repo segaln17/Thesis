@@ -22,6 +22,8 @@ public class MemoryManager : MonoBehaviour
     public Sprite archbookSpriteClosed;
     public Sprite archbookSpriteOpen;
     public GameObject archscrapBookObj;
+    public GameObject existingTextpg1Arch;
+    public GameObject existingTextpg2Arch;
 
     public GameObject DivinerObj;
     public GameObject teleportTransform;
@@ -108,6 +110,8 @@ public class MemoryManager : MonoBehaviour
         scrapbookTextpg2.SetActive(false);
         existingTextpg1.SetActive(false);
         existingTextpg2.SetActive(false);
+        existingTextpg1Arch.SetActive(false);
+        existingTextpg2Arch.SetActive(false);
         eInteract.SetActive(false);
         scrapbook.sprite = bookSpriteClosed;
         yield return new WaitForSeconds(3f);
@@ -124,8 +128,8 @@ public class MemoryManager : MonoBehaviour
         //sprite change to book closed
         scrapbookTextpg1.SetActive(false);
         scrapbookTextpg2.SetActive(false);
-        existingTextpg1.SetActive(false);
-        existingTextpg2.SetActive(false);
+        existingTextpg1Arch.SetActive(false);
+        existingTextpg2Arch.SetActive(false);
         eInteract.SetActive(false);
         archscrapbook.sprite = bookSpriteClosed;
         yield return new WaitForSeconds(3f);

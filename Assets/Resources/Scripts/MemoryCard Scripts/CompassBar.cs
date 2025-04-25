@@ -6,12 +6,14 @@ public class CompassBar : MonoBehaviour
 {
     public RectTransform compassBarTransform;
     public RectTransform objectiveMarkerTransform;
+    public RectTransform objectiveMarkerTransformArch;
     public RectTransform northMarkerTransform;
     public RectTransform southMarkerTransform;
     public RectTransform teleportMarkerTransform;
 
     public Transform cameraObjectTransform;
     public Transform objectiveObjectTransform;
+    public Transform objectiveObjectTransformArch;
     public float forceMagnitude = 5f;
 
     public AudioSource RadioDing;
@@ -50,6 +52,31 @@ public class CompassBar : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 Vector3 direction = (objectiveObjectTransform.transform.position - playerDiviner.transform.position).normalized;
+
+                fenRB.AddForce(direction * forceMagnitude, ForceMode.Impulse);
+            }
+        }
+       
+        SetMarkerPosition(objectiveMarkerTransformArch, objectiveObjectTransformArch.position);
+        SetMarkerPosition(northMarkerTransform, Vector3.forward * 1000);
+        SetMarkerPosition(southMarkerTransform, Vector3.back * 1000);
+
+
+        distance = Vector2.Distance(objectiveMarkerTransformArch.transform.position, teleportMarkerTransform.transform.position);
+        
+        if(distance >= 100 && distance <= 750f)
+        {
+            StartCoroutine(FadeOut2(RadioDing, 2f));
+        }else if(distance <= 99 && distance >= 0)
+        {
+            StartCoroutine(FadeIn2(RadioDing, 2f));
+        }
+
+        if(distance <=40f && distance >= 0)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                Vector3 direction = (objectiveObjectTransformArch.transform.position - playerDiviner.transform.position).normalized;
 
                 fenRB.AddForce(direction * forceMagnitude, ForceMode.Impulse);
             }

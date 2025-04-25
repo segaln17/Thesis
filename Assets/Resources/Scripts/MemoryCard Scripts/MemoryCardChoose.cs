@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Yarn.Unity;
 
 public class MemoryCardChoose : MonoBehaviour
 {
@@ -246,5 +247,12 @@ public class MemoryCardChoose : MonoBehaviour
         }
 
         */
+    }
+
+    [YarnCommand("turnOffPages")]
+    public void TurnOffPages()
+    {
+        memoryText.gameObject.SetActive(false);
+        page02text.gameObject.SetActive(false);
     }
 }

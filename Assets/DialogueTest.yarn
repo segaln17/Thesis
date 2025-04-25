@@ -410,12 +410,13 @@ position: 209,-41
     <<playClip ByronYarnCollider>>
     Byron: Or relieve yourself? Nothing created nor destroyed, as they say...
     <<playClip ByronYarnCollider>>
-    Byron: I'm too far from the Bonfire now, but they need kindling for the fire. 
+    Byron: I'm too far from the Bonfire now, 
+    Byron: but they need kindling for the fire. 
     <<playClip ByronYarnCollider>>
     Byron: Or the moon will hatch, and consume us all...
     Byron: And we wouldn't want that.
     <<playClip ByronYarnCollider>>
-    Byron: Who knows what would happen 
+    Byron: Who knows what would happen, 
     Byron: if that ever-present moon fell out of the sky.
     <<playClip ByronYarnCollider>>
     Byron: I'd like to see it hatch, 
@@ -423,7 +424,8 @@ position: 209,-41
     <<playClip ByronYarnCollider>>
     Byron: And then Lady Altea will have to take care of me!
     <<playClip ByronYarnCollider>>
-    Byron: Oh, what a punishment that would be for her, but what a pleasure for me!
+    Byron: Oh, what a punishment that would be for her, 
+    Byron: but what a pleasure for me!
     <<playClip YarnColliderTrowelCreature>>
     Byron: <i>He dissolves into manic laughter.</i>
     <<playClip ByronYarnCollider>>
@@ -2394,7 +2396,7 @@ Fen: I should stretch my legs.
 Fen: Perhaps I'll check on Altea!
 Fen: She'll likely be in the stables, I'd imagine.
 <<cutToCamera StableCam>>
-<<wait  3>>
+<<wait  4>>
 <<cutBackCamera StableCam>>
 <<wait  1>>
 <<playClip PlayerDiviner>>
@@ -2565,6 +2567,7 @@ Fen: Well, alright then.
 <<disappearCreature StableCutsceneColliderManager02>>
 <<disappearCreature YarnStableCutsceneCollider>>
 <<disappearCreature GardenCutsceneTree>>
+<<revealThing BonfireScene>>
 //BONFIRE TRIGGER ACTIVE
 <<revealCreature BonfireManager>>
 //switch to Phoebe
@@ -2751,7 +2754,8 @@ Fen: It's quite something.
 <<wait  2>>
 //Fen: Ah, drat.
 <<playClip PlayerDiviner>>
-Fen: I forget sometimes how slow boiling water over an actual fire can be.
+Fen: I forget, sometimes,
+Fen: how slow boiling water over an actual fire can be.
 <<playClip PlayerDiviner>>
 Fen: But I can't just go using spellcraft around here all willy-nilly, can I?
 //The Fighter: <i>You shrug awkwardly. Fen seems amused by this.</i>
@@ -2841,6 +2845,7 @@ Fen: and then I'll just be upset.
 //Fen: Or... whatever time this is.
 <<letterboxOut LetterBox>>
 <<disappearCreature PhoebeBonfire>>
+<<hideThing BonfireManager>>
 <<moveNPC LieselBonfireSpot>>
 <<moveNPC AmosBonfireSpot>>
 <<moveNPC HeloiseBonfireSpot>>
@@ -2953,7 +2958,7 @@ Creature that Looks Worried: See what she has done.
 //switch into Fen
 <<set $alteaSpineDone to true>>
 <<disappearCreature Hound>>
-<<disappearCreat BonfireYarnCollider>>
+<<disappearCreature BonfireYarnCollider>>
 <<revealCreature FenPostBonfireMemory>>
 <<unfreezePlayer PlayerPhoebe>>
 <<stop>>
@@ -3078,7 +3083,7 @@ Fen: Yes. Yes, that's the way.
 ===
 title: FenMemoryIntro
 ---
-<<wait  4>> //ADDED THIS TO SEE IF IT HELPS THE TRANSITION BUT IF IT DOESNT WORK THEN CUT IT
+<<wait  10>> //ADDED THIS TO SEE IF IT HELPS THE TRANSITION BUT IF IT DOESNT WORK THEN CUT IT
 <<turnOnFen OverworldDialogueSystem>>
 <<wait  0.5>>
 <<changeAvatar PlayerDiviner>>
@@ -3100,11 +3105,13 @@ Fen: Why can't I just <i>remember</i>?
 Fen: It was so much easier to calm myself down when I needed to <i>breathe</i>.
 <<wait  0.75>>
 <<playClip PlayerDiviner>>
-Fen: I should go take a walk. Look for things that make me remember.
+Fen: I should go take a walk. 
+Fen: Look for things that make me remember.
 Fen: The willow tree on the roof of the building with the cages, maybe.
 <<playClip PlayerDiviner>>
 Fen: Or that corner by the weapon pile.
-Fen: And once I have gathered enough of myself, I'll go to the lighthouse.
+Fen: And once I have gathered enough of myself, 
+Fen: I'll go to the lighthouse.
 <<playClip PlayerDiviner>>
 Fen: It's quiet there.
 Fen: I need to think.
@@ -3377,7 +3384,8 @@ Fen: Like a missing shadow.
 //play soundscape?
 <<wait  1>>
 <<playClip PlayerDiviner>>
-Fen: It's almost like you're nearly at the end of your digestion, isn't it?
+Fen: It's almost like you're nearly at the end of your digestion,
+Fen: isn't it?
 <<playClip PlayerDiviner>>
 Fen: Or maybe it's gestation.
 Fen: Maybe you <i>are</i> hatching.
@@ -3407,11 +3415,24 @@ Fen: I'm tired, and I'm taking it back.
 <<wait  1>>
 <<playClip PlayerDiviner>>
 Fen: Even if it means this place crumbles.
+<<demonTime FogHolder>>
 <<letterboxOut LetterBox>>
 //<<changeBackCam FenYellsAtMoonCollider>>
 //timeline play to black out? demo end screen?
 <<endif>>
-
+===
+title: EndAct2
+---
+<<cutToCamera FogHolder>>
+<<wait  3>>
+//camera change to bonfire overhead
+//scream sound --> Nichole has one (Steampunk sound)
+<<wait  4>>
+<<cutToCamera BottomofLighthouseCollider>>
+//cut to wayyyy overhead cam
+//end game/restart
+<<restart FenYellsAtMoonCollider>>
+<<stop>>
 ===
 title: ChorusGarden
 ---
