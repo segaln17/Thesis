@@ -101,6 +101,6 @@ public class CustomCommands : MonoBehaviour
     [YarnCommand("restart")]
     public void RestartGame()
     {
-        SceneManager.LoadScene("LandingPage");
+        SceneManager.LoadScene("TitleScreen");
     }
 }
