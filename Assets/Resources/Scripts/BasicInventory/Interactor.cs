@@ -23,6 +23,8 @@ public class Interactor : MonoBehaviour
     Collider[] colliders;
     //[SerializeField] Image EButton;
 
+    public GameObject interactInstruction;
+
     // Create a list to store interactable objects
     private List<IInteractable> inventory = new List<IInteractable>();
 
@@ -32,7 +34,7 @@ public class Interactor : MonoBehaviour
         colliders = Physics.OverlapSphere(InteractorSource.position, InteractRange, interactableLayer);
         //EButton.enabled = (colliders.Length > 0);
         
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
          
             CheckInteracte();
@@ -54,7 +56,8 @@ public class Interactor : MonoBehaviour
                 
                 if (IsClose(collider) &&  !inventory.Contains(interactObj))
                 {
-                    
+                    //added this:
+                    interactInstruction.SetActive(true);
                     interactObj.Interact();  
                     inventory.Add(interactObj);
                    // mysteryJingle.Play();

@@ -30,6 +30,8 @@ public class UI_interacteImages : MonoBehaviour
     //controls:
     public string Controls;
 
+    public string Sword;
+
     private void Start()
     {
         inventoryManager.AddItem(song01);

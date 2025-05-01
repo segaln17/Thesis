@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Playables;
 using Yarn.Unity;
 
 public class RoomAppear : MonoBehaviour
@@ -18,6 +19,8 @@ public class RoomAppear : MonoBehaviour
     private float pFallForce;
     public bool roomOn;
     public bool notinroom;
+
+    public PlayableDirector roomTurnTimeline;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,8 +33,8 @@ public class RoomAppear : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(phoebeOrientation.transform.localEulerAngles.y);
-        /*
+        //Debug.Log(phoebeOrientation.transform.localEulerAngles.y);
+        
         if (Input.GetKeyDown(KeyCode.T))
         {
             turnonRoom();
@@ -41,7 +44,7 @@ public class RoomAppear : MonoBehaviour
         {
             turnoffRoom();
         }
-        */
+        
 
         if (phoebeOrientation.transform.localEulerAngles.y <= -150 && phoebeOrientation.transform.localEulerAngles.y >= -200 && roomOn || phoebeOrientation.transform.localEulerAngles.y >= 150 && phoebeOrientation.transform.localEulerAngles.y <= 200 && roomOn)
         {
@@ -50,7 +53,6 @@ public class RoomAppear : MonoBehaviour
 
             playerCamScriptHolder.GetComponent<PlayerCam>().yRotation = Mathf.Clamp(playerCamScriptHolder.GetComponent<PlayerCam>().yRotation, -200, -145);
             playerCamScriptHolder.GetComponent<PlayerCam>().xRotation = Mathf.Clamp(playerCamScriptHolder.GetComponent<PlayerCam>().xRotation, 0, 50);
-            mainCamera.cullingMask = 1 << LayerMask.NameToLayer("Room");
             //mainCamera.cullingMask 
             //float tempY = phoebeOrientation.transform.localEulerAngles.y;
             //tempY = Mathf.Clamp(phoebeOrientation.transform.localEulerAngles.y, -175f, -195f);
@@ -66,6 +68,7 @@ public class RoomAppear : MonoBehaviour
     {
         Room.SetActive(true);
         roomOn = true;
+        StartCoroutine("WaitChorus");
 
         
     }
@@ -73,9 +76,11 @@ public class RoomAppear : MonoBehaviour
     [YarnCommand ("turnOffChorusRoom")]
     public void turnoffRoom()
     {
+        StopAllCoroutines();
+        StartCoroutine("WaitNoRoom");
         Room.SetActive(false);
         roomOn = false;
-
+        
         playerPhoebe.GetComponent<SimpleController>().force = pForce;
         playerPhoebe.GetComponent<SimpleController>().fallingforce = pFallForce;
         playerCamScriptHolder.GetComponent<PlayerCam>().xRotation = Mathf.Clamp(playerCamScriptHolder.GetComponent<PlayerCam>().xRotation, -90, 90);
@@ -84,5 +89,23 @@ public class RoomAppear : MonoBehaviour
         //mainCamera.cullingMask = 1 << LayerMask.NameToLayer("Everything");
 
         Debug.Log("noroomsequence");
+    }
+
+    IEnumerator WaitChorus()
+    {
+        yield return new WaitForSeconds(2f);
+        //phoebeOrientation.transform.LookAt(Room.transform);
+        //roomCameraAnimator.SetBool("RoomIsOn", true);
+        roomTurnTimeline.Play();
+        yield return new WaitForSeconds(2f);
+        mainCamera.cullingMask = 1 << LayerMask.NameToLayer("Room");
+        Debug.Log("dialogue would play");
+    }
+
+    IEnumerator WaitNoRoom()
+    {
+        yield return new WaitForSeconds(2f);
+        //roomCameraAnimator.SetBool("RoomIsOn", false);
+        //yield return new WaitForSeconds(2f);
     }
 }
