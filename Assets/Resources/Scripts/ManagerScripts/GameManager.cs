@@ -98,6 +98,11 @@ public class GameManager : MonoBehaviour
             Debug.Log("paused");
         }
 
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Cursor.visible = !Cursor.visible;
+        }
+
         if (paused)
         {
             if (currentPOV == CharacterPOV.Fighter)
