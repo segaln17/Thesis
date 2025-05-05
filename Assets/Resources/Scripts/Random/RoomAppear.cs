@@ -21,6 +21,8 @@ public class RoomAppear : MonoBehaviour
     public bool notinroom;
 
     public PlayableDirector roomTurnTimeline;
+
+    public string nodeToCall;
     // Start is called before the first frame update
     void Start()
     {
@@ -99,6 +101,11 @@ public class RoomAppear : MonoBehaviour
         roomTurnTimeline.Play();
         yield return new WaitForSeconds(2f);
         mainCamera.cullingMask = 1 << LayerMask.NameToLayer("Room");
+        yield return new WaitForSeconds(1f);
+        if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
+        {
+            FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
+        }
         Debug.Log("dialogue would play");
     }
 
