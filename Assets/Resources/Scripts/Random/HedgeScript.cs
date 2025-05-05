@@ -278,12 +278,12 @@ public class HedgeScript : MonoBehaviour
                     StartCoroutine("TreeSing");
                     StartCoroutine("WaitAnimate");
                     
-                    /*
+                    
                     if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
                     {
                         FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
                     }
-                    */
+                    
                 }
                 
             }
