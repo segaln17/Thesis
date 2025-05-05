@@ -95,18 +95,19 @@ public class RoomAppear : MonoBehaviour
 
     IEnumerator WaitChorus()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         //phoebeOrientation.transform.LookAt(Room.transform);
         //roomCameraAnimator.SetBool("RoomIsOn", true);
         roomTurnTimeline.Play();
-        yield return new WaitForSeconds(2f);
-        mainCamera.cullingMask = 1 << LayerMask.NameToLayer("Room");
         yield return new WaitForSeconds(1f);
         if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
         {
             FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
         }
         Debug.Log("dialogue would play");
+        yield return new WaitForSeconds(2f);
+        mainCamera.cullingMask = 1 << LayerMask.NameToLayer("Room");
+   
     }
 
     IEnumerator WaitNoRoom()
