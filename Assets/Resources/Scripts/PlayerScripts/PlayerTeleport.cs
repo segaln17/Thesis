@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerTeleport : MonoBehaviour
@@ -7,6 +8,8 @@ public class PlayerTeleport : MonoBehaviour
     public GameObject debugPlayer;
     public GameObject debugPlayerDiviner;
 
+    public GameObject bonfirePos; 
+    
     public GameObject lighthousePos;
 
     public GameObject lighthouseBottomPos;
@@ -19,6 +22,11 @@ public class PlayerTeleport : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            debugPlayer.transform.position = bonfirePos.transform.position;
+        }
+        /*
         if (Input.GetKeyDown(KeyCode.Alpha8))
         {
             debugPlayer.transform.position = lighthousePos.transform.position;
@@ -27,6 +35,6 @@ public class PlayerTeleport : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha9))
         {
             debugPlayer.transform.position = lighthouseBottomPos.transform.position;
-        }
+        }*/
     }
 }

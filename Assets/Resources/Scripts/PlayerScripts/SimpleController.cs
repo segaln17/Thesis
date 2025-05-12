@@ -118,7 +118,16 @@ public class SimpleController : MonoBehaviour
                     //footstepAudio.pitch = UnityEngine.Random.Range(0.85f, 1);
                     footstepSounds.SetActive(true);
                 }
-                else {footstepSounds.SetActive(false); }
+                else
+                {
+                    footstepSounds.SetActive(false); 
+                    
+                }
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    rb.AddForce(Vector3.up * force * Time.deltaTime, ForceMode.Impulse);
+                    Debug.Log("jump");
+                }
         }
         else {
             rb.drag = groundlessDrag;

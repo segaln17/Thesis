@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public class FadeSongs : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class FadeSongs : MonoBehaviour
     }
 
 
+    [YarnCommand ("fadeAudio")]
     public IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
     {
         float startVolume = audioSource.volume;
