@@ -47,9 +47,7 @@ public class FadeSongs : MonoBehaviour
         }
         
     }
-
-
-    [YarnCommand ("fadeAudio")]
+    
     public IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
     {
         float startVolume = audioSource.volume;

@@ -29,4 +29,5 @@ public class RevealObjectCustomCommands : MonoBehaviour
     {
         thing.SetActive(false);
     }
+
 }

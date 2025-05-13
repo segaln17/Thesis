@@ -24,7 +24,16 @@ public class PlayerTeleport : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            debugPlayer.transform.position = bonfirePos.transform.position;
+            if (debugPlayer.GetComponent<SimpleController>().enabled)
+            {
+                debugPlayer.transform.position = bonfirePos.transform.position;
+            }
+
+            if (debugPlayerDiviner.GetComponent<SimpleController>().enabled)
+            {
+                debugPlayerDiviner.transform.position = bonfirePos.transform.position;
+            }
+            
         }
         /*
         if (Input.GetKeyDown(KeyCode.Alpha8))

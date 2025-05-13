@@ -28,6 +28,8 @@ public class MemoryManager : MonoBehaviour
     public GameObject DivinerObj;
     public GameObject teleportTransform;
 
+    public GameObject fenInventory;
+
     //---Bools---
     [Header("Main Bools")]
     public bool inMemoryGame;
@@ -68,7 +70,7 @@ public class MemoryManager : MonoBehaviour
 
         if (archActivation.colliderArchaelogistInside)
         {
-            if (inMemoryGame && Input.GetKeyDown(KeyCode.E))
+            if (inMemoryGame && Input.GetKeyDown(KeyCode.E) || fenInventory.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.E))
             {
                 CloseArchScrapbook();
                 archaeCollider.SetActive(false);
@@ -103,7 +105,7 @@ public class MemoryManager : MonoBehaviour
 
     IEnumerator BookClose()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         //sprite change to book closed
         
         scrapbookTextpg1.SetActive(false);
@@ -114,9 +116,9 @@ public class MemoryManager : MonoBehaviour
         existingTextpg2Arch.SetActive(false);
         eInteract.SetActive(false);
         scrapbook.sprite = bookSpriteClosed;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.75f);
         memoryGame.SetActive(false);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         scrapbook.sprite = bookSpriteOpen;
         scrapBookObj.SetActive(false);
 
@@ -124,7 +126,7 @@ public class MemoryManager : MonoBehaviour
 
     IEnumerator ArchBookClose()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         //sprite change to book closed
         scrapbookTextpg1.SetActive(false);
         scrapbookTextpg2.SetActive(false);
@@ -132,9 +134,9 @@ public class MemoryManager : MonoBehaviour
         existingTextpg2Arch.SetActive(false);
         eInteract.SetActive(false);
         archscrapbook.sprite = bookSpriteClosed;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         memoryGame.SetActive(false);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         archscrapbook.sprite = bookSpriteOpen;
         archscrapBookObj.SetActive(false);
 

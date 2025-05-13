@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public class PaperPlacement : MonoBehaviour
 {
@@ -32,8 +33,9 @@ public class PaperPlacement : MonoBehaviour
 
 
     public float newCursoroffset=12f;
- 
 
+
+    public string nodeToCall;
 
     private void Start()
     {
@@ -91,6 +93,12 @@ public class PaperPlacement : MonoBehaviour
             if (currentSheet.transform.localScale.x <= sheetscalexhigh && currentSheet.transform.localScale.x >= sheetscalexlow)
             {
                 isDone = true;
+                nodeToCall = "SheetPlaced";
+                if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
+                {
+                    FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
+                }
+                //yarn node here to tell you it's ready
                 paintbrushBox.GetComponent<CyanobrushCollider>().enabled = true;
                 return;
             }

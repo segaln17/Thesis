@@ -837,7 +837,7 @@ Joanna: Places for bug part!
 <<changeAvatar Theodora>>
 <<playClip Theodora>>
 Theodora: We're already in places.
-<<fadeAudio PlaySong>>
+<<revealAudio PointyYarnCollider>>
 <<changeAvatar JoannaYarnCollider>>
 <<playClip JoannaYarnCollider>>
 Joanna: Wherefore, good lady?
@@ -963,6 +963,8 @@ Grass: I thought it would be a good time for grass.
 <<changeAvatar JoannaYarnCollider>>
 <<playClip JoannaYarnCollider>>
 Joanna: We have to start over.
+<<hideAudio PointyYarnCollider>>
+<<originalAudioUp PointyYarnCollider>>
 <<set $spokenToActorsFighter2 to true>>
 <<stop>>
 <<endif>>
@@ -2365,14 +2367,21 @@ title: SheetTaking
 <<turnOnCloud OverworldDialogueSystem>>
 It's been a while since you've made one of these.
 First, you must take a sheet of paper.
-Then once the paper is placed, take up the brush.
+Wait for the paper to place itself.
 <<turnOnDialogue OverworldDialogueSystem>>
+<<stop>>
+===
+title: SheetPlaced
+---
+<<turnOnCloud OverworldDialogueSystem>>
+With the paper placed, the cyanotype can begin.
+Take up the brush.
 <<stop>>
 ===
 title: Painting
 ---
 <<turnOnCloud OverworldDialogueSystem>>
-Next, paint with the blue iron solution.
+Paint with the blue iron solution. Return the brush when finished.
 <<turnOnDialogue OverworldDialogueSystem>>
 <<stop>>
 ===
@@ -2383,7 +2392,7 @@ The contours of these objects could look nice in silhouette.
 Place them on the page as you wish.
 <<turnOnDialogue OverworldDialogueSystem>>
 <<placing CyanotypeManager>>
-<<wait  3>>
+<<wait  2>>
 <<jump Printing>>
 <<stop>>
 ===

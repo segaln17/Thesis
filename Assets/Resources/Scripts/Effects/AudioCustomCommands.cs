@@ -5,11 +5,10 @@ using Yarn.Unity;
 
 public class AudioCustomCommands : MonoBehaviour
 {
-    public AudioSource audioSource;
-
-    public AudioClip clipToPlay;
-
-    public FadeSongs songFadeScript;
+    public AudioSource OverworldMain;
+    public AudioSource hubOverride;
+    
+    public GameObject audioObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,5 +19,29 @@ public class AudioCustomCommands : MonoBehaviour
     void Update()
     {
         
+    }
+    
+    [YarnCommand("revealAudio")]
+    public void RevealThing()
+    {
+        audioObject.SetActive(true);
+    }
+
+    [YarnCommand("hideAudio")]
+    public void HideThing()
+    {
+        audioObject.SetActive(false);
+    }
+
+    [YarnCommand("originalAudioUp")]
+    public void OriginalAudioUp()
+    {
+        if(OverworldMain.volume < 1)
+        {
+            OverworldMain.volume = 1;
+        }
+
+        OverworldMain.Play();
+        hubOverride.volume = 0;
     }
 }

@@ -75535,7 +75535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1737795074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96139,6 +96139,7 @@ MonoBehaviour:
   musicBoxFigure: Music Box Figure
   Trowel: 
   Controls: Controls
+  Sword: 
 --- !u!224 &4922655533136094617 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8288702923236679075, guid: 73d96829d30eabd4fa055a424adf7676,
@@ -97133,6 +97134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5723962122852497654}
   - component: {fileID: 6787854750177827148}
+  - component: {fileID: 6787854750177827149}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -97246,6 +97248,18 @@ MonoBehaviour:
   displayTextPanel: {fileID: 6769566176839334967}
   inventoryText: {fileID: 8136196857563248735}
   currentPOV: 0
+--- !u!114 &6787854750177827149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6667079463879726295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eca92711f1e1054b8808d43b1a61148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6898849264478411964
 MonoBehaviour:
   m_ObjectHideFlags: 0

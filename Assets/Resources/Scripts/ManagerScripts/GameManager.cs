@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public GameObject inventoryText;
 
     private InMemoryVariableStorage inMemoryVariableStorage;
+    
 
 
     private Scene sceneName;
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
         paused = false;
         fighterMenu.SetActive(false);
         divinerMenu.SetActive(false);
+
     }
 
     void Awake()
@@ -63,7 +65,8 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("TitleScreen");
         }
 
         if (Input.GetKeyDown(KeyCode.F))
@@ -71,6 +74,7 @@ public class GameManager : MonoBehaviour
             Screen.fullScreen = !Screen.fullScreen;
         }
 
+        /*
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             SceneManager.LoadScene("LandingPage");
@@ -83,6 +87,7 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("Overworld");
         }
+        */
         
         /*if (Input.GetKeyDown(KeyCode.Alpha4))
         {
