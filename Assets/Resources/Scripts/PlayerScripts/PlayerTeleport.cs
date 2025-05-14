@@ -23,15 +23,13 @@ public class PlayerTeleport : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            if (debugPlayer.GetComponent<SimpleController>().enabled || gameManager.GetComponent<GameManager>().currentPOV == GameManager.CharacterPOV.Fighter)
+            if (gameManager.GetComponent<GameManager>().currentPOV == GameManager.CharacterPOV.Fighter)
             {
                 if (Input.GetKeyDown(KeyCode.Alpha6))
                 {
                     debugPlayer.transform.position = bonfirePos.transform.position;
                 }
-            }
-            
-            if (debugPlayerDiviner.GetComponent<SimpleController>().enabled || gameManager.GetComponent<GameManager>().currentPOV == GameManager.CharacterPOV.Diviner)
+            } else if(gameManager.GetComponent<GameManager>().currentPOV == GameManager.CharacterPOV.Diviner)
             {
                 if (Input.GetKeyDown(KeyCode.Alpha6))
                 {
