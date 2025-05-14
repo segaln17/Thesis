@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerTeleport : MonoBehaviour
 {
+    public GameObject gameManager;
     public GameObject debugPlayer;
     public GameObject debugPlayerDiviner;
 
@@ -22,19 +23,22 @@ public class PlayerTeleport : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            if (debugPlayer.GetComponent<SimpleController>().enabled)
+            if (debugPlayer.GetComponent<SimpleController>().enabled || gameManager.GetComponent<GameManager>().currentPOV == GameManager.CharacterPOV.Fighter)
             {
-                debugPlayer.transform.position = bonfirePos.transform.position;
-            }
-
-            if (debugPlayerDiviner.GetComponent<SimpleController>().enabled)
-            {
-                debugPlayerDiviner.transform.position = bonfirePos.transform.position;
+                if (Input.GetKeyDown(KeyCode.Alpha6))
+                {
+                    debugPlayer.transform.position = bonfirePos.transform.position;
+                }
             }
             
-        }
+            if (debugPlayerDiviner.GetComponent<SimpleController>().enabled || gameManager.GetComponent<GameManager>().currentPOV == GameManager.CharacterPOV.Diviner)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha6))
+                {
+                    debugPlayerDiviner.transform.position = bonfirePos.transform.position;
+                }
+            }
+            
         /*
         if (Input.GetKeyDown(KeyCode.Alpha8))
         {

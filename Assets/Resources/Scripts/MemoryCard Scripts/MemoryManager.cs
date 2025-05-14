@@ -70,7 +70,7 @@ public class MemoryManager : MonoBehaviour
 
         if (archActivation.colliderArchaelogistInside)
         {
-            if (inMemoryGame && Input.GetKeyDown(KeyCode.E) || fenInventory.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.E))
+            if (inMemoryGame && Input.GetKeyDown(KeyCode.E)) //|| fenInventory.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.E))
             {
                 CloseArchScrapbook();
                 archaeCollider.SetActive(false);
