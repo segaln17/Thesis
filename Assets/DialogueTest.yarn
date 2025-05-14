@@ -2564,7 +2564,8 @@ Altea: It's insanity.
 <<playClip PlayerClericStandInStable>>
 Altea: It's like you think pretending this is a real town,
 <<playClip PlayerClericStandInStable>>
-Altea: and not a derelict ruin in what might as well be the bowels of hell,
+Altea: and not a derelict ruin,
+Altea: in what might as well be the bowels of hell,
 <<playClip PlayerClericStandInStable>>
 Altea: is going to get us all out of here.
 Altea: Keep us normal.
@@ -3491,10 +3492,10 @@ title: EndAct2
 ===
 title: ChorusGarden
 ---
-<<turnOnChorusRoom PlayerPhoebe>>
+<<turnOnChorusRoomGarden PlayerPhoebe>>
 //play noise
-<<wait  4>>
-<<playClip ChorusSoundManager>>
+<<revealThing PhoebeYarn>>
+//<<playClip ChorusSoundManager>>
 <<changeAvatar ChorusSoundManager>>
 <<wait  3>>
 <<turnOnPhoebe OverworldDialogueSystem>>
@@ -3521,14 +3522,18 @@ Chorus: It is still a garden.
 <<wait  0.5>>
 Chorus: That's unusual.
 <<turnOffChorusRoom PlayerPhoebe>>
+<<hideThing PhoebeYarn>>
+<<revealThing SpineObjectsManager>>
 <<stop>>
 ===
 title: ChorusSpine
 ---
+<<if $charPOV is "Fighter">>
 //turning this off for right now because it doesn't work:
-//<<turnOnChorusRoom PlayerPhoebe>>
+<<turnOnChorusRoomSpine PlayerPhoebe>>
 //play noise
-<<playClip SpineChorus>>
+//<<playClip SpineChorus>>
+<<revealThing PhoebeYarn>>
 //wait?
 <<wait  3>>
 <<turnOnPhoebe OverworldDialogueSystem>>
@@ -3553,6 +3558,9 @@ Chorus: It haunts you, too.
 Chorus: Your mother and sisters rest somewhere among the bones,
 Chorus: among the sand.
 Chorus: You will never find them.
+<<hideThing PhoebeYarn>>
 <<turnOffChorusRoom PlayerPhoebe>>
+<<hideThing SpineObjectsManager>>
 <<stop>>
+<<endif>>
 ===

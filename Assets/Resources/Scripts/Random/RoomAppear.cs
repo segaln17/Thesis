@@ -17,10 +17,12 @@ public class RoomAppear : MonoBehaviour
 
     private float pForce;
     private float pFallForce;
+    private float roomOrientation;
     public bool roomOn;
     public bool inRoom;
     public bool notinroom;
 
+    //private Vector3 spineRoomPos = new Vector3(-11.8599997f, 0, -8.57999992f);
     public PlayableDirector roomTurnTimeline;
 
     public string nodeToCall;
@@ -39,6 +41,7 @@ public class RoomAppear : MonoBehaviour
     {
         //Debug.Log(phoebeOrientation.transform.localEulerAngles.y);
         
+        /*
         if (Input.GetKeyDown(KeyCode.T))
         {
             turnonRoom();
@@ -48,7 +51,7 @@ public class RoomAppear : MonoBehaviour
         {
             turnoffRoom();
         }
-        
+        */
 
         if (phoebeOrientation.transform.localEulerAngles.y <= -150 && phoebeOrientation.transform.localEulerAngles.y >= -200 && roomOn || phoebeOrientation.transform.localEulerAngles.y >= 150 && phoebeOrientation.transform.localEulerAngles.y <= 200 && roomOn)
         {
@@ -68,14 +71,28 @@ public class RoomAppear : MonoBehaviour
 
     }
 
-    [YarnCommand ("turnOnChorusRoom")]
+    [YarnCommand ("turnOnChorusRoomGarden")]
     public void turnonRoom()
     {
+        roomOrientation = phoebeOrientation.transform.localEulerAngles.y;
+        Room.transform.localEulerAngles = new Vector3(Room.transform.localEulerAngles.x, roomOrientation,
+            Room.transform.localEulerAngles.z);
+        Room.transform.position = new Vector3(Room.transform.position.x + 12, Room.transform.position.y, Room.transform.position.z+ 20.72f);
         Room.SetActive(true);
         roomOn = true;
         StartCoroutine("WaitChorus");
-
-        
+    }
+    
+    [YarnCommand("turnOnChorusRoomSpine")]
+    public void turnonRoomSpine()
+    {
+        roomOrientation = phoebeOrientation.transform.localEulerAngles.y;
+        Room.transform.localEulerAngles = new Vector3(Room.transform.localEulerAngles.x, roomOrientation - 50,
+            Room.transform.localEulerAngles.z);
+        Room.transform.position = new Vector3(Room.transform.position.x - 24, Room.transform.position.y, Room.transform.position.z- 16);
+        Room.SetActive(true);
+        roomOn = true;
+        StartCoroutine("WaitChorus");
     }
 
     [YarnCommand ("turnOffChorusRoom")]

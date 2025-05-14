@@ -49,6 +49,9 @@ public class HedgeScript : MonoBehaviour
     //yarn things
     public string nodeToCall;
     
+    //room
+    public GameObject room;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -282,6 +285,7 @@ public class HedgeScript : MonoBehaviour
                     if (FindObjectOfType<DialogueRunner>().IsDialogueRunning == false)
                     {
                         FindObjectOfType<DialogueRunner>().StartDialogue(nodeToCall);
+                        //room.transform.rotation.eulerAngles = 
                     }
                     
                 }

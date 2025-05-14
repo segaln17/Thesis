@@ -7,8 +7,7 @@ public class roomoverlay : MonoBehaviour
 {
     public Camera mainCamera;
     public GameObject phoebeOrientation;
-
-    public GameObject Room;
+    
     // Start is called before the first frame update
     private void OnBecameVisible()
     {
